@@ -1,0 +1,123 @@
+Time (q chosen, a,b random):
+Schoof:         101 ~ 0.02s, 191 ~ 0.1s, 307 ~ 0.5s, 881 ~ 2.5s, 1999 ~ 17s, 
+brute-force:    101,         191,        307,        881,        1999,       
+brute-force-v2:
+                4001(~=2^12)
+Schoof:         4001 ~ 180s,  7 919 ~ 503s,  16 001 ~ 4500s, 32 003 ~ ?,    64 007 ~ ?
+brute-force:    4001 ~ 22s,   7 919 ~ 88s,   16 001 ~ 365s,  32 003,        64 007
+brute-force-v2: 4001 ~ 0.01s, 7 919 ~ 0.02s, 16 001 ~ 0.05s, 32 003 ~ 0.1s, 64 007 ~ 0.2s,
+                1 000 003 ~ 3.4s, 10 000 019(~=2^23) ~ 35s, 100 000 217 ~ 380s, 1 000 000 007 ~ (>3h?)
+
+Schoof (for all params a,b):
+char(K): 7
+  Number of smooth curves: 42 ( out of 49 )
+  Average time: 0.0005 (s) Worst time: 0.0017 (s)
+char(K): 11
+  Number of smooth curves: 110 ( out of 121 )
+  Average time: 0.0004 (s) Worst time: 0.0007 (s)
+char(K): 13
+  Number of smooth curves: 156 ( out of 169 )
+  Average time: 0.0006 (s) Worst time: 0.0018 (s)
+char(K): 17
+  Number of smooth curves: 272 ( out of 289 )
+  Average time: 0.0007 (s) Worst time: 0.0014 (s)
+char(K): 19
+  Number of smooth curves: 342 ( out of 361 )
+  Average time: 0.0008 (s) Worst time: 0.0015 (s)
+char(K): 23
+  Number of smooth curves: 506 ( out of 529 )
+  Average time: 0.0009 (s) Worst time: 0.0019 (s)
+char(K): 29
+  Number of smooth curves: 812 ( out of 841 )
+  Average time: 0.0011 (s) Worst time: 0.0021 (s)
+char(K): 31
+  Number of smooth curves: 930 ( out of 961 )
+  Average time: 0.0006 (s) Worst time: 0.0030 (s)
+char(K): 37
+  Number of smooth curves: 1332 ( out of 1369 )
+  Average time: 0.0012 (s) Worst time: 0.0020 (s)
+char(K): 41
+  Number of smooth curves: 1640 ( out of 1681 )
+  Average time: 0.0010 (s) Worst time: 0.0018 (s)
+char(K): 43
+  Number of smooth curves: 1806 ( out of 1849 )
+  Average time: 0.0015 (s) Worst time: 0.0028 (s)
+char(K): 47
+  Number of smooth curves: 2162 ( out of 2209 )
+  Average time: 0.0020 (s) Worst time: 0.0032 (s)
+char(K): 53
+  Number of smooth curves: 2756 ( out of 2809 )
+  Average time: 0.0028 (s) Worst time: 0.0047 (s)
+char(K): 59
+  Number of smooth curves: 3422 ( out of 3481 )
+  Average time: 0.0060 (s) Worst time: 0.0781 (s)
+char(K): 61
+  Number of smooth curves: 3660 ( out of 3721 )
+  Average time: 0.0054 (s) Worst time: 0.0114 (s)
+char(K): 67
+  Number of smooth curves: 4422 ( out of 4489 )
+  Average time: 0.0064 (s) Worst time: 0.0811 (s)
+char(K): 71
+  Number of smooth curves: 4970 ( out of 5041 )
+  Average time: 0.0059 (s) Worst time: 0.0869 (s)
+char(K): 73
+  Number of smooth curves: 5256 ( out of 5329 )
+  Average time: 0.0084 (s) Worst time: 0.0931 (s)
+char(K): 79
+  Number of smooth curves: 6162 ( out of 6241 )
+  Average time: 0.0088 (s) Worst time: 0.0912 (s)
+char(K): 83
+  Number of smooth curves: 6806 ( out of 6889 )
+  Average time: 0.0125 (s) Worst time: 0.0978 (s)
+char(K): 89
+  Number of smooth curves: 7832 ( out of 7921 )
+  Average time: 0.0127 (s) Worst time: 0.1046 (s)
+char(K): 97
+  Number of smooth curves: 9312 ( out of 9409 )
+  Average time: 0.0158 (s) Worst time: 0.1067 (s)
+char(K): 101
+  Number of smooth curves: 10100 ( out of 10201 )
+  Average time: 0.0149 (s) Worst time: 0.1079 (s)
+char(K): 103
+  Number of smooth curves: 10506 ( out of 10609 )
+  Average time: 0.0165 (s) Worst time: 0.1072 (s)
+char(K): 107
+  Number of smooth curves: 11342 ( out of 11449 )
+  Average time: 0.0194 (s) Worst time: 0.1110 (s)
+char(K): 109
+  Number of smooth curves: 11772 ( out of 11881 )
+  Average time: 0.0144 (s) Worst time: 0.1089 (s)
+char(K): 113
+  Number of smooth curves: 12656 ( out of 12769 )
+  Average time: 0.0184 (s) Worst time: 0.1118 (s)
+char(K): 127
+  Number of smooth curves: 16002 ( out of 16129 )
+  Average time: 0.0218 (s) Worst time: 0.1181 (s)
+char(K): 131
+  Number of smooth curves: 17030 ( out of 17161 )
+  Average time: 0.0270 (s) Worst time: 0.1304 (s)
+char(K): 137
+  Number of smooth curves: 18632 ( out of 18769 )
+  Average time: 0.0307 (s) Worst time: 0.1249 (s)
+char(K): 139
+  Number of smooth curves: 19182 ( out of 19321 )
+  Average time: 0.0323 (s) Worst time: 0.1243 (s)
+char(K): 149
+  Number of smooth curves: 22052 ( out of 22201 )
+  Average time: 0.0417 (s) Worst time: 0.1498 (s)
+char(K): 151
+  Number of smooth curves: 22650 ( out of 22801 )
+  Average time: 0.0290 (s) Worst time: 0.1219 (s)
+char(K): 157
+  Number of smooth curves: 24492 ( out of 24649 )
+  Average time: 0.0536 (s) Worst time: 0.1666 (s)
+char(K): 163
+  Number of smooth curves: 26406 ( out of 26569 )
+  Average time: 0.0523 (s) Worst time: 0.1620 (s)
+char(K): 167
+  Number of smooth curves: 27722 ( out of 27889 )
+  Average time: 0.0569 (s) Worst time: 0.1721 (s)
+char(K): 173
+  Number of smooth curves: 29756 ( out of 29929 )
+  Average time: 0.0644 (s) Worst time: 0.1795 (s)
+

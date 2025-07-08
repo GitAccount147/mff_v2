@@ -1,0 +1,144 @@
+# Pollard-(p-1) for factorization v1
+
+def pollard_p_minus_1_v1(N, B, a):
+    if a is None:
+        a = randint(1, N - 1)
+        a = R(a)
+    
+    d = gcd(a, N)
+    #print(a, d)
+    if d > 1:
+        return d, N / ZZ(d), "if_1"
+    
+
+    P = Primes()
+    p = P.first()
+    while p <= B:
+        c_i = floor(log(B, p))
+        #print(c_i)
+        e_i = p^c_i
+        a = a^e_i
+        d = gcd(a - 1, N)
+        if d > 1:
+            if d < N:
+                return d, N / ZZ(d), "if_2"
+            else:
+                return "Fail_1"
+        p = P.next(p)
+    return "Fail_2"
+
+def pollard_p_minus_1(N, B, a, e_prime_B):
+    if a is None:
+        a = randint(1, N - 1)
+        a = R(a)
+    
+    d = gcd(a, N)
+    #print(a, d)
+    if d > 1:
+        return d, N / ZZ(d), "if_1"
+    
+    if e_prime_B is None:
+        e_prime_B = get_exponent(B, 1)
+    
+    #print(e_prime_B)
+    
+    a = a^e_prime_B  # hopefully implemented fast
+    #print(a)
+    
+    d = gcd(ZZ(a) - 1, N)  # we need to interpret a as integer so the gcd works over Z
+    if d > 1:
+        if d < N:
+            return d, N / ZZ(d), "if_2"
+        else:
+            return "Fail_1"
+    
+    stop = floor(log(B, 2))
+    for i in range(stop):
+        a = a^2
+        d = gcd(ZZ(a) - 1, N)
+        if d > 1:
+            if d < N:
+                return d, N / ZZ(d), "if_3"
+            else:
+                return "Fail_2"
+    
+    return  "Fail_3"
+    
+def get_exponent(B, start):
+    result = 1
+    P = Primes()
+    p = P.unrank(start)  # indexed from 0
+    log_p = floor(log(B,p))
+    result *= p^(log_p)
+    
+    while True:
+        p = P.next(p)
+        if p > B:
+            break
+        log_p = floor(log(B, p))
+        result *= p^(log_p)
+    
+    return result
+
+
+def smallest_B(N):
+    for B in range(2, 30):
+        for i in range(1, N):
+            res = pollard_p_minus_1(N, B, R(i))
+            if type(res) != type("Fail"):
+                return B
+
+def B_size(N, start_B, max_B):
+    possible_a_s = {}
+    if_branches = [0, 0, 0]
+    
+    PP = Primes()
+    #B = PP.next(0)
+    #B = start_B
+    B = PP.next(start_B - 1)
+    #print(B)
+    while B <= max_B:
+        possible_a_s[B] = 0
+        precompute_e = get_exponent(B, 1)
+        
+        for i in range(1, N):
+            res = pollard_p_minus_1(N, B, R(i), precompute_e)
+            #res = pollard_p_minus_1_v1(N, B, R(i))
+            if type(res) != type("Fail"):
+                #print(res)
+                if res[2] == "if_1":
+                    if_branches[0] += 1
+                elif res[2] == "if_2":
+                    if_branches[1] += 1
+                else:
+                    if_branches[2] += 1
+                possible_a_s[B] += 1
+        print("B, #viable a's", B, possible_a_s[B])
+        B = PP.next(B)
+    print("if_branches:", if_branches)
+    return possible_a_s  # corresponds to multiples of p and q i.e. (p-1)+(q-1)
+
+def factor_num(N, B, max_trys):
+    for i in range(max_trys):
+        res = pollard_p_minus_1(N, B, None)
+        if type(res) != type("Fail"):
+            print("Found factorization of", N, "=", res[0], "x", res[1], "in", i + 1, "trys.")
+            break
+    return res
+
+
+# driver code:
+my_N = 3589
+# HW - 3589
+# 3827, 3901, 4819, 3869, 3649, 3569, 3713, 3589, 3599, 3337, 3763, 3811, 4183, 4187, 3977
+my_B = 200
+R = IntegerModRing(my_N)
+#a = R.random_element(3550, 3560)
+#print(a)
+
+
+#print(pollard_p_minus_1(my_N, my_B, None, None))
+#print(smallest_B(my_N))
+print(B_size(my_N, 2, 50))
+#factor_num(my_N, 2, 40)
+#print(pollard_p_minus_1_v1(my_N, my_B, None))

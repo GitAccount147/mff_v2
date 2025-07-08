@@ -1,0 +1,1647 @@
+# Cryptanalysis - Task 1 - CipherThree and Attack - v2
+
+# TO-DO:
+#   - vectorize operations
+#   - use smth better than quadruple for-loop
+
+# Remarks:
+#  - "^" has to be replaced with "^^" for xor in Sage
+
+
+import numpy as np
+
+def sbox(input):
+    list_out = [6, 4, 12, 5, 0, 7, 2, 14, 1, 15, 3, 13, 8, 10, 9, 11]
+    return list_out[input]
+
+def inverse_sbox(input):
+    list_out = [6, 4, 12, 5, 0, 7, 2, 14, 1, 15, 3, 13, 8, 10, 9, 11]
+    return list_out.index(input)
+
+def encrypt(keys, message):
+    ct = message
+    for i in range(len(keys) - 1):
+        ct ^^= keys[i]
+        ct = sbox(ct)
+    ct ^^= keys[-1]
+    return ct
+
+def decrypt(keys, ct):
+    message = ct
+    message ^^= keys[-1]
+    for i in range(len(keys) - 2, -1, -1):
+        message ^^= keys[i]
+        message = inverse_sbox(message)
+    return message
+
+def generate_pairs(diff):
+    pairs = []
+    singletons = []
+    for m in range(16):
+        if m not in singletons:
+            pairs.append((m, m ^^ diff))
+            singletons.append(m)
+            singletons.append(m ^^ diff)
+    return pairs
+
+# path choice: f->d->c ~ Prob =~ (10/16)*(6/16)
+def attack(keys):
+    pairs = generate_pairs(15)  # (15)_10 = (f)_16
+    ct_pairs = []
+    inv_pairs = []
+    for i in range(len(pairs)):
+        pair = encrypt(keys, pairs[i][0]), encrypt(keys, pairs[i][1])
+        ct_pairs.append(pair)
+        #inv_pairs.append((inverse_sbox(pair[0]), inverse_sbox(pair[1])))
+    ratio = [0] * 16
+    for key_3 in range(16):
+        for i in range(len(pairs)):
+            xored_pair = key_3 ^^ ct_pairs[i][0], key_3 ^^ ct_pairs[i][1]
+            inv_pair = (inverse_sbox(xored_pair[0]), inverse_sbox(xored_pair[1]))
+            diff = inv_pair[0] ^^ inv_pair[1]
+            if diff == 12:  #  (12)_10 = (c)_16
+                ratio[key_3] += 1
+    return ratio
+
+def test_attack():
+    stats = [0] * 16
+    bad = 0
+    for i in range(16):
+        for j in range(16):
+            for k in range(16):
+                for l in range(16):
+                    #keys = [i % 16, i % (16**2), i % (16**3), i % (16**4)]
+                    keys = [i, j, k, l]
+                    #guess = np.argmax(attack(keys))
+                    guesses = []
+                    ratio_from_attack = attack(keys)
+                    max_val = np.max(attack(keys))
+                    for i in range(16):
+                        if ratio_from_attack[i] == max_val:
+                            guesses.append(i)
+                    if l not in guesses:
+                        bad += 1
+                    else:
+                        stats[len(guesses)] += 1
+    return stats, bad
+
+
+def test_random_keys():
+    key_3 = randint(0, 15)
+    keys = [randint(0, 15), randint(0, 15), randint(0, 15), key_3]
+    result = attack(keys)
+    guesses = []
+    max_val = np.max(result)
+    for i in range(len(result)):
+        if result[i] == max_val:
+            guesses.append(i)
+    
+    return result, guesses, key_3
+
+#trk = test_random_keys()
+#print("Guesses:", trk[1], "Correct:", trk[2])
+
+#keys_1 = [9, 6, 7, 12]
+#message_1 = 1
+#ct_1 = encrypt(keys_1, message_1)
+#print("ct_1:", ct_1)
+#m_1 = decrypt(keys_1, ct_1)
+#print("decrpyted:", m_1)
+
+
+#print(attack(keys_1))
+res = test_attack()
+print("Found correct amongst _ guesses:", res[0])
+print("Did not find the key:", res[1])
+
+==========================================================================================
+==========================================================================================
+==========================================================================================
+==========================================================================================
+
+# Cryptanalysis - Task 1 - CipherFour and Attack - v2
+
+# TO-DO:
+
+# Remarks:
+#  - "^" has to be replaced with "^^" for xor in Sage
+
+
+import numpy as np
+
+def sbox(input):
+    list_out = [6, 4, 12, 5, 0, 7, 2, 14, 1, 15, 3, 13, 8, 10, 9, 11]
+    return list_out[input]
+
+def inverse_sbox(input):
+    list_out = [6, 4, 12, 5, 0, 7, 2, 14, 1, 15, 3, 13, 8, 10, 9, 11]
+    return list_out.index(input)
+
+def sbox_layer(input):
+    out = []
+    for i in range(4):
+        #print((input >> (i * 4) % 16))
+        out.append(sbox(((input >> (i * 4)) % 16)))
+    res = 0
+    for i in range(4):
+        res += out[i] * (16 ** i)
+    return res
+
+def sbox_layer_inverse(input):
+    out = []
+    for i in range(4):
+        #print(((input >> (i * 4)) % 16))
+        out.append(inverse_sbox(((input >> (i * 4)) % 16)))
+    res = 0
+    for i in range(4):
+        res += out[i] * (16 ** i)
+    return res
+
+def permutation(inputs):
+    inp = inputs
+    perm = [0, 4, 8, 12, 1, 5, 9, 13, 2, 6, 10, 14, 3, 7, 11, 15]
+    arr = [0] * 16
+    for i in range(16):
+        if inp % 2 == 1:
+            arr[perm[15 - i]] = 1
+        inp = inp >> 1
+    return int("".join(str(x) for x in arr), 2)
+
+def inverse_permutation(input):
+    inp = input
+    perm = [0, 4, 8, 12, 1, 5, 9, 13, 2, 6, 10, 14, 3, 7, 11, 15]
+    arr = [0] * 16
+    for i in range(16):
+        if inp % 2 == 1:
+            arr[perm.index(15 - i)] = 1
+        inp = inp >> 1
+    return int("".join(str(x) for x in arr), 2)
+
+
+def encrypt(keys, message):
+    ct = message
+    for i in range(len(keys) - 2):
+        ct ^^= keys[i]
+        ct = sbox_layer(ct)
+        ct = permutation(ct)
+    ct ^^= keys[-2]
+    ct = sbox_layer(ct)
+    ct ^^= keys[-1]
+    return ct
+
+def decrypt(keys, ct):
+    pt = ct
+    pt ^^= keys[-1]
+    pt = sbox_layer_inverse(pt)
+    pt ^^= keys[-2]
+    for i in range(len(keys) - 3, -1, -1):
+        pt = inverse_permutation(pt)
+        pt = sbox_layer_inverse(pt)
+        pt ^^= keys[i]
+    return pt
+
+
+def generate_pairs_old(diff, number):
+    df = "".join("0"*(4-len(bin(x)[2:]))+str(bin(x)[2:]) for x in diff)
+    #a=  int("".join(str(bin(x)) for x in diff), 2)
+    pairs = []
+    singletons = []
+    curr = 0
+    for m in range(2**16):
+        if m not in singletons:
+            pairs.append((m, m ^^ diff))
+            singletons.append(m)
+            singletons.append(m ^^ diff)
+            curr += 1
+        if curr is not None and curr == number:
+            break
+    return pairs
+
+def generate_pairs(d, number):
+    pairs = []
+    singletons = []
+    curr = 0
+    """
+    for i in range(16):
+        for j in range(16):
+            for k in range(16):
+                for l in range(16):
+                    m = [i, j, k, l]
+                    m_full = l + k * (16) + j * (16)**2 + i * (16)**3
+                    if m_full not in singletons:
+                        n = [m[0] ^^ diff[0], m[1] ^^ diff[1], m[2] ^^ diff[2], m[3] ^^ diff[3]]
+                        n_full = n[3] + n[2] * (16) + n[1] * (16)**2 + n[0] * (16)**3
+                        pairs.append((m_full, n_full))
+                        singletons.append(m_full)
+                        singletons.append(n_full)
+                        curr += 1
+                    if number is not None and curr == number:
+                        break
+    """
+    
+    diff = d[3] + d[2] * (16) + d[1] * (16)**2 + d[0] * (16)**3
+    #diff = d[0] + d[1] * (16) + d[2] * (16)**2 + d[3] * (16)**3
+    for m in range(16**4):
+        if m not in singletons:
+            pairs.append((m, m ^^ diff))
+            singletons.append(m)
+            singletons.append(m ^^ diff)
+            curr += 1
+        if number is not None and curr == number:
+            break
+    
+    #for m in range(2**16):
+    #    if m not in singletons:
+    #        pairs.append((m, m ^^ diff))
+    #        singletons.append(m)
+    #        singletons.append(m ^^ diff)
+    #        curr += 1
+    #    if curr is not None and curr == number:
+    #        break
+    return pairs
+
+def attack(keys, filtering):
+    diff = [0, 0, 2, 0]
+    #diff = [0, 2, 0, 0]
+    pairs = generate_pairs(diff, 1000)
+    ct_pairs = []
+    inv_pairs = []
+    for i in range(len(pairs)):
+        pair = encrypt(keys, pairs[i][0]), encrypt(keys, pairs[i][1])
+        if filtering:
+            if (pair[0] ^^ pair[1]) in [1 * 16, 2 * 16, 9 * 16, 10 * 16]:
+                ct_pairs.append(pair)
+        else:
+            ct_pairs.append(pair)
+        #inv_pairs.append((inverse_sbox(pair[0]), inverse_sbox(pair[1])))
+    #print(ct_pairs)
+    #ratio = [0] * 16
+    ratio = {}
+    
+    if filtering:
+        print("Survived filtering:", len(ct_pairs), "/", len(pairs))
+    
+    #guesses = range(16)
+    #guesses = [31907, 31908, 31909, 31910, 31911, 31912, 31913]
+    guesses = [7*16 - 1 * 16, 7*16, 7*16 + 1 * 16, 7*16 + 2 * 16, 7*16 + 3 * 16]
+    guesses = range(0, 16*16, 16)
+    #guesses = [6]
+    for last_key in guesses:  # should be 16**4
+        for i in range(len(ct_pairs)):
+            xored_pair = last_key ^^ ct_pairs[i][0], last_key ^^ ct_pairs[i][1]
+            inv_pair = (sbox_layer_inverse(xored_pair[0]), sbox_layer_inverse(xored_pair[1]))
+            diff = inv_pair[0] ^^ inv_pair[1]
+            #print(diff)
+            #expected_diff = 12
+            #expected_diff = 12 * 16**2
+            #expected_diff = 12 * 16
+            #expected_diff = 192
+            
+            expected_diff = 2 * 16
+            #expected_diff = 2 * (16)**2
+            
+            #expected_diff = 4 * 16
+            #expected_diff = 4 * 16**2
+            
+            """
+            if filtering:
+                if (ct_pairs[i][0] ^^ ct_pairs[i][1]) in [1 * 16, 2 * 16, 9 * 16, 10 * 16]:
+                    print("kept")
+                    if diff == expected_diff:  # 12
+                        if last_key not in ratio:
+                            ratio[last_key] = 1
+                        else:
+                            ratio[last_key] += 1
+                else:
+                    placeholder = 0
+                    print("discarded")
+            else:
+                if diff == expected_diff:  # 12
+                    if last_key not in ratio:
+                        ratio[last_key] = 1
+                    else:
+                        ratio[last_key] += 1
+            """
+            if diff == expected_diff:  # 12
+                if last_key not in ratio:
+                    ratio[last_key] = 1
+                else:
+                    ratio[last_key] += 1
+    return ratio
+
+def ints_to_blocks(a_s):
+    res = []
+    for i in range(len(a_s)):
+        out = [0, 0, 0, 0]
+        for j in range(4):
+            out[3 - j] = ((a_s[i] >> (j * 4)) % 16)
+        res.append(out)
+    return out
+
+def blocks_to_ints(blocks):
+    res = []
+    for i in range(len(blocks)):
+        a = 0
+        for j in range(4):
+            a += blocks[i][3 - j] * 16**j
+        res.append(a)
+    return res
+    
+
+#print(7 >> 2)
+#keys_arr = [[5, 11, 9, 2], [0, 6, 4, 11], [1, 14, 0, 3], [10, 5, 5, 15], [14, 12, 11, 13], [7, 12, 10, 5]]
+#keys_arr = [[5, 11, 9, 2], [0, 6, 4, 11], [1, 14, 0, 3], [10, 5, 5, 15], [14, 12, 11, 13], [7, 12, 10, 5]]
+#print(blocks_to_ints(keys_arr))
+keys_int = [23442, 1611, 7683, 42335, 60605, 31909]
+#print(int("".join(str(x) for x in [1, 0, 1, 1]),2))
+
+#print(decrypt([1,2,3,4,5,6], encrypt([1,2,3,4,5,6],13)))
+
+#print(["0"*(4-len(bin(x)[2:]))+str(bin(x)[2:]) for x in [2]])
+
+#print(attack([1,2,3,4,5,6], False))
+#print(attack([1,2,3,4,5,1], False))
+#print(attack([23442, 1611, 7683, 42335, 60605, 31909], False))
+print(attack([1,2,3,4,5,7*16], False))
+print(attack([1,2,3,4,5,7*16], True))
+
+a, b = 37928, 37944
+a, b = a ^^ 6, b ^^ 6
+a, b = sbox_layer_inverse(a), sbox_layer_inverse(b)
+print("a ^^ b:", a ^^ b, "=", int_to_block(a ^^ b))
+a, b = a ^^ 5, b ^^ 5
+for i in [4, 3, 2, 1]:
+    a, b = inverse_permutation(a), inverse_permutation(b)
+    a, b = sbox_layer_inverse(a), sbox_layer_inverse(b)
+    a, b = a ^^ i, b ^^ i
+print(a, b)
+
+#print(generate_pairs([0, 0, 2, 0], 10))
+
+==========================================================================================
+==========================================================================================
+==========================================================================================
+==========================================================================================
+
+# Cryptanalysis - Task 2 - CipherC and Attack - v1
+
+import numpy as np
+
+#febc6d78039a4215
+# different than in CipherThree and CipherFour !!!
+def sbox(input):
+    list_out = [15, 14, 11, 12, 6, 13, 7, 8, 0, 3, 9, 10, 4, 2, 1, 5]
+    return list_out[input]
+
+def inverse_sbox(input):
+    list_out = [15, 14, 11, 12, 6, 13, 7, 8, 0, 3, 9, 10, 4, 2, 1, 5]
+    return list_out.index(input)
+
+def encrypt(keys, message):
+    ct = message
+    for i in range(len(keys) - 1):
+        ct ^^= keys[i]
+        ct = sbox(ct)
+    ct ^^= keys[-1]
+    return ct
+
+def decrypt(keys, ct):
+    message = ct
+    message ^^= keys[-1]
+    for i in range(len(keys) - 2, -1, -1):
+        message ^^= keys[i]
+        message = inverse_sbox(message)
+    return message
+
+def generate_pairs(amount):
+    pairs = []
+    count = 0
+    for i in range(16):
+        for j in range(i, 16):
+            pairs.append((i, j))
+            count += 1
+            if amount is not None and count >= amount:
+                return pairs
+    return pairs
+
+def generate_pts_cts(keys, amount):
+    cts = []
+    for i in range(amount):
+        ct = encrypt(keys, i)
+        cts.append((i, ct))
+    return cts
+
+def attack(keys, mask):
+    
+    #mask = 13  # ~d
+    #mask = 11
+    #mask = vector(GF(2), [1, 0, 1, 1])  # first bit is LSB
+    pts_cts = generate_pts_cts(keys, 16)
+        
+    guesses = range(16)
+    #table = [[0, 0]] * len(guesses)
+    table = {}
+    
+    for key_guess in guesses:
+        table[key_guess] = [0, 0]
+        for (pt, ct) in pts_cts:
+            y_guess = inverse_sbox(ct ^^ key_guess)
+            
+            a_0, a_1 = (pt & mask), (y_guess & mask)
+            res = 0
+            for i in range(4):
+                res ^^= ((a_0 >> i) % 2) ^^ ((a_1 >> i) % 2)  # sum bits of a_0 and a_1 (mod 2)
+            if res == 0:
+                table[key_guess][0] += 1
+            else:
+                table[key_guess][1] += 1
+    
+    max_val = 0
+    final_guesses = []
+    for key in table.keys():
+        values = table[key]
+        #print(key, values)
+        val = abs(values[0] - values[1])
+        if val == max_val:
+            final_guesses.append(key)
+        elif val > max_val:
+            final_guesses = [key]
+            max_val = val
+    
+    #print("final guesses:", final_guesses)
+    
+    return table, final_guesses
+
+def test_attack(mask):
+    inside = [0] * 16
+    bad = 0
+    for i in range(4):
+        for j in range(4):
+            for k in range(4):
+                for l in range(4):
+                    keys = [i, j, k, l]
+                    table, guesses = attack(keys, mask)
+                    if l in guesses:
+                        inside[len(guesses)] += 1
+                    else:
+                        bad += 1
+    return inside, bad
+
+mes_1 = 7
+keys_1 = [1, 2, 3, 4]
+ct_1 = encrypt(keys_1, mes_1)
+dec_1 = decrypt(keys_1, ct_1)
+
+#print("Enc and Dec:", mes_1, "->", ct_1, "->", dec_1)
+
+#print(generate_pairs(10))
+
+#print(len(range(3)))
+
+#print(6 & 5)
+
+"""
+a_0, a_1 = 3, 7
+res = 0
+for i in range(4):
+    #print(((a_0 << i) >> 3), ((a_1 << i) >> 3))
+    #res ^^= ((a_0 << i) >> 3) ^^ ((a_1 << i) >> 3)
+    print((a_0 >> i) % 2, (a_1 >> i) % 2)
+    res ^^= (a_0 >> i) % 2 ^^ (a_1 >> i) % 2
+print(res)
+"""
+
+#print(attack(keys_1, 13))
+
+print(test_attack(13))
+
+==========================================================================================
+==========================================================================================
+==========================================================================================
+==========================================================================================
+
+# Cryptanalysis - Task 2 - CipherD and Attack - v1
+
+# TO-DO:
+#  - deduce the single bit in the k4 round from the counters
+
+import numpy as np
+
+#febc6d78039a4215
+# different than in CipherThree and CipherFour !!!
+def sbox(input):
+    list_out = [15, 14, 11, 12, 6, 13, 7, 8, 0, 3, 9, 10, 4, 2, 1, 5]
+    return list_out[input]
+
+def inverse_sbox(input):
+    list_out = [15, 14, 11, 12, 6, 13, 7, 8, 0, 3, 9, 10, 4, 2, 1, 5]
+    return list_out.index(input)
+
+def sbox_layer(input):
+    out = []
+    for i in range(4):
+        #print((input >> (i * 4) % 16))
+        out.append(sbox(((input >> (i * 4)) % 16)))
+    res = 0
+    for i in range(4):
+        res += out[i] * (16 ** i)
+    return res
+
+def sbox_layer_inverse(input):
+    out = []
+    for i in range(4):
+        #print(((input >> (i * 4)) % 16))
+        out.append(inverse_sbox(((input >> (i * 4)) % 16)))
+    res = 0
+    for i in range(4):
+        res += out[i] * (16 ** i)
+    return res
+
+def permutation(inputs):
+    inp = inputs
+    perm = [0, 4, 8, 12, 1, 5, 9, 13, 2, 6, 10, 14, 3, 7, 11, 15]
+    arr = [0] * 16
+    for i in range(16):
+        if inp % 2 == 1:
+            arr[perm[15 - i]] = 1
+        inp = inp >> 1
+    return int("".join(str(x) for x in arr), 2)
+
+def inverse_permutation(input):
+    inp = input
+    perm = [0, 4, 8, 12, 1, 5, 9, 13, 2, 6, 10, 14, 3, 7, 11, 15]
+    arr = [0] * 16
+    for i in range(16):
+        if inp % 2 == 1:
+            arr[perm.index(15 - i)] = 1
+        inp = inp >> 1
+    return int("".join(str(x) for x in arr), 2)
+
+
+def encrypt(keys, message):
+    ct = message
+    for i in range(len(keys) - 2):
+        ct ^^= keys[i]
+        ct = sbox_layer(ct)
+        ct = permutation(ct)
+    ct ^^= keys[-2]
+    ct = sbox_layer(ct)
+    ct ^^= keys[-1]
+    return ct
+
+def decrypt(keys, ct):
+    pt = ct
+    pt ^^= keys[-1]
+    pt = sbox_layer_inverse(pt)
+    pt ^^= keys[-2]
+    for i in range(len(keys) - 3, -1, -1):
+        pt = inverse_permutation(pt)
+        pt = sbox_layer_inverse(pt)
+        pt ^^= keys[i]
+    return pt
+
+def generate_pts_cts(keys, amount):
+    cts = []
+    for i in range(amount):
+        ct = encrypt(keys, i)
+        cts.append((i, ct))
+    return cts
+
+def generate_pts_cts_v2(keys, amount):
+    cts = []
+    for i in range(0, amount * 16**3, 16**3):
+        ct = encrypt(keys, i)
+        cts.append((i, ct))
+    return cts
+
+def attack(keys, mask):
+    
+    mask = 8 * 16**3  # ~[8, 0, 0, 0]
+    pts_cts = generate_pts_cts(keys, 16**4)  # max 16**4
+    #pts_cts = generate_pts_cts_v2(keys, 16)  # max 16**4
+        
+    guesses = range(0, 16**4, 16**3)
+    #table = [[0, 0]] * len(guesses)
+    table = {}
+    
+    for key_guess in guesses:
+        table[key_guess] = [0, 0]
+        for (pt, ct) in pts_cts:
+            y_guess = sbox_layer_inverse(ct ^^ key_guess)
+            
+            a_0, a_1 = (pt & mask), (y_guess & mask)
+            res = 0
+            for i in range(16):
+                res ^^= ((a_0 >> i) % 2) ^^ ((a_1 >> i) % 2)  # sum bits of a_0 and a_1 (mod 2)
+            if res == 0:
+                table[key_guess][0] += 1
+            else:
+                table[key_guess][1] += 1
+    
+    max_val = 0
+    final_guesses = []
+    for key in table.keys():
+        values = table[key]
+        #print(key, values)
+        val = abs(values[0] - values[1])
+        if val == max_val:
+            final_guesses.append(key)
+        elif val > max_val:
+            final_guesses = [key]
+            max_val = val
+    
+    #print("final guesses:", final_guesses)
+    
+    return table, final_guesses
+
+
+mes_1 = 6
+keys_1 = [1, 2, 3, 4, 7*16**3]
+#keys_1 = [54241, 65414, 22836, 39868, 29301, 32817]
+enc_1 = encrypt(keys_1, mes_1)
+dec_1 = decrypt(keys_1, enc_1)
+
+print("Enc and Dec:", bin(mes_1), "->", bin(enc_1), "->", bin(dec_1))
+
+table_1, final_1 = attack(keys_1, 0)
+print(table_1)
+print("Guess(es):", final_1, "Correct:", keys_1[-1])
+
+==========================================================================================
+==========================================================================================
+==========================================================================================
+==========================================================================================
+
+# Cryptanalysis - Task 3 - Truncated attack on CipherFour - v1
+
+# TO-DO:
+
+# Remarks:
+
+
+import numpy as np
+
+def sbox(input):
+    list_out = [6, 4, 12, 5, 0, 7, 2, 14, 1, 15, 3, 13, 8, 10, 9, 11]
+    return list_out[input]
+
+def inverse_sbox(input):
+    list_out = [6, 4, 12, 5, 0, 7, 2, 14, 1, 15, 3, 13, 8, 10, 9, 11]
+    return list_out.index(input)
+
+def sbox_layer(input):
+    out = []
+    for i in range(4):
+        #print((input >> (i * 4) % 16))
+        out.append(sbox(((input >> (i * 4)) % 16)))
+    res = 0
+    for i in range(4):
+        res += out[i] * (16 ** i)
+    return res
+
+def sbox_layer_inverse(input):
+    out = []
+    for i in range(4):
+        #print(((input >> (i * 4)) % 16))
+        out.append(inverse_sbox(((input >> (i * 4)) % 16)))
+    res = 0
+    for i in range(4):
+        res += out[i] * (16 ** i)
+    return res
+
+def permutation(inputs):
+    inp = inputs
+    perm = [0, 4, 8, 12, 1, 5, 9, 13, 2, 6, 10, 14, 3, 7, 11, 15]
+    arr = [0] * 16
+    for i in range(16):
+        if inp % 2 == 1:
+            arr[perm[15 - i]] = 1
+        inp = inp >> 1
+    return int("".join(str(x) for x in arr), 2)
+
+def inverse_permutation(input):
+    inp = input
+    perm = [0, 4, 8, 12, 1, 5, 9, 13, 2, 6, 10, 14, 3, 7, 11, 15]
+    arr = [0] * 16
+    for i in range(16):
+        if inp % 2 == 1:
+            arr[perm.index(15 - i)] = 1
+        inp = inp >> 1
+    return int("".join(str(x) for x in arr), 2)
+
+
+def encrypt(keys, message):
+    ct = message
+    for i in range(len(keys) - 2):
+        ct ^^= keys[i]
+        ct = sbox_layer(ct)
+        ct = permutation(ct)
+    ct ^^= keys[-2]
+    ct = sbox_layer(ct)
+    ct ^^= keys[-1]
+    return ct
+
+def decrypt(keys, ct):
+    pt = ct
+    pt ^^= keys[-1]
+    pt = sbox_layer_inverse(pt)
+    pt ^^= keys[-2]
+    for i in range(len(keys) - 3, -1, -1):
+        pt = inverse_permutation(pt)
+        pt = sbox_layer_inverse(pt)
+        pt ^^= keys[i]
+    return pt
+
+def attack(keys):
+    # first round trick:  
+    # diff = S_box(i ^^ key_guess) ^^ S_box(j ^^ key_guess)
+    # => j = key_guess ^^ S_box_inverse(diff ^^ S_box(i ^^ key_guess))
+    t_0, t_1, t_2 = randint(0, 15), randint(0, 15), randint(0, 15)
+    u_0, u_1, u_2 = randint(0, 15), randint(0, 15), randint(0, 15)
+    v_0, v_1, v_2 = randint(0, 15), randint(0, 15), randint(0, 15)
+    #print("t:", t_0, t_1, t_2)
+    i_s = range(16)
+    
+    diff_part = 2
+    #diff_part = 8
+    
+    guesses_k0_part = range(16)
+    guesses_k4_part = range(16)
+    
+    final_guesses = []
+    for k0_part in guesses_k0_part:
+        #print("guessing 4 bits of k0:", k0_part)
+        pairs = []
+        for i in i_s:
+            mes_0 = t_0 * 16**3 + t_1 * 16**2 + i * 16 + t_2
+            mes_2 = u_0 * 16**3 + u_1 * 16**2 + i * 16 + u_2
+            mes_4 = v_0 * 16**3 + v_1 * 16**2 + i * 16 + v_2
+            #mes_prime = t_0 * 16**3 + t_1 * 16**2 + (m ^^ 2) * 16 + t_2
+            #mes_prime = t_0 * 16**3 + t_1 * 16**2 + (m ^^ 15) * 16 + t_2
+
+            j = k0_part ^^ inverse_sbox(diff_part ^^ sbox(i ^^ k0_part))
+            
+            #check_diff = sbox(i ^^ k0_part) ^^ sbox(j ^^ k0_part)
+            
+            #check_diff_corr = sbox(i ^^ 4) ^^ sbox(j ^^ 4)
+            #print("correct:", diff_part, "S(i ^^ guess) ^^ S(j ^^ guess):", check_diff)
+            #print("i,j:", i, j, "with k0 guess:", check_diff, "with k0 correct:", check_diff_corr)
+            mes_1 = t_0 * 16**3 + t_1 * 16**2 + j * 16 + t_2
+            mes_3 = u_0 * 16**3 + u_1 * 16**2 + j * 16 + u_2
+            mes_5 = v_0 * 16**3 + v_1 * 16**2 + j * 16 + v_2
+            
+            
+            enc_0 = encrypt(keys, mes_0)
+            enc_1 = encrypt(keys, mes_1)
+            
+            enc_2 = encrypt(keys, mes_2)
+            enc_3 = encrypt(keys, mes_3)
+            
+            enc_4 = encrypt(keys, mes_4)
+            enc_5 = encrypt(keys, mes_5)
+            
+            #k4_real = 5 + 6*16 + 7*16**2 + 8*16**3
+            #check_diff = sbox_layer_inverse(enc_0 ^^ k4_real) ^^ sbox_layer_inverse(enc_1 ^^ k4_real)
+            #print("should be *0** *0** *0** *0**:", bin(check_diff))
+            
+            #check_diff = permutation(sbox_layer(mes_0 ^^ keys[0])) ^^ permutation(sbox_layer(mes_1 ^^ keys[0]))
+            #check_diff = sbox_layer(mes_0 ^^ keys[0]) ^^ sbox_layer(mes_1 ^^ keys[0])
+            #k0_real_part = 4
+            #check_diff = sbox(i ^^ k0_real_part) ^^ sbox(j ^^ k0_real_part)
+            #print(bin(check_diff))
+            
+            #pairs.append(((mes_0, enc_0), (mes_1, enc_1)))
+            pairs.append((enc_0, enc_1))
+            pairs.append((enc_2, enc_3))
+            pairs.append((enc_4, enc_5))
+            
+            #enc_diff = enc_0 ^^ enc_1
+            #print(enc_diff)
+        
+        possible_nibbles = [[], [], [], []]
+        
+        k0_wrong = False
+        for nibble in range(4):
+            #print("guessing nibble:", nibble)
+            counts = [0]*len(guesses_k4_part)
+            
+            for pair in pairs:
+                x_0, x_1 = pair
+                #print(bin(x_0), bin(x_1))
+                x_0_part = (x_0 >> ((3 - nibble) * 4)) % 16
+                x_1_part = (x_1 >> ((3 - nibble) * 4)) % 16
+                #print(bin(x_0_part), bin(x_1_part))
+                
+                #k4_real = 5 + 6*16 + 7*16**2 + 8*16**3
+                #check_diff = sbox_layer_inverse(x_0 ^^ k4_real) ^^ sbox_layer_inverse(x_1 ^^ k4_real)
+                #print("should be *0** *0** *0** *0**:", bin(check_diff))
+                
+                #check_corr = inverse_sbox(x_0_part ^^ 8) ^^ inverse_sbox(x_1_part ^^ 8)
+                #check_corr = inverse_sbox(x_0_part ^^ 5) ^^ inverse_sbox(x_1_part ^^ 5)
+                #print("corr:", bin(check_corr))
+                for k4_part in guesses_k4_part:
+                    #print("guess of k4 part:", k4_part)
+                    #y_0, y_1 = sbox_layer_inverse(x_0 ^^ k4_part), sbox_layer_inverse(x_1 ^^ k4_part)
+                    y_0_part, y_1_part = inverse_sbox(x_0_part ^^ k4_part), inverse_sbox(x_1_part ^^ k4_part)
+                    difference = y_0_part ^^ y_1_part
+                    #print(bin(diff_part))
+                    #print(difference)
+                    #bit = ((diff >> 2) >> (3 - nibble)) % 2
+                    bit = (difference >> 2) % 2
+                    #print(bit)
+                    
+                    #if nibble == 0 and k4_part == 8:
+                    #    placeholder = 0
+                    #    print(bit)
+                    
+                    if bit == 0:
+                        counts[k4_part] += 1
+                #print("sub-counts:", counts)
+            #print("counts:", counts)
+            if max(counts) != len(pairs):
+                k0_wrong = True
+                print("eliminated")
+                break
+            else:
+                for k4_part in guesses_k4_part:
+                    if counts[k4_part] == len(pairs):
+                        possible_nibbles[nibble].append(k4_part)
+                #print("current nibble guesses:", possible_nibbles[nibble])
+        
+        if not k0_wrong:
+            final_guesses.append((k0_part, possible_nibbles))
+    
+    return final_guesses
+                    
+            
+    #print(encs[0] ^^ encs[1], encs[1] ^^ encs[2])
+        
+
+
+mes_1 = 67
+
+key_0_part = 2
+key_0 = 1 + key_0_part*16 + 3*16**2 + 4*16**3
+#key_0 = key_0_part*16
+key_4_nibbles = [8, 7, 6, 5]
+key_4 = key_4_nibbles[3] + key_4_nibbles[2]*16 + key_4_nibbles[1]*16**2 + key_4_nibbles[0]*16**3
+#key_4 = [0, 0, 0, 7]
+k_1, k_2, k_3 = randint(0, 16**4 - 1), randint(0, 16**4 - 1), randint(0, 16**4 - 1)
+#keys_1 = [1 + key_0_part*16 + 3*16**2 + 4*16**3, 2, 3, 4, key_4[3] + key_4[2]*16 + key_4[1]*16**2 + key_4[0]*16**3]
+#keys_1 = [key_0_part*16, 2, 3, 4, key_4[3] + key_4[2]*16 + key_4[1]*16**2 + key_4[0]*16**3]
+
+keys_1 = [key_0, k_1, k_2, k_3, key_4]
+#keys_1 = [1 + 2*16 + 3*16**2 + 4*16**3, 2, 3, 4, 8*16**3]
+#keys_1 = [1 + 2*16 + 3*16**2 + 4*16**3, 2, 3, 4, 5]
+enc_1 = encrypt(keys_1, mes_1)
+dec_1 = decrypt(keys_1, enc_1)
+
+print("Enc and Dec:", mes_1, "->", enc_1, "->", dec_1)
+
+print("keys:", key_0, k_1, k_2, k_3, key_4)
+result = attack(keys_1)
+print("correct: k0 part -", key_0_part, "k4 nibbles -", key_4_nibbles)
+for i in range(len(result)):
+    print("k0 part:", result[i][0], "k4 nibbles:", result[i][1])
+#print(attack(keys_1))
+
+==========================================================================================
+==========================================================================================
+==========================================================================================
+==========================================================================================
+
+# Cryptanalysis - Task 4 - MITM - v1
+
+# TO-DO:
+#  - implement iterative attack until the key guess is unique (+ stats?)
+#  - answer question from the task paper
+
+# Remarks:
+
+size = 2**10
+P = Permutations(size)
+p = P.random_element()  # very probably non-linear)
+#print(p)
+#print(p[0], p[15])
+#print(list(p))
+#p = p -1
+#print(list(p) - 1)
+
+
+def enc(mes, key):
+    result = (p[mes ^^ key] - 1) ^^ key
+    #if result >= 16:
+    #    print(mes, key)
+    return result
+    
+def dec(ct, key):
+    result = p.index((ct ^^ key) + 1) ^^ key
+    return result
+
+def EDE_2(mes, keys):
+    result = enc(dec(enc(mes, keys[0]), keys[1]), keys[0])
+    return result
+
+def DED_2(mes, keys):
+    result = dec(enc(dec(mes, keys[0]), keys[1]), keys[0])
+    return result
+
+def attack(keys, a):
+    k0_guesses = range(size)
+    #k0_guesses = range(2**12)
+    #k0_guesses = range(2**5)
+    dict_0 = {}
+
+    for k0_guess in k0_guesses:  # k0_guess ~ i
+        #a = 0
+        m_i = dec(a, k0_guess)
+        
+        if m_i not in dict_0.keys():
+            #print("match")
+            dict_0[m_i] = [[k0_guess], []]
+        else:
+            dict_0[m_i][0].append(k0_guess)
+        
+        c_i = EDE_2(m_i, keys)
+        b_i = dec(c_i, k0_guess)
+        
+        if b_i not in dict_0.keys():
+            dict_0[b_i] = [[], [k0_guess]]
+        else:
+            dict_0[b_i][1].append(k0_guess)
+            #print("match:", k0_guess, dict_0[b_i][0])
+    
+    final_guesses = []
+    for key in dict_0.keys():
+        vals = dict_0[key]
+        if len(vals[0]) != 0 and len(vals[1]) != 0:
+            for i in range(len(vals[0])):
+                for j in range(len(vals[1])):
+                    final_guesses.append((vals[0][i], vals[1][j]))
+    return final_guesses, dict_0
+
+def test_attack(iterations):
+    found = 0
+    total_guesses = 0
+    for i in range(iterations):
+        k0, k1 = randint(0, size - 1), randint(0, size - 1)
+        res, _ = attack([k0, k1])
+        if (k1, k0) in res:
+            found += 1
+            total_guesses += len(res)
+    if found != 0:
+        avg_guesses = float(total_guesses / found)
+    else:
+        avg_guesses = 0
+    return found, avg_guesses
+
+mes_1 = 13
+#key_0, key_1 = 12, 7
+key_0, key_1 = randint(0, size - 1), randint(0, size - 1)
+print("keys:", key_0, key_1)
+keys_1 = [key_0, key_1]
+enc_1 = enc(mes_1, keys_1[0])
+dec_1 = dec(enc_1, keys_1[0])
+
+ede_1 = EDE_2(mes_1, keys_1)
+ded_1 = DED_2(ede_1, keys_1)
+#print("enc + dec:", mes_1, "->", enc_1, "->", dec_1)
+#print("EDE + DED:", mes_1, "->", ede_1, "->", ded_1)
+
+#result, table = attack(keys_1, 0)
+#print(result)
+#print("Correct inside:", (key_1, key_0) in result)
+#print("Num of guesses:", len(result), "/", size*size)
+
+res_0, _ = attack(keys_1, 0)
+res_1, _ = attack(keys_1, 1)
+
+print(set(res_0).intersection(res_1))
+
+#iterations = 10
+#found, avg = test_attack(iterations)
+#print("found:", found, "/", iterations, "avg:", avg)
+
+==========================================================================================
+==========================================================================================
+==========================================================================================
+==========================================================================================
+
+# Cryptanalysis - Task 5 - Impossible differential attacks - v1
+
+# TO-DO:
+#  - iterate attack with different c_s to get a unique guess
+#  - test on random keys
+#  - implement the given quadratic permutation
+
+# Remarks:
+#  - how does the feistel work?
+
+size = 2**10
+P = Permutations(size)
+p = P.random_element()  # use this for now instead of the given quadratic permutation
+
+gen_i = [1, 8, 64, 512, 10, 80, 640, 1034, 68, 544, 266]
+gen_ij = {(0, 2): 20, (1, 3): 160, (2, 4): 1280, (3, 5): 17, (4, 6): 136, (5, 7): 1088,
+          (6, 8): 532, (7, 9): 170, (8, 10): 1360, (0, 4): 272, (1, 5): 133, (2, 6): 1064,
+          (3, 7): 340, (4, 8): 677, (5, 9): 1314, (6, 10): 257, (0, 8): 416, (1, 9): 1285,
+          (2, 10): 57, (0, 3): 72, (1, 4): 576, (2, 5): 522, (3, 6): 90, (4, 7): 720,
+          (5, 8): 1674, (6, 9): 1102, (7, 10): 612, (0, 7): 168, (1, 8): 1344, (2, 9): 529,
+          (3, 10): 130, (0, 6): 74, (1, 7): 592, (2, 8): 650, (3, 9): 1114, (4, 10): 708,
+          (0, 1): 6, (1, 2): 48, (2, 3): 384, (3, 4): 1029, (4, 5): 60, (5, 6): 480,
+          (6, 7): 1797, (7, 8): 51, (8, 9): 408, (9, 10): 1221, (0, 10): 1541, (0, 5): 1056,
+          (1, 6): 276, (2, 7): 165, (3, 8): 1320, (4, 9): 337, (5, 10): 653, (0, 9): 128, (1, 10): 1024}
+
+perm_vals = {
+    0: 0, 1: 1, 2: 8, 4: 64, 8: 512, 16: 10, 32: 80, 64: 640, 128: 1034, 256: 68, 512: 544, 
+    1024: 266, 5: 85, 10: 680, 20: 1354, 40: 577, 80: 514, 160: 26, 320: 208, 640: 1664, 1280: 1054, 517: 228, 
+    1034: 1824, 17: 283, 34: 221, 68: 1768, 136: 1886, 272: 747, 544: 1874, 1088: 651, 133: 1106, 266: 644, 532: 1066, 
+    1064: 324, 85: 549, 170: 290, 340: 277, 680: 173, 1360: 1384, 677: 849, 1354: 647, 657: 1074, 1314: 388, 577: 1061, 
+    1154: 316, 257: 485, 514: 1837, 1028: 371, 13: 925, 26: 1255, 52: 1836, 104: 379, 208: 989, 416: 1767, 832: 1830, 
+    1664: 299, 1285: 349, 527: 749, 1054: 1890, 57: 779, 114: 87, 228: 696, 456: 1482, 912: 1601, 1824: 534, 1605: 186, 
+    1167: 1488, 283: 1681, 566: 1174, 1132: 1188, 221: 1332, 442: 433, 884: 1421, 1768: 1145, 1493: 988, 943: 1775, 1886: 1894, 
+    1721: 811, 1399: 343, 747: 701, 1494: 1506, 937: 1793, 1874: 19, 1697: 152, 1351: 1216, 651: 1556, 1302: 190, 553: 1520, 
+    1106: 1937, 161: 1171, 322: 1164, 644: 1140, 1288: 948, 533: 1455, 1066: 1385, 81: 857, 162: 711, 324: 1586, 648: 398, 
+    1296: 1141, 549: 956, 1098: 1519, 145: 1897, 290: 851, 580: 663, 1160: 1202, 277: 1412, 554: 1073, 1108: 412, 173: 1253, 
+    346: 1852, 692: 507, 1384: 2013, 725: 1779, 1450: 1926, 849: 1067, 1698: 332, 1345: 613, 647: 802, 1294: 287, 537: 253, 
+    1074: 2024, 97: 1883, 194: 707, 388: 1554, 776: 142, 1552: 1136, 1061: 916, 79: 1199, 158: 1388, 316: 881, 632: 903, 
+    1264: 1079, 485: 428, 970: 1381, 1940: 825, 1837: 455, 1631: 1597, 1211: 502, 371: 1973, 742: 1459, 1484: 1417, 925: 1113, 
+    1850: 732, 1649: 1770, 1255: 1870, 459: 619, 918: 850, 1836: 671, 1629: 1266, 1215: 1924, 379: 1083, 758: 460, 1516: 1637, 
+    989: 822, 1978: 447, 1905: 1533, 1767: 2041, 1483: 2003, 915: 1667, 1830: 1030, 1609: 36, 1175: 288, 299: 261, 598: 45, 
+    1196: 360, 349: 837, 698: 551, 1396: 306, 749: 405, 1498: 1197, 945: 1404, 1890: 1009, 1729: 1927, 1415: 1059, 779: 268, 
+    1558: 101, 1065: 808, 87: 335, 174: 637, 348: 994, 696: 1823, 1392: 227, 741: 1816, 1482: 219, 913: 1752, 1826: 1758, 
+    1601: 1774, 1159: 1902, 267: 875, 534: 855, 1068: 695, 93: 1458, 186: 1409, 372: 1049, 744: 220, 1488: 1760, 933: 1822, 
+    1866: 235, 1681: 1880, 1319: 731, 587: 1746, 1174: 1678, 297: 1134, 594: 868, 1188: 815, 333: 375, 666: 957, 1332: 1511, 
+    621: 1833, 1242: 339, 433: 669, 866: 1250, 1732: 1796, 1421: 59, 799: 472, 1598: 1733, 1145: 1590, 247: 430, 494: 1397, 
+    988: 953, 1976: 1479, 1909: 1577, 1775: 342, 1499: 693, 947: 1442, 1894: 1281, 1737: 25, 1431: 200, 811: 1600, 1622: 542, 
+    1193: 250, 343: 2000, 686: 1691, 1372: 1222, 701: 1572, 1402: 318, 753: 501, 1506: 1965, 961: 1395, 1922: 905, 1793: 1095, 
+    1543: 556, 1035: 362, 19: 853, 38: 679, 76: 1330, 152: 385, 304: 1037, 608: 124, 1216: 992, 389: 1807, 778: 99, 
+    1556: 792, 1069: 207, 95: 1656, 190: 990, 380: 1791, 760: 2022, 1520: 1835, 997: 323, 1994: 541, 1937: 226, 1831: 1808, 
+    1611: 155, 1171: 1240, 291: 1748, 582: 1726, 1164: 1518, 285: 1889, 570: 787, 1140: 151, 237: 1208, 474: 1492, 948: 1713, 
+    1896: 1430, 1749: 1185, 1455: 1308, 859: 241, 1718: 1928, 1385: 1115, 727: 716, 1454: 1642, 857: 846, 1714: 639, 1377: 1010, 
+    711: 1951, 1422: 1251, 793: 1804, 1586: 123, 1121: 984, 199: 1743, 398: 1638, 796: 814, 1592: 383, 1141: 1021, 239: 2023, 
+    478: 1827, 956: 259, 1912: 29, 1781: 232, 1519: 1856, 987: 539, 1974: 210, 1897: 1680, 1751: 1182, 1451: 1252, 851: 1844, 
+    1702: 443, 1353: 1501, 663: 1785, 1326: 2006, 601: 1707, 1202: 1350, 353: 545, 706: 258, 1412: 21, 781: 168, 1562: 1344, 
+    1073: 529, 103: 130, 206: 1040, 412: 148, 824: 1184, 1648: 1300, 1253: 177, 463: 1416, 926: 1105, 1852: 668, 1661: 1258, 
+    1279: 1860, 507: 571, 1014: 466, 2028: 1685, 2013: 1206, 1983: 1444, 1915: 1329, 1779: 409, 1507: 1229, 963: 1660, 1926: 1022, 
+    1801: 2047, 1559: 2019, 1067: 1795, 83: 3, 166: 24, 332: 192, 664: 1536, 1328: 30, 613: 240, 1226: 1920, 401: 1051, 
+    802: 204, 1604: 1632, 1165: 798, 287: 255, 574: 2040, 1148: 2011, 253: 1731, 506: 1542, 1012: 46, 2024: 368, 2005: 901, 
+    1967: 1063, 1883: 300, 1715: 357, 1379: 813, 707: 359, 1414: 829, 777: 487, 1554: 1853, 1057: 499, 71: 1949, 142: 1267, 
+    284: 1932, 568: 1147, 1136: 972, 229: 1647, 458: 870, 916: 831, 1832: 503, 1621: 1981, 1199: 1523, 347: 1929, 694: 1107, 
+    1388: 652, 733: 1130, 1466: 836, 881: 559, 1762: 370, 1473: 917, 903: 1191, 1806: 1324, 1561: 369, 1079: 909, 107: 1127, 
+    214: 812, 428: 367, 856: 893, 1712: 999, 1381: 1847, 719: 419, 1438: 1309, 825: 249, 1650: 1992, 1249: 1627, 455: 710, 
+    910: 1594, 1820: 462, 1597: 1653, 1151: 950, 251: 1471, 502: 1513, 1004: 1881, 2008: 723, 1973: 1682, 1903: 1166, 1755: 1124, 
+    1459: 820, 867: 431, 1734: 1405, 1417: 1017, 791: 1991, 1582: 1571, 1113: 262, 183: 53, 366: 424, 732: 1349, 1464: 569, 
+    885: 450, 1770: 1557, 1489: 182, 935: 1456, 1870: 1425, 1689: 1177, 1335: 1244, 619: 1780, 1238: 1982, 425: 1515, 850: 1865, 
+    1700: 595, 1357: 658, 671: 1178, 1342: 1220, 633: 1588, 1266: 446, 481: 1525, 962: 1977, 1924: 1491, 1805: 1673, 1567: 1110, 
+    1083: 676, 115: 1322, 230: 321, 460: 525, 920: 98, 1840: 784, 1637: 143, 1231: 1144, 411: 980, 822: 1711, 1644: 1382, 
+    1245: 801, 447: 263, 894: 61, 1788: 488, 1533: 1861, 1023: 563, 2046: 402, 2041: 1173, 2039: 1212, 2027: 1524, 2003: 1969, 
+    1955: 1427, 1859: 1161, 1667: 1116, 1283: 756, 515: 1962, 1030: 1355, 9: 585, 18: 578, 36: 538, 72: 218, 144: 1744, 
+    288: 1694, 576: 1262, 1152: 1892, 261: 827, 522: 471, 1044: 1725, 45: 1526, 90: 1953, 180: 1299, 360: 137, 720: 1096, 
+    1440: 596, 837: 682, 1674: 1370, 1297: 705, 551: 1538, 1102: 14, 153: 112, 306: 896, 612: 1039, 1224: 108, 405: 864, 
+    810: 783, 1620: 119, 1197: 952, 351: 1487, 702: 1641, 1404: 854, 765: 703, 1530: 1522, 1009: 1921, 2018: 1043, 1985: 140, 
+    1927: 1120, 1803: 788, 1555: 175, 1059: 1400, 67: 977, 134: 1671, 268: 1062, 536: 292, 1072: 293, 101: 301, 202: 365, 
+    404: 877, 808: 871, 1616: 823, 1189: 439, 335: 1469, 670: 1529, 1340: 2009, 637: 1747, 1274: 1670, 497: 1070, 994: 356, 
+    1988: 805, 1933: 295, 1823: 317, 1595: 493, 1139: 1901, 227: 883, 454: 919, 908: 1207, 1816: 1452, 1589: 1393, 1135: 921, 
+    219: 1223, 438: 1580, 876: 382, 1752: 1013, 1461: 1959, 879: 1315, 1758: 265, 1465: 77, 887: 616, 1774: 842, 1497: 607, 
+    951: 754, 1902: 1946, 1753: 1227, 1463: 1612, 875: 638, 1750: 1018, 1449: 2015, 855: 1763, 1710: 1798, 1369: 43, 695: 344, 
+    1390: 709, 729: 1570, 1458: 270, 865: 117, 1730: 936, 1409: 1359, 775: 617, 1550: 834, 1049: 543, 55: 242, 110: 1936, 
+    220: 1179, 440: 1228, 880: 1652, 1760: 958, 1477: 1535, 911: 2025, 1822: 1875, 1593: 643, 1143: 1042, 235: 132, 470: 1056, 
+    940: 276, 1880: 165, 1717: 1320, 1391: 337, 731: 653, 1462: 1122, 873: 772, 1746: 47, 1441: 376, 839: 965, 1678: 1575, 
+    1305: 294, 567: 309, 1134: 429, 217: 1389, 434: 889, 868: 967, 1736: 1591, 1429: 422, 815: 1333, 1630: 441, 1209: 1485, 
+    375: 1657, 750: 982, 1500: 1727, 957: 1510, 1914: 1825, 1777: 275, 1511: 157, 971: 1256, 1942: 1876, 1833: 699, 1623: 1490, 
+    1195: 1665, 339: 1046, 678: 164, 1356: 1312, 669: 273, 1338: 141, 625: 1128, 1250: 852, 449: 687, 898: 1394, 1796: 897, 
+    1549: 1031, 1055: 44, 59: 352, 118: 773, 236: 39, 472: 312, 944: 453, 1888: 1581, 1733: 374, 1423: 949, 795: 1447, 
+    1590: 1321, 1129: 345, 215: 717, 430: 1634, 860: 782, 1720: 127, 1397: 1016, 751: 1999, 1502: 1635, 953: 774, 1906: 63, 
+    1761: 504, 1479: 1989, 907: 1587, 1814: 390, 1577: 1077, 1111: 444, 171: 1509, 342: 1849, 684: 467, 1368: 1693, 693: 1270, 
+    1386: 1956, 721: 1339, 1442: 457, 833: 1613, 1666: 630, 1281: 954, 519: 1503, 1038: 1769, 25: 1878, 50: 683, 100: 1362, 
+    200: 641, 400: 1026, 800: 4, 1600: 32, 1157: 256, 271: 5, 542: 40, 1084: 320, 125: 517, 250: 34, 500: 272, 
+    1000: 133, 2000: 1064, 1957: 340, 1871: 677, 1691: 1314, 1331: 257, 611: 13, 1222: 104, 393: 832, 786: 527, 1572: 114, 
+    1101: 912, 159: 1167, 318: 1132, 636: 884, 1272: 943, 501: 1399, 1002: 937, 2004: 1351, 1965: 553, 1887: 322, 1723: 533, 
+    1395: 162, 739: 1296, 1478: 145, 905: 1160, 1810: 1108, 1569: 692, 1095: 1450, 139: 1345, 278: 537, 556: 194, 1112: 1552, 
+    181: 158, 362: 1264, 724: 1940, 1448: 1211, 853: 1484, 1706: 1649, 1361: 918, 679: 1215, 1358: 1516, 665: 1905, 1330: 915, 
+    609: 1175, 1218: 1196, 385: 1396, 770: 945, 1540: 1415, 1037: 1065, 31: 348, 62: 741, 124: 1826, 248: 267, 496: 93, 
+    992: 744, 1984: 1866, 1925: 587, 1807: 594, 1563: 666, 1075: 1242, 99: 1732, 198: 1598, 396: 494, 792: 1909, 1584: 947, 
+    1125: 1431, 207: 1193, 414: 1372, 828: 753, 1656: 1922, 1269: 1035, 495: 76, 990: 608, 1980: 778, 1917: 95, 1791: 760, 
+    1531: 1994, 1011: 1611, 2022: 582, 1993: 570, 1943: 474, 1835: 1749, 1619: 1718, 1187: 1454, 323: 1377, 646: 793, 1292: 199, 
+    541: 1592, 1082: 478, 113: 1781, 226: 1974, 452: 1451, 904: 1353, 1808: 601, 1573: 706, 1103: 1562, 155: 206, 310: 1648, 
+    620: 926, 1240: 1279, 437: 2028, 874: 1915, 1748: 963, 1453: 1559, 863: 166, 1726: 1328, 1401: 401, 759: 1165, 1518: 1148, 
+    985: 1012, 1970: 1967, 1889: 1379, 1735: 777, 1419: 71, 787: 568, 1574: 458, 1097: 1621, 151: 694, 302: 1466, 604: 1473, 
+    1208: 1561, 373: 214, 746: 1712, 1492: 1438, 941: 1249, 1882: 1820, 1713: 251, 1383: 2008, 715: 1755, 1430: 1734, 809: 1582, 
+    1618: 366, 1185: 885, 327: 935, 654: 1335, 1308: 425, 573: 1357, 1146: 633, 241: 962, 482: 1567, 964: 230, 1928: 1840, 
+    1813: 411, 1583: 1245, 1115: 1788, 179: 2046, 358: 2027, 716: 1859, 1432: 515, 821: 18, 1642: 144, 1233: 1152, 423: 1044, 
+    846: 180, 1692: 1440, 1341: 1297, 639: 153, 1278: 1224, 505: 1620, 1010: 702, 2020: 1530, 1997: 1985, 1951: 1555, 1851: 134, 
+    1651: 1072, 1251: 404, 451: 1189, 902: 1340, 1804: 497, 1565: 1933, 1087: 1139, 123: 908, 246: 1135, 492: 876, 984: 879, 
+    1968: 887, 1893: 951, 1743: 1463, 1435: 1449, 819: 1369, 1638: 729, 1225: 1730, 407: 1550, 814: 110, 1628: 880, 1213: 911, 
+    383: 1143, 766: 940, 1532: 1391, 1021: 873, 2042: 839, 2033: 567, 2023: 434, 1995: 1429, 1939: 1209, 1827: 1500, 1603: 1777, 
+    1155: 1942, 259: 1195, 518: 1356, 1036: 625, 29: 898, 58: 1055, 116: 236, 232: 1888, 464: 795, 928: 215, 1856: 1720, 
+    1669: 1502, 1295: 1761, 539: 1814, 1078: 171, 105: 1368, 210: 721, 420: 1666, 840: 1038, 1680: 100, 1317: 800, 591: 271, 
+    1182: 125, 313: 1000, 626: 1871, 1252: 611, 461: 786, 922: 159, 1844: 1272, 1645: 2004, 1247: 1723, 443: 1478, 886: 1569, 
+    1772: 278, 1501: 181, 959: 1448, 1918: 1361, 1785: 665, 1527: 1218, 1003: 1540, 2006: 62, 1961: 496, 1879: 1925, 1707: 1075, 
+    1363: 396, 675: 1125, 1350: 828, 649: 495, 1298: 1917, 545: 1011, 1090: 1943, 129: 1187, 258: 1292, 516: 113, 1032: 904, 
+    21: 1103, 42: 620, 84: 874, 168: 863, 336: 759, 672: 1970, 1344: 1419, 645: 1097, 1290: 604, 529: 746, 1058: 1882, 
+    65: 715, 130: 1618, 260: 654, 520: 1146, 1040: 964, 37: 1583, 74: 358, 148: 821, 296: 423, 592: 1341, 1184: 505, 
+    325: 1997, 650: 1651, 1300: 902, 557: 1087, 1114: 492, 177: 1893, 354: 819, 708: 407, 1416: 1213, 789: 1532, 1578: 2033, 
+    1105: 1939, 167: 1155, 334: 1036, 668: 116, 1336: 928, 629: 1295, 1258: 105, 465: 840, 930: 591, 1860: 626, 1677: 922, 
+    1311: 1247, 571: 1772, 1142: 1918, 233: 1003, 466: 1879, 932: 675, 1864: 1298, 1685: 129, 1327: 1032, 603: 84, 1206: 672, 
+    361: 1290, 722: 65, 1444: 520, 845: 74, 1690: 592, 1329: 650, 615: 1114, 1230: 708, 409: 1578, 818: 334, 1636: 629, 
+    1229: 930, 415: 1311, 830: 233, 1660: 1864, 1277: 603, 511: 722, 1022: 1690, 2044: 1230, 2045: 1636, 2047: 830, 2043: 511, 
+    2035: 2045, 2019: 2035, 1987: 1923, 1923: 1027, 1795: 12, 1539: 96, 1027: 768, 3: 15, 6: 120, 12: 960, 24: 1551, 
+    48: 102, 96: 816, 192: 399, 384: 1149, 768: 1020, 1536: 2031, 1029: 1891, 15: 771, 30: 23, 60: 184, 120: 1472, 
+    240: 1553, 480: 150, 960: 1200, 1920: 1428, 1797: 1201, 1551: 1436, 1051: 1265, 51: 1948, 102: 1275, 204: 1996, 408: 1659, 
+    816: 966, 1632: 1599, 1221: 486, 399: 1845, 798: 435, 1596: 1437, 1149: 1273, 255: 2012, 510: 1787, 1020: 1990, 2040: 1579, 
+    2037: 326, 2031: 565, 2011: 418, 1971: 1301, 1891: 185, 1731: 1480, 1411: 1617, 771: 662, 1542: 1210, 1033: 1476, 23: 1585, 
+    46: 406, 92: 1205, 184: 1468, 368: 1521, 736: 1945, 1472: 1235, 901: 1676, 1802: 1150, 1553: 996, 1063: 1839, 75: 355, 
+    150: 797, 300: 231, 600: 1848, 1200: 475, 357: 1757, 714: 1782, 1428: 1966, 813: 1387, 1626: 841, 1201: 583, 359: 562, 
+    718: 410, 1436: 1237, 829: 1724, 1658: 1534, 1265: 2017, 487: 1811, 974: 131, 1948: 1048, 1853: 212, 1663: 1696, 1275: 1310, 
+    499: 225, 998: 1800, 1996: 91, 1949: 728, 1855: 1738, 1659: 1614, 1267: 622, 483: 890, 966: 991, 1932: 1783, 1821: 1958, 
+    1599: 1323, 1147: 329, 243: 589, 486: 610, 972: 794, 1944: 223, 1845: 1784, 1647: 2014, 1243: 1771, 435: 1862, 870: 555, 
+    1740: 338, 1437: 661, 831: 1186, 1662: 1284, 1273: 49, 503: 392, 1006: 1093, 2012: 572, 1981: 490, 1919: 1877, 1787: 691, 
+    1523: 1426, 995: 1153, 1990: 1052, 1929: 244, 1815: 1952, 1579: 1307, 1107: 201, 163: 1608, 326: 606, 652: 762, 1304: 2010, 
+    565: 1739, 1130: 1606, 209: 558, 418: 378, 836: 981, 1672: 1703, 1301: 1318, 559: 289, 1118: 269, 185: 109, 370: 872, 
+    740: 847, 1480: 631, 917: 946, 1834: 1439, 1617: 1257, 1191: 1884, 331: 763, 662: 2002, 1324: 1675, 605: 1094, 1210: 548, 
+    369: 298, 738: 341, 1476: 685, 909: 1378, 1818: 769, 1585: 7, 1127: 56, 203: 448, 406: 1541, 812: 54, 1624: 432, 
+    1205: 1413, 367: 1081, 734: 476, 1468: 1765, 893: 1846, 1786: 427, 1521: 1373, 999: 761, 1998: 1986, 1945: 1547, 1847: 70, 
+    1643: 560, 1235: 394, 419: 1109, 838: 700, 1676: 1514, 1309: 1857, 575: 531, 1150: 146, 249: 1168, 498: 1172, 996: 1204, 
+    1992: 1460, 1941: 1457, 1839: 1433, 1627: 1241, 1203: 1756, 355: 1790, 710: 2030, 1420: 1899, 797: 835, 1594: 535, 1137: 178, 
+    231: 1424, 462: 1169, 924: 1180, 1848: 1268, 1653: 1972, 1263: 1467, 475: 1481, 950: 1625, 1900: 726, 1757: 1722, 1471: 1486, 
+    891: 1633, 1782: 790, 1513: 191, 983: 1528, 1966: 2001, 1881: 1683, 1719: 1158, 1387: 1060, 723: 308, 1446: 421, 841: 1325, 
+    1682: 377, 1313: 973, 583: 1639, 1166: 806, 281: 319, 562: 509, 1124: 2029, 205: 1907, 410: 899, 820: 1047, 1640: 172, 
+    1237: 1376, 431: 785, 862: 135, 1724: 1080, 1405: 468, 767: 1701, 1534: 1334, 1017: 417, 2034: 1293, 2017: 121, 1991: 968, 
+    1931: 1615, 1811: 614, 1571: 826, 1091: 479, 131: 1789, 262: 2038, 524: 1963, 1048: 1347, 53: 521, 106: 66, 212: 528, 
+    424: 138, 848: 1104, 1696: 660, 1349: 1194, 655: 1348, 1310: 561, 569: 386, 1138: 1045, 225: 188, 450: 1504, 900: 1809, 
+    1800: 147, 1557: 1176, 1071: 1236, 91: 1716, 182: 1470, 364: 1505, 728: 1817, 1456: 211, 869: 1688, 1738: 1246, 1425: 1764, 
+    807: 1854, 1614: 491, 1177: 1885, 311: 755, 622: 1938, 1244: 1163, 445: 1100, 890: 628, 1780: 938, 1517: 1375, 991: 745, 
+    1982: 1858, 1913: 523, 1783: 82, 1515: 656, 979: 1162, 1958: 1092, 1865: 564, 1687: 426, 1323: 1365, 595: 697, 1190: 1474, 
+    329: 1537, 658: 22, 1316: 176, 589: 1408, 1178: 1041, 305: 156, 610: 1248, 1220: 1812, 397: 187, 794: 1496, 1588: 1745, 
+    1133: 1686, 223: 1198, 446: 1380, 892: 817, 1784: 391, 1525: 1085, 1007: 508, 2014: 2021, 1977: 1843, 1911: 387, 1771: 1053, 
+    1491: 252, 931: 2016, 1862: 1819, 1673: 195, 1303: 1560, 555: 222, 1110: 1776, 169: 1950, 338: 1259, 676: 1868, 1352: 635, 
+    661: 978, 1322: 1695, 593: 1254, 1186: 1828, 321: 315, 642: 477, 1284: 1773, 525: 1910, 1050: 939, 49: 1367, 98: 681, 
+    196: 1346, 392: 513, 784: 2, 1568: 16, 1093: 128, 143: 1024, 286: 20, 572: 160, 1144: 1280, 245: 17, 490: 136, 
+    980: 1088, 1960: 532, 1877: 170, 1711: 1360, 1371: 657, 691: 1154, 1382: 1028, 713: 52, 1426: 416, 801: 1285, 1602: 57, 
+    1153: 456, 263: 1605, 526: 566, 1052: 442, 61: 1493, 122: 1721, 244: 1494, 488: 1697, 976: 1302, 1952: 161, 1861: 1288, 
+    1679: 81, 1307: 648, 563: 1098, 1126: 580, 201: 554, 402: 346, 804: 725, 1608: 1698, 1173: 1294, 303: 97, 606: 776, 
+    1212: 79, 381: 632, 762: 970, 1524: 1631, 1005: 742, 2010: 1850, 1969: 459, 1895: 1629, 1739: 758, 1427: 1978, 803: 1483, 
+    1606: 1609, 1161: 598, 279: 698, 558: 1498, 1116: 1729, 189: 1558, 378: 174, 756: 1392, 1512: 913, 981: 1159, 1962: 1068, 
+    1873: 372, 1703: 933, 1355: 1319, 659: 297, 1318: 333, 585: 621, 1170: 866, 289: 799, 578: 247, 1156: 1976, 269: 1499, 
+    538: 1737, 1076: 1622, 109: 686, 218: 1402, 436: 961, 872: 1543, 1744: 38, 1445: 304, 847: 389, 1694: 1069, 1337: 380, 
+    631: 997, 1262: 1831, 473: 291, 946: 285, 1892: 237, 1741: 1896, 1439: 859, 827: 727, 1654: 1714, 1257: 1422, 471: 1121, 
+    942: 796, 1884: 239, 1725: 1912, 1407: 987, 763: 1751, 1526: 1702, 1001: 1326, 2002: 353, 1953: 781, 1863: 103, 1675: 824, 
+    1299: 463, 547: 1661, 1094: 1014, 137: 1983, 274: 1507, 548: 1801, 1096: 83, 149: 664, 298: 1226, 596: 1604, 1192: 574, 
+    341: 506, 682: 2005, 1364: 1715, 685: 1414, 1370: 1057, 689: 284, 1378: 229, 705: 1832, 1410: 347, 769: 733, 1538: 1762, 
+    1025: 1806, 7: 107, 14: 856, 28: 719, 56: 1650, 112: 910, 224: 1151, 448: 1004, 896: 1903, 1792: 867, 1541: 791, 
+    1039: 183, 27: 1464, 54: 1489, 108: 1689, 216: 1238, 432: 1700, 864: 1342, 1728: 481, 1413: 1805, 783: 115, 1566: 920, 
+    1081: 1231, 119: 1644, 238: 894, 476: 1023, 952: 2039, 1904: 1955, 1765: 1283, 1487: 9, 923: 72, 1846: 576, 1641: 522, 
+    1239: 90, 427: 720, 854: 1674, 1708: 1102, 1373: 612, 703: 810, 1406: 351, 761: 765, 1522: 2018, 993: 1803, 1986: 67, 
+    1921: 536, 1799: 202, 1547: 1616, 1043: 670, 35: 1274, 70: 1988, 140: 1595, 280: 454, 560: 1589, 1120: 438, 197: 1461, 
+    394: 1465, 788: 1497, 1576: 1753, 1109: 1750, 175: 1710, 350: 1390, 700: 865, 1400: 775, 757: 55, 1514: 440, 977: 1477, 
+    1954: 1593, 1857: 470, 1671: 1717, 1291: 1462, 531: 1441, 1062: 1305, 73: 217, 146: 1736, 292: 1630, 584: 750, 1168: 1914, 
+    293: 971, 586: 1623, 1172: 678, 301: 1338, 602: 449, 1204: 1549, 365: 118, 730: 944, 1460: 1423, 877: 1129, 1754: 860, 
+    1457: 751, 871: 1906, 1742: 907, 1433: 1111, 823: 684, 1646: 1386, 1241: 833, 439: 519, 878: 50, 1756: 400, 1469: 1157, 
+    895: 1084, 1790: 500, 1529: 1957, 1015: 1331, 2030: 393, 2009: 1101, 1975: 636, 1899: 1002, 1747: 1887, 1443: 739, 835: 1810, 
+    1670: 139, 1289: 1112, 535: 724, 1070: 1706, 89: 1358, 178: 609, 356: 770, 712: 31, 1424: 248, 805: 1984, 1610: 1563, 
+    1169: 198, 295: 1584, 590: 414, 1180: 1269, 317: 1980, 634: 1531, 1268: 1993, 493: 1619, 986: 646, 1972: 1082, 1901: 452, 
+    1759: 1573, 1467: 310, 883: 437, 1766: 1453, 1481: 1401, 919: 985, 1838: 1735, 1625: 1574, 1207: 302, 363: 373, 726: 941, 
+    1452: 1383, 861: 809, 1722: 327, 1393: 573, 743: 482, 1486: 1813, 921: 179, 1842: 1432, 1633: 1233, 1223: 1692, 395: 1278, 
+    790: 2020, 1580: 1851, 1117: 451, 191: 1565, 382: 246, 764: 1968, 1528: 1435, 1013: 1225, 2026: 1628, 2001: 766, 1959: 2042, 
+    1867: 1995, 1683: 1603, 1315: 518, 579: 58, 1158: 464, 265: 1669, 530: 1078, 1060: 420, 77: 1317, 154: 313, 308: 461, 
+    616: 1645, 1232: 886, 421: 959, 842: 1527, 1684: 1961, 1325: 1363, 607: 649, 1214: 1090, 377: 516, 754: 42, 1508: 336, 
+    973: 645, 1946: 1058, 1841: 260, 1639: 37, 1227: 296, 403: 325, 806: 557, 1612: 354, 1181: 789, 319: 167, 638: 1336, 
+    1276: 465, 509: 1677, 1018: 1142, 2036: 932, 2029: 1327, 2015: 361, 1979: 845, 1907: 615, 1763: 818, 1475: 415, 899: 1277, 
+    1798: 2044, 1545: 2043, 1047: 1987, 43: 1539, 86: 6, 172: 48, 344: 384, 688: 1029, 1376: 60, 709: 480, 1418: 1797, 
+    785: 51, 1570: 408, 1089: 1221, 135: 1596, 270: 510, 540: 2037, 1080: 1971, 117: 1411, 234: 1033, 468: 92, 936: 736, 
+    1872: 1802, 1701: 75, 1359: 600, 667: 714, 1334: 1626, 617: 718, 1234: 1658, 417: 974, 834: 1663, 1668: 998, 1293: 1855, 
+    543: 483, 1086: 1821, 121: 243, 242: 1944, 484: 1243, 968: 1740, 1936: 1662, 1829: 1006, 1615: 1919, 1179: 995, 307: 1815, 
+    614: 163, 1228: 1304, 413: 209, 826: 1672, 1652: 1118, 1261: 740, 479: 1834, 958: 331, 1916: 605, 1789: 738, 1535: 1818, 
+    1019: 203, 2038: 1624, 2025: 734, 2007: 1786, 1963: 1998, 1875: 1643, 1699: 838, 1347: 575, 643: 498, 1286: 1941, 521: 1203, 
+    1042: 1420, 33: 1137, 66: 924, 132: 1263, 264: 1900, 528: 891, 1056: 983, 69: 1719, 138: 1446, 276: 1313, 552: 281, 
+    1104: 205, 165: 1640, 330: 862, 660: 767, 1320: 2034, 597: 1931, 1194: 1091, 337: 524, 674: 106, 1348: 848, 653: 655, 
+    1306: 1138, 561: 900, 1122: 1071, 193: 364, 386: 869, 772: 807, 1544: 311, 1045: 445, 47: 1517, 94: 1913, 188: 979, 
+    376: 1687, 752: 1190, 1504: 1316, 965: 305, 1930: 397, 1809: 1133, 1575: 892, 1099: 1007, 147: 1911, 294: 931, 588: 1303, 
+    1176: 169, 309: 1352, 618: 593, 1236: 642, 429: 1050, 858: 196, 1716: 1568, 1389: 286, 735: 245, 1470: 1960, 889: 1371, 
+    1778: 713, 1505: 1602, 967: 526, 1934: 122, 1817: 976, 1591: 1679, 1131: 1126, 211: 804, 422: 303, 844: 381, 1688: 1005, 
+    1333: 1895, 623: 803, 1246: 279, 441: 189, 882: 1512, 1764: 1873, 1485: 659, 927: 1170, 1854: 1156, 1657: 1076, 1271: 436, 
+    491: 1445, 982: 1337, 1964: 473, 1885: 1741, 1727: 1654, 1403: 942, 755: 1407, 1510: 1001, 969: 1863, 1938: 547, 1825: 274, 
+    1607: 149, 1163: 1192, 275: 1364, 550: 689, 1100: 1410, 157: 1025, 314: 28, 628: 224, 1256: 1792, 469: 27, 938: 216, 
+    1876: 1728, 1709: 1566, 1375: 238, 699: 1904, 1398: 923, 745: 1239, 1490: 1708, 929: 1406, 1858: 993, 1665: 1799, 1287: 35, 
+    523: 280, 1046: 197, 41: 1576, 82: 350, 164: 757, 328: 1954, 656: 1291, 1312: 73, 581: 584, 1162: 586, 273: 602, 
+    546: 730, 1092: 1754, 141: 1742, 282: 1646, 564: 878, 1128: 895, 213: 1015, 426: 1975, 852: 1443, 1704: 1289, 1365: 89, 
+    687: 712, 1374: 1610, 697: 590, 1394: 634, 737: 986, 1474: 1759, 897: 1766, 1794: 1838, 1537: 363, 1031: 861, 11: 743, 
+    22: 1842, 44: 395, 88: 1117, 176: 764, 352: 2026, 704: 1867, 1408: 579, 773: 530, 1546: 154, 1041: 1232, 39: 1684, 
+    78: 1214, 156: 1508, 312: 1841, 624: 403, 1248: 1181, 453: 1276, 906: 2036, 1812: 1979, 1581: 1475, 1119: 1545, 187: 86, 
+    374: 688, 748: 1418, 1496: 1089, 949: 540, 1898: 234, 1745: 1872, 1447: 667, 843: 1234, 1686: 1668, 1321: 1086, 599: 484, 
+    1198: 1829, 345: 307, 690: 413, 1380: 1261, 717: 1916, 1434: 1019, 817: 2007, 1634: 1699, 1217: 1286, 391: 33, 782: 264, 
+    1564: 69, 1085: 552, 127: 330, 254: 597, 508: 674, 1016: 1306, 2032: 193, 2021: 1544, 1999: 94, 1947: 752, 1843: 1930, 
+    1635: 1099, 1219: 588, 387: 618, 774: 858, 1548: 735, 1053: 1778, 63: 1934, 126: 1131, 252: 844, 504: 623, 1008: 882, 
+    2016: 927, 1989: 1271, 1935: 1964, 1819: 1403, 1587: 969, 1123: 1607, 195: 550, 390: 314, 780: 469, 1560: 1709, 1077: 1398, 
+    111: 929, 222: 1287, 444: 41, 888: 328, 1776: 581, 1509: 546, 975: 282, 1950: 213, 1849: 1704, 1655: 1374, 1259: 737, 
+    467: 1794, 934: 11, 1868: 88, 1693: 704, 1343: 1546, 635: 78, 1270: 624, 489: 906, 978: 1119, 1956: 748, 1869: 1898, 
+    1695: 843, 1339: 599, 627: 690, 1254: 1434, 457: 1217, 914: 1564, 1828: 254, 1613: 2032, 1183: 1947, 315: 1219, 630: 1548, 
+    1260: 126, 477: 1008, 954: 1935, 1908: 1123, 1773: 780, 1503: 111, 955: 888, 1910: 975, 1769: 1655, 1495: 934, 939: 1343, 
+    1878: 489, 1705: 1869, 1367: 627, 683: 914, 1366: 1183, 681: 1260, 1362: 1908, 673: 955, 1346: 1495, 641: 1705, 1282: 1366, 
+    513: 673, 1026: 1282,
+}
+
+def create_permutation():
+    return 0
+
+def feistel_old(left, right, keys):
+    l, r = left, right
+    
+    for i in range(len(keys)):
+        after_f = p[r ^^ keys[i]] - 1  # like this?
+        #after_f = (p[r] - 1) ^^ keys[i]
+        new_r = l ^^ after_f
+        l = r
+        r = new_r
+    return r, l  # we dont swap the last round
+    #return l, r  # we dont swap the last round
+    
+def feistel(left, right, keys):
+    l, r = left, right
+    
+    for i in range(len(keys)):
+        after_f = perm_vals[r ^^ keys[i]]  # like this?
+        #after_f = perm_vals[r] ^^ keys[i]
+        new_r = l ^^ after_f
+        l = r
+        r = new_r
+    return r, l  # we dont swap the last round
+    #return l, r  # we dont swap the last round
+
+def feistel_inv(left, right, keys):
+    #return feistel(left, right, keys.reverse())
+    return feistel(left, right, keys[::-1])
+
+
+def attack(keys):
+    c = randint(0, size - 1)
+    
+    pts_cts = []
+    for i in range(size):
+        c_l, c_r = feistel(i, c, keys)
+        pts_cts.append((i, c, c_l, c_r))
+    
+    pairs = []
+    for i in range(len(pts_cts)):  # probably not the most effective way
+        for j in range(i + 1, len(pts_cts)):
+            LHS = pts_cts[i][0] ^^ pts_cts[j][0]
+            RHS = pts_cts[i][3] ^^ pts_cts[j][3]
+            if LHS == RHS:
+                #print(i, j)
+                #print(pts_cts[i][0], pts_cts[j][0], LHS)
+                pairs.append((i, j, LHS))
+    
+    #print(pairs)
+    final_guesses = []
+    last_key_guesses = range(size)
+    for guess in last_key_guesses:
+        wrong = False
+        for pair in pairs:
+            i, j, alpha = pair
+            c_L_i, c_R_i = pts_cts[i][2], pts_cts[i][3]
+            c_L_j, c_R_j = pts_cts[j][2], pts_cts[j][3]
+            #c_i = c_L_i ^^ (p[c_R_i ^^ guess] - 1)
+            #c_j = c_L_j ^^ (p[c_R_j ^^ guess] - 1)
+            #c_i = c_R_i ^^ (p[c_R_i ^^ guess] - 1)
+            #c_j = c_R_j ^^ (p[c_R_j ^^ guess] - 1)
+            c_i = c_L_i ^^ perm_vals[c_R_i ^^ guess]
+            c_j = c_L_j ^^ perm_vals[c_R_j ^^ guess]
+            
+            #if c_i ^^ c_j == alpha:
+            if c_i ^^ c_j == 0:
+                wrong = True
+                break
+        if not wrong:
+            final_guesses.append(guess)
+    return final_guesses
+
+def attack_better(keys, trys):
+    last_key_guesses = range(size)
+    if trys == 0:
+        uniqueness = True
+        trys = 1000000
+    else:
+        uniqueness = False
+    
+    for try_num in range(trys):
+    
+        c = randint(0, size - 1)
+
+        pts_cts = []
+        for i in range(size):
+            c_l, c_r = feistel(i, c, keys)
+            pts_cts.append((i, c, c_l, c_r))
+
+        pairs = []
+        for i in range(len(pts_cts)):  # probably not the most effective way
+            for j in range(i + 1, len(pts_cts)):
+                LHS = pts_cts[i][0] ^^ pts_cts[j][0]
+                RHS = pts_cts[i][3] ^^ pts_cts[j][3]
+                if LHS == RHS:
+                    #print(i, j)
+                    #print(pts_cts[i][0], pts_cts[j][0], LHS)
+                    pairs.append((i, j, LHS))
+
+        #print(pairs)
+        final_guesses = []
+        #last_key_guesses = range(size)
+        for guess in last_key_guesses:
+            wrong = False
+            for pair in pairs:
+                i, j, alpha = pair
+                c_L_i, c_R_i = pts_cts[i][2], pts_cts[i][3]
+                c_L_j, c_R_j = pts_cts[j][2], pts_cts[j][3]
+                #c_i = c_L_i ^^ (p[c_R_i ^^ guess] - 1)
+                #c_j = c_L_j ^^ (p[c_R_j ^^ guess] - 1)
+                #c_i = c_R_i ^^ (p[c_R_i ^^ guess] - 1)
+                #c_j = c_R_j ^^ (p[c_R_j ^^ guess] - 1)
+                c_i = c_L_i ^^ perm_vals[c_R_i ^^ guess]
+                c_j = c_L_j ^^ perm_vals[c_R_j ^^ guess]
+                
+                #if c_i ^^ c_j == alpha:
+                if c_i ^^ c_j == 0:
+                    wrong = True
+                    break
+            if not wrong:
+                final_guesses.append(guess)
+        last_key_guesses = final_guesses
+        if uniqueness and len(final_guesses) == 1:
+            print("Found in", try_num + 1, "trys.")
+            break
+    return final_guesses
+
+mes_l, mes_r = 2, 7
+#key_5 = 6
+key_5 = randint(0, 2**11 - 1)
+#keys_1 = [1, 2, 3, 4, 5, key_5]
+keys_1 = [randint(0, 2**11 - 1), randint(0, 2**11 - 1), randint(0, 2**11 - 1), randint(0, 2**11 - 1), randint(0, 2**11 - 1),
+          key_5]
+print("keys:", keys_1)
+#print(keys_1.reverse())
+ct_l, ct_r = feistel(mes_l, mes_r, keys_1)
+dec_l, dec_r = feistel_inv(ct_l, ct_r, keys_1)
+#print("Enc and Dec:", mes_l, mes_r, "->", ct_l, ct_r, "->", dec_l, dec_r)
+
+#res = attack(keys_1)
+res = attack_better(keys_1, 0)  # usually <100 is enough
+#print("guess:", res, "correct:", key_5)
+print("Correct in the guessed:", key_5 in res)
+print("Number of guesses:", len(res), "/", 2**11)
+if len(res) <= 10:
+    print("Guesses:", res)
+
+==========================================================================================
+==========================================================================================
+==========================================================================================
+==========================================================================================
+
+# Cryptanalysis - Task 5 - Higher order differential attacks - v1
+
+# TO-DO:
+#  - implement the given quadratic permutation
+
+# Remarks:
+
+size = 2**10
+P = Permutations(size)
+p = P.random_element()  # use this for now instead of the given quadratic permutation
+
+def feistel(left, right, keys):
+    l, r = left, right
+    
+    for i in range(len(keys)):
+        after_f = p[r ^^ keys[i]] - 1  # like this?
+        #after_f = (p[r] - 1) ^^ keys[i]
+        new_r = l ^^ after_f
+        l = r
+        r = new_r
+    return r, l  # we dont swap the last round
+    #return l, r  # we dont swap the last round
+
+def feistel_inv(left, right, keys):
+    #return feistel(left, right, keys.reverse())
+    return feistel(left, right, keys[::-1])
+
+==========================================================================================
+==========================================================================================
+==========================================================================================
+==========================================================================================
+
+# Cryptanalysis - Task 6 - Structural attack on AES - v1
+
+# TO-DO:
+
+# Remarks:
+
+import numpy as np
+
+S_Box = [0, 1, 9, 14, 13, 11, 7, 6, 15, 2, 12, 5, 10, 4, 3, 8]
+Mult = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+        [0, 2, 4, 6, 8, 10, 12, 14, 3, 1, 7, 5, 11, 9, 15, 13],
+        [0, 3, 6, 5, 12, 15, 10, 9, 11, 8, 13, 14, 7, 4, 1, 2],
+        [0, 4, 8, 12, 3, 7, 11, 15, 6, 2, 14, 10, 5, 1, 13, 9],
+        [0, 5, 10, 15, 7, 2, 13, 8, 14, 11, 4, 1, 9, 12, 3, 6],
+        [0, 6, 12, 10, 11, 13, 7, 1, 5, 3, 9, 15, 14, 8, 2, 4],
+        [0, 7, 14, 9, 15, 8, 1, 6, 13, 10, 3, 4, 2, 5, 12, 11],
+        [0, 8, 3, 11, 6, 14, 5, 13, 12, 4, 15, 7, 10, 2, 9, 1],
+        [0, 9, 1, 8, 2, 11, 3, 10, 4, 13, 5, 12, 6, 15, 7, 14],
+        [0, 10, 7, 13, 14, 4, 9, 3, 15, 5, 8, 2, 1, 11, 6, 12],
+        [0, 11, 5, 14, 10, 1, 15, 4, 7, 12, 2, 9, 13, 6, 8, 3],
+        [0, 12, 11, 7, 5, 9, 14, 2, 10, 6, 1, 13, 15, 3, 4, 8],
+        [0, 13, 9, 4, 1, 12, 8, 5, 2, 15, 11, 6, 3, 14, 10, 7],
+        [0, 14, 15, 1, 13, 3, 2, 12, 9, 7, 6, 8, 4, 10, 11, 5],
+        [0, 15, 13, 2, 9, 6, 4, 11, 1, 14, 12, 3, 8, 7, 5, 10]]
+
+
+def mix_columns(m):  # m input, c result?
+    c = [0] * 16
+    c[0] = Mult[2][m[0]]^^Mult[1][m[1]]^^Mult[1][m[2]]^^Mult[3][m[3]]  # "^" bitwise xor
+    c[1] = Mult[3][m[0]]^^Mult[2][m[1]]^^Mult[1][m[2]]^^Mult[1][m[3]]
+    c[2] = Mult[1][m[0]]^^Mult[3][m[1]]^^Mult[2][m[2]]^^Mult[1][m[3]]
+    c[3] = Mult[1][m[0]]^^Mult[1][m[1]]^^Mult[3][m[2]]^^Mult[2][m[3]]
+    c[4] = Mult[2][m[4]]^^Mult[1][m[5]]^^Mult[1][m[6]]^^Mult[3][m[7]]
+    c[5] = Mult[3][m[4]]^^Mult[2][m[5]]^^Mult[1][m[6]]^^Mult[1][m[7]]
+    c[6] = Mult[1][m[4]]^^Mult[3][m[5]]^^Mult[2][m[6]]^^Mult[1][m[7]]
+    c[7] = Mult[1][m[4]]^^Mult[1][m[5]]^^Mult[3][m[6]]^^Mult[2][m[7]]
+    c[8] = Mult[2][m[8]]^^Mult[1][m[9]]^^Mult[1][m[10]]^^Mult[3][m[11]]
+    c[9] = Mult[3][m[8]]^^Mult[2][m[9]]^^Mult[1][m[10]]^^Mult[1][m[11]]
+    c[10] = Mult[1][m[8]]^^Mult[3][m[9]]^^Mult[2][m[10]]^^Mult[1][m[11]]
+    c[11] = Mult[1][m[8]]^^Mult[1][m[9]]^^Mult[3][m[10]]^^Mult[2][m[11]]
+    c[12] = Mult[2][m[12]]^^Mult[1][m[13]]^^Mult[1][m[14]]^^Mult[3][m[15]]
+    c[13] = Mult[3][m[12]]^^Mult[2][m[13]]^^Mult[1][m[14]]^^Mult[1][m[15]]
+    c[14] = Mult[1][m[12]]^^Mult[3][m[13]]^^Mult[2][m[14]]^^Mult[1][m[15]]
+    c[15] = Mult[1][m[12]]^^Mult[1][m[13]]^^Mult[3][m[14]]^^Mult[2][m[15]]
+    return c
+
+
+def mix_columns_inv(m):
+    c = [0] * 16
+    c[0] = Mult[14][m[0]]^^Mult[9][m[1]]^^Mult[13][m[2]]^^Mult[11][m[3]]
+    c[1] = Mult[11][m[0]]^^Mult[14][m[1]]^^Mult[9][m[2]]^^Mult[13][m[3]]
+    c[2] = Mult[13][m[0]]^^Mult[11][m[1]]^^Mult[14][m[2]]^^Mult[9][m[3]]
+    c[3] = Mult[9][m[0]]^^Mult[13][m[1]]^^Mult[11][m[2]]^^Mult[14][m[3]]
+    c[4] = Mult[14][m[4]]^^Mult[9][m[5]]^^Mult[13][m[6]]^^Mult[11][m[7]]
+    c[5] = Mult[11][m[4]]^^Mult[14][m[5]]^^Mult[9][m[6]]^^Mult[13][m[7]]
+    c[6] = Mult[13][m[4]]^^Mult[11][m[5]]^^Mult[14][m[6]]^^Mult[9][m[7]]
+    c[7] = Mult[9][m[4]]^^Mult[13][m[5]]^^Mult[11][m[6]]^^Mult[14][m[7]]
+    c[8] = Mult[14][m[8]]^^Mult[9][m[9]]^^Mult[13][m[10]]^^Mult[11][m[11]]
+    c[9] = Mult[11][m[8]]^^Mult[14][m[9]]^^Mult[9][m[10]]^^Mult[13][m[11]]
+    c[10] = Mult[13][m[8]]^^Mult[11][m[9]]^^Mult[14][m[10]]^^Mult[9][m[11]]
+    c[11] = Mult[9][m[8]]^^Mult[13][m[9]]^^Mult[11][m[10]]^^Mult[14][m[11]]
+    c[12] = Mult[14][m[12]]^^Mult[9][m[13]]^^Mult[13][m[14]]^^Mult[11][m[15]]
+    c[13] = Mult[11][m[12]]^^Mult[14][m[13]]^^Mult[9][m[14]]^^Mult[13][m[15]]
+    c[14] = Mult[13][m[12]]^^Mult[11][m[13]]^^Mult[14][m[14]]^^Mult[9][m[15]]
+    c[15] = Mult[9][m[12]]^^Mult[13][m[13]]^^Mult[11][m[14]]^^Mult[14][m[15]]
+    return c
+
+
+def add_key(c, key):
+    res = []
+    for i in range(len(c)):
+        res.append(c[i] ^^ key[i])
+    return res
+
+
+def shift_rows(c):
+    res = [c[0], c[1], c[2], c[3],
+           c[5], c[6], c[7], c[4],
+           c[10], c[11], c[8], c[9],
+           c[15], c[12], c[13], c[14]]
+    return res
+
+
+def shift_rows_inv(c):
+    res = [c[0], c[1], c[2], c[3],
+           c[7], c[4], c[5], c[6],
+           c[10], c[11], c[8], c[9],
+           c[13], c[14], c[15], c[12]]
+    return res
+
+
+def sub_bytes(c):
+    res = []
+    for i in range(len(c)):
+        res.append(S_Box[c[i]])
+    return res
+
+
+def sub_bytes_inv(c):
+    res = []
+    for i in range(len(c)):
+        res.append(S_Box.index(c[i]))
+    return res
+
+
+def aes_round(c, key):
+    c = sub_bytes(c)
+    c = shift_rows(c)
+    c = mix_columns(c)
+    c = add_key(c, key)
+    return c
+
+
+def aes_round_inv(c, key):
+    c = add_key(c, key)
+    c = mix_columns_inv(c)
+    c = shift_rows_inv(c)
+    c = sub_bytes_inv(c)
+    return c
+
+
+def aes(c, keys):
+    c = add_key(c, keys[0])
+    for i in range(1, len(keys) - 1):
+        #print(i)
+        c = aes_round(c, keys[i])
+    c = sub_bytes(c)
+    c = mix_columns(c)
+    c = add_key(c, keys[-1])
+    return c
+
+
+def aes_inv(c, keys):
+    c = add_key(c, keys[-1])
+    c = mix_columns_inv(c)
+    c = sub_bytes_inv(c)
+    for i in range(len(keys) - 2, 0, -1):
+        #print("inv:", i)
+        c = aes_round_inv(c, keys[i])
+    c = add_key(c, keys[0])
+    return c
+
+key_0 = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+key_1 = [2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0]
+key_2 = [3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4, 3, 4]
+key_3 = [5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6]
+key_4 = [8, 7, 8, 7, 8, 7, 8, 7, 8, 7, 8, 7, 8, 7, 8, 7]
+keys_1 = [key_0, key_1, key_2, key_3, key_4]
+pt_1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+ct_1 = aes(pt_1, keys_1)
+dec = aes_inv(ct_1, keys_1)
+
+print("Encrypted:", pt_1)
+print("Decrypted:", dec)
+#print("pt, sub_bytes(pt), sub_bytes_inv(ct):", pt_1, sub_bytes(pt_1), sub_bytes_inv(sub_bytes(pt_1)), sep="\n")
+#print("pt, shift_rows(pt), shift_rows_inv(ct):", pt_1, shift_rows(pt_1), shift_rows_inv(shift_rows(pt_1)), sep="\n")
+#print("pt, mix_columns(pt), mix_columns_inv(ct):", pt_1, mix_columns(pt_1), mix_columns_inv(mix_columns(pt_1)), sep="\n")
+#print("pt, add_key:", pt_1, add_key(pt_1, key_1), add_key(add_key(pt_1, key_1), key_1), sep="\n")
+
+def attack(trys):
+    key_guesses = []
+    counts = {}
+    for i1 in range(16):
+        for i2 in range(16):
+            for i3 in range(16):
+                for i4 in range(16):
+                    key_guesses.append([i1, i2, i3, i4])
+                    counts[(i1, i2, i3, i4)] = 0
+
+    #counts = [] * (16 * 16 * 16 * 16)
+    for i in range(trys):
+        rand_arr = np.random.randint(16, size=15)
+
+        pts = [[j] + rand_arr.tolist() for j in range(16)]
+        #print(pts)
+        cts = []
+        for pt in pts:
+            cts.append(aes(pt, keys_1))
+
+        for key_guess in key_guesses:
+            y_sum = [0, 0, 0, 0]
+            for ct in cts:
+                ys = ct
+                ys[0] ^^= key_guess[0]
+                ys[4] ^^= key_guess[1]
+                ys[8] ^^= key_guess[2]
+                ys[12] ^^= key_guess[3]
+            y_sum[0] ^^= ys[0]
+            y_sum[1] ^^= ys[4]
+            y_sum[2] ^^= ys[8]
+            y_sum[3] ^^= ys[12]
+            #if y_sum[0] != 0 or y_sum[1] != 0 or y_sum[2] != 0 or y_sum[3] != 0:
+                #print("guess:", key_guess)
+                #counts[(key_guess[0], key_guess[1], key_guess[2], key_guess[3])] = 1
+            if y_sum[0] != 0:
+                #print("guess:", key_guess)
+                counts[(key_guess[0], key_guess[1], key_guess[2], key_guess[3])] = 1
+    viable_guesses = []
+    for key in counts.keys():
+        if counts[key] == 0:
+            viable_guesses.append(key)
+
+    return viable_guesses
+
+
+viable = attack(1)
+print(viable)
+print("viable", len(viable), "/", 16**4)
+print((8, 7, 8, 7) in viable)
+
+==========================================================================================
+==========================================================================================
+==========================================================================================
+==========================================================================================
+
+

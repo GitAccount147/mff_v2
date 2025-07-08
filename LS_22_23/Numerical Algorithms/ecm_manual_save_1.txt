@@ -1,0 +1,106 @@
+# ECM for factorization v1
+
+
+
+def ECM_core(N, B):
+    x, y, a, b = get_params(N)
+    e_B = get_exponent(B, 0)
+    result, flag = square_and_multiply(e_B, (x, y), N, a)
+    if flag is None:
+        return "Fail_1"
+    else:
+        factor = gcd(flag, N)   # TO-DO: do in alg already
+        if 1 < factor < N:
+            return factor, N / factor
+        else:
+            return "Fail_2"
+    
+    
+def get_params(N):
+    x = randint(0, N)
+    y = randint(0, N)
+    a = randint(0, N)
+    b = (y^2 - x^3 - a*x) % N
+    while not gcd(4*a^3 + 27*b^2, N) != 1:
+        x = randint(0, N)
+        y = randint(0, N)
+        a = randint(0, N)
+        b = (y^2 - x^3 - a*x) % N
+    return x, y, a, b
+
+def get_exponent(B, start):
+    result = 1
+    P = Primes()
+    p = P.unrank(start)  # indexed from 0
+    log_p = floor(log(B,p))
+    result *= p^(log_p)
+    
+    while True:
+        p = P.next(p)
+        if p > B:
+            break
+        log_p = floor(log(B, p))
+        result *= p^(log_p)
+    
+    return result
+
+def square_and_multiply(e_B, P, N, a):
+    
+    bin_coefs = e_B.digits(2)
+    if bin_coefs[0] == 1:
+        result = P
+    else:
+        result = "zero"
+    for i in range(1, len(bin_coefs)):
+        P, flag = add_on_curve(P, P, N, a)
+        if flag is not None:
+            return P, flag
+        if bin_coefs[i] == 1:
+            result, flag = add_on_curve(result, P, N, a)
+            if flag is not None:
+                return P, flag
+    return P, None
+
+def add_on_curve(P, Q, N, a):
+    if P == "zero":
+        return Q, None
+    elif Q == "zero":
+        return "zero", None
+    else:
+        x_1, y_1 = P
+        x_2, y_2 = Q
+        if (y_1 + y_2) % N == 0:
+            return "zero", None
+        if x_1 != x_2:
+            if gcd(x_2 - x_1, N) != 1:
+                return "zero", x_2 - x_1
+            else:
+                s = (R(y_2) - R(y_1)) / (R(x_2) - R(x_1))
+                s = ZZ(s)
+                x_3 = s^2 - x_1 - x_2  # mod N?
+                y_3 = s*(x_1 - x_3) - y_1
+                return (x_3, y_3), None
+        else:
+            if gcd(2*y_1, N) != 1:
+                return "zero", 2*y_1
+            else:
+                s = (3 * (R(x_1))^2 + R(a)) / (2 * R(y_1))
+                s = ZZ(s)
+                x_3 = s^2 - x_1 - x_2  # mod N?
+                y_3 = s*(x_1 - x_3) - y_1
+                return (x_3, y_3), None
+                
+
+
+# 4819 (ne), 3869, 3827 (ne), 3901 (ne), 3713, 3589, 3649 (ne), 3569
+my_N = 3869
+R = IntegerModRing(my_N)
+#print(ECM_core(my_N, 100))
+
+for i in range(10):
+    res = ECM_core(my_N, 10)
+    if res is None or res == "Fail_1" or res == "Fail_2":
+        placeholder = 0
+    else:
+        print("factor:", res)
+print("Calculations ended.")

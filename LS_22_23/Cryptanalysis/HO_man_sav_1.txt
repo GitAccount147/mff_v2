@@ -1,0 +1,51 @@
+def attack_HO_diff_sub(alpha, p1):
+    poss_keys = []
+    #alpha = randint(0,2^11-1)
+    #p1 = [randint(0,2^11-1), randint(0,2^11-1)]
+    p2 = [p1[0]^^alpha, p1[1]]
+    
+    c1 = feistel_enc(REAL_KEYS_feistel5, p1)
+    c2 = feistel_enc(REAL_KEYS_feistel5, p2)
+    
+    for k5 in range(2^11):
+        if k5 % 2^8 == 0:
+            print(k5)
+            
+        d1 = [c1[1], c1[0] ^^ permutation[c1[1]^^k5]]
+        d2 = [c2[1], c2[0] ^^ permutation[c2[1]^^k5]]
+        
+        for k4 in range(2^11):
+            t1 = permutation[d1[1]^^k4]
+            t2 = permutation[d2[1]^^k4]
+            
+            B1 = t1 ^^ d1[0]
+            B2 = t2 ^^ d2[0]
+            
+            if permutation.index(B1^^p1[1]) ^^ permutation.index(B2^^p1[1]) == alpha:
+                poss_keys.append((k4,k5))
+
+    return poss_keys
+
+def attack_HO_diff():
+    P1s = []
+    poss_keys = []
+    
+    alpha = randint(0,2^11-1)
+    p1 = [randint(0,2^11-1), randint(0,2^11-1)]
+    P1s.append(p1)
+    
+    poss_keys = attack_HO_diff_sub(alpha, p1)
+    print("In round", len(P1s), "tried c =", p1, "-> Number of possible keys:", len(poss_keys))
+    
+    while len(poss_keys) != 1:
+        p1 = [randint(0,2^11-1), randint(0,2^11-1)]
+        while p1 in P1s:
+            p1 = [randint(0,2^11-1), randint(0,2^11-1)]
+        P1s.append(p1)
+            
+        new_poss_keys = attack_HO_diff_sub(alpha, p1)
+        
+        poss_keys = [keys for ind, keys in enumerate(new_poss_keys) if keys in poss_keys]
+        print("In round", len(P1s), "tried p1 =", p1, "-> Number of possible keys:", len(poss_keys))
+    
+    return poss_keys

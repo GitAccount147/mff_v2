@@ -1,0 +1,453 @@
+# Schoof's algorithm v.4 - Josef Sykora
+
+# TO-DO:
+#  - doesnt work for low q (B wont reach the upper bound) (q<=5)
+#  - create cache for f_l_bar ?
+
+import time
+
+
+def get_s_bar(l):  # pg.47
+    q_l = q % l
+    
+    if q_l == 1:
+        return x^(q^2) - x
+    
+    f_plus0 = get_f_bar(q_l)
+    f_minus1 = get_f_bar(q_l - 1)
+    f_plus1 = get_f_bar(q_l + 1)
+    
+    if q_l % 2 == 0:
+        return 4*(x^(q^2) - x)*f*f_plus0^2 + f_minus1*f_plus1
+    else:
+        return (x^(q^2) - x)*f_plus0^2 + 4*f*f_minus1*f_plus1
+
+def get_f_bar(m):  # pg.38
+    if m < 0:
+        print("Error, m is negative:", m)
+        return None
+    
+    if m == 0:
+        return 0
+    elif m == 1:
+        return 1
+    elif m == 2:
+        return 1
+    elif m == 3:
+        return 3*x^4 + 6*a*x^2 + 12*b*x - a^2
+    elif m == 4:
+        return 2*(x^6 + 5*a*x^4 + 20*b*x^3 - 5*a^2*x^2 - 4*a*b*x - 8*b^2 - a^3)
+    else:
+        m_bar = m // 2
+        f_plus0 = get_f_bar(m_bar)
+        f_plus1 = get_f_bar(m_bar + 1)
+        f_plus2 = get_f_bar(m_bar + 2)
+        f_minus1 = get_f_bar(m_bar - 1)
+        
+        if m % 2 == 1:
+            if m_bar % 2 == 1:
+                result = f_plus2*f_plus0^3 - 16*f^2*f_minus1*f_plus1^3
+            else:
+                result = 16*f^2*f_plus2*f_plus0^3 - f_minus1*f_plus1^3
+        else:
+            f_minus2 = get_f_bar(m_bar - 2)
+            result = f_plus0*(f_plus2*f_minus1^2 - f_minus2*f_plus1^2)
+
+        return result
+    
+def get_s(m):  # via pg.47 S.2
+    if m == 1:
+        return 1
+    
+    f_plus0 = get_f_bar(m)
+    
+    if m % 2 == 0:
+        return 16*f^2*f_plus0^3
+    else:
+        return f_plus0^3
+
+def get_r(m):  # via pg.47 S.2
+    if m == 1:
+        return 1
+    
+    f_plus1 = get_f_bar(m + 1)
+    f_plus2 = get_f_bar(m + 2)
+    f_minus1 = get_f_bar(m - 1)
+    f_minus2 = get_f_bar(m - 2)
+    
+    return f_plus2*f_minus1^2 - f_minus2*f_plus1^2
+
+def tyzero(l, q_l, f_l_bar):
+    s_ql = get_s(q_l)
+    r_ql = get_r(q_l)
+    mixed = s_ql*f^((q^2 - 1)/2) + r_ql  # via lecture 14 - "observation"
+    
+    if mixed % f_l_bar == 0:  # is gcd better/faster?
+        return True
+    else:
+        return False
+
+def eigen(l, gamma, g_l):  # via lecture 14 - "fact"
+    # 1st coordinates equal (we know from the "if" branch of schoof_core)
+    
+    s_gamma = get_s(gamma)
+    r_gamma = get_r(gamma)
+    mixed = f^((q - 1)/2)*s_gamma - r_gamma
+    
+    if gcd(g_l, mixed) == 1:
+        return False
+    else:
+        return True
+
+def equalx(l, g_l, f_l_bar):
+    F_l = GF(l)
+    
+    q_l = q % l
+    if tyzero(l, q_l, f_l_bar):
+        return 0
+    
+    tau = sqrt(F_l(4 * q_l))  # over F_l
+    gamma = 2 * q_l / tau  # over F_l
+    
+    tau = ZZ(tau)
+    gamma = ZZ(gamma)
+    if eigen(l, gamma, g_l):
+        return tau
+    return - tau
+
+def get_c(m):  # via pg.46 S.1
+    if m == 1:
+        return 0
+    
+    f_plus1 = get_f_bar(m + 1)
+    f_minus1 = get_f_bar(m - 1)
+    
+    if m % 2 == 1:
+        result = 4*f*f_minus1*f_plus1
+    else:
+        result = f_minus1*f_plus1
+    
+    return result
+
+def get_d(m):  # via pg.46 S.1
+    if m == 1:
+        return 1
+    
+    f_plus0 = get_f_bar(m)
+    
+    if m % 2 == 1:
+        result = f_plus0^2
+    else:
+        result = 4*f*f_plus0^2
+        
+    return result
+
+def get_h_X(tau, f_l_bar, c_ql, d_ql, r_ql, s_ql, lambda0, f_power):
+    c_tau = get_c(tau)
+    d_tau = get_d(tau)
+    
+    c_tau = R(c_tau)  # interpet as element of F_q[x] so we could evaluate at x^q
+    d_tau = R(d_tau)
+    
+    den0 = (lambda0^2) % f_l_bar
+    den1 = (d_ql) % f_l_bar
+    den2 = (d_tau(x^q)) % f_l_bar
+    
+    den01 = den0 * den1
+    den02 = den0 * den2
+    den12 = den1 * den2
+    
+    den012 = den01 * den2
+    
+    num0 = (d_ql*(f_power * s_ql - r_ql)) % f_l_bar
+    num0 = (f * num0^2) % f_l_bar
+    num0 = (num0 * den12) % f_l_bar
+    
+    num1 = (c_ql * den02) % f_l_bar
+    num2 = (c_tau(x^q) * den01) % f_l_bar
+    rest = ((-x^(q^2) - x - x^q)*den012) % f_l_bar
+    
+    final = num0 + rest + num1 + num2
+    
+    return final
+
+def get_h_Y(tau, f_l_bar, c_ql, d_ql, r_ql, s_ql, lambda0, f_power):
+    s_tau = get_s(tau)
+    r_tau = get_r(tau)
+    
+    s_tau = R(s_tau)  # interpet as element of F_q[x] so we could evaluate at x^q
+    r_tau = R(r_tau)
+    
+    den0 = lambda0
+    den0_square = (den0^2) % f_l_bar
+    den0_square_dql = (den0_square*d_ql) % f_l_bar
+    den0_cube_dql = (den0*den0_square_dql) % f_l_bar
+    
+    lambda_bar = (d_ql * (f_power * s_ql - r_ql)) % f_l_bar
+    
+    part0 = (- f*lambda_bar^2*d_ql) % f_l_bar
+    part0 = (part0 - c_ql*den0_square + (2*x^(q^2) + x)*den0_square_dql) % f_l_bar
+    part0 = (lambda_bar * part0 * s_tau(x^q)) % f_l_bar
+    
+    part1 = (den0_cube_dql*f_power*s_tau(x^q)) % f_l_bar
+    part2 = (f^((q - 1)/2) * r_tau(x^q)) % f_l_bar
+    part2 = (part2 * den0_cube_dql) % f_l_bar
+    
+    final = part0 - part1 - part2
+    
+    return final
+
+def precompute(l, f_l_bar):
+    q_l = q % l
+    
+    c_ql = get_c(q_l)
+    d_ql = get_d(q_l)
+    r_ql = get_r(q_l)
+    s_ql = get_s(q_l)
+    
+    lambda0 = (d_ql*(x^(q^2) - x) + c_ql) % f_l_bar
+    lambda0 = (s_ql * lambda0) % f_l_bar
+    
+    f_power = (f^((q^2 - 1)/2)) % f_l_bar
+    
+    return c_ql, d_ql, r_ql, s_ql, lambda0, f_power
+    
+
+def nonequalx(l, tau, f_l_bar):
+    c_ql, d_ql, r_ql, s_ql, lambda0, f_power = precompute(l, f_l_bar)
+    
+    h_X = get_h_X(tau, f_l_bar, c_ql, d_ql, r_ql, s_ql, lambda0, f_power)
+    if gcd(h_X, f_l_bar) == 1:
+        return 0
+    
+    h_Y = get_h_Y(tau, f_l_bar, c_ql, d_ql, r_ql, s_ql, lambda0, f_power)
+    if gcd(h_Y, f_l_bar) == 1:
+        return -1
+    
+    return 1
+
+def recover_t(M):
+    rems, mods = [], []
+    modulus = 1
+    for pair in M:
+        rems.append(pair[1])
+        mods.append(pair[0])
+        modulus *= pair[0]
+    result = CRT_list(rems, mods)
+    if result > modulus // 2:
+        result -= modulus
+    return result
+
+def schoof_core():
+    P = Primes()
+    B = 2
+    l = 2
+    
+    if gcd(x^q - x, f) == 1:
+        tau = 1
+    else:
+        tau = 0
+    M = [(2, tau)]
+    
+    while B < 4 * sqrt(RR(q)):
+        l = P.next(l)
+        if q % l == 0:
+            l = P.next(l)
+        B *= l
+        
+        s_l_bar = get_s_bar(l)
+        f_l_bar = get_f_bar(l)
+        
+        g_l = gcd(s_l_bar, f_l_bar)
+        if g_l != 1:  # check that its 1 and not an invertible element
+            tau = equalx(l, g_l, f_l_bar)
+        else:
+            tau = 0
+            r = 0
+            while r == 0:
+                tau += 1
+                r = nonequalx(l, tau, f_l_bar)
+            if r == -1:
+                tau = - tau
+                
+        M.append((l, tau))
+    
+    t = recover_t(M)
+    size = q + 1 - t
+    return size
+
+def is_smooth():
+    if (4*a^3 + 27*b^2) % q == 0:
+        return False
+    else:
+        return True
+
+
+
+# driver code:
+
+test_on_range = True
+#test_on_range = False
+
+#test_single = True
+test_single = False
+random_a_b = True
+
+#brute_force = True
+brute_force = False
+
+#brute_force_v2 = True
+brute_force_v2 = False
+
+
+
+if test_on_range:
+    max_prime = 250  # works correctly for primes 7->173
+    q = 179  # char(K) not divisible by 2,3; for q=5 we have 4*sqrt(5)=8.94 > 6=2*3
+    PP = Primes()
+    print("Testing all smooth Weierstrass curves:")
+    
+    while q <= max_prime:
+        print("char(K):", q)
+        F_q = GF(q)
+        R.<x> = PolynomialRing(F_q)
+        
+        total_time, smooth_count, worst_time = 0, 0, 0
+        for a in range(q):
+            for b in range(q):
+                #print("Working with curve:", "a=", a, "b=", b, "; over q=", q,)
+                smoothness = is_smooth()
+                #print("Is the curve smooth?", smoothness)
+
+                if smoothness:
+                    smooth_count += 1
+                    f = x^3 + a*x + b
+                    
+                    # check with built-in functions:
+                    E = EllipticCurve(GF(q), [a, b])
+                    correct_size = E.cardinality()
+                    #print("Size of curve (from built-in):", len(list(E)))
+                    
+                    time_start = time.time()
+                    schoof_size = schoof_core()
+                    time_end = time.time()
+                    
+                    current_time = time_end - time_start
+                    total_time += current_time
+                    if current_time > worst_time:
+                        worst_time = current_time
+                    
+                    #print("Size of curve (from Schoof):", schoof_size)
+                    if correct_size != schoof_size:
+                        print("!!!!!!! Incorrect: ", "Schoof:", schoof_size, "Built-in:", correct_size, "!!!!!!!")
+                    #else:
+                    #    print("Correct")
+        avg_time = total_time / smooth_count
+        max_smooth = q^2
+        print("  Number of smooth curves:", smooth_count, "( out of", max_smooth, ")")
+        print("  Average time: {:.4f} (s) Worst time: {:.4f} (s)".format(avg_time, worst_time))
+        q = PP.next(q)
+
+if test_single:
+    q = 7  # 101, 191, 307, 881, 1999, 4001, 7919, 16001, 32003, 64007, 1 000 003, 10 000 019, 100 000 217, 1 000 000 007
+    if random_a_b:
+        a, b = randint(0, q - 1), randint(0, q - 1)
+    else:
+        a, b = 1, 0
+    F_q = GF(q)
+    R.<x> = PolynomialRing(F_q)
+    
+    smoothness = is_smooth()
+    
+    if smoothness:
+        f = x^3 + a*x + b
+        
+        print("Calculations began for (q, a, b) =", q, a, b)
+        time_start = time.time()
+        schoof_size = schoof_core()
+        time_end = time.time()
+        
+        E = EllipticCurve(GF(q), [a, b])
+        correct_size = E.cardinality()
+        
+        print("Schoof vs correct:", schoof_size, correct_size)
+        print("Time: {:.4f} (s)".format(time_end - time_start))
+        
+
+if brute_force:
+    q = 101  # 101, 191, 307, 881, 1999, 4001, 7919, 16001, 32003, 64007, 1 000 003, 10 000 019, 100 000 217, 1 000 000 007
+    if random_a_b:
+        a, b = randint(0, q - 1), randint(0, q - 1)
+    else:
+        a, b = 1, 0
+    F_q = GF(q)
+    R.<x> = PolynomialRing(F_q)
+    
+    smoothness = is_smooth()
+    
+    if smoothness:
+        f = x^3 + a*x + b
+        
+        print("Calculations began for (q, a, b) =", q, a, b)
+        time_start = time.time()
+        
+        non_zero_elements = 0
+        
+        for x_prime in range(q):
+            for y_prime in range(1, (q - 1)/2 + 1):
+                if y_prime^2 - f(x_prime) == 0:
+                    non_zero_elements += 2
+            if f(x_prime) == 0:
+                non_zero_elements += 1
+        
+        time_end = time.time()
+        total_elements = non_zero_elements + 1
+        
+        E = EllipticCurve(GF(q), [a, b])
+        correct_size = E.cardinality()
+        
+        print("Brute-force vs correct:", total_elements, correct_size)
+        print("Time: {:.4f} (s)".format(time_end - time_start))
+        
+if brute_force_v2:
+    q = 101  
+    # Schoof time: 101, 191, 307, 881, 1999, 4001 ~ 180s, 7919 ~ 503s, 16001 ~ 4500s, 32003, 64007
+    # brute-force time: 101, 191, 307, 881, 1999, 4001 ~ 22s, 7919 ~ 88s, 16001 ~ 365s, 32003, 64007
+    # brute-force-v2 time: 4001(~=2^12) ~ 0.01s, 7 919 ~ 0.02s, 16 001 ~ 0.05s, 32 003 ~ 0.1s, 64 007 ~ 0.2s, 1 000 003 ~ 3.4s,
+    #                      10 000 019(~=2^23) ~ 35s, 100 000 217 ~ 380s, 1 000 000 007 ~ (>3h?)
+    if random_a_b:
+        a, b = randint(0, q - 1), randint(0, q - 1)
+    else:
+        a, b = 1, 0
+    F_q = GF(q)
+    R.<x> = PolynomialRing(F_q)
+    
+    smoothness = is_smooth()
+    
+    if smoothness:
+        f = x^3 + a*x + b
+        
+        print("Calculations began for (q, a, b) =", q, a, b)
+        time_start = time.time()
+        
+        non_zero_elements = 0
+                
+        f_values = [0]*q
+        for x_prime in range(q):
+            f_values[f(x_prime)] += 1
+        non_zero_elements += f_values[0]
+        for i in range(1, q):
+            if f_values[i] != 0:
+                if F_q(i).is_square():
+                    non_zero_elements += 2 * f_values[i]
+        
+        time_end = time.time()
+        print("Time: {:.4f} (s)".format(time_end - time_start))
+        total_elements = non_zero_elements + 1
+        
+        E = EllipticCurve(GF(q), [a, b])
+        correct_size = E.cardinality()
+        
+        print("Brute-force (v2) vs correct:", total_elements, correct_size)
+
+print("Finished calculations.")

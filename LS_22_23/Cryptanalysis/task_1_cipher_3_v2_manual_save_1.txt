@@ -1,0 +1,115 @@
+# Cryptanalysis - Task 1 - CipherThree and Attack - v2
+
+# TO-DO:
+#   - vectorize operations
+#   - use smth better than quadruple for-loop
+
+# Remarks:
+#  - "^" has to be replaced with "^^" for xor in Sage
+
+
+import numpy as np
+
+def sbox(input):
+    list_out = [6, 4, 12, 5, 0, 7, 2, 14, 1, 15, 3, 13, 8, 10, 9, 11]
+    return list_out[input]
+
+def inverse_sbox(input):
+    list_out = [6, 4, 12, 5, 0, 7, 2, 14, 1, 15, 3, 13, 8, 10, 9, 11]
+    return list_out.index(input)
+
+def encrypt(keys, message):
+    ct = message
+    for i in range(len(keys) - 1):
+        ct ^^= keys[i]
+        ct = sbox(ct)
+    ct ^^= keys[-1]
+    return ct
+
+def decrypt(keys, ct):
+    message = ct
+    message ^^= keys[-1]
+    for i in range(len(keys) - 2, -1, -1):
+        message ^^= keys[i]
+        message = inverse_sbox(message)
+    return message
+
+def generate_pairs(diff):
+    pairs = []
+    singletons = []
+    for m in range(16):
+        if m not in singletons:
+            pairs.append((m, m ^^ diff))
+            singletons.append(m)
+            singletons.append(m ^^ diff)
+    return pairs
+
+# path choice: f->d->c ~ Prob =~ (10/16)*(6/16)
+def attack(keys):
+    pairs = generate_pairs(15)  # (15)_10 = (f)_16
+    ct_pairs = []
+    inv_pairs = []
+    for i in range(len(pairs)):
+        pair = encrypt(keys, pairs[i][0]), encrypt(keys, pairs[i][1])
+        ct_pairs.append(pair)
+        #inv_pairs.append((inverse_sbox(pair[0]), inverse_sbox(pair[1])))
+    ratio = [0] * 16
+    for key_3 in range(16):
+        for i in range(len(pairs)):
+            xored_pair = key_3 ^^ ct_pairs[i][0], key_3 ^^ ct_pairs[i][1]
+            inv_pair = (inverse_sbox(xored_pair[0]), inverse_sbox(xored_pair[1]))
+            diff = inv_pair[0] ^^ inv_pair[1]
+            if diff == 12:  #  (12)_10 = (c)_16
+                ratio[key_3] += 1
+    return ratio
+
+def test_attack():
+    stats = [0] * 16
+    bad = 0
+    for i in range(16):
+        for j in range(16):
+            for k in range(16):
+                for l in range(16):
+                    #keys = [i % 16, i % (16**2), i % (16**3), i % (16**4)]
+                    keys = [i, j, k, l]
+                    #guess = np.argmax(attack(keys))
+                    guesses = []
+                    ratio_from_attack = attack(keys)
+                    max_val = np.max(attack(keys))
+                    for i in range(16):
+                        if ratio_from_attack[i] == max_val:
+                            guesses.append(i)
+                    if l not in guesses:
+                        bad += 1
+                    else:
+                        stats[len(guesses)] += 1
+    return stats, bad
+
+
+def test_random_keys():
+    key_3 = randint(0, 15)
+    keys = [randint(0, 15), randint(0, 15), randint(0, 15), key_3]
+    result = attack(keys)
+    guesses = []
+    max_val = np.max(result)
+    for i in range(len(result)):
+        if result[i] == max_val:
+            guesses.append(i)
+    
+    return result, guesses, key_3
+
+#trk = test_random_keys()
+#print("Guesses:", trk[1], "Correct:", trk[2])
+
+#keys_1 = [9, 6, 7, 12]
+#message_1 = 1
+#ct_1 = encrypt(keys_1, message_1)
+#print("ct_1:", ct_1)
+#m_1 = decrypt(keys_1, ct_1)
+#print("decrpyted:", m_1)
+
+
+#print(attack(keys_1))
+res = test_attack()
+print("Found correct amongst _ guesses:", res[0])
+print("Did not find the key:", res[1])
