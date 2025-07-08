@@ -1,0 +1,10 @@
+﻿  kings-path.cpp
+C:\Users\Pepa\source\repos\recodex assignements\kings-path\kings-path\kings-path.cpp(225,11): error C3646: 'vector': unknown override specifier
+C:\Users\Pepa\source\repos\recodex assignements\kings-path\kings-path\kings-path.cpp(225,11): error C2143: syntax error: missing ';' before '*'
+C:\Users\Pepa\source\repos\recodex assignements\kings-path\kings-path\kings-path.cpp(225,24): error C2238: unexpected token(s) preceding ';'
+C:\Users\Pepa\source\repos\recodex assignements\kings-path\kings-path\kings-path.cpp(237,15): error C2039: 'all_vectors': is not a member of 'problem_solver'
+C:\Users\Pepa\source\repos\recodex assignements\kings-path\kings-path\kings-path.cpp(194): message : see declaration of 'problem_solver'
+C:\Users\Pepa\source\repos\recodex assignements\kings-path\kings-path\kings-path.cpp(241,19): error C2039: 'all_vectors': is not a member of 'problem_solver'
+C:\Users\Pepa\source\repos\recodex assignements\kings-path\kings-path\kings-path.cpp(194): message : see declaration of 'problem_solver'
+C:\Users\Pepa\source\repos\recodex assignements\kings-path\kings-path\kings-path.cpp(253,23): error C2039: 'all_vectors': is not a member of 'problem_solver'
+C:\Users\Pepa\source\repos\recodex assignements\kings-path\kings-path\kings-path.cpp(194): message : see declaration of 'problem_solver'

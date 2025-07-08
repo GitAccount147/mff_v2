@@ -1,0 +1,7 @@
+﻿  Source.c
+C:\Users\Pepa\source\repos\recodex assignements\king-in-a-file\king-in-a-file\Source.c(12,25): warning C4013: 'malloc' undefined; assuming extern returning int
+C:\Users\Pepa\source\repos\recodex assignements\king-in-a-file\king-in-a-file\Source.c(12,1): warning C4047: 'initializing': 'tile *' differs in levels of indirection from 'int'
+C:\Users\Pepa\source\repos\recodex assignements\king-in-a-file\king-in-a-file\Source.c(27,6): warning C4013: 'free' undefined; assuming extern returning int
+C:\Users\Pepa\source\repos\recodex assignements\king-in-a-file\king-in-a-file\Source.c(43,1): warning C4047: 'initializing': 'int *' differs in levels of indirection from 'int'
+C:\Users\Pepa\source\repos\recodex assignements\king-in-a-file\king-in-a-file\Source.c(114,1): warning C4047: 'initializing': 'tile *' differs in levels of indirection from 'int'
+  king-in-a-file.vcxproj -> C:\Users\Pepa\source\repos\recodex assignements\king-in-a-file\Debug\king-in-a-file.exe

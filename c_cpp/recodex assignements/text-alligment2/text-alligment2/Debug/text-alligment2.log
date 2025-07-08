@@ -1,0 +1,4 @@
+﻿  Source.c
+C:\Users\Pepa\source\repos\recodex assignements\text-alligment2\text-alligment2\Source.c(24,21): warning C4013: 'malloc' undefined; assuming extern returning int
+C:\Users\Pepa\source\repos\recodex assignements\text-alligment2\text-alligment2\Source.c(24,1): warning C4047: 'initializing': 'char *' differs in levels of indirection from 'int'
+  text-alligment2.vcxproj -> C:\Users\Pepa\source\repos\recodex assignements\text-alligment2\Debug\text-alligment2.exe

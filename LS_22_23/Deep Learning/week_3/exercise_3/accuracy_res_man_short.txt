@@ -1,0 +1,419 @@
+logs:
+
+Namespace(alphabet_size=200, batch_size=1000, window=7, hidden_layers=[500], dropout=0, weight_decay=0)
+6112/6112 [==============================] - 550s 90ms/step - loss: 0.0454 - accuracy: 0.9838 - val_loss: 0.0343 - val_accuracy: 0.9878
+6112/6112 [==============================] - 545s 89ms/step - loss: 0.0290 - accuracy: 0.9899 - val_loss: 0.0325 - val_accuracy: 0.9885
+3/3       [==============================] - 544s 89ms/step - loss: 0.0235 - accuracy: 0.9919 - val_loss: 0.0321 - val_accuracy: 0.9890
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=200, batch_size=1000, window=10, hidden_layers=[500], dropout=0.3, weight_decay=0.1)
+6112/6112 [==============================] - 841s 137ms/step - loss: 0.0505 - accuracy: 0.9818 - val_loss: 0.0377 - val_accuracy: 0.9865
+6112/6112 [==============================] - 848s 139ms/step - loss: 0.0365 - accuracy: 0.9870 - val_loss: 0.0350 - val_accuracy: 0.9875
+3/3       [==============================] - 853s 140ms/step - loss: 0.0336 - accuracy: 0.9881 - val_loss: 0.0339 - val_accuracy: 0.9879
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=200, batch_size=1000, window=6, hidden_layers=[750], dropout=0.3, weight_decay=0.1)
+6112/6112 [==============================] - 831s 136ms/step - loss: 0.0327 - accuracy: 0.9884 - val_loss: 0.0331 - val_accuracy: 0.9882
+6112/6112 [==============================] - 834s 136ms/step - loss: 0.0315 - accuracy: 0.9888 - val_loss: 0.0321 - val_accuracy: 0.9884
+5/5       [==============================] - 826s 135ms/step - loss: 0.0308 - accuracy: 0.9890 - val_loss: 0.0320 - val_accuracy: 0.9885
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=200, batch_size=1000, window=6, hidden_layers=[375], dropout=0.05, weight_decay=0.05)
+6112/6112 [==============================] - 433s 71ms/step - loss: 0.0259 - accuracy: 0.9909 - val_loss: 0.0314 - val_accuracy: 0.9887
+6112/6112 [==============================] - 439s 72ms/step - loss: 0.0250 - accuracy: 0.9912 - val_loss: 0.0318 - val_accuracy: 0.9888
+7/7       [==============================] - 441s 72ms/step - loss: 0.0243 - accuracy: 0.9915 - val_loss: 0.0316 - val_accuracy: 0.9886
+
+
+=================================================================================
+=================================================================================
+Namespace(alphabet_size=200, batch_size=100, window=5, hidden_layers=[100], dropout=0, weight_decay=0)
+61120/61120 [==============================] - 189s 3ms/step - loss: 0.0458 - accuracy: 0.9832 - val_loss: 0.0386 - val_accuracy: 0.9860
+61120/61120 [==============================] - 188s 3ms/step - loss: 0.0362 - accuracy: 0.9871 - val_loss: 0.0364 - val_accuracy: 0.9868
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=200, batch_size=500, window=7, hidden_layers=[256], dropout=0.05, weight_decay=0.05)
+12224/12224 [==============================] - 375s 31ms/step - loss: 0.0289 - accuracy: 0.9898 - val_loss: 0.0327 - val_accuracy: 0.9884
+12224/12224 [==============================] - 372s 30ms/step - loss: 0.0285 - accuracy: 0.9899 - val_loss: 0.0326 - val_accuracy: 0.9883
+8/8         [==============================] - 374s 31ms/step - loss: 0.0282 - accuracy: 0.9901 - val_loss: 0.0323 - val_accuracy: 0.9884
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=200, batch_size=1000, window=7, hidden_layers=[512], dropout=0, weight_decay=0)
+6112/6112 [==============================] - 592s 97ms/step - loss: 0.0289 - accuracy: 0.9900 - val_loss: 0.0320 - val_accuracy: 0.9888
+6112/6112 [==============================] - 591s 97ms/step - loss: 0.0232 - accuracy: 0.9920 - val_loss: 0.0314 - val_accuracy: 0.9892
+6112/6112 [==============================] - 591s 97ms/step - loss: 0.0192 - accuracy: 0.9934 - val_loss: 0.0328 - val_accuracy: 0.9890
+5/8       [==============================] - 592s 97ms/step - loss: 0.0159 - accuracy: 0.9945 - val_loss: 0.0351 - val_accuracy: 0.9887
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=200, batch_size=1000, window=7, hidden_layers=[512], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+6112/6112 [==============================] - 679s 111ms/step - loss: 0.2328 - accuracy: 0.9807 - val_loss: 0.2228 - val_accuracy: 0.9858
+2/6       [==============================] - 677s 111ms/step - loss: 0.2242 - accuracy: 0.9857 - val_loss: 0.2205 - val_accuracy: 0.9875
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=200, batch_size=1000, window=7, hidden_layers=[512], dropout=0.2, weight_decay=0, label_smoothing=0.05)
+6112/6112 [==============================] - 685s 112ms/step - loss: 0.1394 - accuracy: 0.9899 - val_loss: 0.1404 - val_accuracy: 0.9892
+6112/6112 [==============================] - 674s 110ms/step - loss: 0.1375 - accuracy: 0.9909 - val_loss: 0.1400 - val_accuracy: 0.9893
+6112/6112 [==============================] - 671s 110ms/step - loss: 0.1363 - accuracy: 0.9915 - val_loss: 0.1400 - val_accuracy: 0.9894
+6/6       [==============================] - 668s 109ms/step - loss: 0.1353 - accuracy: 0.9920 - val_loss: 0.1395 - val_accuracy: 0.9898
+
+=================================================================================
+=================================================================================
+
+3 models + RELU:
+##############(Potential)##############
+Namespace(alphabet_size=200, batch_size=1000, window=7, hidden_layers=[1024], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+Training model 1:
+6112/6112 [==============================] - 1215s 199ms/step - loss: 0.2172 - accuracy: 0.9900 - val_loss: 0.2172 - val_accuracy: 0.9895
+6112/6112 [==============================] - 1216s 199ms/step - loss: 0.2164 - accuracy: 0.9906 - val_loss: 0.2169 - val_accuracy: 0.9898
+6112/6112 [==============================] - 1214s 199ms/step - loss: 0.2158 - accuracy: 0.9910 - val_loss: 0.2166 - val_accuracy: 0.9901
+8/8       [==============================] - 1214s 199ms/step - loss: 0.2152 - accuracy: 0.9914 - val_loss: 0.2165 - val_accuracy: 0.9900
+Training model 2:
+6112/6112 [==============================] - 1217s 199ms/step - loss: 0.2170 - accuracy: 0.9902 - val_loss: 0.2171 - val_accuracy: 0.9897
+6112/6112 [==============================] - 1217s 199ms/step - loss: 0.2162 - accuracy: 0.9907 - val_loss: 0.2168 - val_accuracy: 0.9897
+6112/6112 [==============================] - 1217s 199ms/step - loss: 0.2156 - accuracy: 0.9911 - val_loss: 0.2166 - val_accuracy: 0.9899
+8/8       [==============================] - 1217s 199ms/step - loss: 0.2150 - accuracy: 0.9915 - val_loss: 0.2164 - val_accuracy: 0.9899
+Training model 3:
+6112/6112 [==============================] - 1217s 199ms/step - loss: 0.2171 - accuracy: 0.9901 - val_loss: 0.2172 - val_accuracy: 0.9895
+6112/6112 [==============================] - 1217s 199ms/step - loss: 0.2163 - accuracy: 0.9907 - val_loss: 0.2168 - val_accuracy: 0.9899
+6112/6112 [==============================] - 1217s 199ms/step - loss: 0.2157 - accuracy: 0.9910 - val_loss: 0.2165 - val_accuracy: 0.9900
+8/8       [==============================] - 1217s 199ms/step - loss: 0.2151 - accuracy: 0.9914 - val_loss: 0.2164 - val_accuracy: 0.9901
+Ensemble acc: 0.9905176
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=200, batch_size=1000, window=7, hidden_layers=[512], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+6112/6112 [==============================] - 672s 110ms/step - loss: 0.2498 - accuracy: 0.9707 - val_loss: 0.2425 - val_accuracy: 0.9737
+6112/6112 [==============================] - 667s 109ms/step - loss: 0.2431 - accuracy: 0.9749 - val_loss: 0.2390 - val_accuracy: 0.9759
+6112/6112 [==============================] - 669s 109ms/step - loss: 0.2408 - accuracy: 0.9759 - val_loss: 0.2369 - val_accuracy: 0.9766
+4/8       [==============================] - 671s 110ms/step - loss: 0.2393 - accuracy: 0.9767 - val_loss: 0.2352 - val_accuracy: 0.9775
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=200, batch_size=1000, window=5, hidden_layers=[512], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+6112/6112 [==============================] - 522s 85ms/step - loss: 0.2248 - accuracy: 0.9850 - val_loss: 0.2210 - val_accuracy: 0.9870
+6112/6112 [==============================] - 525s 86ms/step - loss: 0.2229 - accuracy: 0.9862 - val_loss: 0.2199 - val_accuracy: 0.9877
+6112/6112 [==============================] - 523s 86ms/step - loss: 0.2218 - accuracy: 0.9870 - val_loss: 0.2193 - val_accuracy: 0.9880
+5/8       [==============================] - 524s 86ms/step - loss: 0.2212 - accuracy: 0.9874 - val_loss: 0.2188 - val_accuracy: 0.9884
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=30, batch_size=1000, window=6, hidden_layers=[512], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+6112/6112 [==============================] - 181s 29ms/step - loss: 0.2384 - accuracy: 0.9775 - val_loss: 0.2281 - val_accuracy: 0.9825
+6112/6112 [==============================] - 180s 29ms/step - loss: 0.2297 - accuracy: 0.9823 - val_loss: 0.2254 - val_accuracy: 0.9842
+6112/6112 [==============================] - 180s 29ms/step - loss: 0.2278 - accuracy: 0.9835 - val_loss: 0.2240 - val_accuracy: 0.9854
+4/8       [==============================] - 180s 29ms/step - loss: 0.2267 - accuracy: 0.9841 - val_loss: 0.2232 - val_accuracy: 0.9856
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=30, batch_size=5000, window=7, hidden_layers=[1024], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+1223/1223 [==============================] - 341s 279ms/step - loss: 0.2311 - accuracy: 0.9820 - val_loss: 0.2268 - val_accuracy: 0.9839
+1223/1223 [==============================] - 341s 279ms/step - loss: 0.2275 - accuracy: 0.9842 - val_loss: 0.2245 - val_accuracy: 0.9850
+1223/1223 [==============================] - 348s 285ms/step - loss: 0.2254 - accuracy: 0.9855 - val_loss: 0.2232 - val_accuracy: 0.9858
+5/8       [==============================] - 351s 287ms/step - loss: 0.2239 - accuracy: 0.9863 - val_loss: 0.2222 - val_accuracy: 0.9864
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=250, batch_size=5000, window=8, hidden_layers=[512, 512], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+1223/1223 [==============================] - 1016s 831ms/step - loss: 0.2178 - accuracy: 0.9894 - val_loss: 0.2179 - val_accuracy: 0.9890
+1223/1223 [==============================] - 1018s 832ms/step - loss: 0.2168 - accuracy: 0.9899 - val_loss: 0.2179 - val_accuracy: 0.9890
+1223/1223 [==============================] - 1019s 833ms/step - loss: 0.2159 - accuracy: 0.9905 - val_loss: 0.2176 - val_accuracy: 0.9891
+8/8       [==============================] - 1018s 833ms/step - loss: 0.2152 - accuracy: 0.9908 - val_loss: 0.2177 - val_accuracy: 0.9890
+
+
+=================================================================================
+=================================================================================
+
+##############(Potential)##############
+Namespace(alphabet_size=250, batch_size=1000, window=7, hidden_layers=[1024], dropout=0.5, weight_decay=0, label_smoothing=0)
+6112/6112 [==============================] - 1490s 244ms/step - loss: 0.0257 - accuracy: 0.9909 - val_loss: 0.0297 - val_accuracy: 0.9897
+6112/6112 [==============================] - 1500s 245ms/step - loss: 0.0240 - accuracy: 0.9915 - val_loss: 0.0296 - val_accuracy: 0.9898
+6112/6112 [==============================] - 1489s 244ms/step - loss: 0.0227 - accuracy: 0.9920 - val_loss: 0.0297 - val_accuracy: 0.9899
+8/8       [==============================] - 1475s 241ms/step - loss: 0.0215 - accuracy: 0.9923 - val_loss: 0.0298 - val_accuracy: 0.9900
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=250, batch_size=1000, window=7, hidden_layers=[512], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+6112/6112 [==============================] - 816s 133ms/step - loss: 0.2189 - accuracy: 0.9890 - val_loss: 0.2175 - val_accuracy: 0.9894
+6112/6112 [==============================] - 811s 133ms/step - loss: 0.2185 - accuracy: 0.9893 - val_loss: 0.2172 - val_accuracy: 0.9895
+6112/6112 [==============================] - 815s 133ms/step - loss: 0.2182 - accuracy: 0.9895 - val_loss: 0.2171 - val_accuracy: 0.9896
+10/10     [==============================] - 820s 134ms/step - loss: 0.2178 - accuracy: 0.9898 - val_loss: 0.2169 - val_accuracy: 0.9897
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=250, batch_size=1000, window=5, hidden_layers=[256], dropout=0.3, weight_decay=0, label_smoothing=0.05)
+6112/6112 [==============================] - 102s 17ms/step - loss: 0.1417 - accuracy: 0.9885 - val_loss: 0.1411 - val_accuracy: 0.9886
+6112/6112 [==============================] - 101s 17ms/step - loss: 0.1414 - accuracy: 0.9887 - val_loss: 0.1410 - val_accuracy: 0.9886
+6112/6112 [==============================] - 100s 16ms/step - loss: 0.1411 - accuracy: 0.9889 - val_loss: 0.1405 - val_accuracy: 0.9890
+10/10     [==============================] - 100s 16ms/step - loss: 0.1408 - accuracy: 0.9890 - val_loss: 0.1404 - val_accuracy: 0.9889
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=60, batch_size=1000, window=5, hidden_layers=[512], dropout=0.3, weight_decay=0, label_smoothing=0.05)
+6112/6112 [==============================] - 72s 12ms/step - loss: 0.1390 - accuracy: 0.9900 - val_loss: 0.1400 - val_accuracy: 0.9894
+6112/6112 [==============================] - 72s 12ms/step - loss: 0.1385 - accuracy: 0.9903 - val_loss: 0.1397 - val_accuracy: 0.9895
+6112/6112 [==============================] - 73s 12ms/step - loss: 0.1380 - accuracy: 0.9905 - val_loss: 0.1395 - val_accuracy: 0.9897
+10/10     [==============================] - 73s 12ms/step - loss: 0.1377 - accuracy: 0.9907 - val_loss: 0.1393 - val_accuracy: 0.9898
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=50, batch_size=1000, window=6, hidden_layers=[512], dropout=0.3, weight_decay=0, label_smoothing=0.05)
+6112/6112 [==============================] - 72s 12ms/step - loss: 0.1389 - accuracy: 0.9901 - val_loss: 0.1405 - val_accuracy: 0.9890
+6112/6112 [==============================] - 72s 12ms/step - loss: 0.1384 - accuracy: 0.9904 - val_loss: 0.1405 - val_accuracy: 0.9889
+6112/6112 [==============================] - 72s 12ms/step - loss: 0.1380 - accuracy: 0.9907 - val_loss: 0.1403 - val_accuracy: 0.9891
+10/10     [==============================] - 72s 12ms/step - loss: 0.1375 - accuracy: 0.9909 - val_loss: 0.1402 - val_accuracy: 0.9892
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=50, batch_size=500, window=6, hidden_layers=[512], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+12224/12224 [==============================] - 92s 7ms/step - loss: 0.2195 - accuracy: 0.9887 - val_loss: 0.2179 - val_accuracy: 0.9891
+12224/12224 [==============================] - 91s 7ms/step - loss: 0.2193 - accuracy: 0.9889 - val_loss: 0.2178 - val_accuracy: 0.9890
+12224/12224 [==============================] - 89s 7ms/step - loss: 0.2192 - accuracy: 0.9889 - val_loss: 0.2177 - val_accuracy: 0.9892
+15/15       [==============================] - 89s 7ms/step - loss: 0.2190 - accuracy: 0.9890 - val_loss: 0.2177 - val_accuracy: 0.9890
+
+=================================================================================
+=================================================================================
+
+##############(Potential)##############
+Namespace(alphabet_size=55, batch_size=512, window=6, hidden_layers=[1024], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+11938/11938 [==============================] - 174s 15ms/step - loss: 0.2154 - accuracy: 0.9913 - val_loss: 0.2162 - val_accuracy: 0.9903
+11938/11938 [==============================] - 175s 15ms/step - loss: 0.2150 - accuracy: 0.9915 - val_loss: 0.2162 - val_accuracy: 0.9902
+11938/11938 [==============================] - 175s 15ms/step - loss: 0.2148 - accuracy: 0.9916 - val_loss: 0.2162 - val_accuracy: 0.9902
+15/15       [==============================] - 175s 15ms/step - loss: 0.2147 - accuracy: 0.9918 - val_loss: 0.2161 - val_accuracy: 0.9904
+
+=================================================================================
+=================================================================================
+
+##############(Potential)##############
+Namespace(alphabet_size=55, batch_size=256, window=6, hidden_layers=[1500], dropout=0.55, weight_decay=0, label_smoothing=0.125)
+Training model 1:
+23875/23875 [==============================] - 358s 15ms/step - loss: 0.2490 - accuracy: 0.9917 - val_loss: 0.2505 - val_accuracy: 0.9903
+23875/23875 [==============================] - 357s 15ms/step - loss: 0.2489 - accuracy: 0.9917 - val_loss: 0.2503 - val_accuracy: 0.9904
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2488 - accuracy: 0.9918 - val_loss: 0.2503 - val_accuracy: 0.9902
+20/20       [==============================] - 359s 15ms/step - loss: 0.2487 - accuracy: 0.9919 - val_loss: 0.2503 - val_accuracy: 0.9902
+Training model 2:
+23875/23875 [==============================] - 360s 15ms/step - loss: 0.2490 - accuracy: 0.9916 - val_loss: 0.2504 - val_accuracy: 0.9903
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2490 - accuracy: 0.9917 - val_loss: 0.2503 - val_accuracy: 0.9902
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2488 - accuracy: 0.9918 - val_loss: 0.2503 - val_accuracy: 0.9902
+20/20       [==============================] - 360s 15ms/step - loss: 0.2488 - accuracy: 0.9918 - val_loss: 0.2503 - val_accuracy: 0.9904
+Training model 3:
+23875/23875 [==============================] - 361s 15ms/step - loss: 0.2490 - accuracy: 0.9916 - val_loss: 0.2505 - val_accuracy: 0.9902
+23875/23875 [==============================] - 361s 15ms/step - loss: 0.2489 - accuracy: 0.9917 - val_loss: 0.2502 - val_accuracy: 0.9902
+23875/23875 [==============================] - 362s 15ms/step - loss: 0.2488 - accuracy: 0.9917 - val_loss: 0.2503 - val_accuracy: 0.9901
+20/20       [==============================] - 361s 15ms/step - loss: 0.2487 - accuracy: 0.9919 - val_loss: 0.2503 - val_accuracy: 0.9903
+Training model 4:
+23875/23875 [==============================] - 360s 15ms/step - loss: 0.2490 - accuracy: 0.9916 - val_loss: 0.2503 - val_accuracy: 0.9902
+23875/23875 [==============================] - 362s 15ms/step - loss: 0.2489 - accuracy: 0.9917 - val_loss: 0.2503 - val_accuracy: 0.9903
+23875/23875 [==============================] - 362s 15ms/step - loss: 0.2488 - accuracy: 0.9918 - val_loss: 0.2502 - val_accuracy: 0.9902
+20/20       [==============================] - 361s 15ms/step - loss: 0.2487 - accuracy: 0.9918 - val_loss: 0.2501 - val_accuracy: 0.9904
+Training model 5:
+23875/23875 [==============================] - 372s 16ms/step - loss: 0.2490 - accuracy: 0.9916 - val_loss: 0.2502 - val_accuracy: 0.9902
+23875/23875 [==============================] - 374s 16ms/step - loss: 0.2489 - accuracy: 0.9917 - val_loss: 0.2501 - val_accuracy: 0.9901
+23875/23875 [==============================] - 370s 16ms/step - loss: 0.2488 - accuracy: 0.9918 - val_loss: 0.2501 - val_accuracy: 0.9902
+20/20       [==============================] - 368s 15ms/step - loss: 0.2487 - accuracy: 0.9919 - val_loss: 0.2501 - val_accuracy: 0.9903
+Ensemble acc: 0.9909942
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=55, batch_size=512, window=7, hidden_layers=[512], dropout=0.55, weight_decay=0, label_smoothing=0.125)
+11938/11938 [==============================] - 108s 9ms/step - loss: 0.2522 - accuracy: 0.9894 - val_loss: 0.2509 - val_accuracy: 0.9897
+11938/11938 [==============================] - 109s 9ms/step - loss: 0.2522 - accuracy: 0.9894 - val_loss: 0.2507 - val_accuracy: 0.9896
+11938/11938 [==============================] - 108s 9ms/step - loss: 0.2520 - accuracy: 0.9896 - val_loss: 0.2507 - val_accuracy: 0.9897
+20/20       [==============================] - 109s 9ms/step - loss: 0.2520 - accuracy: 0.9895 - val_loss: 0.2507 - val_accuracy: 0.9895
+
+=================================================================================
+=================================================================================
+
+##############(Potential)##############
+Namespace(alphabet_size=55, batch_size=512, window=7, hidden_layers=[1024], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+11938/11938 [==============================] - 192s 16ms/step - loss: 0.2147 - accuracy: 0.9918 - val_loss: 0.2163 - val_accuracy: 0.9902
+11938/11938 [==============================] - 194s 16ms/step - loss: 0.2144 - accuracy: 0.9920 - val_loss: 0.2163 - val_accuracy: 0.9902
+11938/11938 [==============================] - 192s 16ms/step - loss: 0.2141 - accuracy: 0.9921 - val_loss: 0.2162 - val_accuracy: 0.9902
+11938/11938 [==============================] - 191s 16ms/step - loss: 0.2140 - accuracy: 0.9923 - val_loss: 0.2163 - val_accuracy: 0.9902
+11938/11938 [==============================] - 192s 16ms/step - loss: 0.2138 - accuracy: 0.9924 - val_loss: 0.2161 - val_accuracy: 0.9903
+11938/11938 [==============================] - 191s 16ms/step - loss: 0.2136 - accuracy: 0.9925 - val_loss: 0.2163 - val_accuracy: 0.9904
+11938/11938 [==============================] - 193s 16ms/step - loss: 0.2134 - accuracy: 0.9927 - val_loss: 0.2162 - val_accuracy: 0.9903
+11938/11938 [==============================] - 191s 16ms/step - loss: 0.2133 - accuracy: 0.9928 - val_loss: 0.2162 - val_accuracy: 0.9904
+20/20       [==============================] - 191s 16ms/step - loss: 0.2131 - accuracy: 0.9928 - val_loss: 0.2161 - val_accuracy: 0.9905
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=55, batch_size=512, window=9, hidden_layers=[1024], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+11938/11938 [==============================] - 224s 19ms/step - loss: 0.2126 - accuracy: 0.9933 - val_loss: 0.2170 - val_accuracy: 0.9902
+11938/11938 [==============================] - 222s 19ms/step - loss: 0.2124 - accuracy: 0.9934 - val_loss: 0.2168 - val_accuracy: 0.9901
+11938/11938 [==============================] - 223s 19ms/step - loss: 0.2122 - accuracy: 0.9936 - val_loss: 0.2168 - val_accuracy: 0.9902
+20/20       [==============================] - 224s 19ms/step - loss: 0.2121 - accuracy: 0.9937 - val_loss: 0.2168 - val_accuracy: 0.9900
+
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=60, batch_size=512, window=10, hidden_layers=[1024], dropout=0.6125, weight_decay=0, label_smoothing=0.125)
+11938/11938 [==============================] - 252s 21ms/step - loss: 0.2487 - accuracy: 0.9921 - val_loss: 0.2507 - val_accuracy: 0.9901
+11938/11938 [==============================] - 250s 21ms/step - loss: 0.2486 - accuracy: 0.9921 - val_loss: 0.2508 - val_accuracy: 0.9899
+11938/11938 [==============================] - 250s 21ms/step - loss: 0.2485 - accuracy: 0.9922 - val_loss: 0.2507 - val_accuracy: 0.9901
+25/25       [==============================] - 250s 21ms/step - loss: 0.2485 - accuracy: 0.9923 - val_loss: 0.2507 - val_accuracy: 0.9900
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=35, batch_size=1024, window=5, hidden_layers=[512], dropout=0.3, weight_decay=0, label_smoothing=0.05)
+5969/5969 [==============================] - 55s 9ms/step - loss: 0.1438 - accuracy: 0.9876 - val_loss: 0.1432 - val_accuracy: 0.9875
+5969/5969 [==============================] - 55s 9ms/step - loss: 0.1432 - accuracy: 0.9878 - val_loss: 0.1431 - val_accuracy: 0.9874
+5969/5969 [==============================] - 55s 9ms/step - loss: 0.1427 - accuracy: 0.9881 - val_loss: 0.1429 - val_accuracy: 0.9874
+9/20      [==============================] - 56s 9ms/step - loss: 0.1423 - accuracy: 0.9883 - val_loss: 0.1424 - val_accuracy: 0.9878
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=45, batch_size=1024, window=6, hidden_layers=[1024], dropout=0.4, weight_decay=0, label_smoothing=0.025)
+5969/5969 [==============================] - 125s 21ms/step - loss: 0.0848 - accuracy: 0.9933 - val_loss: 0.0923 - val_accuracy: 0.9899
+5969/5969 [==============================] - 124s 21ms/step - loss: 0.0846 - accuracy: 0.9933 - val_loss: 0.0923 - val_accuracy: 0.9900
+5969/5969 [==============================] - 125s 21ms/step - loss: 0.0844 - accuracy: 0.9935 - val_loss: 0.0924 - val_accuracy: 0.9899
+20/20     [==============================] - 125s 21ms/step - loss: 0.0842 - accuracy: 0.9935 - val_loss: 0.0925 - val_accuracy: 0.9900
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=55, batch_size=1024, window=7, hidden_layers=[1024], dropout=0, weight_decay=0, label_smoothing=0.3)
+5969/5969 [==============================] - 107s 18ms/step - loss: 0.4376 - accuracy: 0.9840 - val_loss: 0.4342 - val_accuracy: 0.9882
+5969/5969 [==============================] - 106s 18ms/step - loss: 0.4325 - accuracy: 0.9902 - val_loss: 0.4333 - val_accuracy: 0.9893
+5969/5969 [==============================] - 112s 19ms/step - loss: 0.4308 - accuracy: 0.9923 - val_loss: 0.4328 - val_accuracy: 0.9898
+5969/5969 [==============================] - 109s 18ms/step - loss: 0.4297 - accuracy: 0.9937 - val_loss: 0.4328 - val_accuracy: 0.9901
+5969/5969 [==============================] - 106s 18ms/step - loss: 0.4289 - accuracy: 0.9948 - val_loss: 0.4328 - val_accuracy: 0.9900
+5969/5969 [==============================] - 106s 18ms/step - loss: 0.4283 - accuracy: 0.9956 - val_loss: 0.4330 - val_accuracy: 0.9901
+5969/5969 [==============================] - 106s 18ms/step - loss: 0.4278 - accuracy: 0.9963 - val_loss: 0.4330 - val_accuracy: 0.9899
+5969/5969 [==============================] - 108s 18ms/step - loss: 0.4274 - accuracy: 0.9968 - val_loss: 0.4332 - val_accuracy: 0.9898
+9/25      [==============================] - 110s 18ms/step - loss: 0.4270 - accuracy: 0.9972 - val_loss: 0.4334 - val_accuracy: 0.9897
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=65, batch_size=1024, window=7, hidden_layers=[1024], dropout=0.1, weight_decay=0, label_smoothing=0.3)
+5969/5969 [==============================] - 162s 27ms/step - loss: 0.4378 - accuracy: 0.9839 - val_loss: 0.4341 - val_accuracy: 0.9883
+5969/5969 [==============================] - 162s 27ms/step - loss: 0.4328 - accuracy: 0.9899 - val_loss: 0.4331 - val_accuracy: 0.9894
+5969/5969 [==============================] - 162s 27ms/step - loss: 0.4313 - accuracy: 0.9917 - val_loss: 0.4325 - val_accuracy: 0.9898
+5969/5969 [==============================] - 162s 27ms/step - loss: 0.4303 - accuracy: 0.9929 - val_loss: 0.4324 - val_accuracy: 0.9902
+5969/5969 [==============================] - 161s 27ms/step - loss: 0.4297 - accuracy: 0.9938 - val_loss: 0.4324 - val_accuracy: 0.9901
+5969/5969 [==============================] - 161s 27ms/step - loss: 0.4291 - accuracy: 0.9945 - val_loss: 0.4324 - val_accuracy: 0.9903
+5969/5969 [==============================] - 162s 27ms/step - loss: 0.4287 - accuracy: 0.9951 - val_loss: 0.4324 - val_accuracy: 0.9902
+5969/5969 [==============================] - 161s 27ms/step - loss: 0.4284 - accuracy: 0.9955 - val_loss: 0.4325 - val_accuracy: 0.9901
+9/25      [==============================] - 161s 27ms/step - loss: 0.4281 - accuracy: 0.9959 - val_loss: 0.4326 - val_accuracy: 0.9900
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=65, batch_size=512, window=7, hidden_layers=[1024], dropout=0.2, weight_decay=0, label_smoothing=0.4)
+11938/11938 [==============================] - 213s 18ms/step - loss: 0.5109 - accuracy: 0.9842 - val_loss: 0.5084 - val_accuracy: 0.9882
+11938/11938 [==============================] - 212s 18ms/step - loss: 0.5079 - accuracy: 0.9892 - val_loss: 0.5077 - val_accuracy: 0.9891
+11938/11938 [==============================] - 212s 18ms/step - loss: 0.5069 - accuracy: 0.9909 - val_loss: 0.5074 - val_accuracy: 0.9897
+11938/11938 [==============================] - 211s 18ms/step - loss: 0.5063 - accuracy: 0.9920 - val_loss: 0.5073 - val_accuracy: 0.9900
+11938/11938 [==============================] - 205s 17ms/step - loss: 0.5059 - accuracy: 0.9928 - val_loss: 0.5072 - val_accuracy: 0.9901
+11938/11938 [==============================] - 212s 18ms/step - loss: 0.5056 - accuracy: 0.9934 - val_loss: 0.5071 - val_accuracy: 0.9901
+11938/11938 [==============================] - 213s 18ms/step - loss: 0.5053 - accuracy: 0.9939 - val_loss: 0.5071 - val_accuracy: 0.9901
+11938/11938 [==============================] - 212s 18ms/step - loss: 0.5051 - accuracy: 0.9943 - val_loss: 0.5071 - val_accuracy: 0.9903
+11938/11938 [==============================] - 212s 18ms/step - loss: 0.5049 - accuracy: 0.9947 - val_loss: 0.5071 - val_accuracy: 0.9902
+11938/11938 [==============================] - 212s 18ms/step - loss: 0.5047 - accuracy: 0.9949 - val_loss: 0.5071 - val_accuracy: 0.9905
+11938/11938 [==============================] - 211s 18ms/step - loss: 0.5046 - accuracy: 0.9952 - val_loss: 0.5071 - val_accuracy: 0.9903
+11938/11938 [==============================] - 211s 18ms/step - loss: 0.5045 - accuracy: 0.9954 - val_loss: 0.5071 - val_accuracy: 0.9904
+11938/11938 [==============================] - 210s 18ms/step - loss: 0.5044 - accuracy: 0.9956 - val_loss: 0.5071 - val_accuracy: 0.9904
+11938/11938 [==============================] - 213s 18ms/step - loss: 0.5043 - accuracy: 0.9958 - val_loss: 0.5071 - val_accuracy: 0.9903
+11938/11938 [==============================] - 213s 18ms/step - loss: 0.5042 - accuracy: 0.9959 - val_loss: 0.5071 - val_accuracy: 0.9903
+16/25       [==============================] - 212s 18ms/step - loss: 0.5041 - accuracy: 0.9960 - val_loss: 0.5072 - val_accuracy: 0.9902
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=65, batch_size=1024, window=7, hidden_layers=[1024], dropout=0, weight_decay=0, label_smoothing=0.5)
+5969/5969 [==============================] - 121s 20ms/step - loss: 0.5694 - accuracy: 0.9842 - val_loss: 0.5677 - val_accuracy: 0.9883
+5969/5969 [==============================] - 121s 20ms/step - loss: 0.5670 - accuracy: 0.9903 - val_loss: 0.5672 - val_accuracy: 0.9895
+5969/5969 [==============================] - 123s 21ms/step - loss: 0.5662 - accuracy: 0.9924 - val_loss: 0.5671 - val_accuracy: 0.9897
+5969/5969 [==============================] - 120s 20ms/step - loss: 0.5656 - accuracy: 0.9938 - val_loss: 0.5670 - val_accuracy: 0.9903
+5969/5969 [==============================] - 120s 20ms/step - loss: 0.5653 - accuracy: 0.9949 - val_loss: 0.5671 - val_accuracy: 0.9902
+5969/5969 [==============================] - 121s 20ms/step - loss: 0.5650 - accuracy: 0.9957 - val_loss: 0.5671 - val_accuracy: 0.9903
+5969/5969 [==============================] - 121s 20ms/step - loss: 0.5647 - accuracy: 0.9963 - val_loss: 0.5671 - val_accuracy: 0.9903
+5969/5969 [==============================] - 121s 20ms/step - loss: 0.5645 - accuracy: 0.9968 - val_loss: 0.5672 - val_accuracy: 0.9900
+5969/5969 [==============================] - 120s 20ms/step - loss: 0.5644 - accuracy: 0.9972 - val_loss: 0.5673 - val_accuracy: 0.9900
+5969/5969 [==============================] - 120s 20ms/step - loss: 0.5642 - accuracy: 0.9975 - val_loss: 0.5673 - val_accuracy: 0.9899
+5969/5969 [==============================] - 120s 20ms/step - loss: 0.5641 - accuracy: 0.9977 - val_loss: 0.5673 - val_accuracy: 0.9901
+5969/5969 [==============================] - 121s 20ms/step - loss: 0.5640 - accuracy: 0.9979 - val_loss: 0.5674 - val_accuracy: 0.9899
+5969/5969 [==============================] - 120s 20ms/step - loss: 0.5640 - accuracy: 0.9980 - val_loss: 0.5674 - val_accuracy: 0.9897
+5969/5969 [==============================] - 120s 20ms/step - loss: 0.5639 - accuracy: 0.9982 - val_loss: 0.5675 - val_accuracy: 0.9897
+5969/5969 [==============================] - 120s 20ms/step - loss: 0.5638 - accuracy: 0.9983 - val_loss: 0.5675 - val_accuracy: 0.9897
+16/25     [==============================] - 120s 20ms/step - loss: 0.5638 - accuracy: 0.9984 - val_loss: 0.5676 - val_accuracy: 0.9895
+
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=65, batch_size=1024, window=8, hidden_layers=[1024], dropout=0.3, weight_decay=0, label_smoothing=0.5)
+5969/5969 [==============================] - 173s 29ms/step - loss: 0.5701 - accuracy: 0.9827 - val_loss: 0.5680 - val_accuracy: 0.9871
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5677 - accuracy: 0.9883 - val_loss: 0.5675 - val_accuracy: 0.9887
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5671 - accuracy: 0.9900 - val_loss: 0.5672 - val_accuracy: 0.9891
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5667 - accuracy: 0.9912 - val_loss: 0.5671 - val_accuracy: 0.9898
+5969/5969 [==============================] - 171s 29ms/step - loss: 0.5664 - accuracy: 0.9920 - val_loss: 0.5670 - val_accuracy: 0.9899
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5662 - accuracy: 0.9927 - val_loss: 0.5669 - val_accuracy: 0.9902
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5660 - accuracy: 0.9932 - val_loss: 0.5669 - val_accuracy: 0.9902
+5969/5969 [==============================] - 171s 29ms/step - loss: 0.5658 - accuracy: 0.9937 - val_loss: 0.5669 - val_accuracy: 0.9903
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5657 - accuracy: 0.9941 - val_loss: 0.5668 - val_accuracy: 0.9905
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5656 - accuracy: 0.9944 - val_loss: 0.5668 - val_accuracy: 0.9904
+5969/5969 [==============================] - 171s 29ms/step - loss: 0.5655 - accuracy: 0.9946 - val_loss: 0.5668 - val_accuracy: 0.9905
+5969/5969 [==============================] - 171s 29ms/step - loss: 0.5654 - accuracy: 0.9948 - val_loss: 0.5668 - val_accuracy: 0.9905
+5969/5969 [==============================] - 173s 29ms/step - loss: 0.5653 - accuracy: 0.9951 - val_loss: 0.5668 - val_accuracy: 0.9906  (<-- 37min)
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5653 - accuracy: 0.9952 - val_loss: 0.5668 - val_accuracy: 0.9906
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5652 - accuracy: 0.9954 - val_loss: 0.5668 - val_accuracy: 0.9904
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5652 - accuracy: 0.9955 - val_loss: 0.5668 - val_accuracy: 0.9904
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5651 - accuracy: 0.9956 - val_loss: 0.5668 - val_accuracy: 0.9905
+18/25     [==============================] - 173s 29ms/step - loss: 0.5651 - accuracy: 0.9957 - val_loss: 0.5668 - val_accuracy: 0.9905
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=65, batch_size=350, window=8, hidden_layers=[1250], dropout=0.5, weight_decay=0, label_smoothing=0.5)
+17463/17463 [==============================] - 349s 20ms/step - loss: 0.5703 - accuracy: 0.9820 - val_loss: 0.5682 - val_accuracy: 0.9865
+17463/17463 [==============================] - 347s 20ms/step - loss: 0.5684 - accuracy: 0.9865 - val_loss: 0.5677 - val_accuracy: 0.9880
+17463/17463 [==============================] - 347s 20ms/step - loss: 0.5679 - accuracy: 0.9880 - val_loss: 0.5674 - val_accuracy: 0.9882
+17463/17463 [==============================] - 346s 20ms/step - loss: 0.5675 - accuracy: 0.9890 - val_loss: 0.5672 - val_accuracy: 0.9888
+17463/17463 [==============================] - 345s 20ms/step - loss: 0.5673 - accuracy: 0.9896 - val_loss: 0.5671 - val_accuracy: 0.9891
+17463/17463 [==============================] - 346s 20ms/step - loss: 0.5671 - accuracy: 0.9901 - val_loss: 0.5671 - val_accuracy: 0.9893
+17463/17463 [==============================] - 344s 20ms/step - loss: 0.5670 - accuracy: 0.9906 - val_loss: 0.5670 - val_accuracy: 0.9897
+17463/17463 [==============================] - 352s 20ms/step - loss: 0.5668 - accuracy: 0.9909 - val_loss: 0.5670 - val_accuracy: 0.9896
+17463/17463 [==============================] - 356s 20ms/step - loss: 0.5667 - accuracy: 0.9911 - val_loss: 0.5669 - val_accuracy: 0.9898
+17463/17463 [==============================] - 348s 20ms/step - loss: 0.5667 - accuracy: 0.9914 - val_loss: 0.5669 - val_accuracy: 0.9900
+17463/17463 [==============================] - 344s 20ms/step - loss: 0.5666 - accuracy: 0.9916 - val_loss: 0.5668 - val_accuracy: 0.9900
+12/25       [==============================] - 348s 20ms/step - loss: 0.5665 - accuracy: 0.9918 - val_loss: 0.5668 - val_accuracy: 0.9900
+
+=================================================================================
+=================================================================================
+
+
+=================================================================================
+=================================================================================
+
+
+=================================================================================
+=================================================================================

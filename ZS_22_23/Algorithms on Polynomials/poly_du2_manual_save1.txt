@@ -1,0 +1,126 @@
+# berlekamp:
+
+q = 3
+R.<x> = PolynomialRing(GF(q))
+for a in enumerate(GF(q)):
+    #print(a[1])
+    place = 0
+#print(enumerate(GF(q)))
+
+f1 = x^4 + 1
+
+#print(f1.list())
+#print(f1.degree())
+
+def get_ker_basis(f):
+    n = f.degree()
+    residuals = []
+    for i in range(n):
+        e = x^(i * q)
+        res = (e % f).list()
+        #print(res)
+        #print(len(res))
+        residuals.append(res + [0 for _ in range(n - len(res))])
+    
+    #print(residuals)
+    
+    M = (matrix(GF(q), residuals)).T - matrix.identity(n)
+    #print("Q:\n", matrix(GF(q), residuals).T)
+    #print("M:\n", M)
+    #print((M.T).kernel())
+    
+    return ((M.T).kernel()).basis()
+    #Q = Q.T
+    
+def get_factors2(f, basis):
+    factors = []
+    #print("basis: \n", basis)
+    for vector in basis:
+        vector = list(vector) # neccesary?
+        pol = R(vector)
+        #print("current vector from basis:", pol)
+        #print("check:", pol^q % f, "?=?", pol)
+        for a in enumerate(GF(q)):
+            #print("a:", a[0])
+            g = gcd(pol - a[0], f)
+            #print(g)
+            if g != 1 and g != f:
+                factors.append(g)
+    return factors
+
+def get_factors(f, basis):
+    factors = [f]
+    m = len(basis)
+    #print("basis size:", m)
+    #print("basis:", basis)
+    i = 1
+    while len(factors) < m:
+        #print("loop i:", i)
+        new_factors = []
+        #for i in range(len(basis)):
+        h = R(list(basis[i]))
+        #print("basis vector:", h)
+        for j in range(len(factors)):
+            #g = R(list(factors[j])) # exchange to pop()
+            g = factors[j] # exchange to pop()
+            #print("g:", g)
+            #print(g)
+            non_unital = []
+            for a in enumerate(GF(q)):
+                g_fac = gcd(h - a[0], g)
+                if g_fac != 1:  #  and g_fac != g
+                    non_unital.append(g_fac)
+            #print("non_unital:", non_unital)
+            new_factors += non_unital
+            #if len(non_unital) == 0:
+            #    new_factors += g
+            #else:
+            #    new_factors += non_unital
+        factors = new_factors
+        i += 1
+    #print("final factors:", factors)
+    return factors
+
+def berlekamp(f):
+    basis = get_ker_basis(f)
+    factors = get_factors(f, basis)
+    if len(factors) == 0:
+        return f
+    return factors
+
+def test_berlekamp(min_deg, max_deg, iterations):
+    correct = True
+    wrong_poly = []
+    for _ in range(iterations):
+        h = R.random_element(degree=(min_deg, max_deg))
+        #print(h.derivative())
+        #print(h)
+        if gcd(h, h.derivative()) == 1 and h.lc() == 1:
+            #print("pol:", h)
+            built_in = h.factor()
+            mine = berlekamp(h)
+            bi_list = [list(built_in)[i][0] for i in range(len(built_in))]
+            bi_set = set(bi_list)
+            mine_set = set(mine)
+            #print("built-in:", bi_list)
+            #print("mine:", mine)
+            #print("same?", bi_set == mine_set)
+            if bi_set != mine_set:
+                correct = False
+                wrong_poly.append(h)
+    return correct, wrong_poly
+
+#print(get_ker_basis(f1))
+#print(berlekamp(f1))
+#test_berlekamp()
+prob = x^8 + 2*x^4 + 2*x^3 + x^2 + 2
+prob2 = x^4 + 2*x^3 + 2*x^2 + 2*x + 2
+prob3 = x^9 + x^3 + 2*x^2 + 2
+fac = list(prob.factor())
+#print(fac)
+#print(berlekamp(prob))
+
+
+
+min_deg, max_deg, iterations = 2, 20, 1000
+print(test_berlekamp(min_deg, max_deg, iterations)[0])

@@ -1,0 +1,7 @@
+﻿  Source.c
+C:\Users\Pepa\source\repos\recodex assignements\evaluate-postfix-notation\evaluate-postfix-notation\Source.c(10,27): warning C4013: 'malloc' undefined; assuming extern returning int
+C:\Users\Pepa\source\repos\recodex assignements\evaluate-postfix-notation\evaluate-postfix-notation\Source.c(10,1): warning C4047: 'initializing': 'block *' differs in levels of indirection from 'int'
+C:\Users\Pepa\source\repos\recodex assignements\evaluate-postfix-notation\evaluate-postfix-notation\Source.c(39,7): warning C4013: 'free' undefined; assuming extern returning int
+C:\Users\Pepa\source\repos\recodex assignements\evaluate-postfix-notation\evaluate-postfix-notation\Source.c(98,1): warning C4047: 'initializing': 'block *' differs in levels of indirection from 'int'
+C:\Users\Pepa\source\repos\recodex assignements\evaluate-postfix-notation\evaluate-postfix-notation\Source.c(103,15): warning C4101: 'correct': unreferenced local variable
+  evaluate-postfix-notation.vcxproj -> C:\Users\Pepa\source\repos\recodex assignements\evaluate-postfix-notation\Debug\evaluate-postfix-notation.exe

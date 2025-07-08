@@ -1,0 +1,331 @@
+52/52 [==============================] - 543s 10s/step - loss: 308.7380 - val_loss: 307.1019 - val_edit_distance: 0.9999
+6/6 [==============================] - 12s 2s/step
+
+
+
+Epoch 1/5
+52/52 [==============================] - 598s 11s/step - loss: 305.1611 - val_loss: 289.8415 - val_edit_distance: 1.0000
+Epoch 2/5
+52/52 [==============================] - 644s 12s/step - loss: 289.4478 - val_loss: 288.8526 - val_edit_distance: 1.0000
+Epoch 3/5
+52/52 [==============================] - 681s 13s/step - loss: 289.3143 - val_loss: 288.8390 - val_edit_distance: 1.0000
+Epoch 4/5
+52/52 [==============================] - 727s 14s/step - loss: 289.3042 - val_loss: 288.8326 - val_edit_distance: 1.0000
+Epoch 5/5
+52/52 [==============================] - 682s 13s/step - loss: 289.2996 - val_loss: 288.8292 - val_edit_distance: 1.0000
+6/6 [==============================] - 15s 2s/step
+
+Process finished with exit code 0
+
+
+sykorjos@gpu-node2:~$ python3 homr_competition.py --take=-1 --max_height=108 --rnn_units=512 --cnn_arch=2-3-2-2-same,4-3-2-2-same,8-3-2-2-same,16-3-2-2-same,16-3-2-1-same,16-3-2-1-
+same,16-3-2-1-same
+Epoch 1/10
+514/514 [==============================] - 234s 305ms/step - loss: 99.9851 - val_loss: 92.2801 - val_edit_distance: 0.9057
+Epoch 2/10
+514/514 [==============================] - 184s 271ms/step - loss: 86.6116 - val_loss: 77.6393 - val_edit_distance: 0.7719
+Epoch 3/10
+514/514 [==============================] - 184s 269ms/step - loss: 62.3183 - val_loss: 47.6064 - val_edit_distance: 0.5131
+Epoch 4/10
+514/514 [==============================] - 187s 269ms/step - loss: 40.2553 - val_loss: 34.4829 - val_edit_distance: 0.3917
+Epoch 5/10
+Killed
+
+
+
+sykorjos@gpu-node2:~$ python3 homr_competition.py --take=-1
+Epoch 1/10
+514/514 [==============================] - 300s 408ms/step - loss: 116.9109 - val_loss: 103.1099 - val_edit_distance: 0.9145
+Epoch 2/10
+514/514 [==============================] - 204s 291ms/step - loss: 102.4993 - val_loss: 100.6714 - val_edit_distance: 0.9085
+Epoch 3/10
+514/514 [==============================] - 199s 277ms/step - loss: 100.3685 - val_loss: 100.4031 - val_edit_distance: 0.9092
+Epoch 4/10
+514/514 [==============================] - ETA: 0s - loss: 98.3004^C   
+Traceback (most recent call last):
+  File "/lnet/aic/personal/sykorjos/homr_competition.py", line 304, in <module>
+    args = parser.parse_args([] if "__file__" not in globals() else None)
+  File "/lnet/aic/personal/sykorjos/homr_competition.py", line 283, in main
+
+  File "/home/sykorjos/.local/lib/python3.10/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+    return fn(*args, **kwargs)
+  File "/home/sykorjos/.local/lib/python3.10/site-packages/keras/engine/training.py", line 1694, in fit
+    val_logs = self.evaluate(
+  File "/home/sykorjos/.local/lib/python3.10/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+    return fn(*args, **kwargs)
+KeyboardInterrupt
+
+sykorjos@gpu-node2:~$
+sykorjos@gpu-node2:~$ python3 homr_competition.py --take=-1 --max_height=108 --cnn_arch=1-5-3-2-same,1-5-3-2-same,1-5-3-2-same,1-3-2-2-same,1-3-2-1-same
+Epoch 1/10
+514/514 [==============================] - 259s 389ms/step - loss: 119.2544 - val_loss: 100.7874 - val_edit_distance: 0.9154
+Epoch 2/10
+514/514 [==============================] - 201s 303ms/step - loss: 100.7931 - val_loss: 99.2695 - val_edit_distance: 0.9054
+Epoch 3/10
+ 93/514 [====>.........................] - ETA: 1:43 - loss: 99.9012^CTraceback (most recent call last):
+  File "/lnet/aic/personal/sykorjos/homr_competition.py", line 305, in <module>
+    main(args)
+  File "/lnet/aic/personal/sykorjos/homr_competition.py", line 284, in main
+    logs = model.fit(
+  File "/home/sykorjos/.local/lib/python3.10/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+    return fn(*args, **kwargs)
+  File "/home/sykorjos/.local/lib/python3.10/site-packages/keras/engine/training.py", line 1650, in fit
+    tmp_logs = self.train_function(iterator)
+  File "/home/sykorjos/.local/lib/python3.10/site-packages/tensorflow/python/util/traceback_utils.py", line 150, in error_handler
+    return fn(*args, **kwargs)
+  File "/home/sykorjos/.local/lib/python3.10/site-packages/tensorflow/python/eager/polymorphic_function/polymorphic_function.py", line 880, in __call__
+    result = self._call(*args, **kwds)
+  File "/home/sykorjos/.local/lib/python3.10/site-packages/tensorflow/python/eager/polymorphic_function/polymorphic_function.py", line 912, in _call
+    return self._no_variable_creation_fn(*args, **kwds)  # pylint: disable=not-callable
+  File "/home/sykorjos/.local/lib/python3.10/site-packages/tensorflow/python/eager/polymorphic_function/tracing_compiler.py", line 134, in __call__
+    return concrete_function._call_flat(
+  File "/home/sykorjos/.local/lib/python3.10/site-packages/tensorflow/python/eager/polymorphic_function/monomorphic_function.py", line 1745, in _call_flat
+    return self._build_call_outputs(self._inference_function.call(
+  File "/home/sykorjos/.local/lib/python3.10/site-packages/tensorflow/python/eager/polymorphic_function/monomorphic_function.py", line 378, in call
+    outputs = execute.execute(
+  File "/home/sykorjos/.local/lib/python3.10/site-packages/tensorflow/python/eager/execute.py", line 52, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+KeyboardInterrupt
+
+sykorjos@gpu-node2:~$ python3 homr_competition.py --take=-1 --max_height=108 --rnn_units=512 --cnn_arch=1-5-3-2-same,1-5-3-2-same,1-5-3-2-same,1-3-2-2-same,1-3-2-1-same
+Epoch 1/10
+514/514 [==============================] - 262s 397ms/step - loss: 102.1934 - val_loss: 94.9344 - val_edit_distance: 0.9030
+Epoch 2/10
+514/514 [==============================] - 202s 306ms/step - loss: 92.5765 - val_loss: 89.2313 - val_edit_distance: 0.8387
+Epoch 3/10
+514/514 [==============================] - 198s 296ms/step - loss: 88.1430 - val_loss: 85.3914 - val_edit_distance: 0.8060
+Epoch 4/10
+514/514 [==============================] - 200s 295ms/step - loss: 84.8694 - val_loss: 83.5298 - val_edit_distance: 0.7855
+Epoch 5/10
+Killed
+sykorjos@gpu-node2:~$ python3 homr_competition.py --take=-1 --max_height=108 --rnn_units=512 --cnn_arch=1-3-2-2-same,1-3-2-2-same,1-3-2-2-same,1-3-2-2-same,1-3-2-1-same,1-3-2-1-sam
+e,1-3-2-1-same
+Epoch 1/10
+514/514 [==============================] - 326s 483ms/step - loss: 101.5879 - val_loss: 95.2375 - val_edit_distance: 0.8926
+Epoch 2/10
+514/514 [==============================] - 217s 335ms/step - loss: 92.7690 - val_loss: 89.1814 - val_edit_distance: 0.8670
+Epoch 3/10
+514/514 [==============================] - 209s 316ms/step - loss: 88.7520 - val_loss: 86.2437 - val_edit_distance: 0.8348
+Epoch 4/10
+514/514 [==============================] - 208s 309ms/step - loss: 85.9161 - val_loss: 84.2022 - val_edit_distance: 0.8130
+Epoch 5/10
+Killed
+sykorjos@gpu-node2:~$ python3 homr_competition.py --take=-1 --max_height=108 --rnn_units=512 --cnn_arch=2-3-2-2-same,4-3-2-2-same,8-3-2-2-same,16-3-2-2-same,16-3-2-1-same,16-3-2-1-
+same,16-3-2-1-same
+Epoch 1/10
+514/514 [==============================] - 234s 305ms/step - loss: 99.9851 - val_loss: 92.2801 - val_edit_distance: 0.9057
+Epoch 2/10
+514/514 [==============================] - 184s 271ms/step - loss: 86.6116 - val_loss: 77.6393 - val_edit_distance: 0.7719
+Epoch 3/10
+514/514 [==============================] - 184s 269ms/step - loss: 62.3183 - val_loss: 47.6064 - val_edit_distance: 0.5131
+Epoch 4/10
+514/514 [==============================] - 187s 269ms/step - loss: 40.2553 - val_loss: 34.4829 - val_edit_distance: 0.3917
+Epoch 5/10
+Killed
+sykorjos@gpu-node2:~$ python3 homr_competition.py --take=-1
+Epoch 1/10
+514/514 [==============================] - 237s 310ms/step - loss: 102.5207 - val_loss: 98.1364 - val_edit_distance: 0.8992
+Epoch 2/10
+514/514 [==============================] - 187s 276ms/step - loss: 96.6558 - val_loss: 94.8631 - val_edit_distance: 0.9205
+Epoch 3/10
+514/514 [==============================] - 187s 273ms/step - loss: 96.9212 - val_loss: 97.5788 - val_edit_distance: 0.9351
+Epoch 4/10
+c^C
+Traceback (most recent call last):
+  File "/lnet/aic/personal/sykorjos/homr_competition.py", line 325, in <module>
+    main(args)
+  File "/lnet/aic/personal/sykorjos/homr_competition.py", line 304, in main
+    logs = model.fit(
+  File "/home/sykorjos/.local/lib/python3.10/site-packages/keras/utils/traceback_utils.py", line 65, in error_handler
+    return fn(*args, **kwargs)
+  File "/home/sykorjos/.local/lib/python3.10/site-packages/keras/engine/training.py", line 1650, in fit
+    tmp_logs = self.train_function(iterator)
+  File "/home/sykorjos/.local/lib/python3.10/site-packages/tensorflow/python/util/traceback_utils.py", line 150, in error_handler
+    return fn(*args, **kwargs)
+  File "/home/sykorjos/.local/lib/python3.10/site-packages/tensorflow/python/eager/polymorphic_function/polymorphic_function.py", line 880, in __call__
+    result = self._call(*args, **kwds)
+  File "/home/sykorjos/.local/lib/python3.10/site-packages/tensorflow/python/eager/polymorphic_function/polymorphic_function.py", line 912, in _call
+    return self._no_variable_creation_fn(*args, **kwds)  # pylint: disable=not-callable
+  File "/home/sykorjos/.local/lib/python3.10/site-packages/tensorflow/python/eager/polymorphic_function/tracing_compiler.py", line 134, in __call__
+    return concrete_function._call_flat(
+  File "/home/sykorjos/.local/lib/python3.10/site-packages/tensorflow/python/eager/polymorphic_function/monomorphic_function.py", line 1745, in _call_flat
+    return self._build_call_outputs(self._inference_function.call(
+  File "/home/sykorjos/.local/lib/python3.10/site-packages/tensorflow/python/eager/polymorphic_function/monomorphic_function.py", line 378, in call
+    outputs = execute.execute(
+  File "/home/sykorjos/.local/lib/python3.10/site-packages/tensorflow/python/eager/execute.py", line 52, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+KeyboardInterrupt
+
+sykorjos@gpu-node2:~$
+sykorjos@gpu-node2:~$ 
+sykorjos@gpu-node2:~$ python3 homr_competition.py --take=-1 --cnn_arch=2-3-2-2-same,4-3-2-2-same,8-3-2-2-same,16-3-2-2-same,32-3-2-1-same,32-3-2-1-same,32-3-2-1-same
+Epoch 1/10
+514/514 [==============================] - 217s 309ms/step - loss: 100.8440 - val_loss: 94.6252 - val_edit_distance: 0.9003
+Epoch 2/10
+514/514 [==============================] - 186s 275ms/step - loss: 89.7774 - val_loss: 84.7961 - val_edit_distance: 0.8501
+Epoch 3/10
+514/514 [==============================] - 186s 271ms/step - loss: 77.1887 - val_loss: 68.7030 - val_edit_distance: 0.6669
+Epoch 4/10
+514/514 [==============================] - 188s 269ms/step - loss: 65.5498 - val_loss: 61.1336 - val_edit_distance: 0.6110
+Epoch 5/10
+Killed
+sykorjos@gpu-node2:~$ python3 homr_competition.py --take=-1 --rnn_layers=2 --residuals=True --cnn_arch=2-3-2-2-same,4-3-2-2-same,8-3-2-2-same,16-3-2-2-same,32-3-2-1-same,32-3-2-1-s
+ame,32-3-2-1-same
+Epoch 1/10
+514/514 [==============================] - 279s 375ms/step - loss: 101.2551 - val_loss: 92.9531 - val_edit_distance: 0.9126
+Epoch 2/10
+514/514 [==============================] - 217s 332ms/step - loss: 84.7780 - val_loss: 73.3941 - val_edit_distance: 0.7088
+Epoch 3/10
+514/514 [==============================] - 223s 337ms/step - loss: 58.9056 - val_loss: 48.6898 - val_edit_distance: 0.5316
+Epoch 4/10
+514/514 [==============================] - 220s 337ms/step - loss: 44.7415 - val_loss: 40.3205 - val_edit_distance: 0.4537
+Epoch 5/10
+Killed
+sykorjos@gpu-node2:~$ python3 homr_competition.py --take=1000 --rnn_layers=2 --residuals=True --cnn_arch=2-3-2-2-same,4-3-2-2-same,8-3-2-2-same,16-3-2-2-same,32-3-2-1-same,32-3-2-1
+-same,32-3-2-1-same
+Epoch 1/10
+
+
+
+=======================================================================================================
+=======================================================================================================
+parser = argparse.ArgumentParser()
+parser.add_argument("--batch_size", default=100, type=int, help="Batch size.")
+parser.add_argument("--debug", default=False, action="store_true", help="If given, run functions eagerly.")
+parser.add_argument("--epochs", default=10, type=int, help="Number of epochs.")
+parser.add_argument("--seed", default=42, type=int, help="Random seed.")
+parser.add_argument("--threads", default=0, type=int, help="Maximum number of threads to use.")
+
+# our:
+# finer tuning:
+parser.add_argument("--learning_rate", default=0.001, type=float, help="Learning rate.")
+parser.add_argument("--weight_decay", default=0.0, type=float, help="Weight decay.")
+parser.add_argument("--rnn_type", default="LSTM", choices=["LSTM", "GRU"], help="RNN to use.")
+parser.add_argument("--dropout", default=0.0, type=float, help="Dropout after rnn.")
+
+# basic:
+parser.add_argument("--rnn_layers", default=1, type=int, help="RNN layers")
+parser.add_argument("--residuals", default=False, type=bool, help="Use residual connections")
+parser.add_argument("--max_height", default=108, type=int, help="Max height of an image, otherwise resize.")  # 124
+parser.add_argument("--cnn_arch",
+                    default="2-3-2-2-same,4-3-2-2-same,8-3-2-2-same,16-3-2-2-same,32-3-2-1-same,32-3-2-1-same,32-3-2-1-same",
+                    type=str, help="CNN architecture.")
+# "1-3-2-2-same,1-3-2-2-same,1-3-2-2-same,1-3-2-2-same,1-3-2-1-same,1-3-2-1-same,1-3-2-1-same"
+# "1-5-3-2-same,1-5-3-2-same,1-5-3-2-same,1-5-3-2-same"
+# "2-5-3-2-same,2-5-3-2-same,2-5-3-2-same,2-5-3-2-same"
+# "1-5-3-2-same,2-5-3-2-same,4-5-3-2-same,8-5-3-2-same,16-5-3-2-same"
+# "1-5-3-2-same,1-5-3-2-same,1-5-3-2-same,1-5-3-2-same,1-5-3-2-same"
+# "1-5-3-3-same,1-5-3-2-same,1-5-3-2-same,1-3-2-2-same,1-3-2-1-same"
+# "1-7-3-3-same,1-7-3-2-same,1-7-3-2-same,1-5-2-2-same,1-5-2-1-same"
+# "1-3-3-2-same,1-3-3-2-same,1-3-2-2-same,1-3-2-2-same,1-3-2-1-same,1-3-2-1-same"
+# "1-5-3-2-same,1-5-3-2-same,1-5-3-2-same,1-3-2-2-same,1-3-2-1-same,1-3-2-1-same"
+# "1-3-2-1-same,1-3-2-1-same,1-3-2-1-same,1-3-2-1-same,1-3-2-1-same,1-3-2-1-same,1-3-2-1-same"
+# "1-3-2-2-same,1-3-2-2-same,1-3-2-2-same,1-3-2-2-same,1-3-2-2-same,1-3-2-2-same,1-3-2-2-same"
+# "1-3-2-2-same,2-3-2-2-same,4-3-2-2-same,8-3-2-1-same,8-3-2-1-same,8-3-2-1-same,8-3-2-1-same"
+# "2-3-2-2-same,4-3-2-2-same,8-3-2-2-same,16-3-2-2-same,16-3-2-1-same,16-3-2-1-same,16-3-2-1-same"
+# "2-3-2-2-same,4-3-2-2-same,8-3-2-2-same,16-3-2-2-same,32-3-2-1-same,64-3-2-1-same,128-3-2-1-same"
+# "2-3-2-2-same,4-3-2-2-same,8-3-2-2-same,16-3-2-2-same,32-3-2-1-same,32-3-2-1-same,32-3-2-1-same"
+parser.add_argument("--rnn_units", default=512, type=int, help="Units of RNN layer.")
+parser.add_argument("--take", default=-1, type=int, help="Take a smaller train dataset.")
+
+
+Epoch 1/10
+514/514 [==============================] - 4342s 8s/step - loss: 100.7810 - val_loss: 94.2070 - val_edit_distance: 0.8972
+Epoch 2/10
+514/514 [==============================] - 4764s 9s/step - loss: 89.0911 - val_loss: 82.4555 - val_edit_distance: 0.8146
+Epoch 3/10
+514/514 [==============================] - 4865s 9s/step - loss: 75.9387 - val_loss: 68.1053 - val_edit_distance: 0.6583
+Epoch 4/10
+514/514 [==============================] - 5001s 10s/step - loss: 61.9881 - val_loss: 52.8041 - val_edit_distance: 0.5463
+Epoch 5/10
+514/514 [==============================] - 4962s 10s/step - loss: 43.1089 - val_loss: 35.9132 - val_edit_distance: 0.4041
+Epoch 6/10
+514/514 [==============================] - 5189s 10s/step - loss: 30.4567 - val_loss: 26.9018 - val_edit_distance: 0.3106
+Epoch 7/10
+514/514 [==============================] - 5052s 10s/step - loss: 24.2343 - val_loss: 22.5316 - val_edit_distance: 0.2665
+Epoch 8/10
+514/514 [==============================] - 5162s 10s/step - loss: 19.7513 - val_loss: 19.1986 - val_edit_distance: 0.2282
+Epoch 9/10
+514/514 [==============================] - 5171s 10s/step - loss: 18.7771 - val_loss: 18.1127 - val_edit_distance: 0.2175
+Epoch 10/10
+514/514 [==============================] - 5130s 10s/step - loss: 15.5528 - val_loss: 18.0856 - val_edit_distance: 0.2211
+51/51 [==============================] - 36s 672ms/step
+
+Process finished with exit code 0
+RECODEX: 22%
+
+=================================
+homr_competition.py-2023-05-01_112421-bs=100,ca=2-3-2-2-same,4-3-2-2-same,8-3-2-2-same,16-3-2-2-same,32-3-2-1-same,32-3-2-1-same,32-3-2-1-same,d=False,d=0.0,e=10,lr=0.001,mh=108,r=True,rl=2,rt=LSTM,ru=512,s=42,t=10000,t=0,wd
+=0.0
+RECODEX: 61.777%
+====================================
+
+
+Namespace(batch_size=100, debug=False, epochs=10, seed=42, threads=0, learning_rate=0.001, weight_decay=0.0, rnn_type='LSTM', dropout=0.0, avg=0, act_bn=0, rnn_layers=1, residuals=0, max_height=108, cnn_arch='2-3-2-2-same,4-3-2-2-same,8-3-2-2-same,16-3-2-2-same,32-3-2-1-same,32-3-2-1-same,32-3-2-1-same', rnn_units=512, take=-1)
+Epoch 1/10
+514/514 [==============================] - 906s 2s/step - loss: 100.9174 - val_loss: 93.7531 - val_edit_distance: 0.9045
+Epoch 2/10
+514/514 [==============================] - 885s 2s/step - loss: 89.1581 - val_loss: 83.7979 - val_edit_distance: 0.8219
+Epoch 3/10
+514/514 [==============================] - 871s 2s/step - loss: 75.8207 - val_loss: 68.2224 - val_edit_distance: 0.6573
+Epoch 4/10
+514/514 [==============================] - 870s 2s/step - loss: 64.8326 - val_loss: 60.3835 - val_edit_distance: 0.6023
+Epoch 5/10
+514/514 [==============================] - 870s 2s/step - loss: 57.7966 - val_loss: 53.2266 - val_edit_distance: 0.5512
+Epoch 6/10
+514/514 [==============================] - 880s 2s/step - loss: 44.9691 - val_loss: 37.1811 - val_edit_distance: 0.4150
+Epoch 7/10
+345/514 [===================>..........] - ETA: 4:37 - loss: 33.6673
+
+
+Namespace(batch_size=100, debug=False, epochs=10, seed=42, threads=0, learning_rate=0.001, weight_decay=0.0, rnn_type='LSTM', dropout=0.0, avg=0, act_bn=1, rnn_layers=1, residuals=0, max_height=108, cnn_arch='2-3-2-2-same,4-3-2-2-same,8-3-2-2-same,16-3-2-2-same,32-3-2-1-same,32-3-2-1-same,32-3-2-1-same', rnn_units=512, take=-1)
+Epoch 1/10
+514/514 [==============================] - 1173s 2s/step - loss: 82.6941 - val_loss: 130.6188 - val_edit_distance: 0.8031
+Epoch 2/10
+514/514 [==============================] - 1164s 2s/step - loss: 40.4590 - val_loss: 34.0460 - val_edit_distance: 0.4111
+Epoch 3/10
+514/514 [==============================] - 1164s 2s/step - loss: 25.6221 - val_loss: 24.7314 - val_edit_distance: 0.2989
+Epoch 4/10
+514/514 [==============================] - 1188s 2s/step - loss: 18.4629 - val_loss: 17.0799 - val_edit_distance: 0.2111
+Epoch 5/10
+514/514 [==============================] - 1187s 2s/step - loss: 14.9695 - val_loss: 16.1358 - val_edit_distance: 0.2070
+Epoch 6/10
+514/514 [==============================] - 1175s 2s/step - loss: 11.2248 - val_loss: 9.6917 - val_edit_distance: 0.1181
+Epoch 7/10
+514/514 [==============================] - 1174s 2s/step - loss: 9.6191 - val_loss: 9.7123 - val_edit_distance: 0.1202
+Epoch 8/10
+514/514 [==============================] - 1176s 2s/step - loss: 8.5359 - val_loss: 9.0222 - val_edit_distance: 0.1117
+Epoch 9/10
+514/514 [==============================] - 1176s 2s/step - loss: 7.0078 - val_loss: 6.5825 - val_edit_distance: 0.0815
+Epoch 10/10
+514/514 [==============================] - 1179s 2s/step - loss: 6.7561 - val_loss: 33.6183 - val_edit_distance: 0.3671
+51/51 [==============================] - 33s 607ms/step
+
+Process finished with exit code 0
+
+
+Namespace(batch_size=100, debug=False, epochs=10, seed=42, threads=0, learning_rate=0.001, weight_decay=0.0, rnn_type='LSTM', dropout=0.0, avg=1, act_bn=1, rnn_layers=1, residuals=0, max_height=108, cnn_arch='2-3-2-2-same,4-3-2-2-same,8-3-2-2-same,16-3-2-2-same,32-3-2-1-same,32-3-2-1-same,32-3-2-1-same', rnn_units=512, take=-1)
+Epoch 1/10
+514/514 [==============================] - 1145s 2s/step - loss: 104.0246 - val_loss: 117.1906 - val_edit_distance: 0.9426
+Epoch 2/10
+514/514 [==============================] - 1131s 2s/step - loss: 89.7453 - val_loss: 97.3634 - val_edit_distance: 0.9344
+Epoch 3/10
+514/514 [==============================] - 1135s 2s/step - loss: 81.3998 - val_loss: 83.1911 - val_edit_distance: 0.9021
+Epoch 4/10
+514/514 [==============================] - 1141s 2s/step - loss: 71.2759 - val_loss: 77.6851 - val_edit_distance: 0.7300
+Epoch 5/10
+514/514 [==============================] - 1141s 2s/step - loss: 59.8038 - val_loss: 57.4079 - val_edit_distance: 0.6196
+Epoch 6/10
+514/514 [==============================] - 1143s 2s/step - loss: 53.0857 - val_loss: 50.5475 - val_edit_distance: 0.5600
+Epoch 7/10
+514/514 [==============================] - 1143s 2s/step - loss: 48.8826 - val_loss: 48.2848 - val_edit_distance: 0.5406
+Epoch 8/10
+514/514 [==============================] - 1142s 2s/step - loss: 45.6941 - val_loss: 45.6349 - val_edit_distance: 0.5151
+Epoch 9/10
+514/514 [==============================] - 1139s 2s/step - loss: 42.9575 - val_loss: 41.8503 - val_edit_distance: 0.4865
+Epoch 10/10
+514/514 [==============================] - 1144s 2s/step - loss: 40.7779 - val_loss: 38.6871 - val_edit_distance: 0.4356
+51/51 [==============================] - 32s 587ms/step
+
+Process finished with exit code 0
+

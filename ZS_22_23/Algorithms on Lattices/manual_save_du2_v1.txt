@@ -1,0 +1,92 @@
+def pad_zeros(g, k):
+    return g + '0' * k
+
+def get_Gs(alpha, n, w):
+    G_1 = []
+    ham_1 = floor(alpha * w)
+    length_1 = floor(alpha * n)
+    subs_1 = Subsets(length_1, ham_1)
+    pad_1 = '0' * ceil((1 - alpha) * n)
+    for sub in subs_1:
+        empty = [0 for _ in range(length_1)]
+        for i in sub:
+            empty[i] = 1
+        g = str(empty)
+        G_1.append(g + pad_1)
+        
+    G_2 = []
+    ham_2 = ceil((1 - alpha) * w)
+    length_2 = ceil((1 - alpha) * n)
+    subs_2 = Subsets(length_2, ham_2)
+    pad_2 = '0' * floor(alpha * n)
+    for sub in subs_2:
+        empty = [0 for _ in range(length_2)]
+        for i in sub:
+            empty[i] = 1
+        g = str(empty)
+        G_2.append(pad_2 + g)
+    
+    return G_1, G_2
+
+def get_hash(n, m):
+    return Subsets(n, m).random_element()
+    
+def hash_input(s, sub):
+    bits = []
+    for i in range(len(sub)):
+        bits.append(sub[i])
+    return str(bits)
+
+def times(f, g): # !!!!!!! TODO or from the first exercise
+    return f
+
+def minus(f): # !!!!!!! TODO or from the first exercise
+    return f
+
+def ham(f): # !!!!!!! TODO or from the first exercise
+    return f
+
+def plus(f, g): # !!!!!!! TODO or from the first exercise
+    return f
+
+def fill_database(m, h, G_1):
+    database = [[] for _ in range(2**m)]
+    for g in G_1:
+        f = times(g, h)
+        hashed = hash_input(f)
+        database[hashed].append(g)
+    return database
+
+def search_database(database, G_2, h, w):
+    res = []
+    for g_1 in G_2:
+        hashed = hash_input(minus(times(g_1, h)))
+        for g_2 in database(hashed):
+            added = plus(times(g_1, h), times(g_2, h))
+            if ham(added) == w:
+                res.append(plus(g_1, g_2))
+                #return plus(g_1, g_2)
+    return res
+    #return None
+    
+    
+def mitma(q, h, n, w, alpha):
+    m = ceil(log(binomial(ceil(q / 2), ceil(n / 2)), 2))
+    G_1, G_2 = get_Gs(alpha, n, w)
+    db = fill_database(m, h, G_1)
+    hit = search_database(db, G_2, h, 2)
+    print("Found the hit:", hit)
+    
+#aa = 5
+#bb = 4
+#print(log(2**13, 2))
+#s1 = "001100"
+#s1[1] = "5"
+#print(floor(5.3))
+#print(s1[2])
+#print("ahoj")
+#print(Subsets(aa, bb).list())
+
+alpha = 1/2
+w = 10
+n = 10

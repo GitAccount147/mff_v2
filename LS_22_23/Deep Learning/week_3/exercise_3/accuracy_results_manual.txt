@@ -1,0 +1,1530 @@
+logs:
+
+parser.add_argument("--alphabet_size", default=200, type=int, help="If given, use this many most frequent chars.")
+parser.add_argument("--batch_size", default=1000, type=int, help="Batch size.")
+parser.add_argument("--debug", default=False, action="store_true", help="If given, run functions eagerly.")
+parser.add_argument("--epochs", default=3, type=int, help="Number of epochs.")
+parser.add_argument("--seed", default=42, type=int, help="Random seed.")
+parser.add_argument("--threads", default=1, type=int, help="Maximum number of threads to use.")
+parser.add_argument("--window", default=7, type=int, help="Window size to use.")
+# our hyperparameters:
+parser.add_argument("--hidden_layers", default=[100], nargs="*", type=int, help="Hidden layer sizes.")
+parser.add_argument("--hidden_layer_size", default=500, nargs="*", type=int, help="Hidden layer size.")
+
+Epoch 1/3
+6112/6112 [==============================] - 550s 90ms/step - loss: 0.0454 - accuracy: 0.9838 - val_loss: 0.0343 - val_accuracy: 0.9878
+Epoch 2/3
+6112/6112 [==============================] - 545s 89ms/step - loss: 0.0290 - accuracy: 0.9899 - val_loss: 0.0325 - val_accuracy: 0.9885
+Epoch 3/3
+6112/6112 [==============================] - 544s 89ms/step - loss: 0.0235 - accuracy: 0.9919 - val_loss: 0.0321 - val_accuracy: 0.9890
+11373/11373 [==============================] - 24s 2ms/step
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=200, batch_size=1000, debug=False, epochs=3, seed=42, threads=1, window=10, hidden_layers=[100], hidden_layer_size=500, dropout=0.3, weight_decay=0.1)
+WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x000002201D1FBEB0> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/3
+6112/6112 [==============================] - 841s 137ms/step - loss: 0.0505 - accuracy: 0.9818 - val_loss: 0.0377 - val_accuracy: 0.9865
+Epoch 2/3
+6112/6112 [==============================] - 848s 139ms/step - loss: 0.0365 - accuracy: 0.9870 - val_loss: 0.0350 - val_accuracy: 0.9875
+Epoch 3/3
+6112/6112 [==============================] - 853s 140ms/step - loss: 0.0336 - accuracy: 0.9881 - val_loss: 0.0339 - val_accuracy: 0.9879
+11373/11373 [==============================] - 32s 3ms/step
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=200, batch_size=1000, debug=False, epochs=5, seed=42, threads=1, window=6, hidden_layers=[100], hidden_layer_size=750, dropout=0.3, weight_decay=0.1)
+WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x000001C09612AE80> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/5
+6112/6112 [==============================] - 835s 136ms/step - loss: 0.0476 - accuracy: 0.9827 - val_loss: 0.0360 - val_accuracy: 0.9871
+Epoch 2/5
+6112/6112 [==============================] - 822s 135ms/step - loss: 0.0352 - accuracy: 0.9874 - val_loss: 0.0344 - val_accuracy: 0.9878
+Epoch 3/5
+6112/6112 [==============================] - 831s 136ms/step - loss: 0.0327 - accuracy: 0.9884 - val_loss: 0.0331 - val_accuracy: 0.9882
+Epoch 4/5
+6112/6112 [==============================] - 834s 136ms/step - loss: 0.0315 - accuracy: 0.9888 - val_loss: 0.0321 - val_accuracy: 0.9884
+Epoch 5/5
+6112/6112 [==============================] - 826s 135ms/step - loss: 0.0308 - accuracy: 0.9890 - val_loss: 0.0320 - val_accuracy: 0.9885
+11373/11373 [==============================] - 28s 2ms/step
+
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=200, batch_size=1000, debug=False, epochs=7, seed=42, threads=1, window=6, hidden_layers=[100], hidden_layer_size=375, dropout=0.05, weight_decay=0.05)
+WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x0000029F277EAEB0> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/7
+6112/6112 [==============================] - 435s 71ms/step - loss: 0.0476 - accuracy: 0.9828 - val_loss: 0.0360 - val_accuracy: 0.9871
+Epoch 2/7
+6112/6112 [==============================] - 433s 71ms/step - loss: 0.0328 - accuracy: 0.9884 - val_loss: 0.0339 - val_accuracy: 0.9880
+Epoch 3/7
+6112/6112 [==============================] - 433s 71ms/step - loss: 0.0293 - accuracy: 0.9897 - val_loss: 0.0324 - val_accuracy: 0.9884
+Epoch 4/7
+6112/6112 [==============================] - 433s 71ms/step - loss: 0.0273 - accuracy: 0.9904 - val_loss: 0.0316 - val_accuracy: 0.9886
+Epoch 5/7
+6112/6112 [==============================] - 433s 71ms/step - loss: 0.0259 - accuracy: 0.9909 - val_loss: 0.0314 - val_accuracy: 0.9887
+Epoch 6/7
+6112/6112 [==============================] - 439s 72ms/step - loss: 0.0250 - accuracy: 0.9912 - val_loss: 0.0318 - val_accuracy: 0.9888
+Epoch 7/7
+6112/6112 [==============================] - 441s 72ms/step - loss: 0.0243 - accuracy: 0.9915 - val_loss: 0.0316 - val_accuracy: 0.9886
+11373/11373 [==============================] - 19s 2ms/step
+
+
+=================================================================================
+=================================================================================
+Namespace(alphabet_size=200, batch_size=100, debug=False, epochs=2, seed=42, threads=1, window=5, hidden_layers=[100], hidden_layer_size=100, dropout=0, weight_decay=0)
+WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x000001F6FA515E20> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/2
+61120/61120 [==============================] - 189s 3ms/step - loss: 0.0458 - accuracy: 0.9832 - val_loss: 0.0386 - val_accuracy: 0.9860
+Epoch 2/2
+61120/61120 [==============================] - 188s 3ms/step - loss: 0.0362 - accuracy: 0.9871 - val_loss: 0.0364 - val_accuracy: 0.9868
+11373/11373 [==============================] - 10s 843us/step
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=200, batch_size=500, debug=False, epochs=8, seed=42, threads=1, window=7, hidden_layers=[100], hidden_layer_size=256, dropout=0.05, weight_decay=0.05)
+WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x0000021ADC8DBEE0> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/8
+12224/12224 [==============================] - 381s 31ms/step - loss: 0.0463 - accuracy: 0.9833 - val_loss: 0.0367 - val_accuracy: 0.9869
+Epoch 2/8
+12224/12224 [==============================] - 379s 31ms/step - loss: 0.0342 - accuracy: 0.9879 - val_loss: 0.0348 - val_accuracy: 0.9876
+Epoch 3/8
+12224/12224 [==============================] - 379s 31ms/step - loss: 0.0317 - accuracy: 0.9888 - val_loss: 0.0336 - val_accuracy: 0.9880
+Epoch 4/8
+12224/12224 [==============================] - 378s 31ms/step - loss: 0.0303 - accuracy: 0.9894 - val_loss: 0.0329 - val_accuracy: 0.9882
+Epoch 5/8
+12224/12224 [==============================] - 381s 31ms/step - loss: 0.0294 - accuracy: 0.9896 - val_loss: 0.0326 - val_accuracy: 0.9885
+Epoch 6/8
+12224/12224 [==============================] - 375s 31ms/step - loss: 0.0289 - accuracy: 0.9898 - val_loss: 0.0327 - val_accuracy: 0.9884
+Epoch 7/8
+12224/12224 [==============================] - 372s 30ms/step - loss: 0.0285 - accuracy: 0.9899 - val_loss: 0.0326 - val_accuracy: 0.9883
+Epoch 8/8
+12224/12224 [==============================] - 374s 31ms/step - loss: 0.0282 - accuracy: 0.9901 - val_loss: 0.0323 - val_accuracy: 0.9884
+11373/11373 [==============================] - 14s 1ms/step
+
+=================================================================================
+=================================================================================
+
+(@@@@@@@@@@@)-killed midway
+Namespace(alphabet_size=200, batch_size=1000, debug=False, epochs=8, seed=42, threads=1, window=7, hidden_layers=[100], hidden_layer_size=512, dropout=0, weight_decay=0)
+WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x000001E5CC5F4E80> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/8
+6112/6112 [==============================] - 597s 98ms/step - loss: 0.0453 - accuracy: 0.9838 - val_loss: 0.0340 - val_accuracy: 0.9878
+Epoch 2/8
+6112/6112 [==============================] - 592s 97ms/step - loss: 0.0289 - accuracy: 0.9900 - val_loss: 0.0320 - val_accuracy: 0.9888
+Epoch 3/8
+6112/6112 [==============================] - 591s 97ms/step - loss: 0.0232 - accuracy: 0.9920 - val_loss: 0.0314 - val_accuracy: 0.9892
+Epoch 4/8
+6112/6112 [==============================] - 591s 97ms/step - loss: 0.0192 - accuracy: 0.9934 - val_loss: 0.0328 - val_accuracy: 0.9890
+Epoch 5/8
+6112/6112 [==============================] - 592s 97ms/step - loss: 0.0159 - accuracy: 0.9945 - val_loss: 0.0351 - val_accuracy: 0.9887
+Epoch 6/8
+
+
+=================================================================================
+=================================================================================
+(@@@@@@@@@@@)-killed midway - WRONG (THERE WAS A MISTAKE) !!!!!!!
+Namespace(alphabet_size=200, batch_size=1000, debug=False, epochs=5, seed=42, threads=1, window=7, hidden_layers=[100], hidden_layer_size=512, dropout=0.5, weight_decay=0, label_smoothing=0.1)
+WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x00000255E3315370> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/5
+6112/6112 [==============================] - 677s 111ms/step - loss: 1.2605 - accuracy: 0.9028 - val_loss: 2.0726 - val_accuracy: 0.9572
+Epoch 2/5
+6112/6112 [==============================] - 670s 110ms/step - loss: 2.4955 - accuracy: 0.8921 - val_loss: 7.3073 - val_accuracy: 0.9572
+Epoch 3/5
+ 222/6112 [>.............................] - ETA: 10:31 - loss: 4.1547 - accuracy: 0.8889Traceback (most recent call last):
+
+=================================================================================
+=================================================================================
+(@@@@@@@@@@@)-killed midway - WRONG (THERE WAS A MISTAKE) !!!!!!!
+Namespace(alphabet_size=200, batch_size=1000, debug=False, epochs=5, seed=42, threads=1, window=7, hidden_layers=[100], hidden_layer_size=512, dropout=0.25, weight_decay=0, label_smoothing=0.1)
+WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x00000214A9405370> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/5
+6112/6112 [==============================] - 676s 110ms/step - loss: 2.0928 - accuracy: 0.8915 - val_loss: 0.2698 - val_accuracy: 0.9572
+Epoch 2/5
+6112/6112 [==============================] - 679s 111ms/step - loss: 2.6008 - accuracy: 0.8843 - val_loss: 5.0918 - val_accuracy: 0.9572
+Epoch 3/5
+1168/6112 [====>.........................] - ETA: 8:56 - loss: 2.5670 - accuracy: 0.8920Traceback (most recent call last):
+
+=================================================================================
+=================================================================================
+(@@@@@@@@@@@)-killed midway
+Namespace(alphabet_size=200, batch_size=1000, debug=False, epochs=6, seed=42, threads=1, window=7, hidden_layers=[512], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x0000024AE98E8670> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/6
+6112/6112 [==============================] - 679s 111ms/step - loss: 0.2328 - accuracy: 0.9807 - val_loss: 0.2228 - val_accuracy: 0.9858
+Epoch 2/6
+6112/6112 [==============================] - 677s 111ms/step - loss: 0.2242 - accuracy: 0.9857 - val_loss: 0.2205 - val_accuracy: 0.9875
+
+=================================================================================
+=================================================================================
+Namespace(alphabet_size=200, batch_size=1000, debug=False, epochs=6, seed=42, threads=1, window=7, hidden_layers=[512], dropout=0.2, weight_decay=0, label_smoothing=0.05)
+WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x0000019B689D8670> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/6
+6112/6112 [==============================] - 681s 111ms/step - loss: 0.1536 - accuracy: 0.9828 - val_loss: 0.1441 - val_accuracy: 0.9874
+Epoch 2/6
+6112/6112 [==============================] - 683s 112ms/step - loss: 0.1425 - accuracy: 0.9884 - val_loss: 0.1417 - val_accuracy: 0.9885
+Epoch 3/6
+6112/6112 [==============================] - 685s 112ms/step - loss: 0.1394 - accuracy: 0.9899 - val_loss: 0.1404 - val_accuracy: 0.9892
+Epoch 4/6
+6112/6112 [==============================] - 674s 110ms/step - loss: 0.1375 - accuracy: 0.9909 - val_loss: 0.1400 - val_accuracy: 0.9893
+Epoch 5/6
+6112/6112 [==============================] - 671s 110ms/step - loss: 0.1363 - accuracy: 0.9915 - val_loss: 0.1400 - val_accuracy: 0.9894
+Epoch 6/6
+6112/6112 [==============================] - 668s 109ms/step - loss: 0.1353 - accuracy: 0.9920 - val_loss: 0.1395 - val_accuracy: 0.9898
+11373/11373 [==============================] - 25s 2ms/step
+
+Process finished with exit code 0
+
+=================================================================================
+=================================================================================
+3 models + RELU:
+
+Namespace(alphabet_size=200, batch_size=1000, debug=False, epochs=8, seed=42, threads=1, window=7, hidden_layers=[1024], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x000002A90BC4A520> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/8
+6112/6112 [==============================] - 1217s 199ms/step - loss: 0.2307 - accuracy: 0.9820 - val_loss: 0.2217 - val_accuracy: 0.9868
+Epoch 2/8
+6112/6112 [==============================] - 1214s 199ms/step - loss: 0.2220 - accuracy: 0.9871 - val_loss: 0.2194 - val_accuracy: 0.9883
+Epoch 3/8
+6112/6112 [==============================] - 1214s 199ms/step - loss: 0.2196 - accuracy: 0.9886 - val_loss: 0.2183 - val_accuracy: 0.9888
+Epoch 4/8
+6112/6112 [==============================] - 1214s 199ms/step - loss: 0.2182 - accuracy: 0.9895 - val_loss: 0.2176 - val_accuracy: 0.9894
+Epoch 5/8
+6112/6112 [==============================] - 1215s 199ms/step - loss: 0.2172 - accuracy: 0.9900 - val_loss: 0.2172 - val_accuracy: 0.9895
+Epoch 6/8
+6112/6112 [==============================] - 1216s 199ms/step - loss: 0.2164 - accuracy: 0.9906 - val_loss: 0.2169 - val_accuracy: 0.9898
+Epoch 7/8
+6112/6112 [==============================] - 1214s 199ms/step - loss: 0.2158 - accuracy: 0.9910 - val_loss: 0.2166 - val_accuracy: 0.9901
+Epoch 8/8
+6112/6112 [==============================] - 1214s 199ms/step - loss: 0.2152 - accuracy: 0.9914 - val_loss: 0.2165 - val_accuracy: 0.9900
+Done
+Training model 2: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x000002A90C03CA00> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/8
+6112/6112 [==============================] - 1217s 199ms/step - loss: 0.2307 - accuracy: 0.9820 - val_loss: 0.2217 - val_accuracy: 0.9869
+Epoch 2/8
+6112/6112 [==============================] - 1217s 199ms/step - loss: 0.2219 - accuracy: 0.9871 - val_loss: 0.2193 - val_accuracy: 0.9883
+Epoch 3/8
+6112/6112 [==============================] - 1217s 199ms/step - loss: 0.2195 - accuracy: 0.9886 - val_loss: 0.2182 - val_accuracy: 0.9889
+Epoch 4/8
+6112/6112 [==============================] - 1217s 199ms/step - loss: 0.2180 - accuracy: 0.9895 - val_loss: 0.2175 - val_accuracy: 0.9893
+Epoch 5/8
+6112/6112 [==============================] - 1217s 199ms/step - loss: 0.2170 - accuracy: 0.9902 - val_loss: 0.2171 - val_accuracy: 0.9897
+Epoch 6/8
+6112/6112 [==============================] - 1217s 199ms/step - loss: 0.2162 - accuracy: 0.9907 - val_loss: 0.2168 - val_accuracy: 0.9897
+Epoch 7/8
+6112/6112 [==============================] - 1217s 199ms/step - loss: 0.2156 - accuracy: 0.9911 - val_loss: 0.2166 - val_accuracy: 0.9899
+Epoch 8/8
+6112/6112 [==============================] - 1217s 199ms/step - loss: 0.2150 - accuracy: 0.9915 - val_loss: 0.2164 - val_accuracy: 0.9899
+Done
+Training model 3: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x000002A90BF63820> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/8
+6112/6112 [==============================] - 1217s 199ms/step - loss: 0.2306 - accuracy: 0.9820 - val_loss: 0.2217 - val_accuracy: 0.9869
+Epoch 2/8
+6112/6112 [==============================] - 1216s 199ms/step - loss: 0.2219 - accuracy: 0.9872 - val_loss: 0.2194 - val_accuracy: 0.9882
+Epoch 3/8
+6112/6112 [==============================] - 1216s 199ms/step - loss: 0.2195 - accuracy: 0.9886 - val_loss: 0.2182 - val_accuracy: 0.9890
+Epoch 4/8
+6112/6112 [==============================] - 1217s 199ms/step - loss: 0.2182 - accuracy: 0.9894 - val_loss: 0.2175 - val_accuracy: 0.9895
+Epoch 5/8
+6112/6112 [==============================] - 1217s 199ms/step - loss: 0.2171 - accuracy: 0.9901 - val_loss: 0.2172 - val_accuracy: 0.9895
+Epoch 6/8
+6112/6112 [==============================] - 1217s 199ms/step - loss: 0.2163 - accuracy: 0.9907 - val_loss: 0.2168 - val_accuracy: 0.9899
+Epoch 7/8
+6112/6112 [==============================] - 1217s 199ms/step - loss: 0.2157 - accuracy: 0.9910 - val_loss: 0.2165 - val_accuracy: 0.9900
+Epoch 8/8
+6112/6112 [==============================] - 1217s 199ms/step - loss: 0.2151 - accuracy: 0.9914 - val_loss: 0.2164 - val_accuracy: 0.9901
+Done
+11344/11344 [==============================] - 41s 4ms/step
+11344/11344 [==============================] - 42s 4ms/step
+11344/11344 [==============================] - 42s 4ms/step
+0.9905176
+
+Process finished with exit code 0
+
+
+=================================================================================
+=================================================================================
+1 model - TANH
+(@@@@@@@@@@@)-killed midway
+
+Namespace(alphabet_size=200, batch_size=1000, debug=False, epochs=8, seed=42, threads=1, window=7, hidden_layers=[512], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x0000019AAF79A520> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/8
+6112/6112 [==============================] - 672s 110ms/step - loss: 0.2498 - accuracy: 0.9707 - val_loss: 0.2425 - val_accuracy: 0.9737
+Epoch 2/8
+6112/6112 [==============================] - 667s 109ms/step - loss: 0.2431 - accuracy: 0.9749 - val_loss: 0.2390 - val_accuracy: 0.9759
+Epoch 3/8
+6112/6112 [==============================] - 669s 109ms/step - loss: 0.2408 - accuracy: 0.9759 - val_loss: 0.2369 - val_accuracy: 0.9766
+Epoch 4/8
+6112/6112 [==============================] - 671s 110ms/step - loss: 0.2393 - accuracy: 0.9767 - val_loss: 0.2352 - val_accuracy: 0.9775
+Epoch 5/8
+1843/6112 [========>.....................] - ETA: 7:38 - loss: 0.2386 - accuracy: 0.9773Traceback (most recent call last):
+
+=================================================================================
+=================================================================================
+1 model - RELU
+(@@@@@@@@@@@)-killed midway
+
+Namespace(alphabet_size=200, batch_size=1000, debug=False, epochs=8, seed=42, threads=1, window=5, hidden_layers=[512], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x0000018D228794F0> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/8
+6112/6112 [==============================] - 523s 85ms/step - loss: 0.2331 - accuracy: 0.9802 - val_loss: 0.2234 - val_accuracy: 0.9853
+Epoch 2/8
+6112/6112 [==============================] - 522s 85ms/step - loss: 0.2248 - accuracy: 0.9850 - val_loss: 0.2210 - val_accuracy: 0.9870
+Epoch 3/8
+6112/6112 [==============================] - 525s 86ms/step - loss: 0.2229 - accuracy: 0.9862 - val_loss: 0.2199 - val_accuracy: 0.9877
+Epoch 4/8
+6112/6112 [==============================] - 523s 86ms/step - loss: 0.2218 - accuracy: 0.9870 - val_loss: 0.2193 - val_accuracy: 0.9880
+Epoch 5/8
+6112/6112 [==============================] - 524s 86ms/step - loss: 0.2212 - accuracy: 0.9874 - val_loss: 0.2188 - val_accuracy: 0.9884
+Epoch 6/8
+ 488/6112 [=>............................] - ETA: 7:50 - loss: 0.2204 - accuracy: 0.9878Traceback (most recent call last):
+
+=================================================================================
+=================================================================================
+1 model - RELU
+(@@@@@@@@@@@)-killed midway
+
+Namespace(alphabet_size=30, batch_size=1000, debug=False, epochs=8, seed=42, threads=1, window=6, hidden_layers=[512], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x0000025EB06B94F0> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/8
+6112/6112 [==============================] - 181s 29ms/step - loss: 0.2384 - accuracy: 0.9775 - val_loss: 0.2281 - val_accuracy: 0.9825
+Epoch 2/8
+6112/6112 [==============================] - 180s 29ms/step - loss: 0.2297 - accuracy: 0.9823 - val_loss: 0.2254 - val_accuracy: 0.9842
+Epoch 3/8
+6112/6112 [==============================] - 180s 29ms/step - loss: 0.2278 - accuracy: 0.9835 - val_loss: 0.2240 - val_accuracy: 0.9854
+Epoch 4/8
+6112/6112 [==============================] - 180s 29ms/step - loss: 0.2267 - accuracy: 0.9841 - val_loss: 0.2232 - val_accuracy: 0.9856
+Epoch 5/8
+
+=================================================================================
+=================================================================================
+1 model - RELU
+(@@@@@@@@@@@)-killed midway
+
+Namespace(alphabet_size=30, batch_size=5000, debug=False, epochs=8, seed=42, threads=1, window=7, hidden_layers=[1024], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x0000029ACBB48520> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/8
+1223/1223 [==============================] - 341s 278ms/step - loss: 0.2455 - accuracy: 0.9736 - val_loss: 0.2319 - val_accuracy: 0.9802
+Epoch 2/8
+1223/1223 [==============================] - 341s 279ms/step - loss: 0.2311 - accuracy: 0.9820 - val_loss: 0.2268 - val_accuracy: 0.9839
+Epoch 3/8
+1223/1223 [==============================] - 341s 279ms/step - loss: 0.2275 - accuracy: 0.9842 - val_loss: 0.2245 - val_accuracy: 0.9850
+Epoch 4/8
+1223/1223 [==============================] - 348s 285ms/step - loss: 0.2254 - accuracy: 0.9855 - val_loss: 0.2232 - val_accuracy: 0.9858
+Epoch 5/8
+1223/1223 [==============================] - 351s 287ms/step - loss: 0.2239 - accuracy: 0.9863 - val_loss: 0.2222 - val_accuracy: 0.9864
+Epoch 6/8
+ 644/1223 [==============>...............] - ETA: 2:45 - loss: 0.2227 - accuracy: 0.9870Traceback (most recent call last):
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=250, batch_size=5000, debug=False, epochs=8, seed=42, threads=1, window=8, hidden_layers=[512, 512], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x000001C04CB04280> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/8
+1223/1223 [==============================] - 1028s 839ms/step - loss: 0.2405 - accuracy: 0.9763 - val_loss: 0.2245 - val_accuracy: 0.9852
+Epoch 2/8
+1223/1223 [==============================] - 1029s 841ms/step - loss: 0.2251 - accuracy: 0.9854 - val_loss: 0.2205 - val_accuracy: 0.9876
+Epoch 3/8
+1223/1223 [==============================] - 1020s 834ms/step - loss: 0.2214 - accuracy: 0.9875 - val_loss: 0.2191 - val_accuracy: 0.9882
+Epoch 4/8
+1223/1223 [==============================] - 1021s 835ms/step - loss: 0.2193 - accuracy: 0.9886 - val_loss: 0.2183 - val_accuracy: 0.9887
+Epoch 5/8
+1223/1223 [==============================] - 1016s 831ms/step - loss: 0.2178 - accuracy: 0.9894 - val_loss: 0.2179 - val_accuracy: 0.9890
+Epoch 6/8
+1223/1223 [==============================] - 1018s 832ms/step - loss: 0.2168 - accuracy: 0.9899 - val_loss: 0.2179 - val_accuracy: 0.9890
+Epoch 7/8
+1223/1223 [==============================] - 1019s 833ms/step - loss: 0.2159 - accuracy: 0.9905 - val_loss: 0.2176 - val_accuracy: 0.9891
+Epoch 8/8
+1223/1223 [==============================] - 1018s 833ms/step - loss: 0.2152 - accuracy: 0.9908 - val_loss: 0.2177 - val_accuracy: 0.9890
+Done
+11344/11344 [==============================] - 36s 3ms/step
+0.98898864
+
+Process finished with exit code 0
+
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=250, batch_size=1000, debug=False, epochs=8, seed=42, threads=1, window=7, hidden_layers=[1024], dropout=0.5, weight_decay=0, label_smoothing=0)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x000001F9D208B5B0> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/8
+6112/6112 [==============================] - 1483s 243ms/step - loss: 0.0486 - accuracy: 0.9824 - val_loss: 0.0353 - val_accuracy: 0.9872
+Epoch 2/8
+6112/6112 [==============================] - 1520s 249ms/step - loss: 0.0349 - accuracy: 0.9876 - val_loss: 0.0324 - val_accuracy: 0.9885
+Epoch 3/8
+6112/6112 [==============================] - 1522s 249ms/step - loss: 0.0307 - accuracy: 0.9892 - val_loss: 0.0311 - val_accuracy: 0.9890
+Epoch 4/8
+6112/6112 [==============================] - 1497s 245ms/step - loss: 0.0279 - accuracy: 0.9902 - val_loss: 0.0299 - val_accuracy: 0.9895
+Epoch 5/8
+6112/6112 [==============================] - 1490s 244ms/step - loss: 0.0257 - accuracy: 0.9909 - val_loss: 0.0297 - val_accuracy: 0.9897
+Epoch 6/8
+6112/6112 [==============================] - 1500s 245ms/step - loss: 0.0240 - accuracy: 0.9915 - val_loss: 0.0296 - val_accuracy: 0.9898
+Epoch 7/8
+6112/6112 [==============================] - 1489s 244ms/step - loss: 0.0227 - accuracy: 0.9920 - val_loss: 0.0297 - val_accuracy: 0.9899
+Epoch 8/8
+6112/6112 [==============================] - 1475s 241ms/step - loss: 0.0215 - accuracy: 0.9923 - val_loss: 0.0298 - val_accuracy: 0.9900
+Done
+11344/11344 [==============================] - 49s 4ms/step
+0.990041
+
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=250, batch_size=1000, debug=False, epochs=10, seed=42, threads=1, window=7, hidden_layers=[512], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x00000137331FA640> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/10
+6112/6112 [==============================] - 825s 135ms/step - loss: 0.2328 - accuracy: 0.9806 - val_loss: 0.2229 - val_accuracy: 0.9859
+Epoch 2/10
+6112/6112 [==============================] - 826s 135ms/step - loss: 0.2242 - accuracy: 0.9856 - val_loss: 0.2205 - val_accuracy: 0.9874
+Epoch 3/10
+6112/6112 [==============================] - 817s 134ms/step - loss: 0.2221 - accuracy: 0.9869 - val_loss: 0.2193 - val_accuracy: 0.9883
+Epoch 4/10
+6112/6112 [==============================] - 819s 134ms/step - loss: 0.2209 - accuracy: 0.9877 - val_loss: 0.2185 - val_accuracy: 0.9887
+Epoch 5/10
+6112/6112 [==============================] - 819s 134ms/step - loss: 0.2201 - accuracy: 0.9882 - val_loss: 0.2181 - val_accuracy: 0.9890
+Epoch 6/10
+6112/6112 [==============================] - 819s 134ms/step - loss: 0.2194 - accuracy: 0.9886 - val_loss: 0.2179 - val_accuracy: 0.9891
+Epoch 7/10
+6112/6112 [==============================] - 816s 133ms/step - loss: 0.2189 - accuracy: 0.9890 - val_loss: 0.2175 - val_accuracy: 0.9894
+Epoch 8/10
+6112/6112 [==============================] - 811s 133ms/step - loss: 0.2185 - accuracy: 0.9893 - val_loss: 0.2172 - val_accuracy: 0.9895
+Epoch 9/10
+6112/6112 [==============================] - 815s 133ms/step - loss: 0.2182 - accuracy: 0.9895 - val_loss: 0.2171 - val_accuracy: 0.9896
+Epoch 10/10
+6112/6112 [==============================] - 820s 134ms/step - loss: 0.2178 - accuracy: 0.9898 - val_loss: 0.2169 - val_accuracy: 0.9897
+Done
+11344/11344 [==============================] - 30s 3ms/step
+0.98967457
+
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=250, batch_size=1000, debug=False, epochs=10, seed=42, threads=0, window=5, hidden_layers=[256], dropout=0.3, weight_decay=0, label_smoothing=0.05)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x00000219B1598610> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/10
+6112/6112 [==============================] - 99s 16ms/step - loss: 0.1583 - accuracy: 0.9801 - val_loss: 0.1470 - val_accuracy: 0.9854
+Epoch 2/10
+6112/6112 [==============================] - 99s 16ms/step - loss: 0.1476 - accuracy: 0.9854 - val_loss: 0.1442 - val_accuracy: 0.9868
+Epoch 3/10
+6112/6112 [==============================] - 102s 17ms/step - loss: 0.1452 - accuracy: 0.9867 - val_loss: 0.1430 - val_accuracy: 0.9875
+Epoch 4/10
+6112/6112 [==============================] - 99s 16ms/step - loss: 0.1439 - accuracy: 0.9873 - val_loss: 0.1422 - val_accuracy: 0.9879
+Epoch 5/10
+6112/6112 [==============================] - 99s 16ms/step - loss: 0.1430 - accuracy: 0.9878 - val_loss: 0.1417 - val_accuracy: 0.9881
+Epoch 6/10
+6112/6112 [==============================] - 102s 17ms/step - loss: 0.1423 - accuracy: 0.9882 - val_loss: 0.1413 - val_accuracy: 0.9884
+Epoch 7/10
+6112/6112 [==============================] - 102s 17ms/step - loss: 0.1417 - accuracy: 0.9885 - val_loss: 0.1411 - val_accuracy: 0.9886
+Epoch 8/10
+6112/6112 [==============================] - 101s 17ms/step - loss: 0.1414 - accuracy: 0.9887 - val_loss: 0.1410 - val_accuracy: 0.9886
+Epoch 9/10
+6112/6112 [==============================] - 100s 16ms/step - loss: 0.1411 - accuracy: 0.9889 - val_loss: 0.1405 - val_accuracy: 0.9890
+Epoch 10/10
+6112/6112 [==============================] - 100s 16ms/step - loss: 0.1408 - accuracy: 0.9890 - val_loss: 0.1404 - val_accuracy: 0.9889
+Done
+11344/11344 [==============================] - 12s 1ms/step
+0.98891973
+
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=60, batch_size=1000, debug=False, epochs=10, seed=42, threads=0, window=5, hidden_layers=[512], dropout=0.3, weight_decay=0, label_smoothing=0.05)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x000001FA10497730> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/10
+6112/6112 [==============================] - 76s 12ms/step - loss: 0.1558 - accuracy: 0.9815 - val_loss: 0.1457 - val_accuracy: 0.9863
+Epoch 2/10
+6112/6112 [==============================] - 74s 12ms/step - loss: 0.1455 - accuracy: 0.9867 - val_loss: 0.1431 - val_accuracy: 0.9876
+Epoch 3/10
+6112/6112 [==============================] - 76s 12ms/step - loss: 0.1429 - accuracy: 0.9880 - val_loss: 0.1419 - val_accuracy: 0.9882
+Epoch 4/10
+6112/6112 [==============================] - 74s 12ms/step - loss: 0.1415 - accuracy: 0.9887 - val_loss: 0.1410 - val_accuracy: 0.9887
+Epoch 5/10
+6112/6112 [==============================] - 75s 12ms/step - loss: 0.1405 - accuracy: 0.9892 - val_loss: 0.1406 - val_accuracy: 0.9890
+Epoch 6/10
+6112/6112 [==============================] - 73s 12ms/step - loss: 0.1396 - accuracy: 0.9896 - val_loss: 0.1402 - val_accuracy: 0.9891
+Epoch 7/10
+6112/6112 [==============================] - 72s 12ms/step - loss: 0.1390 - accuracy: 0.9900 - val_loss: 0.1400 - val_accuracy: 0.9894
+Epoch 8/10
+6112/6112 [==============================] - 72s 12ms/step - loss: 0.1385 - accuracy: 0.9903 - val_loss: 0.1397 - val_accuracy: 0.9895
+Epoch 9/10
+6112/6112 [==============================] - 73s 12ms/step - loss: 0.1380 - accuracy: 0.9905 - val_loss: 0.1395 - val_accuracy: 0.9897
+Epoch 10/10
+6112/6112 [==============================] - 73s 12ms/step - loss: 0.1377 - accuracy: 0.9907 - val_loss: 0.1393 - val_accuracy: 0.9898
+Done
+11344/11344 [==============================] - 13s 1ms/step
+0.98975176
+
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=50, batch_size=1000, debug=False, epochs=10, seed=42, threads=0, window=6, hidden_layers=[512], dropout=0.3, weight_decay=0, label_smoothing=0.05)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x00000203A1167610> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/10
+6112/6112 [==============================] - 73s 12ms/step - loss: 0.1566 - accuracy: 0.9813 - val_loss: 0.1463 - val_accuracy: 0.9860
+Epoch 2/10
+6112/6112 [==============================] - 72s 12ms/step - loss: 0.1459 - accuracy: 0.9866 - val_loss: 0.1437 - val_accuracy: 0.9874
+Epoch 3/10
+6112/6112 [==============================] - 72s 12ms/step - loss: 0.1432 - accuracy: 0.9880 - val_loss: 0.1424 - val_accuracy: 0.9881
+Epoch 4/10
+6112/6112 [==============================] - 72s 12ms/step - loss: 0.1416 - accuracy: 0.9888 - val_loss: 0.1415 - val_accuracy: 0.9884
+Epoch 5/10
+6112/6112 [==============================] - 72s 12ms/step - loss: 0.1405 - accuracy: 0.9893 - val_loss: 0.1413 - val_accuracy: 0.9886
+Epoch 6/10
+6112/6112 [==============================] - 72s 12ms/step - loss: 0.1397 - accuracy: 0.9897 - val_loss: 0.1408 - val_accuracy: 0.9888
+Epoch 7/10
+6112/6112 [==============================] - 72s 12ms/step - loss: 0.1389 - accuracy: 0.9901 - val_loss: 0.1405 - val_accuracy: 0.9890
+Epoch 8/10
+6112/6112 [==============================] - 72s 12ms/step - loss: 0.1384 - accuracy: 0.9904 - val_loss: 0.1405 - val_accuracy: 0.9889
+Epoch 9/10
+6112/6112 [==============================] - 72s 12ms/step - loss: 0.1380 - accuracy: 0.9907 - val_loss: 0.1403 - val_accuracy: 0.9891
+Epoch 10/10
+6112/6112 [==============================] - 72s 12ms/step - loss: 0.1375 - accuracy: 0.9909 - val_loss: 0.1402 - val_accuracy: 0.9892
+Done
+11344/11344 [==============================] - 12s 1ms/step
+0.98917043
+
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=50, batch_size=500, debug=False, epochs=15, seed=42, threads=0, window=6, hidden_layers=[512], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x000002A823DD7610> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/15
+12224/12224 [==============================] - 89s 7ms/step - loss: 0.2327 - accuracy: 0.9806 - val_loss: 0.2237 - val_accuracy: 0.9852
+Epoch 2/15
+12224/12224 [==============================] - 88s 7ms/step - loss: 0.2255 - accuracy: 0.9847 - val_loss: 0.2216 - val_accuracy: 0.9867
+Epoch 3/15
+12224/12224 [==============================] - 89s 7ms/step - loss: 0.2238 - accuracy: 0.9859 - val_loss: 0.2205 - val_accuracy: 0.9874
+Epoch 4/15
+12224/12224 [==============================] - 89s 7ms/step - loss: 0.2227 - accuracy: 0.9866 - val_loss: 0.2199 - val_accuracy: 0.9876
+Epoch 5/15
+12224/12224 [==============================] - 90s 7ms/step - loss: 0.2219 - accuracy: 0.9871 - val_loss: 0.2195 - val_accuracy: 0.9880
+Epoch 6/15
+12224/12224 [==============================] - 91s 7ms/step - loss: 0.2213 - accuracy: 0.9875 - val_loss: 0.2191 - val_accuracy: 0.9883
+Epoch 7/15
+12224/12224 [==============================] - 89s 7ms/step - loss: 0.2209 - accuracy: 0.9878 - val_loss: 0.2188 - val_accuracy: 0.9884
+Epoch 8/15
+12224/12224 [==============================] - 91s 7ms/step - loss: 0.2205 - accuracy: 0.9880 - val_loss: 0.2185 - val_accuracy: 0.9886
+Epoch 9/15
+12224/12224 [==============================] - 89s 7ms/step - loss: 0.2202 - accuracy: 0.9882 - val_loss: 0.2183 - val_accuracy: 0.9887
+Epoch 10/15
+12224/12224 [==============================] - 88s 7ms/step - loss: 0.2199 - accuracy: 0.9884 - val_loss: 0.2182 - val_accuracy: 0.9889
+Epoch 11/15
+12224/12224 [==============================] - 90s 7ms/step - loss: 0.2197 - accuracy: 0.9886 - val_loss: 0.2180 - val_accuracy: 0.9890
+Epoch 12/15
+12224/12224 [==============================] - 92s 7ms/step - loss: 0.2195 - accuracy: 0.9887 - val_loss: 0.2179 - val_accuracy: 0.9891
+Epoch 13/15
+12224/12224 [==============================] - 91s 7ms/step - loss: 0.2193 - accuracy: 0.9889 - val_loss: 0.2178 - val_accuracy: 0.9890
+Epoch 14/15
+12224/12224 [==============================] - 89s 7ms/step - loss: 0.2192 - accuracy: 0.9889 - val_loss: 0.2177 - val_accuracy: 0.9892
+Epoch 15/15
+12224/12224 [==============================] - 89s 7ms/step - loss: 0.2190 - accuracy: 0.9890 - val_loss: 0.2177 - val_accuracy: 0.9890
+Done
+11344/11344 [==============================] - 12s 1ms/step
+0.98904645
+
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=55, batch_size=512, debug=False, epochs=15, seed=42, threads=0, window=6, hidden_layers=[1024], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x0000021F89917610> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/15
+11938/11938 [==============================] - 179s 15ms/step - loss: 0.2301 - accuracy: 0.9822 - val_loss: 0.2218 - val_accuracy: 0.9867
+Epoch 2/15
+11938/11938 [==============================] - 177s 15ms/step - loss: 0.2227 - accuracy: 0.9866 - val_loss: 0.2198 - val_accuracy: 0.9878
+Epoch 3/15
+11938/11938 [==============================] - 174s 15ms/step - loss: 0.2206 - accuracy: 0.9879 - val_loss: 0.2187 - val_accuracy: 0.9885
+Epoch 4/15
+11938/11938 [==============================] - 174s 15ms/step - loss: 0.2194 - accuracy: 0.9887 - val_loss: 0.2179 - val_accuracy: 0.9891
+Epoch 5/15
+11938/11938 [==============================] - 174s 15ms/step - loss: 0.2184 - accuracy: 0.9893 - val_loss: 0.2176 - val_accuracy: 0.9892
+Epoch 6/15
+11938/11938 [==============================] - 174s 15ms/step - loss: 0.2177 - accuracy: 0.9897 - val_loss: 0.2172 - val_accuracy: 0.9895
+Epoch 7/15
+11938/11938 [==============================] - 174s 15ms/step - loss: 0.2171 - accuracy: 0.9901 - val_loss: 0.2170 - val_accuracy: 0.9897
+Epoch 8/15
+11938/11938 [==============================] - 174s 15ms/step - loss: 0.2166 - accuracy: 0.9904 - val_loss: 0.2168 - val_accuracy: 0.9898
+Epoch 9/15
+11938/11938 [==============================] - 174s 15ms/step - loss: 0.2163 - accuracy: 0.9907 - val_loss: 0.2166 - val_accuracy: 0.9900
+Epoch 10/15
+11938/11938 [==============================] - 174s 15ms/step - loss: 0.2159 - accuracy: 0.9909 - val_loss: 0.2164 - val_accuracy: 0.9900
+Epoch 11/15
+11938/11938 [==============================] - 174s 15ms/step - loss: 0.2156 - accuracy: 0.9911 - val_loss: 0.2163 - val_accuracy: 0.9901
+Epoch 12/15
+11938/11938 [==============================] - 174s 15ms/step - loss: 0.2154 - accuracy: 0.9913 - val_loss: 0.2162 - val_accuracy: 0.9903
+Epoch 13/15
+11938/11938 [==============================] - 175s 15ms/step - loss: 0.2150 - accuracy: 0.9915 - val_loss: 0.2162 - val_accuracy: 0.9902
+Epoch 14/15
+11938/11938 [==============================] - 175s 15ms/step - loss: 0.2148 - accuracy: 0.9916 - val_loss: 0.2162 - val_accuracy: 0.9902
+Epoch 15/15
+11938/11938 [==============================] - 175s 15ms/step - loss: 0.2147 - accuracy: 0.9918 - val_loss: 0.2161 - val_accuracy: 0.9904
+Done
+11344/11344 [==============================] - 17s 1ms/step
+0.99042946
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=55, batch_size=256, debug=False, epochs=20, seed=42, threads=0, window=6, hidden_layers=[1500], dropout=0.55, weight_decay=0, label_smoothing=0.125)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x000002D491227610> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/20
+23875/23875 [==============================] - 360s 15ms/step - loss: 0.2624 - accuracy: 0.9825 - val_loss: 0.2551 - val_accuracy: 0.9866
+Epoch 2/20
+23875/23875 [==============================] - 357s 15ms/step - loss: 0.2561 - accuracy: 0.9866 - val_loss: 0.2531 - val_accuracy: 0.9880
+Epoch 3/20
+23875/23875 [==============================] - 360s 15ms/step - loss: 0.2542 - accuracy: 0.9878 - val_loss: 0.2522 - val_accuracy: 0.9887
+Epoch 4/20
+23875/23875 [==============================] - 361s 15ms/step - loss: 0.2530 - accuracy: 0.9887 - val_loss: 0.2516 - val_accuracy: 0.9889
+Epoch 5/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2522 - accuracy: 0.9893 - val_loss: 0.2513 - val_accuracy: 0.9893
+Epoch 6/20
+23875/23875 [==============================] - 358s 15ms/step - loss: 0.2516 - accuracy: 0.9897 - val_loss: 0.2512 - val_accuracy: 0.9895
+Epoch 7/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2511 - accuracy: 0.9900 - val_loss: 0.2508 - val_accuracy: 0.9898
+Epoch 8/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2508 - accuracy: 0.9903 - val_loss: 0.2507 - val_accuracy: 0.9896
+Epoch 9/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2504 - accuracy: 0.9906 - val_loss: 0.2507 - val_accuracy: 0.9898
+Epoch 10/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2501 - accuracy: 0.9908 - val_loss: 0.2506 - val_accuracy: 0.9899
+Epoch 11/20
+23875/23875 [==============================] - 358s 15ms/step - loss: 0.2500 - accuracy: 0.9909 - val_loss: 0.2505 - val_accuracy: 0.9900
+Epoch 12/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2497 - accuracy: 0.9911 - val_loss: 0.2505 - val_accuracy: 0.9901
+Epoch 13/20
+23875/23875 [==============================] - 358s 15ms/step - loss: 0.2495 - accuracy: 0.9912 - val_loss: 0.2504 - val_accuracy: 0.9901
+Epoch 14/20
+23875/23875 [==============================] - 365s 15ms/step - loss: 0.2494 - accuracy: 0.9913 - val_loss: 0.2505 - val_accuracy: 0.9900
+Epoch 15/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2492 - accuracy: 0.9914 - val_loss: 0.2504 - val_accuracy: 0.9901
+Epoch 16/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2491 - accuracy: 0.9915 - val_loss: 0.2504 - val_accuracy: 0.9900
+Epoch 17/20
+23875/23875 [==============================] - 358s 15ms/step - loss: 0.2490 - accuracy: 0.9917 - val_loss: 0.2505 - val_accuracy: 0.9903
+Epoch 18/20
+23875/23875 [==============================] - 357s 15ms/step - loss: 0.2489 - accuracy: 0.9917 - val_loss: 0.2503 - val_accuracy: 0.9904
+Epoch 19/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2488 - accuracy: 0.9918 - val_loss: 0.2503 - val_accuracy: 0.9902
+Epoch 20/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2487 - accuracy: 0.9919 - val_loss: 0.2503 - val_accuracy: 0.9902
+Done
+Training model 2: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x000002D491F4EE50> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/20
+23875/23875 [==============================] - 358s 15ms/step - loss: 0.2625 - accuracy: 0.9825 - val_loss: 0.2551 - val_accuracy: 0.9867
+Epoch 2/20
+23875/23875 [==============================] - 358s 15ms/step - loss: 0.2562 - accuracy: 0.9865 - val_loss: 0.2533 - val_accuracy: 0.9878
+Epoch 3/20
+23875/23875 [==============================] - 358s 15ms/step - loss: 0.2543 - accuracy: 0.9878 - val_loss: 0.2524 - val_accuracy: 0.9887
+Epoch 4/20
+23875/23875 [==============================] - 358s 15ms/step - loss: 0.2531 - accuracy: 0.9887 - val_loss: 0.2517 - val_accuracy: 0.9892
+Epoch 5/20
+23875/23875 [==============================] - 358s 15ms/step - loss: 0.2523 - accuracy: 0.9892 - val_loss: 0.2514 - val_accuracy: 0.9893
+Epoch 6/20
+23875/23875 [==============================] - 358s 15ms/step - loss: 0.2517 - accuracy: 0.9896 - val_loss: 0.2512 - val_accuracy: 0.9896
+Epoch 7/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2512 - accuracy: 0.9900 - val_loss: 0.2509 - val_accuracy: 0.9898
+Epoch 8/20
+23875/23875 [==============================] - 358s 15ms/step - loss: 0.2507 - accuracy: 0.9903 - val_loss: 0.2508 - val_accuracy: 0.9896
+Epoch 9/20
+23875/23875 [==============================] - 358s 15ms/step - loss: 0.2505 - accuracy: 0.9905 - val_loss: 0.2506 - val_accuracy: 0.9899
+Epoch 10/20
+23875/23875 [==============================] - 358s 15ms/step - loss: 0.2502 - accuracy: 0.9907 - val_loss: 0.2505 - val_accuracy: 0.9898
+Epoch 11/20
+23875/23875 [==============================] - 358s 15ms/step - loss: 0.2499 - accuracy: 0.9909 - val_loss: 0.2505 - val_accuracy: 0.9901
+Epoch 12/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2498 - accuracy: 0.9910 - val_loss: 0.2504 - val_accuracy: 0.9902
+Epoch 13/20
+23875/23875 [==============================] - 358s 15ms/step - loss: 0.2495 - accuracy: 0.9912 - val_loss: 0.2503 - val_accuracy: 0.9901
+Epoch 14/20
+23875/23875 [==============================] - 358s 15ms/step - loss: 0.2494 - accuracy: 0.9913 - val_loss: 0.2505 - val_accuracy: 0.9902
+Epoch 15/20
+23875/23875 [==============================] - 358s 15ms/step - loss: 0.2493 - accuracy: 0.9914 - val_loss: 0.2504 - val_accuracy: 0.9902
+Epoch 16/20
+23875/23875 [==============================] - 358s 15ms/step - loss: 0.2491 - accuracy: 0.9915 - val_loss: 0.2503 - val_accuracy: 0.9902
+Epoch 17/20
+23875/23875 [==============================] - 360s 15ms/step - loss: 0.2490 - accuracy: 0.9916 - val_loss: 0.2504 - val_accuracy: 0.9903
+Epoch 18/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2490 - accuracy: 0.9917 - val_loss: 0.2503 - val_accuracy: 0.9902
+Epoch 19/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2488 - accuracy: 0.9918 - val_loss: 0.2503 - val_accuracy: 0.9902
+Epoch 20/20
+23875/23875 [==============================] - 360s 15ms/step - loss: 0.2488 - accuracy: 0.9918 - val_loss: 0.2503 - val_accuracy: 0.9904
+Done
+Training model 3: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x000002D4A4256940> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2624 - accuracy: 0.9825 - val_loss: 0.2551 - val_accuracy: 0.9867
+Epoch 2/20
+23875/23875 [==============================] - 358s 15ms/step - loss: 0.2561 - accuracy: 0.9865 - val_loss: 0.2532 - val_accuracy: 0.9879
+Epoch 3/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2542 - accuracy: 0.9879 - val_loss: 0.2522 - val_accuracy: 0.9889
+Epoch 4/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2530 - accuracy: 0.9886 - val_loss: 0.2515 - val_accuracy: 0.9891
+Epoch 5/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2522 - accuracy: 0.9892 - val_loss: 0.2512 - val_accuracy: 0.9893
+Epoch 6/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2516 - accuracy: 0.9897 - val_loss: 0.2510 - val_accuracy: 0.9895
+Epoch 7/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2512 - accuracy: 0.9900 - val_loss: 0.2508 - val_accuracy: 0.9897
+Epoch 8/20
+23875/23875 [==============================] - 360s 15ms/step - loss: 0.2507 - accuracy: 0.9903 - val_loss: 0.2506 - val_accuracy: 0.9897
+Epoch 9/20
+23875/23875 [==============================] - 358s 15ms/step - loss: 0.2504 - accuracy: 0.9905 - val_loss: 0.2505 - val_accuracy: 0.9899
+Epoch 10/20
+23875/23875 [==============================] - 361s 15ms/step - loss: 0.2501 - accuracy: 0.9908 - val_loss: 0.2504 - val_accuracy: 0.9900
+Epoch 11/20
+23875/23875 [==============================] - 363s 15ms/step - loss: 0.2499 - accuracy: 0.9909 - val_loss: 0.2504 - val_accuracy: 0.9900
+Epoch 12/20
+23875/23875 [==============================] - 360s 15ms/step - loss: 0.2497 - accuracy: 0.9911 - val_loss: 0.2503 - val_accuracy: 0.9901
+Epoch 13/20
+23875/23875 [==============================] - 360s 15ms/step - loss: 0.2495 - accuracy: 0.9912 - val_loss: 0.2503 - val_accuracy: 0.9901
+Epoch 14/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2494 - accuracy: 0.9913 - val_loss: 0.2502 - val_accuracy: 0.9903
+Epoch 15/20
+23875/23875 [==============================] - 361s 15ms/step - loss: 0.2493 - accuracy: 0.9914 - val_loss: 0.2503 - val_accuracy: 0.9901
+Epoch 16/20
+23875/23875 [==============================] - 360s 15ms/step - loss: 0.2491 - accuracy: 0.9915 - val_loss: 0.2502 - val_accuracy: 0.9902
+Epoch 17/20
+23875/23875 [==============================] - 361s 15ms/step - loss: 0.2490 - accuracy: 0.9916 - val_loss: 0.2505 - val_accuracy: 0.9902
+Epoch 18/20
+23875/23875 [==============================] - 361s 15ms/step - loss: 0.2489 - accuracy: 0.9917 - val_loss: 0.2502 - val_accuracy: 0.9902
+Epoch 19/20
+23875/23875 [==============================] - 362s 15ms/step - loss: 0.2488 - accuracy: 0.9917 - val_loss: 0.2503 - val_accuracy: 0.9901
+Epoch 20/20
+23875/23875 [==============================] - 361s 15ms/step - loss: 0.2487 - accuracy: 0.9919 - val_loss: 0.2503 - val_accuracy: 0.9903
+Done
+Training model 4: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x000002D4C1CC0220> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2624 - accuracy: 0.9825 - val_loss: 0.2551 - val_accuracy: 0.9868
+Epoch 2/20
+23875/23875 [==============================] - 361s 15ms/step - loss: 0.2561 - accuracy: 0.9865 - val_loss: 0.2531 - val_accuracy: 0.9882
+Epoch 3/20
+23875/23875 [==============================] - 360s 15ms/step - loss: 0.2542 - accuracy: 0.9879 - val_loss: 0.2522 - val_accuracy: 0.9886
+Epoch 4/20
+23875/23875 [==============================] - 360s 15ms/step - loss: 0.2530 - accuracy: 0.9887 - val_loss: 0.2516 - val_accuracy: 0.9891
+Epoch 5/20
+23875/23875 [==============================] - 360s 15ms/step - loss: 0.2522 - accuracy: 0.9892 - val_loss: 0.2513 - val_accuracy: 0.9893
+Epoch 6/20
+23875/23875 [==============================] - 360s 15ms/step - loss: 0.2516 - accuracy: 0.9897 - val_loss: 0.2511 - val_accuracy: 0.9894
+Epoch 7/20
+23875/23875 [==============================] - 360s 15ms/step - loss: 0.2511 - accuracy: 0.9901 - val_loss: 0.2509 - val_accuracy: 0.9896
+Epoch 8/20
+23875/23875 [==============================] - 360s 15ms/step - loss: 0.2507 - accuracy: 0.9903 - val_loss: 0.2507 - val_accuracy: 0.9896
+Epoch 9/20
+23875/23875 [==============================] - 360s 15ms/step - loss: 0.2504 - accuracy: 0.9905 - val_loss: 0.2505 - val_accuracy: 0.9899
+Epoch 10/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2501 - accuracy: 0.9908 - val_loss: 0.2505 - val_accuracy: 0.9899
+Epoch 11/20
+23875/23875 [==============================] - 360s 15ms/step - loss: 0.2499 - accuracy: 0.9910 - val_loss: 0.2504 - val_accuracy: 0.9901
+Epoch 12/20
+23875/23875 [==============================] - 362s 15ms/step - loss: 0.2497 - accuracy: 0.9911 - val_loss: 0.2503 - val_accuracy: 0.9900
+Epoch 13/20
+23875/23875 [==============================] - 362s 15ms/step - loss: 0.2495 - accuracy: 0.9912 - val_loss: 0.2503 - val_accuracy: 0.9901
+Epoch 14/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2493 - accuracy: 0.9913 - val_loss: 0.2503 - val_accuracy: 0.9900
+Epoch 15/20
+23875/23875 [==============================] - 359s 15ms/step - loss: 0.2492 - accuracy: 0.9915 - val_loss: 0.2503 - val_accuracy: 0.9903
+Epoch 16/20
+23875/23875 [==============================] - 358s 15ms/step - loss: 0.2491 - accuracy: 0.9916 - val_loss: 0.2502 - val_accuracy: 0.9902
+Epoch 17/20
+23875/23875 [==============================] - 360s 15ms/step - loss: 0.2490 - accuracy: 0.9916 - val_loss: 0.2503 - val_accuracy: 0.9902
+Epoch 18/20
+23875/23875 [==============================] - 362s 15ms/step - loss: 0.2489 - accuracy: 0.9917 - val_loss: 0.2503 - val_accuracy: 0.9903
+Epoch 19/20
+23875/23875 [==============================] - 362s 15ms/step - loss: 0.2488 - accuracy: 0.9918 - val_loss: 0.2502 - val_accuracy: 0.9902
+Epoch 20/20
+23875/23875 [==============================] - 361s 15ms/step - loss: 0.2487 - accuracy: 0.9918 - val_loss: 0.2501 - val_accuracy: 0.9904
+Done
+Training model 5: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x000002D4BD6F9160> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/20
+23875/23875 [==============================] - 365s 15ms/step - loss: 0.2625 - accuracy: 0.9825 - val_loss: 0.2551 - val_accuracy: 0.9867
+Epoch 2/20
+23875/23875 [==============================] - 363s 15ms/step - loss: 0.2561 - accuracy: 0.9865 - val_loss: 0.2532 - val_accuracy: 0.9879
+Epoch 3/20
+23875/23875 [==============================] - 364s 15ms/step - loss: 0.2542 - accuracy: 0.9879 - val_loss: 0.2523 - val_accuracy: 0.9886
+Epoch 4/20
+23875/23875 [==============================] - 363s 15ms/step - loss: 0.2530 - accuracy: 0.9887 - val_loss: 0.2517 - val_accuracy: 0.9890
+Epoch 5/20
+23875/23875 [==============================] - 363s 15ms/step - loss: 0.2522 - accuracy: 0.9893 - val_loss: 0.2513 - val_accuracy: 0.9893
+Epoch 6/20
+23875/23875 [==============================] - 364s 15ms/step - loss: 0.2516 - accuracy: 0.9896 - val_loss: 0.2511 - val_accuracy: 0.9895
+Epoch 7/20
+23875/23875 [==============================] - 365s 15ms/step - loss: 0.2511 - accuracy: 0.9900 - val_loss: 0.2508 - val_accuracy: 0.9896
+Epoch 8/20
+23875/23875 [==============================] - 364s 15ms/step - loss: 0.2507 - accuracy: 0.9903 - val_loss: 0.2508 - val_accuracy: 0.9894
+Epoch 9/20
+23875/23875 [==============================] - 364s 15ms/step - loss: 0.2504 - accuracy: 0.9905 - val_loss: 0.2506 - val_accuracy: 0.9898
+Epoch 10/20
+23875/23875 [==============================] - 364s 15ms/step - loss: 0.2501 - accuracy: 0.9908 - val_loss: 0.2504 - val_accuracy: 0.9900
+Epoch 11/20
+23875/23875 [==============================] - 375s 16ms/step - loss: 0.2499 - accuracy: 0.9909 - val_loss: 0.2504 - val_accuracy: 0.9900
+Epoch 12/20
+23875/23875 [==============================] - 365s 15ms/step - loss: 0.2497 - accuracy: 0.9911 - val_loss: 0.2503 - val_accuracy: 0.9901
+Epoch 13/20
+23875/23875 [==============================] - 379s 16ms/step - loss: 0.2495 - accuracy: 0.9912 - val_loss: 0.2502 - val_accuracy: 0.9901
+Epoch 14/20
+23875/23875 [==============================] - 376s 16ms/step - loss: 0.2494 - accuracy: 0.9913 - val_loss: 0.2503 - val_accuracy: 0.9901
+Epoch 15/20
+23875/23875 [==============================] - 376s 16ms/step - loss: 0.2493 - accuracy: 0.9914 - val_loss: 0.2503 - val_accuracy: 0.9901
+Epoch 16/20
+23875/23875 [==============================] - 375s 16ms/step - loss: 0.2491 - accuracy: 0.9915 - val_loss: 0.2502 - val_accuracy: 0.9901
+Epoch 17/20
+23875/23875 [==============================] - 372s 16ms/step - loss: 0.2490 - accuracy: 0.9916 - val_loss: 0.2502 - val_accuracy: 0.9902
+Epoch 18/20
+23875/23875 [==============================] - 374s 16ms/step - loss: 0.2489 - accuracy: 0.9917 - val_loss: 0.2501 - val_accuracy: 0.9901
+Epoch 19/20
+23875/23875 [==============================] - 370s 16ms/step - loss: 0.2488 - accuracy: 0.9918 - val_loss: 0.2501 - val_accuracy: 0.9902
+Epoch 20/20
+23875/23875 [==============================] - 368s 15ms/step - loss: 0.2487 - accuracy: 0.9919 - val_loss: 0.2501 - val_accuracy: 0.9903
+Done
+11344/11344 [==============================] - 22s 2ms/step
+11344/11344 [==============================] - 21s 2ms/step
+11344/11344 [==============================] - 21s 2ms/step
+11344/11344 [==============================] - 22s 2ms/step
+11344/11344 [==============================] - 22s 2ms/step
+0.9909942
+
+Process finished with exit code 0
+
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=55, batch_size=512, debug=False, epochs=20, seed=42, threads=0, window=7, hidden_layers=[512], dropout=0.55, weight_decay=0, label_smoothing=0.125)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x000002CFA8EC75E0> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/20
+11938/11938 [==============================] - 110s 9ms/step - loss: 0.2655 - accuracy: 0.9805 - val_loss: 0.2569 - val_accuracy: 0.9853
+Epoch 2/20
+11938/11938 [==============================] - 108s 9ms/step - loss: 0.2587 - accuracy: 0.9847 - val_loss: 0.2547 - val_accuracy: 0.9869
+Epoch 3/20
+11938/11938 [==============================] - 109s 9ms/step - loss: 0.2570 - accuracy: 0.9859 - val_loss: 0.2537 - val_accuracy: 0.9875
+Epoch 4/20
+11938/11938 [==============================] - 109s 9ms/step - loss: 0.2560 - accuracy: 0.9866 - val_loss: 0.2531 - val_accuracy: 0.9878
+Epoch 5/20
+11938/11938 [==============================] - 110s 9ms/step - loss: 0.2553 - accuracy: 0.9871 - val_loss: 0.2526 - val_accuracy: 0.9883
+Epoch 6/20
+11938/11938 [==============================] - 110s 9ms/step - loss: 0.2548 - accuracy: 0.9875 - val_loss: 0.2524 - val_accuracy: 0.9885
+Epoch 7/20
+11938/11938 [==============================] - 110s 9ms/step - loss: 0.2543 - accuracy: 0.9879 - val_loss: 0.2520 - val_accuracy: 0.9888
+Epoch 8/20
+11938/11938 [==============================] - 110s 9ms/step - loss: 0.2540 - accuracy: 0.9881 - val_loss: 0.2518 - val_accuracy: 0.9888
+Epoch 9/20
+11938/11938 [==============================] - 109s 9ms/step - loss: 0.2536 - accuracy: 0.9884 - val_loss: 0.2515 - val_accuracy: 0.9890
+Epoch 10/20
+11938/11938 [==============================] - 108s 9ms/step - loss: 0.2534 - accuracy: 0.9886 - val_loss: 0.2513 - val_accuracy: 0.9893
+Epoch 11/20
+11938/11938 [==============================] - 108s 9ms/step - loss: 0.2532 - accuracy: 0.9887 - val_loss: 0.2512 - val_accuracy: 0.9892
+Epoch 12/20
+11938/11938 [==============================] - 108s 9ms/step - loss: 0.2530 - accuracy: 0.9888 - val_loss: 0.2512 - val_accuracy: 0.9893
+Epoch 13/20
+11938/11938 [==============================] - 109s 9ms/step - loss: 0.2528 - accuracy: 0.9890 - val_loss: 0.2511 - val_accuracy: 0.9894
+Epoch 14/20
+11938/11938 [==============================] - 108s 9ms/step - loss: 0.2526 - accuracy: 0.9891 - val_loss: 0.2510 - val_accuracy: 0.9895
+Epoch 15/20
+11938/11938 [==============================] - 108s 9ms/step - loss: 0.2525 - accuracy: 0.9892 - val_loss: 0.2509 - val_accuracy: 0.9894
+Epoch 16/20
+11938/11938 [==============================] - 108s 9ms/step - loss: 0.2524 - accuracy: 0.9893 - val_loss: 0.2508 - val_accuracy: 0.9896
+Epoch 17/20
+11938/11938 [==============================] - 108s 9ms/step - loss: 0.2522 - accuracy: 0.9894 - val_loss: 0.2509 - val_accuracy: 0.9897
+Epoch 18/20
+11938/11938 [==============================] - 109s 9ms/step - loss: 0.2522 - accuracy: 0.9894 - val_loss: 0.2507 - val_accuracy: 0.9896
+Epoch 19/20
+11938/11938 [==============================] - 108s 9ms/step - loss: 0.2520 - accuracy: 0.9896 - val_loss: 0.2507 - val_accuracy: 0.9897
+Epoch 20/20
+11938/11938 [==============================] - 109s 9ms/step - loss: 0.2520 - accuracy: 0.9895 - val_loss: 0.2507 - val_accuracy: 0.9895
+Done
+11344/11344 [==============================] - 13s 1ms/step
+0.9895368
+
+Process finished with exit code 0
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=55, batch_size=512, debug=False, epochs=20, seed=42, threads=0, window=7, hidden_layers=[1024], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x0000019B4B5C7640> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/20
+11938/11938 [==============================] - 191s 16ms/step - loss: 0.2302 - accuracy: 0.9823 - val_loss: 0.2219 - val_accuracy: 0.9867
+Epoch 2/20
+11938/11938 [==============================] - 192s 16ms/step - loss: 0.2225 - accuracy: 0.9868 - val_loss: 0.2198 - val_accuracy: 0.9879
+Epoch 3/20
+11938/11938 [==============================] - 192s 16ms/step - loss: 0.2203 - accuracy: 0.9881 - val_loss: 0.2186 - val_accuracy: 0.9887
+Epoch 4/20
+11938/11938 [==============================] - 193s 16ms/step - loss: 0.2189 - accuracy: 0.9891 - val_loss: 0.2179 - val_accuracy: 0.9892
+Epoch 5/20
+11938/11938 [==============================] - 193s 16ms/step - loss: 0.2179 - accuracy: 0.9897 - val_loss: 0.2177 - val_accuracy: 0.9891
+Epoch 6/20
+11938/11938 [==============================] - 194s 16ms/step - loss: 0.2172 - accuracy: 0.9901 - val_loss: 0.2172 - val_accuracy: 0.9896
+Epoch 7/20
+11938/11938 [==============================] - 192s 16ms/step - loss: 0.2166 - accuracy: 0.9906 - val_loss: 0.2169 - val_accuracy: 0.9898
+Epoch 8/20
+11938/11938 [==============================] - 192s 16ms/step - loss: 0.2160 - accuracy: 0.9909 - val_loss: 0.2167 - val_accuracy: 0.9898
+Epoch 9/20
+11938/11938 [==============================] - 193s 16ms/step - loss: 0.2156 - accuracy: 0.9912 - val_loss: 0.2166 - val_accuracy: 0.9900
+Epoch 10/20
+11938/11938 [==============================] - 192s 16ms/step - loss: 0.2153 - accuracy: 0.9914 - val_loss: 0.2165 - val_accuracy: 0.9901
+Epoch 11/20
+11938/11938 [==============================] - 193s 16ms/step - loss: 0.2149 - accuracy: 0.9916 - val_loss: 0.2164 - val_accuracy: 0.9902
+Epoch 12/20
+11938/11938 [==============================] - 192s 16ms/step - loss: 0.2147 - accuracy: 0.9918 - val_loss: 0.2163 - val_accuracy: 0.9902
+Epoch 13/20
+11938/11938 [==============================] - 194s 16ms/step - loss: 0.2144 - accuracy: 0.9920 - val_loss: 0.2163 - val_accuracy: 0.9902
+Epoch 14/20
+11938/11938 [==============================] - 192s 16ms/step - loss: 0.2141 - accuracy: 0.9921 - val_loss: 0.2162 - val_accuracy: 0.9902
+Epoch 15/20
+11938/11938 [==============================] - 191s 16ms/step - loss: 0.2140 - accuracy: 0.9923 - val_loss: 0.2163 - val_accuracy: 0.9902
+Epoch 16/20
+11938/11938 [==============================] - 192s 16ms/step - loss: 0.2138 - accuracy: 0.9924 - val_loss: 0.2161 - val_accuracy: 0.9903
+Epoch 17/20
+11938/11938 [==============================] - 191s 16ms/step - loss: 0.2136 - accuracy: 0.9925 - val_loss: 0.2163 - val_accuracy: 0.9904
+Epoch 18/20
+11938/11938 [==============================] - 193s 16ms/step - loss: 0.2134 - accuracy: 0.9927 - val_loss: 0.2162 - val_accuracy: 0.9903
+Epoch 19/20
+11938/11938 [==============================] - 191s 16ms/step - loss: 0.2133 - accuracy: 0.9928 - val_loss: 0.2162 - val_accuracy: 0.9904
+Epoch 20/20
+11938/11938 [==============================] - 191s 16ms/step - loss: 0.2131 - accuracy: 0.9928 - val_loss: 0.2161 - val_accuracy: 0.9905
+Done
+11344/11344 [==============================] - 18s 2ms/step
+0.9904625
+
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=55, batch_size=512, debug=False, epochs=20, seed=42, threads=0, window=9, hidden_layers=[1024], dropout=0.5, weight_decay=0, label_smoothing=0.1)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x000002189F495640> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/20
+11938/11938 [==============================] - 224s 19ms/step - loss: 0.2309 - accuracy: 0.9820 - val_loss: 0.2223 - val_accuracy: 0.9865
+Epoch 2/20
+11938/11938 [==============================] - 222s 19ms/step - loss: 0.2226 - accuracy: 0.9867 - val_loss: 0.2201 - val_accuracy: 0.9878
+Epoch 3/20
+11938/11938 [==============================] - 222s 19ms/step - loss: 0.2202 - accuracy: 0.9883 - val_loss: 0.2189 - val_accuracy: 0.9886
+Epoch 4/20
+11938/11938 [==============================] - 224s 19ms/step - loss: 0.2185 - accuracy: 0.9893 - val_loss: 0.2181 - val_accuracy: 0.9892
+Epoch 5/20
+11938/11938 [==============================] - 228s 19ms/step - loss: 0.2175 - accuracy: 0.9900 - val_loss: 0.2178 - val_accuracy: 0.9893
+Epoch 6/20
+11938/11938 [==============================] - 224s 19ms/step - loss: 0.2166 - accuracy: 0.9906 - val_loss: 0.2175 - val_accuracy: 0.9895
+Epoch 7/20
+11938/11938 [==============================] - 225s 19ms/step - loss: 0.2159 - accuracy: 0.9911 - val_loss: 0.2174 - val_accuracy: 0.9898
+Epoch 8/20
+11938/11938 [==============================] - 225s 19ms/step - loss: 0.2153 - accuracy: 0.9914 - val_loss: 0.2173 - val_accuracy: 0.9896
+Epoch 9/20
+11938/11938 [==============================] - 224s 19ms/step - loss: 0.2149 - accuracy: 0.9918 - val_loss: 0.2171 - val_accuracy: 0.9897
+Epoch 10/20
+11938/11938 [==============================] - 223s 19ms/step - loss: 0.2145 - accuracy: 0.9920 - val_loss: 0.2170 - val_accuracy: 0.9899
+Epoch 11/20
+11938/11938 [==============================] - 224s 19ms/step - loss: 0.2140 - accuracy: 0.9924 - val_loss: 0.2169 - val_accuracy: 0.9899
+Epoch 12/20
+11938/11938 [==============================] - 224s 19ms/step - loss: 0.2137 - accuracy: 0.9925 - val_loss: 0.2170 - val_accuracy: 0.9901
+Epoch 13/20
+11938/11938 [==============================] - 224s 19ms/step - loss: 0.2134 - accuracy: 0.9927 - val_loss: 0.2169 - val_accuracy: 0.9901
+Epoch 14/20
+11938/11938 [==============================] - 224s 19ms/step - loss: 0.2132 - accuracy: 0.9929 - val_loss: 0.2168 - val_accuracy: 0.9900
+Epoch 15/20
+11938/11938 [==============================] - 224s 19ms/step - loss: 0.2130 - accuracy: 0.9930 - val_loss: 0.2168 - val_accuracy: 0.9901
+Epoch 16/20
+11938/11938 [==============================] - 231s 19ms/step - loss: 0.2127 - accuracy: 0.9932 - val_loss: 0.2168 - val_accuracy: 0.9902
+Epoch 17/20
+11938/11938 [==============================] - 224s 19ms/step - loss: 0.2126 - accuracy: 0.9933 - val_loss: 0.2170 - val_accuracy: 0.9902
+Epoch 18/20
+11938/11938 [==============================] - 222s 19ms/step - loss: 0.2124 - accuracy: 0.9934 - val_loss: 0.2168 - val_accuracy: 0.9901
+Epoch 19/20
+11938/11938 [==============================] - 223s 19ms/step - loss: 0.2122 - accuracy: 0.9936 - val_loss: 0.2168 - val_accuracy: 0.9902
+Epoch 20/20
+11938/11938 [==============================] - 224s 19ms/step - loss: 0.2121 - accuracy: 0.9937 - val_loss: 0.2168 - val_accuracy: 0.9900
+Done
+11344/11344 [==============================] - 19s 2ms/step
+0.990041
+
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=60, batch_size=512, debug=False, epochs=25, seed=42, threads=0, window=10, hidden_layers=[1024], dropout=0.6125, weight_decay=0, label_smoothing=0.125)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x0000011880728640> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/25
+11938/11938 [==============================] - 252s 21ms/step - loss: 0.2657 - accuracy: 0.9805 - val_loss: 0.2570 - val_accuracy: 0.9850
+Epoch 2/25
+11938/11938 [==============================] - 251s 21ms/step - loss: 0.2583 - accuracy: 0.9851 - val_loss: 0.2548 - val_accuracy: 0.9866
+Epoch 3/25
+11938/11938 [==============================] - 250s 21ms/step - loss: 0.2561 - accuracy: 0.9867 - val_loss: 0.2536 - val_accuracy: 0.9877
+Epoch 4/25
+11938/11938 [==============================] - 249s 21ms/step - loss: 0.2547 - accuracy: 0.9877 - val_loss: 0.2529 - val_accuracy: 0.9882
+Epoch 5/25
+11938/11938 [==============================] - 249s 21ms/step - loss: 0.2538 - accuracy: 0.9883 - val_loss: 0.2523 - val_accuracy: 0.9885
+Epoch 6/25
+11938/11938 [==============================] - 249s 21ms/step - loss: 0.2530 - accuracy: 0.9889 - val_loss: 0.2521 - val_accuracy: 0.9888
+Epoch 7/25
+11938/11938 [==============================] - 250s 21ms/step - loss: 0.2524 - accuracy: 0.9893 - val_loss: 0.2518 - val_accuracy: 0.9890
+Epoch 8/25
+11938/11938 [==============================] - 249s 21ms/step - loss: 0.2519 - accuracy: 0.9897 - val_loss: 0.2515 - val_accuracy: 0.9892
+Epoch 9/25
+11938/11938 [==============================] - 250s 21ms/step - loss: 0.2515 - accuracy: 0.9900 - val_loss: 0.2513 - val_accuracy: 0.9892
+Epoch 10/25
+11938/11938 [==============================] - 250s 21ms/step - loss: 0.2510 - accuracy: 0.9903 - val_loss: 0.2512 - val_accuracy: 0.9895
+Epoch 11/25
+11938/11938 [==============================] - 250s 21ms/step - loss: 0.2507 - accuracy: 0.9906 - val_loss: 0.2511 - val_accuracy: 0.9895
+Epoch 12/25
+11938/11938 [==============================] - 251s 21ms/step - loss: 0.2505 - accuracy: 0.9908 - val_loss: 0.2511 - val_accuracy: 0.9896
+Epoch 13/25
+11938/11938 [==============================] - 250s 21ms/step - loss: 0.2502 - accuracy: 0.9909 - val_loss: 0.2511 - val_accuracy: 0.9896
+Epoch 14/25
+11938/11938 [==============================] - 251s 21ms/step - loss: 0.2501 - accuracy: 0.9911 - val_loss: 0.2510 - val_accuracy: 0.9897
+Epoch 15/25
+11938/11938 [==============================] - 251s 21ms/step - loss: 0.2498 - accuracy: 0.9913 - val_loss: 0.2510 - val_accuracy: 0.9896
+Epoch 16/25
+11938/11938 [==============================] - 253s 21ms/step - loss: 0.2496 - accuracy: 0.9914 - val_loss: 0.2509 - val_accuracy: 0.9896
+Epoch 17/25
+11938/11938 [==============================] - 253s 21ms/step - loss: 0.2494 - accuracy: 0.9916 - val_loss: 0.2509 - val_accuracy: 0.9900
+Epoch 18/25
+11938/11938 [==============================] - 259s 22ms/step - loss: 0.2492 - accuracy: 0.9917 - val_loss: 0.2509 - val_accuracy: 0.9898
+Epoch 19/25
+11938/11938 [==============================] - 267s 22ms/step - loss: 0.2491 - accuracy: 0.9918 - val_loss: 0.2507 - val_accuracy: 0.9900
+Epoch 20/25
+11938/11938 [==============================] - 250s 21ms/step - loss: 0.2489 - accuracy: 0.9919 - val_loss: 0.2508 - val_accuracy: 0.9898
+Epoch 21/25
+11938/11938 [==============================] - 250s 21ms/step - loss: 0.2488 - accuracy: 0.9920 - val_loss: 0.2507 - val_accuracy: 0.9899
+Epoch 22/25
+11938/11938 [==============================] - 252s 21ms/step - loss: 0.2487 - accuracy: 0.9921 - val_loss: 0.2507 - val_accuracy: 0.9901
+Epoch 23/25
+11938/11938 [==============================] - 250s 21ms/step - loss: 0.2486 - accuracy: 0.9921 - val_loss: 0.2508 - val_accuracy: 0.9899
+Epoch 24/25
+11938/11938 [==============================] - 250s 21ms/step - loss: 0.2485 - accuracy: 0.9922 - val_loss: 0.2507 - val_accuracy: 0.9901
+Epoch 25/25
+11938/11938 [==============================] - 250s 21ms/step - loss: 0.2485 - accuracy: 0.9923 - val_loss: 0.2507 - val_accuracy: 0.9900
+Done
+11344/11344 [==============================] - 22s 2ms/step
+0.9900107
+
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=35, batch_size=1024, debug=False, epochs=20, seed=42, threads=0, window=5, hidden_layers=[512], dropout=0.3, weight_decay=0, label_smoothing=0.05)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x000001F780178850> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/20
+5969/5969 [==============================] - 56s 9ms/step - loss: 0.1598 - accuracy: 0.9796 - val_loss: 0.1497 - val_accuracy: 0.9841
+Epoch 2/20
+5969/5969 [==============================] - 55s 9ms/step - loss: 0.1496 - accuracy: 0.9847 - val_loss: 0.1467 - val_accuracy: 0.9856
+Epoch 3/20
+5969/5969 [==============================] - 55s 9ms/step - loss: 0.1470 - accuracy: 0.9859 - val_loss: 0.1453 - val_accuracy: 0.9864
+Epoch 4/20
+5969/5969 [==============================] - 55s 9ms/step - loss: 0.1456 - accuracy: 0.9866 - val_loss: 0.1444 - val_accuracy: 0.9867
+Epoch 5/20
+5969/5969 [==============================] - 55s 9ms/step - loss: 0.1445 - accuracy: 0.9872 - val_loss: 0.1438 - val_accuracy: 0.9871
+Epoch 6/20
+5969/5969 [==============================] - 55s 9ms/step - loss: 0.1438 - accuracy: 0.9876 - val_loss: 0.1432 - val_accuracy: 0.9875
+Epoch 7/20
+5969/5969 [==============================] - 55s 9ms/step - loss: 0.1432 - accuracy: 0.9878 - val_loss: 0.1431 - val_accuracy: 0.9874
+Epoch 8/20
+5969/5969 [==============================] - 55s 9ms/step - loss: 0.1427 - accuracy: 0.9881 - val_loss: 0.1429 - val_accuracy: 0.9874
+Epoch 9/20
+5969/5969 [==============================] - 56s 9ms/step - loss: 0.1423 - accuracy: 0.9883 - val_loss: 0.1424 - val_accuracy: 0.9878
+Epoch 10/20
+2232/5969 [==========>...................] - ETA: 35s - loss: 0.1413 - accuracy: 0.9889Traceback (most recent call last):
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=45, batch_size=1024, debug=False, epochs=20, seed=42, threads=0, window=6, hidden_layers=[1024], dropout=0.4, weight_decay=0, label_smoothing=0.025)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x000001B5E7F99850> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/20
+5969/5969 [==============================] - 125s 21ms/step - loss: 0.1100 - accuracy: 0.9819 - val_loss: 0.0988 - val_accuracy: 0.9864
+Epoch 2/20
+5969/5969 [==============================] - 126s 21ms/step - loss: 0.0985 - accuracy: 0.9871 - val_loss: 0.0959 - val_accuracy: 0.9880
+Epoch 3/20
+5969/5969 [==============================] - 126s 21ms/step - loss: 0.0952 - accuracy: 0.9886 - val_loss: 0.0947 - val_accuracy: 0.9886
+Epoch 4/20
+5969/5969 [==============================] - 126s 21ms/step - loss: 0.0931 - accuracy: 0.9894 - val_loss: 0.0938 - val_accuracy: 0.9887
+Epoch 5/20
+5969/5969 [==============================] - 126s 21ms/step - loss: 0.0917 - accuracy: 0.9900 - val_loss: 0.0933 - val_accuracy: 0.9890
+Epoch 6/20
+5969/5969 [==============================] - 125s 21ms/step - loss: 0.0905 - accuracy: 0.9906 - val_loss: 0.0931 - val_accuracy: 0.9892
+Epoch 7/20
+5969/5969 [==============================] - 125s 21ms/step - loss: 0.0896 - accuracy: 0.9911 - val_loss: 0.0928 - val_accuracy: 0.9894
+Epoch 8/20
+5969/5969 [==============================] - 125s 21ms/step - loss: 0.0888 - accuracy: 0.9914 - val_loss: 0.0927 - val_accuracy: 0.9893
+Epoch 9/20
+5969/5969 [==============================] - 125s 21ms/step - loss: 0.0882 - accuracy: 0.9917 - val_loss: 0.0925 - val_accuracy: 0.9895
+Epoch 10/20
+5969/5969 [==============================] - 126s 21ms/step - loss: 0.0875 - accuracy: 0.9920 - val_loss: 0.0926 - val_accuracy: 0.9895
+Epoch 11/20
+5969/5969 [==============================] - 125s 21ms/step - loss: 0.0871 - accuracy: 0.9922 - val_loss: 0.0926 - val_accuracy: 0.9896
+Epoch 12/20
+5969/5969 [==============================] - 126s 21ms/step - loss: 0.0865 - accuracy: 0.9924 - val_loss: 0.0924 - val_accuracy: 0.9897
+Epoch 13/20
+5969/5969 [==============================] - 126s 21ms/step - loss: 0.0862 - accuracy: 0.9926 - val_loss: 0.0923 - val_accuracy: 0.9897
+Epoch 14/20
+5969/5969 [==============================] - 125s 21ms/step - loss: 0.0859 - accuracy: 0.9928 - val_loss: 0.0922 - val_accuracy: 0.9896
+Epoch 15/20
+5969/5969 [==============================] - 126s 21ms/step - loss: 0.0855 - accuracy: 0.9929 - val_loss: 0.0924 - val_accuracy: 0.9898
+Epoch 16/20
+5969/5969 [==============================] - 124s 21ms/step - loss: 0.0852 - accuracy: 0.9931 - val_loss: 0.0923 - val_accuracy: 0.9897
+Epoch 17/20
+5969/5969 [==============================] - 125s 21ms/step - loss: 0.0848 - accuracy: 0.9933 - val_loss: 0.0923 - val_accuracy: 0.9899
+Epoch 18/20
+5969/5969 [==============================] - 124s 21ms/step - loss: 0.0846 - accuracy: 0.9933 - val_loss: 0.0923 - val_accuracy: 0.9900
+Epoch 19/20
+5969/5969 [==============================] - 125s 21ms/step - loss: 0.0844 - accuracy: 0.9935 - val_loss: 0.0924 - val_accuracy: 0.9899
+Epoch 20/20
+5969/5969 [==============================] - 125s 21ms/step - loss: 0.0842 - accuracy: 0.9935 - val_loss: 0.0925 - val_accuracy: 0.9900
+Done
+11344/11344 [==============================] - 17s 1ms/step
+11344/11344 [==============================] - 19s 2ms/step - loss: 0.0925 - accuracy: 0.9900
+Accuracy of model 0 : 0.9899638295173645
+Ensemble accuracy: 0.9899638
+
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=55, batch_size=1024, debug=False, epochs=25, seed=42, threads=0, window=7, hidden_layers=[1024], dropout=0, weight_decay=0, label_smoothing=0.3)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x000001ED8016F850> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/25
+5969/5969 [==============================] - 107s 18ms/step - loss: 0.4376 - accuracy: 0.9840 - val_loss: 0.4342 - val_accuracy: 0.9882
+Epoch 2/25
+5969/5969 [==============================] - 106s 18ms/step - loss: 0.4325 - accuracy: 0.9902 - val_loss: 0.4333 - val_accuracy: 0.9893
+Epoch 3/25
+5969/5969 [==============================] - 112s 19ms/step - loss: 0.4308 - accuracy: 0.9923 - val_loss: 0.4328 - val_accuracy: 0.9898
+Epoch 4/25
+5969/5969 [==============================] - 109s 18ms/step - loss: 0.4297 - accuracy: 0.9937 - val_loss: 0.4328 - val_accuracy: 0.9901
+Epoch 5/25
+5969/5969 [==============================] - 106s 18ms/step - loss: 0.4289 - accuracy: 0.9948 - val_loss: 0.4328 - val_accuracy: 0.9900
+Epoch 6/25
+5969/5969 [==============================] - 106s 18ms/step - loss: 0.4283 - accuracy: 0.9956 - val_loss: 0.4330 - val_accuracy: 0.9901
+Epoch 7/25
+5969/5969 [==============================] - 106s 18ms/step - loss: 0.4278 - accuracy: 0.9963 - val_loss: 0.4330 - val_accuracy: 0.9899
+Epoch 8/25
+5969/5969 [==============================] - 108s 18ms/step - loss: 0.4274 - accuracy: 0.9968 - val_loss: 0.4332 - val_accuracy: 0.9898
+Epoch 9/25
+5969/5969 [==============================] - 110s 18ms/step - loss: 0.4270 - accuracy: 0.9972 - val_loss: 0.4334 - val_accuracy: 0.9897
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=65, batch_size=1024, debug=False, epochs=25, seed=42, threads=0, window=7, hidden_layers=[1024], dropout=0.1, weight_decay=0, label_smoothing=0.3)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x0000021A56AE7880> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/25
+5969/5969 [==============================] - 162s 27ms/step - loss: 0.4378 - accuracy: 0.9839 - val_loss: 0.4341 - val_accuracy: 0.9883
+Epoch 2/25
+5969/5969 [==============================] - 162s 27ms/step - loss: 0.4328 - accuracy: 0.9899 - val_loss: 0.4331 - val_accuracy: 0.9894
+Epoch 3/25
+5969/5969 [==============================] - 162s 27ms/step - loss: 0.4313 - accuracy: 0.9917 - val_loss: 0.4325 - val_accuracy: 0.9898
+Epoch 4/25
+5969/5969 [==============================] - 162s 27ms/step - loss: 0.4303 - accuracy: 0.9929 - val_loss: 0.4324 - val_accuracy: 0.9902
+Epoch 5/25
+5969/5969 [==============================] - 161s 27ms/step - loss: 0.4297 - accuracy: 0.9938 - val_loss: 0.4324 - val_accuracy: 0.9901
+Epoch 6/25
+5969/5969 [==============================] - 161s 27ms/step - loss: 0.4291 - accuracy: 0.9945 - val_loss: 0.4324 - val_accuracy: 0.9903
+Epoch 7/25
+5969/5969 [==============================] - 162s 27ms/step - loss: 0.4287 - accuracy: 0.9951 - val_loss: 0.4324 - val_accuracy: 0.9902
+Epoch 8/25
+5969/5969 [==============================] - 161s 27ms/step - loss: 0.4284 - accuracy: 0.9955 - val_loss: 0.4325 - val_accuracy: 0.9901
+Epoch 9/25
+5969/5969 [==============================] - 161s 27ms/step - loss: 0.4281 - accuracy: 0.9959 - val_loss: 0.4326 - val_accuracy: 0.9900
+Epoch 10/25
+1400/5969 [======>.......................] - ETA: 2:01 - loss: 0.4274 - accuracy: 0.9968
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=65, batch_size=512, debug=False, epochs=25, seed=42, threads=0, window=7, hidden_layers=[1024], dropout=0.2, weight_decay=0, label_smoothing=0.4)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x0000012FAF467820> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/25
+11938/11938 [==============================] - 213s 18ms/step - loss: 0.5109 - accuracy: 0.9842 - val_loss: 0.5084 - val_accuracy: 0.9882
+Epoch 2/25
+11938/11938 [==============================] - 212s 18ms/step - loss: 0.5079 - accuracy: 0.9892 - val_loss: 0.5077 - val_accuracy: 0.9891
+Epoch 3/25
+11938/11938 [==============================] - 212s 18ms/step - loss: 0.5069 - accuracy: 0.9909 - val_loss: 0.5074 - val_accuracy: 0.9897
+Epoch 4/25
+11938/11938 [==============================] - 211s 18ms/step - loss: 0.5063 - accuracy: 0.9920 - val_loss: 0.5073 - val_accuracy: 0.9900
+Epoch 5/25
+11938/11938 [==============================] - 205s 17ms/step - loss: 0.5059 - accuracy: 0.9928 - val_loss: 0.5072 - val_accuracy: 0.9901
+Epoch 6/25
+11938/11938 [==============================] - 212s 18ms/step - loss: 0.5056 - accuracy: 0.9934 - val_loss: 0.5071 - val_accuracy: 0.9901
+Epoch 7/25
+11938/11938 [==============================] - 213s 18ms/step - loss: 0.5053 - accuracy: 0.9939 - val_loss: 0.5071 - val_accuracy: 0.9901
+Epoch 8/25
+11938/11938 [==============================] - 212s 18ms/step - loss: 0.5051 - accuracy: 0.9943 - val_loss: 0.5071 - val_accuracy: 0.9903
+Epoch 9/25
+11938/11938 [==============================] - 212s 18ms/step - loss: 0.5049 - accuracy: 0.9947 - val_loss: 0.5071 - val_accuracy: 0.9902
+Epoch 10/25
+11938/11938 [==============================] - 212s 18ms/step - loss: 0.5047 - accuracy: 0.9949 - val_loss: 0.5071 - val_accuracy: 0.9905
+Epoch 11/25
+11938/11938 [==============================] - 211s 18ms/step - loss: 0.5046 - accuracy: 0.9952 - val_loss: 0.5071 - val_accuracy: 0.9903
+Epoch 12/25
+11938/11938 [==============================] - 211s 18ms/step - loss: 0.5045 - accuracy: 0.9954 - val_loss: 0.5071 - val_accuracy: 0.9904
+Epoch 13/25
+11938/11938 [==============================] - 210s 18ms/step - loss: 0.5044 - accuracy: 0.9956 - val_loss: 0.5071 - val_accuracy: 0.9904
+Epoch 14/25
+11938/11938 [==============================] - 213s 18ms/step - loss: 0.5043 - accuracy: 0.9958 - val_loss: 0.5071 - val_accuracy: 0.9903
+Epoch 15/25
+11938/11938 [==============================] - 213s 18ms/step - loss: 0.5042 - accuracy: 0.9959 - val_loss: 0.5071 - val_accuracy: 0.9903
+Epoch 16/25
+11938/11938 [==============================] - 212s 18ms/step - loss: 0.5041 - accuracy: 0.9960 - val_loss: 0.5072 - val_accuracy: 0.9902
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=65, batch_size=1024, debug=False, epochs=25, seed=42, threads=0, window=7, hidden_layers=[1024], dropout=0, weight_decay=0, label_smoothing=0.5)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x0000029AD161D850> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/25
+5969/5969 [==============================] - 121s 20ms/step - loss: 0.5694 - accuracy: 0.9842 - val_loss: 0.5677 - val_accuracy: 0.9883
+Epoch 2/25
+5969/5969 [==============================] - 121s 20ms/step - loss: 0.5670 - accuracy: 0.9903 - val_loss: 0.5672 - val_accuracy: 0.9895
+Epoch 3/25
+5969/5969 [==============================] - 123s 21ms/step - loss: 0.5662 - accuracy: 0.9924 - val_loss: 0.5671 - val_accuracy: 0.9897
+Epoch 4/25
+5969/5969 [==============================] - 120s 20ms/step - loss: 0.5656 - accuracy: 0.9938 - val_loss: 0.5670 - val_accuracy: 0.9903
+Epoch 5/25
+5969/5969 [==============================] - 120s 20ms/step - loss: 0.5653 - accuracy: 0.9949 - val_loss: 0.5671 - val_accuracy: 0.9902
+Epoch 6/25
+5969/5969 [==============================] - 121s 20ms/step - loss: 0.5650 - accuracy: 0.9957 - val_loss: 0.5671 - val_accuracy: 0.9903
+Epoch 7/25
+5969/5969 [==============================] - 121s 20ms/step - loss: 0.5647 - accuracy: 0.9963 - val_loss: 0.5671 - val_accuracy: 0.9903
+Epoch 8/25
+5969/5969 [==============================] - 121s 20ms/step - loss: 0.5645 - accuracy: 0.9968 - val_loss: 0.5672 - val_accuracy: 0.9900
+Epoch 9/25
+5969/5969 [==============================] - 120s 20ms/step - loss: 0.5644 - accuracy: 0.9972 - val_loss: 0.5673 - val_accuracy: 0.9900
+Epoch 10/25
+5969/5969 [==============================] - 120s 20ms/step - loss: 0.5642 - accuracy: 0.9975 - val_loss: 0.5673 - val_accuracy: 0.9899
+Epoch 11/25
+5969/5969 [==============================] - 120s 20ms/step - loss: 0.5641 - accuracy: 0.9977 - val_loss: 0.5673 - val_accuracy: 0.9901
+Epoch 12/25
+5969/5969 [==============================] - 121s 20ms/step - loss: 0.5640 - accuracy: 0.9979 - val_loss: 0.5674 - val_accuracy: 0.9899
+Epoch 13/25
+5969/5969 [==============================] - 120s 20ms/step - loss: 0.5640 - accuracy: 0.9980 - val_loss: 0.5674 - val_accuracy: 0.9897
+Epoch 14/25
+5969/5969 [==============================] - 120s 20ms/step - loss: 0.5639 - accuracy: 0.9982 - val_loss: 0.5675 - val_accuracy: 0.9897
+Epoch 15/25
+5969/5969 [==============================] - 120s 20ms/step - loss: 0.5638 - accuracy: 0.9983 - val_loss: 0.5675 - val_accuracy: 0.9897
+Epoch 16/25
+5969/5969 [==============================] - 120s 20ms/step - loss: 0.5638 - accuracy: 0.9984 - val_loss: 0.5676 - val_accuracy: 0.9895
+Epoch 17/25
+
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=65, batch_size=1024, debug=False, epochs=25, seed=42, threads=0, window=8, hidden_layers=[1024], dropout=0.3, weight_decay=0, label_smoothing=0.5)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x0000015BC8F66880> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/25
+5969/5969 [==============================] - 173s 29ms/step - loss: 0.5701 - accuracy: 0.9827 - val_loss: 0.5680 - val_accuracy: 0.9871
+Epoch 2/25
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5677 - accuracy: 0.9883 - val_loss: 0.5675 - val_accuracy: 0.9887
+Epoch 3/25
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5671 - accuracy: 0.9900 - val_loss: 0.5672 - val_accuracy: 0.9891
+Epoch 4/25
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5667 - accuracy: 0.9912 - val_loss: 0.5671 - val_accuracy: 0.9898
+Epoch 5/25
+5969/5969 [==============================] - 171s 29ms/step - loss: 0.5664 - accuracy: 0.9920 - val_loss: 0.5670 - val_accuracy: 0.9899
+Epoch 6/25
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5662 - accuracy: 0.9927 - val_loss: 0.5669 - val_accuracy: 0.9902
+Epoch 7/25
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5660 - accuracy: 0.9932 - val_loss: 0.5669 - val_accuracy: 0.9902
+Epoch 8/25
+5969/5969 [==============================] - 171s 29ms/step - loss: 0.5658 - accuracy: 0.9937 - val_loss: 0.5669 - val_accuracy: 0.9903
+Epoch 9/25
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5657 - accuracy: 0.9941 - val_loss: 0.5668 - val_accuracy: 0.9905
+Epoch 10/25
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5656 - accuracy: 0.9944 - val_loss: 0.5668 - val_accuracy: 0.9904
+Epoch 11/25
+5969/5969 [==============================] - 171s 29ms/step - loss: 0.5655 - accuracy: 0.9946 - val_loss: 0.5668 - val_accuracy: 0.9905
+Epoch 12/25
+5969/5969 [==============================] - 171s 29ms/step - loss: 0.5654 - accuracy: 0.9948 - val_loss: 0.5668 - val_accuracy: 0.9905
+Epoch 13/25
+5969/5969 [==============================] - 173s 29ms/step - loss: 0.5653 - accuracy: 0.9951 - val_loss: 0.5668 - val_accuracy: 0.9906
+Epoch 14/25
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5653 - accuracy: 0.9952 - val_loss: 0.5668 - val_accuracy: 0.9906
+Epoch 15/25
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5652 - accuracy: 0.9954 - val_loss: 0.5668 - val_accuracy: 0.9904
+Epoch 16/25
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5652 - accuracy: 0.9955 - val_loss: 0.5668 - val_accuracy: 0.9904
+Epoch 17/25
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5651 - accuracy: 0.9956 - val_loss: 0.5668 - val_accuracy: 0.9905
+Epoch 18/25
+5969/5969 [==============================] - 173s 29ms/step - loss: 0.5651 - accuracy: 0.9957 - val_loss: 0.5668 - val_accuracy: 0.9905
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=65, batch_size=350, debug=False, epochs=25, seed=42, threads=0, window=8, hidden_layers=[1250], dropout=0.5, weight_decay=0, label_smoothing=0.5)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x0000027500177880> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/25
+17463/17463 [==============================] - 349s 20ms/step - loss: 0.5703 - accuracy: 0.9820 - val_loss: 0.5682 - val_accuracy: 0.9865
+Epoch 2/25
+17463/17463 [==============================] - 347s 20ms/step - loss: 0.5684 - accuracy: 0.9865 - val_loss: 0.5677 - val_accuracy: 0.9880
+Epoch 3/25
+17463/17463 [==============================] - 347s 20ms/step - loss: 0.5679 - accuracy: 0.9880 - val_loss: 0.5674 - val_accuracy: 0.9882
+Epoch 4/25
+17463/17463 [==============================] - 346s 20ms/step - loss: 0.5675 - accuracy: 0.9890 - val_loss: 0.5672 - val_accuracy: 0.9888
+Epoch 5/25
+17463/17463 [==============================] - 345s 20ms/step - loss: 0.5673 - accuracy: 0.9896 - val_loss: 0.5671 - val_accuracy: 0.9891
+Epoch 6/25
+17463/17463 [==============================] - 346s 20ms/step - loss: 0.5671 - accuracy: 0.9901 - val_loss: 0.5671 - val_accuracy: 0.9893
+Epoch 7/25
+17463/17463 [==============================] - 344s 20ms/step - loss: 0.5670 - accuracy: 0.9906 - val_loss: 0.5670 - val_accuracy: 0.9897
+Epoch 8/25
+17463/17463 [==============================] - 352s 20ms/step - loss: 0.5668 - accuracy: 0.9909 - val_loss: 0.5670 - val_accuracy: 0.9896
+Epoch 9/25
+17463/17463 [==============================] - 356s 20ms/step - loss: 0.5667 - accuracy: 0.9911 - val_loss: 0.5669 - val_accuracy: 0.9898
+Epoch 10/25
+17463/17463 [==============================] - 348s 20ms/step - loss: 0.5667 - accuracy: 0.9914 - val_loss: 0.5669 - val_accuracy: 0.9900
+Epoch 11/25
+17463/17463 [==============================] - 344s 20ms/step - loss: 0.5666 - accuracy: 0.9916 - val_loss: 0.5668 - val_accuracy: 0.9900
+Epoch 12/25
+17463/17463 [==============================] - 348s 20ms/step - loss: 0.5665 - accuracy: 0.9918 - val_loss: 0.5668 - val_accuracy: 0.9900
+Epoch 13/25
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=65, batch_size=1024, debug=False, epochs=13, seed=24, threads=0, window=8, hidden_layers=[1024], dropout=0.3, weight_decay=0, label_smoothing=0.5)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x0000015A1BC88490> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/13
+5969/5969 [==============================] - 173s 29ms/step - loss: 0.5701 - accuracy: 0.9826 - val_loss: 0.5681 - val_accuracy: 0.9868
+Epoch 2/13
+5969/5969 [==============================] - 171s 29ms/step - loss: 0.5677 - accuracy: 0.9883 - val_loss: 0.5674 - val_accuracy: 0.9885
+Epoch 3/13
+5969/5969 [==============================] - 171s 29ms/step - loss: 0.5671 - accuracy: 0.9900 - val_loss: 0.5672 - val_accuracy: 0.9894
+Epoch 4/13
+5969/5969 [==============================] - 171s 29ms/step - loss: 0.5667 - accuracy: 0.9913 - val_loss: 0.5670 - val_accuracy: 0.9898
+Epoch 5/13
+5969/5969 [==============================] - 171s 29ms/step - loss: 0.5664 - accuracy: 0.9920 - val_loss: 0.5670 - val_accuracy: 0.9898
+Epoch 6/13
+5969/5969 [==============================] - 173s 29ms/step - loss: 0.5662 - accuracy: 0.9927 - val_loss: 0.5669 - val_accuracy: 0.9901
+Epoch 7/13
+5969/5969 [==============================] - 170s 28ms/step - loss: 0.5660 - accuracy: 0.9932 - val_loss: 0.5669 - val_accuracy: 0.9900
+Epoch 8/13
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5658 - accuracy: 0.9937 - val_loss: 0.5668 - val_accuracy: 0.9903
+Epoch 9/13
+5969/5969 [==============================] - 172s 29ms/step - loss: 0.5657 - accuracy: 0.9940 - val_loss: 0.5668 - val_accuracy: 0.9904
+Epoch 10/13
+5969/5969 [==============================] - 173s 29ms/step - loss: 0.5656 - accuracy: 0.9944 - val_loss: 0.5668 - val_accuracy: 0.9904
+Epoch 11/13
+5969/5969 [==============================] - 173s 29ms/step - loss: 0.5655 - accuracy: 0.9946 - val_loss: 0.5668 - val_accuracy: 0.9905
+Epoch 12/13
+5969/5969 [==============================] - 173s 29ms/step - loss: 0.5654 - accuracy: 0.9948 - val_loss: 0.5668 - val_accuracy: 0.9905
+Epoch 13/13
+5969/5969 [==============================] - 173s 29ms/step - loss: 0.5653 - accuracy: 0.9951 - val_loss: 0.5668 - val_accuracy: 0.9906
+Done
+11373/11373 [==============================] - 21s 2ms/step
+Ensemble accuracy: 0.0
+
+Process finished with exit code 0
+
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=65, batch_size=800, debug=False, epochs=15, seed=42, threads=0, window=8, hidden_layers=[1200], dropout=0.325, weight_decay=0, label_smoothing=0.5)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x000002B1D71484F0> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/15
+7640/7640 [==============================] - 218s 28ms/step - loss: 0.5700 - accuracy: 0.9830 - val_loss: 0.5680 - val_accuracy: 0.9873
+Epoch 2/15
+7640/7640 [==============================] - 217s 28ms/step - loss: 0.5677 - accuracy: 0.9883 - val_loss: 0.5674 - val_accuracy: 0.9888
+Epoch 3/15
+7640/7640 [==============================] - 217s 28ms/step - loss: 0.5671 - accuracy: 0.9901 - val_loss: 0.5672 - val_accuracy: 0.9891
+Epoch 4/15
+7640/7640 [==============================] - 221s 29ms/step - loss: 0.5667 - accuracy: 0.9913 - val_loss: 0.5670 - val_accuracy: 0.9896
+Epoch 5/15
+7640/7640 [==============================] - 217s 28ms/step - loss: 0.5664 - accuracy: 0.9921 - val_loss: 0.5669 - val_accuracy: 0.9901
+Epoch 6/15
+7640/7640 [==============================] - 227s 30ms/step - loss: 0.5661 - accuracy: 0.9928 - val_loss: 0.5669 - val_accuracy: 0.9900
+Epoch 7/15
+7640/7640 [==============================] - 219s 29ms/step - loss: 0.5659 - accuracy: 0.9933 - val_loss: 0.5669 - val_accuracy: 0.9901
+Epoch 8/15
+7640/7640 [==============================] - 220s 29ms/step - loss: 0.5658 - accuracy: 0.9937 - val_loss: 0.5668 - val_accuracy: 0.9904
+Epoch 9/15
+
+
+=================================================================================
+=================================================================================
+
+Namespace(alphabet_size=65, batch_size=850, debug=False, epochs=15, seed=42, threads=0, window=8, hidden_layers=[1200], dropout=0.325, weight_decay=0, label_smoothing=0.5)
+Training model 1: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x0000014FC8D07A60> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/15
+7191/7191 [==============================] - 215s 30ms/step - loss: 0.5700 - accuracy: 0.9829 - val_loss: 0.5680 - val_accuracy: 0.9872
+Epoch 2/15
+7191/7191 [==============================] - 214s 30ms/step - loss: 0.5677 - accuracy: 0.9883 - val_loss: 0.5674 - val_accuracy: 0.9888
+Epoch 3/15
+7191/7191 [==============================] - 214s 30ms/step - loss: 0.5671 - accuracy: 0.9902 - val_loss: 0.5672 - val_accuracy: 0.9893
+Epoch 4/15
+7191/7191 [==============================] - 207s 29ms/step - loss: 0.5667 - accuracy: 0.9913 - val_loss: 0.5670 - val_accuracy: 0.9898
+Epoch 5/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5664 - accuracy: 0.9921 - val_loss: 0.5670 - val_accuracy: 0.9899
+Epoch 6/15
+7191/7191 [==============================] - 214s 30ms/step - loss: 0.5661 - accuracy: 0.9928 - val_loss: 0.5669 - val_accuracy: 0.9900
+Epoch 7/15
+7191/7191 [==============================] - 214s 30ms/step - loss: 0.5659 - accuracy: 0.9933 - val_loss: 0.5669 - val_accuracy: 0.9902
+Epoch 8/15
+7191/7191 [==============================] - 209s 29ms/step - loss: 0.5658 - accuracy: 0.9937 - val_loss: 0.5668 - val_accuracy: 0.9902
+Epoch 9/15
+7191/7191 [==============================] - 212s 29ms/step - loss: 0.5657 - accuracy: 0.9941 - val_loss: 0.5668 - val_accuracy: 0.9904
+Epoch 10/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5655 - accuracy: 0.9944 - val_loss: 0.5668 - val_accuracy: 0.9902
+Epoch 11/15
+7191/7191 [==============================] - 214s 30ms/step - loss: 0.5655 - accuracy: 0.9947 - val_loss: 0.5668 - val_accuracy: 0.9902
+Epoch 12/15
+7191/7191 [==============================] - 214s 30ms/step - loss: 0.5654 - accuracy: 0.9949 - val_loss: 0.5668 - val_accuracy: 0.9904
+Epoch 13/15
+7191/7191 [==============================] - 206s 29ms/step - loss: 0.5653 - accuracy: 0.9951 - val_loss: 0.5668 - val_accuracy: 0.9903
+Epoch 14/15
+7191/7191 [==============================] - 210s 29ms/step - loss: 0.5653 - accuracy: 0.9952 - val_loss: 0.5668 - val_accuracy: 0.9901
+Epoch 15/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5652 - accuracy: 0.9954 - val_loss: 0.5668 - val_accuracy: 0.9904
+Done
+Training model 2: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x0000014F8024A820> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/15
+7191/7191 [==============================] - 214s 30ms/step - loss: 0.5700 - accuracy: 0.9829 - val_loss: 0.5680 - val_accuracy: 0.9873
+Epoch 2/15
+7191/7191 [==============================] - 204s 28ms/step - loss: 0.5677 - accuracy: 0.9883 - val_loss: 0.5674 - val_accuracy: 0.9887
+Epoch 3/15
+7191/7191 [==============================] - 203s 28ms/step - loss: 0.5671 - accuracy: 0.9901 - val_loss: 0.5672 - val_accuracy: 0.9890
+Epoch 4/15
+7191/7191 [==============================] - 207s 29ms/step - loss: 0.5667 - accuracy: 0.9913 - val_loss: 0.5670 - val_accuracy: 0.9898
+Epoch 5/15
+7191/7191 [==============================] - 206s 29ms/step - loss: 0.5664 - accuracy: 0.9921 - val_loss: 0.5670 - val_accuracy: 0.9898
+Epoch 6/15
+7191/7191 [==============================] - 211s 29ms/step - loss: 0.5661 - accuracy: 0.9928 - val_loss: 0.5669 - val_accuracy: 0.9901
+Epoch 7/15
+7191/7191 [==============================] - 216s 30ms/step - loss: 0.5660 - accuracy: 0.9933 - val_loss: 0.5669 - val_accuracy: 0.9900
+Epoch 8/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5658 - accuracy: 0.9938 - val_loss: 0.5668 - val_accuracy: 0.9902
+Epoch 9/15
+7191/7191 [==============================] - 214s 30ms/step - loss: 0.5657 - accuracy: 0.9941 - val_loss: 0.5669 - val_accuracy: 0.9900
+Epoch 10/15
+7191/7191 [==============================] - 214s 30ms/step - loss: 0.5656 - accuracy: 0.9944 - val_loss: 0.5668 - val_accuracy: 0.9903
+Epoch 11/15
+7191/7191 [==============================] - 210s 29ms/step - loss: 0.5655 - accuracy: 0.9947 - val_loss: 0.5668 - val_accuracy: 0.9903
+Epoch 12/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5654 - accuracy: 0.9949 - val_loss: 0.5668 - val_accuracy: 0.9903
+Epoch 13/15
+7191/7191 [==============================] - 214s 30ms/step - loss: 0.5653 - accuracy: 0.9951 - val_loss: 0.5668 - val_accuracy: 0.9903
+Epoch 14/15
+7191/7191 [==============================] - 214s 30ms/step - loss: 0.5653 - accuracy: 0.9952 - val_loss: 0.5668 - val_accuracy: 0.9903
+Epoch 15/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5652 - accuracy: 0.9954 - val_loss: 0.5668 - val_accuracy: 0.9904
+Done
+Training model 3: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x0000014F80053D90> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/15
+7191/7191 [==============================] - 215s 30ms/step - loss: 0.5699 - accuracy: 0.9831 - val_loss: 0.5680 - val_accuracy: 0.9871
+Epoch 2/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5677 - accuracy: 0.9883 - val_loss: 0.5674 - val_accuracy: 0.9887
+Epoch 3/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5671 - accuracy: 0.9901 - val_loss: 0.5672 - val_accuracy: 0.9892
+Epoch 4/15
+7191/7191 [==============================] - 210s 29ms/step - loss: 0.5667 - accuracy: 0.9912 - val_loss: 0.5670 - val_accuracy: 0.9896
+Epoch 5/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5664 - accuracy: 0.9921 - val_loss: 0.5670 - val_accuracy: 0.9899
+Epoch 6/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5662 - accuracy: 0.9927 - val_loss: 0.5669 - val_accuracy: 0.9902
+Epoch 7/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5660 - accuracy: 0.9933 - val_loss: 0.5669 - val_accuracy: 0.9902
+Epoch 8/15
+7191/7191 [==============================] - 208s 29ms/step - loss: 0.5658 - accuracy: 0.9937 - val_loss: 0.5668 - val_accuracy: 0.9902
+Epoch 9/15
+7191/7191 [==============================] - 212s 29ms/step - loss: 0.5657 - accuracy: 0.9940 - val_loss: 0.5668 - val_accuracy: 0.9904
+Epoch 10/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5656 - accuracy: 0.9944 - val_loss: 0.5668 - val_accuracy: 0.9903
+Epoch 11/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5655 - accuracy: 0.9946 - val_loss: 0.5668 - val_accuracy: 0.9904
+Epoch 12/15
+7191/7191 [==============================] - 214s 30ms/step - loss: 0.5654 - accuracy: 0.9948 - val_loss: 0.5668 - val_accuracy: 0.9905
+Epoch 13/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5653 - accuracy: 0.9950 - val_loss: 0.5668 - val_accuracy: 0.9904
+Epoch 14/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5653 - accuracy: 0.9952 - val_loss: 0.5668 - val_accuracy: 0.9905
+Epoch 15/15
+7191/7191 [==============================] - 214s 30ms/step - loss: 0.5652 - accuracy: 0.9954 - val_loss: 0.5668 - val_accuracy: 0.9902
+Done
+Training model 4: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x0000014F801FC4F0> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/15
+7191/7191 [==============================] - 214s 30ms/step - loss: 0.5700 - accuracy: 0.9830 - val_loss: 0.5680 - val_accuracy: 0.9873
+Epoch 2/15
+7191/7191 [==============================] - 207s 29ms/step - loss: 0.5677 - accuracy: 0.9883 - val_loss: 0.5674 - val_accuracy: 0.9887
+Epoch 3/15
+7191/7191 [==============================] - 209s 29ms/step - loss: 0.5671 - accuracy: 0.9901 - val_loss: 0.5672 - val_accuracy: 0.9892
+Epoch 4/15
+7191/7191 [==============================] - 210s 29ms/step - loss: 0.5667 - accuracy: 0.9912 - val_loss: 0.5670 - val_accuracy: 0.9895
+Epoch 5/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5664 - accuracy: 0.9921 - val_loss: 0.5670 - val_accuracy: 0.9897
+Epoch 6/15
+7191/7191 [==============================] - 208s 29ms/step - loss: 0.5661 - accuracy: 0.9928 - val_loss: 0.5669 - val_accuracy: 0.9899
+Epoch 7/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5660 - accuracy: 0.9933 - val_loss: 0.5669 - val_accuracy: 0.9900
+Epoch 8/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5658 - accuracy: 0.9937 - val_loss: 0.5668 - val_accuracy: 0.9901
+Epoch 9/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5657 - accuracy: 0.9941 - val_loss: 0.5668 - val_accuracy: 0.9903
+Epoch 10/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5656 - accuracy: 0.9944 - val_loss: 0.5668 - val_accuracy: 0.9905
+Epoch 11/15
+7191/7191 [==============================] - 206s 29ms/step - loss: 0.5655 - accuracy: 0.9946 - val_loss: 0.5668 - val_accuracy: 0.9905
+Epoch 12/15
+7191/7191 [==============================] - 207s 29ms/step - loss: 0.5654 - accuracy: 0.9949 - val_loss: 0.5668 - val_accuracy: 0.9905
+Epoch 13/15
+7191/7191 [==============================] - 208s 29ms/step - loss: 0.5653 - accuracy: 0.9950 - val_loss: 0.5668 - val_accuracy: 0.9903
+Epoch 14/15
+7191/7191 [==============================] - 212s 29ms/step - loss: 0.5653 - accuracy: 0.9952 - val_loss: 0.5668 - val_accuracy: 0.9905
+Epoch 15/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5652 - accuracy: 0.9953 - val_loss: 0.5668 - val_accuracy: 0.9904
+Done
+Training model 5: WARNING:tensorflow:Model failed to serialize as JSON. Ignoring... Unable to serialize <uppercase_data.UppercaseData object at 0x0000014F809A4A30> to JSON. Unrecognized type <class 'uppercase_data.UppercaseData'>.
+Epoch 1/15
+7191/7191 [==============================] - 214s 30ms/step - loss: 0.5700 - accuracy: 0.9830 - val_loss: 0.5680 - val_accuracy: 0.9874
+Epoch 2/15
+7191/7191 [==============================] - 214s 30ms/step - loss: 0.5677 - accuracy: 0.9884 - val_loss: 0.5674 - val_accuracy: 0.9890
+Epoch 3/15
+7191/7191 [==============================] - 214s 30ms/step - loss: 0.5671 - accuracy: 0.9902 - val_loss: 0.5671 - val_accuracy: 0.9894
+Epoch 4/15
+7191/7191 [==============================] - 206s 29ms/step - loss: 0.5667 - accuracy: 0.9913 - val_loss: 0.5670 - val_accuracy: 0.9898
+Epoch 5/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5664 - accuracy: 0.9922 - val_loss: 0.5669 - val_accuracy: 0.9900
+Epoch 6/15
+7191/7191 [==============================] - 214s 30ms/step - loss: 0.5661 - accuracy: 0.9928 - val_loss: 0.5669 - val_accuracy: 0.9901
+Epoch 7/15
+7191/7191 [==============================] - 214s 30ms/step - loss: 0.5659 - accuracy: 0.9933 - val_loss: 0.5669 - val_accuracy: 0.9901
+Epoch 8/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5658 - accuracy: 0.9938 - val_loss: 0.5668 - val_accuracy: 0.9902
+Epoch 9/15
+7191/7191 [==============================] - 211s 29ms/step - loss: 0.5657 - accuracy: 0.9941 - val_loss: 0.5669 - val_accuracy: 0.9900
+Epoch 10/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5656 - accuracy: 0.9944 - val_loss: 0.5668 - val_accuracy: 0.9903
+Epoch 11/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5655 - accuracy: 0.9947 - val_loss: 0.5668 - val_accuracy: 0.9904
+Epoch 12/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5654 - accuracy: 0.9949 - val_loss: 0.5668 - val_accuracy: 0.9904
+Epoch 13/15
+7191/7191 [==============================] - 211s 29ms/step - loss: 0.5653 - accuracy: 0.9951 - val_loss: 0.5668 - val_accuracy: 0.9905
+Epoch 14/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5652 - accuracy: 0.9953 - val_loss: 0.5668 - val_accuracy: 0.9903
+Epoch 15/15
+7191/7191 [==============================] - 213s 30ms/step - loss: 0.5652 - accuracy: 0.9954 - val_loss: 0.5668 - val_accuracy: 0.9904
+Done
+11373/11373 [==============================] - 22s 2ms/step
+11344/11344 [==============================] - 22s 2ms/step
+11373/11373 [==============================] - 23s 2ms/step
+11344/11344 [==============================] - 23s 2ms/step
+11373/11373 [==============================] - 22s 2ms/step
+11344/11344 [==============================] - 23s 2ms/step
+11373/11373 [==============================] - 22s 2ms/step
+11344/11344 [==============================] - 22s 2ms/step
+11373/11373 [==============================] - 23s 2ms/step
+11344/11344 [==============================] - 23s 2ms/step
+Ensemble accuracy: 0.99142945
+
+Process finished with exit code 0
+
+

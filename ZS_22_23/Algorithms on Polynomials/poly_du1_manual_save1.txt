@@ -1,0 +1,139 @@
+R.<x,y,z> = PolynomialRing(base_ring=QQ, order='lex')
+#print(x > y^6)
+#f = - 6*x + 3/2 * y + x^3 * y^2
+#g = x*y + 7
+#for i in range(len(list(f))):
+#    if list(f)[i][1] % g == 0:
+#        #print(list(f)[i][1])
+#        i = i
+#print(f.coefficients())
+#print(list(f))
+#print(f[0])
+
+def rewritable(f, g):
+    f_monomials = list(R(f))
+    g_lt = R(g).lt()
+    for i in range(len(f_monomials)):
+        if f_monomials[i][1] % g_lt == 0:
+            return True
+    return False
+
+def rewrite(f, g):
+    f_monomials = list(R(f))
+    g_lt = R(g).lt()
+    #print(g)
+    #print(g_lm)
+    #print(g.lc())
+    for i in range(len(f_monomials)):
+        if f_monomials[i][1] % g_lt == 0:
+            m = f_monomials[i][1] * f_monomials[i][0]
+            #print(m)
+            break
+    return f - (m / g_lt) * g
+
+def spol(r1, r2):
+    t = lcm(R(r1).lm(), R(r2).lm())
+    h1 = rewrite(t, r1)
+    h2 = rewrite(t, r2)
+    return h1 - h2
+
+def buchberger(generators):  # add order as an option?
+    # check the input
+    if len(generators) == 1:
+        return generators
+    for i in range(len(generators)):
+        if generators[i] == 0:
+            generators.pop(i)
+    
+    basis = generators
+    pairs = Combinations(basis, 2)
+    finished = False
+    while not finished:
+        new_pairs = []
+        for pair in pairs:
+            spol1 = spol(pair[0], pair[1])
+            spol1 = get_terminal(spol1, basis)
+            if spol1 != 0:
+                for r in basis:
+                    new_pairs.append((spol1, r))
+                basis.append(spol1)
+        pairs = new_pairs
+        if len(new_pairs) == 0:
+            finished = True
+    return basis
+
+def norm_reduced(basis):
+    red = basis
+    finished = False
+    while not finished:
+        finished = True
+        #to_remove = []
+        #to_add
+        for f in red:
+            for g in red:
+                #print(f)
+                if f != g and rewritable(f, g):
+                    #print("to remove:", f)
+                    if R(f).lm() % R(g).lm() == 0:
+                        red.remove(f)  # optimize
+                    else:
+                        h = rewrite(f, g)
+                        red.remove(f)
+                        red.append(h)
+                    finished = False
+                    break
+    norm_red = []
+    for f in red:
+        norm_red.append(f / R(f).lc())
+    return norm_red
+
+def get_terminal(f, basis):
+    g = f
+    rewritable1 = True
+    while rewritable1:
+        rewritable1 = False
+        for r in basis:
+            if rewritable(g, r):
+                g = rewrite(g, r)
+                rewritable1 = True
+    return g
+
+def is_in_groebner(f, basis):
+    if get_terminal(f, basis) == 0:
+        return True
+    return False
+
+def is_in_ideal(f, generators):
+    gr_basis = buchberger(generators)
+    gr_norm_red = norm_reduced(gr_basis)
+    if is_in_groebner(f, gr_norm_red):
+        return True
+    return False
+
+f1 = x^2 * y - x + 1
+g1 = x * y^2 - 1
+
+f2 = x^2 * y^2 + y - 1
+g2 = x^2 * y + x
+
+f3 = x^2 * y^3 - 2*x*y + 3*y
+
+gens2 = [f2, g2]
+
+buch_bas2 = buchberger(gens2)
+print(buch_bas2)
+
+norm_red2 = norm_reduced(buch_bas2)
+print(norm_red2)
+
+print(is_in_groebner(f3, buch_bas2))
+
+
+#print(buchberger(gens2))
+#print(R(-5*x^3 + 2).lm())
+#print(rewrite(2*x, -x))
+
+#print(spol(f1, g1))
+    
+#print(rewritable(f, g))
+#print(rewrite(f, g))

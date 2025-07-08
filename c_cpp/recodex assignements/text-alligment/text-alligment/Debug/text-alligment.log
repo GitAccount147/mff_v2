@@ -1,0 +1,12 @@
+﻿  Source.c
+C:\Users\Pepa\source\repos\recodex assignements\text-alligment\text-alligment\Source.c(15,25): warning C4013: 'malloc' undefined; assuming extern returning int
+C:\Users\Pepa\source\repos\recodex assignements\text-alligment\text-alligment\Source.c(15,1): warning C4047: 'initializing': 'word *' differs in levels of indirection from 'int'
+C:\Users\Pepa\source\repos\recodex assignements\text-alligment\text-alligment\Source.c(24,1): warning C4047: 'initializing': 'symbol *' differs in levels of indirection from 'int'
+C:\Users\Pepa\source\repos\recodex assignements\text-alligment\text-alligment\Source.c(37,18): warning C4047: '=': 'int *' differs in levels of indirection from 'int'
+C:\Users\Pepa\source\repos\recodex assignements\text-alligment\text-alligment\Source.c(63,19): warning C4047: '=': 'int *' differs in levels of indirection from 'int'
+C:\Users\Pepa\source\repos\recodex assignements\text-alligment\text-alligment\Source.c(52,1): warning C4133: 'initializing': incompatible types - from 'symbol *' to 'symbol *'
+C:\Users\Pepa\source\repos\recodex assignements\text-alligment\text-alligment\Source.c(67,1): warning C4133: 'initializing': incompatible types - from 'symbol *' to 'symbol *'
+C:\Users\Pepa\source\repos\recodex assignements\text-alligment\text-alligment\Source.c(80,6): warning C4013: 'free' undefined; assuming extern returning int
+C:\Users\Pepa\source\repos\recodex assignements\text-alligment\text-alligment\Source.c(77,1): warning C4133: 'initializing': incompatible types - from 'symbol *' to 'symbol *'
+C:\Users\Pepa\source\repos\recodex assignements\text-alligment\text-alligment\Source.c(137,1): warning C4047: 'initializing': 'word *' differs in levels of indirection from 'int'
+  text-alligment.vcxproj -> C:\Users\Pepa\source\repos\recodex assignements\text-alligment\Debug\text-alligment.exe

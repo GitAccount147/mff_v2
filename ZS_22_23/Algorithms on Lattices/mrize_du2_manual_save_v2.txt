@@ -1,0 +1,319 @@
+# AJPS scheme for encoding of a single bit b
+# main functions key_gen(), enc(), dec()
+
+# TODO: - does Z_p exist in sage (something better than IntegerModRing(p))?
+
+import time
+
+# key_generation function
+def key_gen(lam):
+    n, h, p = get_mersenne(lam)  # find the ring to "work in" and suitable h
+    F, G = get_rand_string(n, h)  # get random strings with suitable length and HAM weight
+    pk, sk = get_pksk(F, G, p, n)  # get private and public key
+    # n, h and p are necessary for the encryption and decryption so they are part of the public key
+    return pk, sk, n, h, p
+
+# map Z_p to {0, 1}* 
+def seq_fun(x, n):
+    if ZZ(x) > 2**n - 1:  # catch errors
+        print("Input too large, something is wrong.")
+    x_bin = (ZZ(x)).binary()
+    result = '0' * (n - len(x_bin)) + x_bin  # turn to binary string and pad with 0s
+    return result
+
+# map {0, 1}* to Z_p
+def int_fun(y, p):
+    if not p.is_prime:  # catch errors
+        print("Not using prime mod, something is wrong.")
+    Z_p = IntegerModRing(p)
+    y_int = int(str(y), base=2)  # turn binary to int
+    return Z_p(y_int)  # interpret it in Z_p
+
+# multiplication over {0, 1}*
+def bin_mult(A, B, p, n):
+    return seq_fun(int_fun(A, p) * int_fun(B, p), n)
+    
+# addition over {0, 1}*
+def bin_add(A, B, p, n):
+    return seq_fun(int_fun(A, p) + int_fun(B, p), n)
+    
+# minus over {0, 1}*
+def bin_minus(A, b, p, n):
+    return seq_fun((-1)**(b) * int_fun(A, p), n)
+
+# get Mersenne prime and a suitable integer h
+def get_mersenne(lam):
+    M = sloane.A000043  # fetch Mersenne prime exponents, those are primes p s.t.: 2^p - 1 is also a prime
+    i = 1
+    possible_h = []
+    both_found = False
+    while not both_found:
+        n = M(i)
+        i += 1
+        # we need n, h s.t.: binomial(n, h) >= 2^lam
+        # argmax(binomial(n, h)) = (n, floor(n / 2))
+        while binomial(n, floor(n / 2)) < 2**lam:
+            n = M(i)
+            i += 1
+        p = 2**n - 1
+        # we need h s.t.: 4h^2 < n <= 16h^2
+        h_max = ceil(sqrt(n) / 2)  # derived from the inequality, to test fewer h's
+        h_min = floor(sqrt(n) / 4)  # derived from the inequality, to test fewer h's
+        for h in range(h_min, h_max):
+            if 4*h**2 < n <= 16*h**2 and binomial(n, h) >= 2**lam:
+                both_found = True
+                possible_h.append(h)
+    h = possible_h[randint(0, len(possible_h) - 1)]  # not necessary, just to try larger/(more random) h's
+    return n, h, p
+
+# get random strings of length n and HAM weight h
+def get_rand_string(n, h):
+    if n < h:  # catch errors
+        print("HAM weight too large, something is wrong.")
+        h = h % n
+    A_set = Subsets(n, h).random_element()  # maybe could be done smarter
+    B_set = Subsets(n, h).random_element()
+    A_str = str(FrozenBitset(A_set))
+    B_str = str(FrozenBitset(B_set))
+    # remove leading 0 (always is there because sets operate on 1,...,n and not 0,...,n-1), pad with 0s
+    A = A_str[1:] + "0" * (n - len(A_str) + 1)
+    B = B_str[1:] + "0" * (n - len(B_str) + 1)
+    return A, B
+
+# get private and public keys
+def get_pksk(F, G, p, n):
+    F_p = int_fun(F, p)
+    G_p = int_fun(G, p)
+    G_inv = G_p**(-1)  # inverse in Z_p
+    H = seq_fun(F_p * G_inv, n)
+    return H, G
+
+# encoding function
+def enc(b, H, n, h, p):
+    A, B = get_rand_string(n, h)
+    bin_prod = bin_mult(A, H, p, n)
+    bin_sum = bin_add(bin_prod, B, p, n)
+    C = bin_minus(bin_sum, b, p, n)
+    return C
+
+# decryption function
+def dec(G, C, n, h, p):
+    bin_prod = bin_mult(C, G, p, n)
+    d = bin_prod.count('1')
+    if d <= 2*h**2:
+        return 0
+    elif d >= n - 2*h**2:
+        return 1
+    else:
+        print("Error.")
+        return None
+
+# test some random inputs to check correctness
+def test_correctness(lam_min, lam_max, lam_step, size_per_lam):
+    incorrect = []
+    print("Starting testing with parameters (lam_min, lam_max, size_per_lam):", lam_min, lam_max, size_per_lam)
+    for lam in range(lam_min, lam_max + 1, lam_step):
+        start_time = time.time()
+        for i in range(size_per_lam):
+            b = randint(0, 1)
+            pk, sk, n, h, p = key_gen(lam)
+            C = enc(b, pk, n, h, p)
+            d = dec(sk, C, n, h, p)
+            if b != d:
+                incorrect.append((b, pk, sk, n, h, p, C, d))
+        avg_time = (time.time() - start_time) / size_per_lam
+        print("Finished with lambda:", lam, ", average time per (key_gen + enc + dec): {:.2f} s".format(avg_time))
+    if len(incorrect) == 0:
+        print("All tested inputs correctly encoded and decoded.")
+    else:
+        print("Some tested inputs incorrectly encoded or decoded:")
+        print(incorrect)
+    return incorrect
+
+# driver code:
+lam_min, lam_max, lam_step, size_per_lam = 200, 2000, 200, 100
+#test_correctness(lam_min, lam_max, lam_step, size_per_lam)
+
+
+
+
+
+#==========================================================================================
+#==========================================================================================
+#==========================================================================================
+
+def pad_zeros(g, k):
+    return g + '0' * k
+
+def get_Gs(alpha, n, w):
+    G_1 = []
+    ham_1 = floor(alpha * w)
+    length_1 = floor(alpha * n)
+    subs_1 = Subsets(length_1, ham_1)
+    #print("subs_1:", subs_1)
+    pad_1 = '0' * ceil((1 - alpha) * n)
+    for sub in subs_1:
+        #print("sub:", sub)
+        empty = [0 for _ in range(length_1)]
+        for i in sub:
+            #print(i)
+            empty[i - 1] = 1
+        #g = str(empty)
+        g = ''.join(str(e) for e in empty)
+        #print(empty)
+        #print(g)
+        G_1.append(g + pad_1)
+        
+    G_2 = []
+    ham_2 = ceil((1 - alpha) * w)
+    length_2 = ceil((1 - alpha) * n)
+    subs_2 = Subsets(length_2, ham_2)
+    pad_2 = '0' * floor(alpha * n)
+    for sub in subs_2:
+        empty = [0 for _ in range(length_2)]
+        for i in sub:
+            empty[i - 1] = 1
+        #g = str(empty)
+        g = ''.join(str(e) for e in empty)
+        G_2.append(pad_2 + g)
+    
+    return G_1, G_2
+
+def get_hash(n, m):
+    res = sample(range(n), m)
+    #return Subsets(n, m).random_element()
+    return res
+    
+def hash_input(s, sub):
+    bits = []
+    for i in range(len(sub)):
+        bits.append(s[sub[i] - 1])
+    return bits
+
+def times(f, g): # !!!!!!! TODO or from the first exercise
+    return f
+
+def minus(f): # !!!!!!! TODO or from the first exercise
+    return f
+
+# hamming weight of a string
+def ham(f): # !!!!!!! TODO or from the first exercise
+    weight = 0
+    for i in range(len(f)):
+        if f[i] != "0":
+            weight += 1
+    return weight
+
+def plus(f, g): # !!!!!!! TODO or from the first exercise
+    return f
+
+def fill_database(m, h, G_1, hash_sub, p, n):
+    database = [[] for _ in range(2**m)]
+    for g in G_1:
+        #f = times(g, h)
+        #print(g)
+        f = bin_mult(g, h, p, n)
+        hashed = hash_input(f, hash_sub)
+        #print(hashed)
+        #print(type(hashed))
+        #for e in hashed:
+        #    print(str(e))
+        hashed_str = "".join(str(e) for e in hashed)
+        #print(hashed_str)
+        hashed_int = int_fun(hashed_str, p)
+        database[hashed_int].append(g)
+    return database
+
+def search_database(database, G_2, h, w, hash_sub, p, n):
+    res = [] # do we want mroe?
+    for g_1 in G_2:
+        t1 = bin_mult(g_1, h, p, n)
+        m1 = bin_minus(t1, 1, p, n)
+        hashed = hash_input(m1, hash_sub)
+        #hashed = hash_input(minus(times(g_1, h)), hash_sub)
+        hashed_str = ''.join(str(e) for e in hashed)
+        hashed_int = int_fun(hashed_str, p)
+        for g_2 in database[hashed_int]:
+            t2, t3 = bin_mult(g_1, h, p, n), bin_mult(g_2, h, p, n)
+            p1 = bin_add(t2, t3, p, n)
+            added = p1
+            #added = plus(times(g_1, h), times(g_2, h))
+            if ham(added) == w:
+                p2 = bin_add(g_1, g_2, p, n)
+                res.append(p2)
+                #res.append(plus(g_1, g_2))
+                #return plus(g_1, g_2)
+    return res
+    #return None
+    
+    
+def mitma(h, n, w, alpha, p):
+    m = ceil(log(binomial(ceil(n / 2), ceil(w / 2)), 2))
+    #print("m:", m)
+    G_1, G_2 = get_Gs(alpha, n, w)
+    #print("got Gs")
+    #print("Gs:")
+    #print(G_1)
+    #print(G_2)
+    #return None
+    hash_sub = get_hash(n, m)
+    #print("we chose this hash:", hash_sub)
+    #return None
+    db = fill_database(m, h, G_1, hash_sub, p, n)
+    hits = search_database(db, G_2, h, w, hash_sub, p, n)  #?? 2 misto w?
+    #print("Found the hits:", hits)
+    #print("Found", len(hits), "hits.")
+    hits_int = []
+    for i in range(len(hits)):
+        hits_int.append(int_fun(hits[i], p))
+    return hits_int
+    
+#aa = 5
+#bb = 4
+#print(log(2**13, 2))
+#s1 = "001100"
+#s1[1] = "5"
+#print(floor(5.3))
+#print(s1[2])
+#print("ahoj")
+#print(Subsets(aa, bb).list())
+
+def test_attack(alpha, lam, iterations):
+    found_sk = 0
+    guesses_found_total = 0
+    for _ in range(iterations):
+        pk, sk, n, h, p = key_gen(lam)  # h ~ weight (!just in this context)
+        sk_int = int_fun(sk, p)
+        sk_guess = mitma(pk, n, h, alpha, p) # p not needed?
+        guesses_found_total += len(sk_guess)
+        if sk_int in sk_guess:
+            found_sk += 1
+        #print("Is one of my guesses good?", sk_int in sk_guess)
+    avg_guesses = RR(guesses_found_total / iterations)
+    percentage = (found_sk / iterations) * 100
+    return found_sk, avg_guesses, percentage
+
+alpha, lam, iterations = 1/2, 20, 100  # lam=28 a vice to uz nezvlada
+total_breaks, avg_guess, perc = test_attack(alpha, lam, iterations)
+print("Success rate:", perc, "%")
+print("Average guesses:", round(avg_guess))
+
+
+#=================================================================================
+
+lam = 10
+b = randint(0, 1)  # secret message
+pk, sk, n, h, p = key_gen(lam)  # h ~ weight (!just in this context)
+C = enc(b, pk, n, h, p)
+d = dec(sk, C, n, h, p)
+#print("lam, alpha, b, n, p:", lam, alpha, b, n, p)
+
+#print(pk)
+pk_int = int_fun(pk, p)
+sk_int = int_fun(sk, p)
+
+sk_guess = mitma(pk, n, h, alpha, p) # p not needed?
+#sk_guess_int = int_fun(sk_guess_str, p)
+#print("my guesses:", sk_guess)
+#print("true val:", sk_int)
+#print("Is one of my guesses good?", sk_int in sk_guess)

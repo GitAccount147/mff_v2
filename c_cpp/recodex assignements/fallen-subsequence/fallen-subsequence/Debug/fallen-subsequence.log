@@ -1,0 +1,5 @@
+﻿  Source.c
+C:\Users\Pepa\source\repos\recodex assignements\fallen-subsequence\fallen-subsequence\Source.c(45,27): warning C4013: 'malloc' undefined; assuming extern returning int
+C:\Users\Pepa\source\repos\recodex assignements\fallen-subsequence\fallen-subsequence\Source.c(45,45): warning C4047: '=': 'sequence *' differs in levels of indirection from 'int'
+C:\Users\Pepa\source\repos\recodex assignements\fallen-subsequence\fallen-subsequence\Source.c(47,42): warning C4047: '=': 'sequence *' differs in levels of indirection from 'int'
+  fallen-subsequence.vcxproj -> C:\Users\Pepa\source\repos\recodex assignements\fallen-subsequence\Debug\fallen-subsequence.exe

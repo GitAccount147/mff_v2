@@ -1,0 +1,367 @@
+
+=============================================================
+#############################################################
+tfidf_vect + sgd_class:
+#############################################################
+=============================================================
+
+Started calculation at:  23:50:33
+Fitting 5 folds for each of 8 candidates, totalling 40 fits
+[CV 1/5; 1/8] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 1/5; 1/8] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.678 total time=   2.0s
+[CV 2/5; 1/8] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 2/5; 1/8] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.709 total time=   2.0s
+[CV 3/5; 1/8] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 3/5; 1/8] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.692 total time=   2.0s
+[CV 4/5; 1/8] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 4/5; 1/8] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.714 total time=   2.0s
+[CV 5/5; 1/8] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 5/5; 1/8] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.715 total time=   2.0s
+[CV 1/5; 2/8] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 1/5; 2/8] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.679 total time=   6.5s
+[CV 2/5; 2/8] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 2/5; 2/8] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.722 total time=   6.5s
+[CV 3/5; 2/8] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 3/5; 2/8] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.679 total time=   6.7s
+[CV 4/5; 2/8] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 4/5; 2/8] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.666 total time=   6.6s
+[CV 5/5; 2/8] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 5/5; 2/8] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.605 total time=   6.5s
+[CV 1/5; 3/8] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 1/5; 3/8] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.701 total time=   2.0s
+[CV 2/5; 3/8] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 2/5; 3/8] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.717 total time=   2.0s
+[CV 3/5; 3/8] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 3/5; 3/8] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.698 total time=   2.0s
+[CV 4/5; 3/8] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 4/5; 3/8] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.706 total time=   2.1s
+[CV 5/5; 3/8] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 5/5; 3/8] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.713 total time=   2.0s
+[CV 1/5; 4/8] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 1/5; 4/8] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.607 total time=   6.6s
+[CV 2/5; 4/8] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 2/5; 4/8] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.663 total time=   7.0s
+[CV 3/5; 4/8] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 3/5; 4/8] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.633 total time=   6.3s
+[CV 4/5; 4/8] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 4/5; 4/8] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.665 total time=   6.4s
+[CV 5/5; 4/8] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 5/5; 4/8] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.735 total time=   6.4s
+[CV 1/5; 5/8] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 1/5; 5/8] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.727 total time=   2.4s
+[CV 2/5; 5/8] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 2/5; 5/8] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.733 total time=   2.5s
+[CV 3/5; 5/8] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 3/5; 5/8] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.735 total time=   2.4s
+[CV 4/5; 5/8] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 4/5; 5/8] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.734 total time=   2.5s
+[CV 5/5; 5/8] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 5/5; 5/8] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.732 total time=   2.4s
+[CV 1/5; 6/8] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 1/5; 6/8] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.712 total time=   7.8s
+[CV 2/5; 6/8] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 2/5; 6/8] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.753 total time=   7.7s
+[CV 3/5; 6/8] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 3/5; 6/8] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.745 total time=   8.1s
+[CV 4/5; 6/8] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 4/5; 6/8] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.726 total time=   7.9s
+[CV 5/5; 6/8] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 5/5; 6/8] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.752 total time=   7.9s
+[CV 1/5; 7/8] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 1/5; 7/8] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.727 total time=   2.5s
+[CV 2/5; 7/8] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 2/5; 7/8] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.730 total time=   2.6s
+[CV 3/5; 7/8] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 3/5; 7/8] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.735 total time=   2.5s
+[CV 4/5; 7/8] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 4/5; 7/8] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.738 total time=   2.6s
+[CV 5/5; 7/8] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 5/5; 7/8] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.731 total time=   2.5s
+[CV 1/5; 8/8] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 1/5; 8/8] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.718 total time=   7.9s
+[CV 2/5; 8/8] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 2/5; 8/8] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.735 total time=   7.8s
+[CV 3/5; 8/8] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 3/5; 8/8] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.736 total time=   7.7s
+[CV 4/5; 8/8] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 4/5; 8/8] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.740 total time=   7.7s
+[CV 5/5; 8/8] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 5/5; 8/8] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.758 total time=   7.7s
+done in 201.784s
+Best score: 0.738
+Best parameters set:
+	clf__alpha: 1e-06
+	clf__max_iter: 1000
+	tfidfvect__analyzer: 'word'
+	tfidfvect__ngram_range: (1, 2)
+	tfidfvect__norm: 'l1'
+
+-------------------------------------------------------------------------------------------------------------------
+Started calculation at:  23:57:31
+Fitting 5 folds for each of 24 candidates, totalling 120 fits
+[CV 1/5; 1/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2
+[CV 1/5; 1/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2;, score=0.713 total time=   2.3s
+[CV 2/5; 1/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2
+[CV 2/5; 1/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2;, score=0.715 total time=   2.3s
+[CV 3/5; 1/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2
+[CV 3/5; 1/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2;, score=0.720 total time=   2.3s
+[CV 4/5; 1/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2
+[CV 4/5; 1/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2;, score=0.730 total time=   2.3s
+[CV 5/5; 1/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2
+[CV 5/5; 1/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2;, score=0.723 total time=   2.3s
+[CV 1/5; 2/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 1/5; 2/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.693 total time=   2.0s
+[CV 2/5; 2/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 2/5; 2/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.700 total time=   2.0s
+[CV 3/5; 2/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 3/5; 2/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.711 total time=   2.0s
+[CV 4/5; 2/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 4/5; 2/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.694 total time=   2.0s
+[CV 5/5; 2/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 5/5; 2/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.716 total time=   2.0s
+[CV 1/5; 3/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2
+[CV 1/5; 3/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2;, score=0.780 total time=   6.6s
+[CV 2/5; 3/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2
+[CV 2/5; 3/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2;, score=0.784 total time=   6.9s
+[CV 3/5; 3/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2
+[CV 3/5; 3/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2;, score=0.784 total time=   6.6s
+[CV 4/5; 3/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2
+[CV 4/5; 3/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2;, score=0.780 total time=   6.6s
+[CV 5/5; 3/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2
+[CV 5/5; 3/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2;, score=0.789 total time=   6.5s
+[CV 1/5; 4/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 1/5; 4/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.607 total time=   6.4s
+[CV 2/5; 4/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 2/5; 4/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.663 total time=   6.4s
+[CV 3/5; 4/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 3/5; 4/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.633 total time=   7.0s
+[CV 4/5; 4/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 4/5; 4/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.665 total time=   6.6s
+[CV 5/5; 4/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 5/5; 4/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.735 total time=   6.4s
+[CV 1/5; 5/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2
+[CV 1/5; 5/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2;, score=0.767 total time=  16.0s
+[CV 2/5; 5/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2
+[CV 2/5; 5/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2;, score=0.773 total time=  15.7s
+[CV 3/5; 5/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2
+[CV 3/5; 5/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2;, score=0.782 total time=  15.3s
+[CV 4/5; 5/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2
+[CV 4/5; 5/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2;, score=0.765 total time=  15.4s
+[CV 5/5; 5/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2
+[CV 5/5; 5/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2;, score=0.780 total time=  15.2s
+[CV 1/5; 6/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1
+[CV 1/5; 6/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1;, score=0.555 total time=  15.6s
+[CV 2/5; 6/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1
+[CV 2/5; 6/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1;, score=0.555 total time=  15.6s
+[CV 3/5; 6/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1
+[CV 3/5; 6/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1;, score=0.582 total time=  15.6s
+[CV 4/5; 6/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1
+[CV 4/5; 6/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1;, score=0.651 total time=  15.6s
+[CV 5/5; 6/24] START clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1
+[CV 5/5; 6/24] END clf__alpha=1e-05, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1;, score=0.502 total time=  16.2s
+[CV 1/5; 7/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2
+[CV 1/5; 7/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2;, score=0.717 total time=   2.3s
+[CV 2/5; 7/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2
+[CV 2/5; 7/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2;, score=0.712 total time=   2.3s
+[CV 3/5; 7/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2
+[CV 3/5; 7/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2;, score=0.714 total time=   2.3s
+[CV 4/5; 7/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2
+[CV 4/5; 7/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2;, score=0.722 total time=   2.3s
+[CV 5/5; 7/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2
+[CV 5/5; 7/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2;, score=0.722 total time=   2.4s
+[CV 1/5; 8/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 1/5; 8/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.690 total time=   2.1s
+[CV 2/5; 8/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 2/5; 8/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.714 total time=   2.1s
+[CV 3/5; 8/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 3/5; 8/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.695 total time=   2.0s
+[CV 4/5; 8/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 4/5; 8/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.700 total time=   2.0s
+[CV 5/5; 8/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 5/5; 8/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.682 total time=   2.0s
+[CV 1/5; 9/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2
+[CV 1/5; 9/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2;, score=0.784 total time=   6.5s
+[CV 2/5; 9/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2
+[CV 2/5; 9/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2;, score=0.774 total time=   6.5s
+[CV 3/5; 9/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2
+[CV 3/5; 9/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2;, score=0.783 total time=   6.5s
+[CV 4/5; 9/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2
+[CV 4/5; 9/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2;, score=0.780 total time=   6.6s
+[CV 5/5; 9/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2
+[CV 5/5; 9/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2;, score=0.800 total time=   6.7s
+[CV 1/5; 10/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 1/5; 10/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.628 total time=   6.4s
+[CV 2/5; 10/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 2/5; 10/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.661 total time=   6.4s
+[CV 3/5; 10/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 3/5; 10/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.728 total time=   6.4s
+[CV 4/5; 10/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 4/5; 10/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.658 total time=   6.4s
+[CV 5/5; 10/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 5/5; 10/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.760 total time=   6.4s
+[CV 1/5; 11/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2
+[CV 1/5; 11/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2;, score=0.751 total time=  15.3s
+[CV 2/5; 11/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2
+[CV 2/5; 11/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2;, score=0.758 total time=  15.4s
+[CV 3/5; 11/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2
+[CV 3/5; 11/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2;, score=0.761 total time=  15.2s
+[CV 4/5; 11/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2
+[CV 4/5; 11/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2;, score=0.765 total time=  15.4s
+[CV 5/5; 11/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2
+[CV 5/5; 11/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2;, score=0.778 total time=  15.4s
+[CV 1/5; 12/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1
+[CV 1/5; 12/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1;, score=0.615 total time=  15.7s
+[CV 2/5; 12/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1
+[CV 2/5; 12/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1;, score=0.580 total time=  15.6s
+[CV 3/5; 12/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1
+[CV 3/5; 12/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1;, score=0.630 total time=  15.7s
+[CV 4/5; 12/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1
+[CV 4/5; 12/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1;, score=0.645 total time=  15.8s
+[CV 5/5; 12/24] START clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1
+[CV 5/5; 12/24] END clf__alpha=1e-05, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1;, score=0.670 total time=  16.6s
+[CV 1/5; 13/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2
+[CV 1/5; 13/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2;, score=0.701 total time=   2.2s
+[CV 2/5; 13/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2
+[CV 2/5; 13/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2;, score=0.709 total time=   2.2s
+[CV 3/5; 13/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2
+[CV 3/5; 13/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2;, score=0.700 total time=   2.2s
+[CV 4/5; 13/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2
+[CV 4/5; 13/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2;, score=0.705 total time=   2.2s
+[CV 5/5; 13/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2
+[CV 5/5; 13/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2;, score=0.702 total time=   2.2s
+[CV 1/5; 14/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 1/5; 14/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.731 total time=   2.5s
+[CV 2/5; 14/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 2/5; 14/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.741 total time=   2.5s
+[CV 3/5; 14/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 3/5; 14/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.734 total time=   2.5s
+[CV 4/5; 14/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 4/5; 14/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.731 total time=   2.5s
+[CV 5/5; 14/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 5/5; 14/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.739 total time=   2.5s
+[CV 1/5; 15/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2
+[CV 1/5; 15/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2;, score=0.744 total time=   6.5s
+[CV 2/5; 15/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2
+[CV 2/5; 15/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2;, score=0.738 total time=   6.5s
+[CV 3/5; 15/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2
+[CV 3/5; 15/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2;, score=0.754 total time=   6.5s
+[CV 4/5; 15/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2
+[CV 4/5; 15/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2;, score=0.755 total time=   6.5s
+[CV 5/5; 15/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2
+[CV 5/5; 15/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2;, score=0.758 total time=   6.5s
+[CV 1/5; 16/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 1/5; 16/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.740 total time=   7.7s
+[CV 2/5; 16/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 2/5; 16/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.746 total time=   7.8s
+[CV 3/5; 16/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 3/5; 16/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.730 total time=   7.7s
+[CV 4/5; 16/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 4/5; 16/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.727 total time=   7.8s
+[CV 5/5; 16/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 5/5; 16/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.764 total time=   8.3s
+[CV 1/5; 17/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2
+[CV 1/5; 17/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2;, score=0.745 total time=  16.2s
+[CV 2/5; 17/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2
+[CV 2/5; 17/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2;, score=0.732 total time=  16.4s
+[CV 3/5; 17/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2
+[CV 3/5; 17/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2;, score=0.753 total time=  15.5s
+[CV 4/5; 17/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2
+[CV 4/5; 17/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2;, score=0.764 total time=  15.6s
+[CV 5/5; 17/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2
+[CV 5/5; 17/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2;, score=0.768 total time=  15.6s
+[CV 1/5; 18/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1
+[CV 1/5; 18/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1;, score=0.652 total time=  18.1s
+[CV 2/5; 18/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1
+[CV 2/5; 18/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1;, score=0.694 total time=  18.3s
+[CV 3/5; 18/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1
+[CV 3/5; 18/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1;, score=0.645 total time=  18.1s
+[CV 4/5; 18/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1
+[CV 4/5; 18/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1;, score=0.633 total time=  18.1s
+[CV 5/5; 18/24] START clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1
+[CV 5/5; 18/24] END clf__alpha=1e-06, clf__max_iter=1000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1;, score=0.726 total time=  17.9s
+[CV 1/5; 19/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2
+[CV 1/5; 19/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2;, score=0.689 total time=   2.2s
+[CV 2/5; 19/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2
+[CV 2/5; 19/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2;, score=0.700 total time=   2.2s
+[CV 3/5; 19/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2
+[CV 3/5; 19/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2;, score=0.697 total time=   2.2s
+[CV 4/5; 19/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2
+[CV 4/5; 19/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2;, score=0.699 total time=   2.2s
+[CV 5/5; 19/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2
+[CV 5/5; 19/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l2;, score=0.709 total time=   2.2s
+[CV 1/5; 20/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 1/5; 20/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.732 total time=   2.4s
+[CV 2/5; 20/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 2/5; 20/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.731 total time=   2.5s
+[CV 3/5; 20/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 3/5; 20/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.740 total time=   2.4s
+[CV 4/5; 20/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 4/5; 20/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.737 total time=   2.5s
+[CV 5/5; 20/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1
+[CV 5/5; 20/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 1), tfidfvect__norm=l1;, score=0.735 total time=   2.5s
+[CV 1/5; 21/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2
+[CV 1/5; 21/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2;, score=0.754 total time=   6.5s
+[CV 2/5; 21/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2
+[CV 2/5; 21/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2;, score=0.755 total time=   6.5s
+[CV 3/5; 21/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2
+[CV 3/5; 21/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2;, score=0.757 total time=   6.4s
+[CV 4/5; 21/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2
+[CV 4/5; 21/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2;, score=0.753 total time=   6.5s
+[CV 5/5; 21/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2
+[CV 5/5; 21/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l2;, score=0.762 total time=   6.5s
+[CV 1/5; 22/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 1/5; 22/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.699 total time=   7.7s
+[CV 2/5; 22/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 2/5; 22/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.731 total time=   7.7s
+[CV 3/5; 22/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 3/5; 22/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.703 total time=   7.7s
+[CV 4/5; 22/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 4/5; 22/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.744 total time=   7.6s
+[CV 5/5; 22/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1
+[CV 5/5; 22/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 2), tfidfvect__norm=l1;, score=0.758 total time=   7.6s
+[CV 1/5; 23/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2
+[CV 1/5; 23/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2;, score=0.744 total time=  15.6s
+[CV 2/5; 23/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2
+[CV 2/5; 23/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2;, score=0.756 total time=  15.5s
+[CV 3/5; 23/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2
+[CV 3/5; 23/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2;, score=0.741 total time=  15.6s
+[CV 4/5; 23/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2
+[CV 4/5; 23/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2;, score=0.755 total time=  15.7s
+[CV 5/5; 23/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2
+[CV 5/5; 23/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l2;, score=0.769 total time=  15.7s
+[CV 1/5; 24/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1
+[CV 1/5; 24/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1;, score=0.653 total time=  18.6s
+[CV 2/5; 24/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1
+[CV 2/5; 24/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1;, score=0.681 total time=  22.5s
+[CV 3/5; 24/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1
+[CV 3/5; 24/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1;, score=0.671 total time=  22.5s
+[CV 4/5; 24/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1
+[CV 4/5; 24/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1;, score=0.680 total time=  22.3s
+[CV 5/5; 24/24] START clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1
+[CV 5/5; 24/24] END clf__alpha=1e-06, clf__max_iter=2000, tfidfvect__analyzer=word, tfidfvect__ngram_range=(1, 3), tfidfvect__norm=l1;, score=0.708 total time=  22.5s
+done in 1059.682s
+Best score: 0.784
+Best parameters set:
+	clf__alpha: 1e-05
+	clf__max_iter: 2000
+	tfidfvect__analyzer: 'word'
+	tfidfvect__ngram_range: (1, 2)
+	tfidfvect__norm: 'l2'
+
+Process finished with exit code 0
+
+-------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------------------------------------------

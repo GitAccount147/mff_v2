@@ -1,0 +1,19 @@
+Zadání zápočtového projektu:
+
+1. Implementovat AJPS kryptosystém (verze se šifrováním jednoho bitu), představený v tomto článku: https://eprint.iacr.org/2017/481.pdf
+	- implementace znamená alespoň 3 funkce - generování klíče, šifrování a dešifrování
+	- funkce by měly být samostatné a klíče a zprávy předávat parametrem, ne globálními konstantami
+	- termín odevzdání 7. prosince
+
+2. Implementace jednoho z následujících útoků na AJPS kryptosystém:
+	- meet-in-the-middle
+	- útok pomocí mříží
+	- termín odevzdání - 18. ledna
+	
+Poznámky:
+	- útoky jsou představeny (a vcelku hezky popsány) zde: https://eprint.iacr.org/2017/1171.pdf
+	- kód by měl být hlavně čitelný a funkční (když bude pomalý ale čitelný, je to lepší než obráceně)
+	- pokud něčemu nebudete rozumět, nebo budete chtít něco probrat, můžete se mě zeptat (nebo spolužáků, nebo lidí na internetu nebo i jinde)
+	- v jaké obecnosti útok implementujete nechám na vás (třeba útok mříží se dá snadněji napsat jen pro omezenou množinu klíčů), ale bylo by fajn, abyste se alespoň zamysleli nad obtížnějšími verzemi
+	- ale pokud něco nebudete stíhat, nebo to nebudete zvládat, tak se ozvěte, a nějak se domluvíme
+

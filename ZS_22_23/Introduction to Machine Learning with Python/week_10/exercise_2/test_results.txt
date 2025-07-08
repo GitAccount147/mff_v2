@@ -1,0 +1,683 @@
+
+=============================================================
+#############################################################
+scaler + gbc:
+#############################################################
+=============================================================
+Started calculation at:  00:24:39
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV 1/5; 1/1] START gbc__n_estimators=512.......................................
+[CV 1/5; 1/1] END ........gbc__n_estimators=512;, score=0.991 total time= 2.4min
+[CV 2/5; 1/1] START gbc__n_estimators=512.......................................
+[CV 2/5; 1/1] END ........gbc__n_estimators=512;, score=0.990 total time= 2.4min
+[CV 3/5; 1/1] START gbc__n_estimators=512.......................................
+[CV 3/5; 1/1] END ........gbc__n_estimators=512;, score=0.992 total time= 2.4min
+[CV 4/5; 1/1] START gbc__n_estimators=512.......................................
+[CV 4/5; 1/1] END ........gbc__n_estimators=512;, score=0.989 total time= 2.5min
+[CV 5/5; 1/1] START gbc__n_estimators=512.......................................
+[CV 5/5; 1/1] END ........gbc__n_estimators=512;, score=0.991 total time= 2.5min
+done in 920.172s
+Best score: 0.991
+Best parameters set:
+	gbc__n_estimators: 512
+
+
+--------------------------------------------------------------------
+
+Started calculation at:  00:43:05
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV 1/5; 1/1] START gbc__n_estimators=50........................................
+[CV 1/5; 1/1] END .........gbc__n_estimators=50;, score=0.962 total time=  14.1s
+[CV 2/5; 1/1] START gbc__n_estimators=50........................................
+[CV 2/5; 1/1] END .........gbc__n_estimators=50;, score=0.960 total time=  14.1s
+[CV 3/5; 1/1] START gbc__n_estimators=50........................................
+[CV 3/5; 1/1] END .........gbc__n_estimators=50;, score=0.962 total time=  14.2s
+[CV 4/5; 1/1] START gbc__n_estimators=50........................................
+[CV 4/5; 1/1] END .........gbc__n_estimators=50;, score=0.960 total time=  14.1s
+[CV 5/5; 1/1] START gbc__n_estimators=50........................................
+[CV 5/5; 1/1] END .........gbc__n_estimators=50;, score=0.959 total time=  14.1s
+Done in 88.991s (= 0.025h)
+Best score: 0.961
+Best parameters set:
+	gbc__n_estimators: 50
+
+=============================================================
+#############################################################
+gbc:
+#############################################################
+=============================================================
+
+Started calculation at:  00:46:36
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV 1/5; 1/1] START gbc__n_estimators=50........................................
+[CV 1/5; 1/1] END .........gbc__n_estimators=50;, score=0.962 total time=  14.1s
+[CV 2/5; 1/1] START gbc__n_estimators=50........................................
+[CV 2/5; 1/1] END .........gbc__n_estimators=50;, score=0.960 total time=  14.2s
+[CV 3/5; 1/1] START gbc__n_estimators=50........................................
+[CV 3/5; 1/1] END .........gbc__n_estimators=50;, score=0.962 total time=  14.1s
+[CV 4/5; 1/1] START gbc__n_estimators=50........................................
+[CV 4/5; 1/1] END .........gbc__n_estimators=50;, score=0.960 total time=  14.2s
+[CV 5/5; 1/1] START gbc__n_estimators=50........................................
+[CV 5/5; 1/1] END .........gbc__n_estimators=50;, score=0.959 total time=  14.2s
+Done in 89.222s (= 0.025h)
+Finished at:  00:48:06
+Best score: 0.961
+Best parameters set:
+	gbc__n_estimators: 50
+
+Process finished with exit code 0
+
+--------------------------------------------------------------------
+Started calculation at:  00:49:01
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV 1/5; 1/1] START gbc__n_estimators=1024......................................
+[CV 1/5; 1/1] END .......gbc__n_estimators=1024;, score=0.993 total time= 4.9min
+[CV 2/5; 1/1] START gbc__n_estimators=1024......................................
+[CV 2/5; 1/1] END .......gbc__n_estimators=1024;, score=0.992 total time= 4.8min
+[CV 3/5; 1/1] START gbc__n_estimators=1024......................................
+[CV 3/5; 1/1] END .......gbc__n_estimators=1024;, score=0.993 total time= 5.0min
+[CV 4/5; 1/1] START gbc__n_estimators=1024......................................
+[CV 4/5; 1/1] END .......gbc__n_estimators=1024;, score=0.991 total time= 4.9min
+[CV 5/5; 1/1] START gbc__n_estimators=1024......................................
+[CV 5/5; 1/1] END .......gbc__n_estimators=1024;, score=0.993 total time= 4.8min
+Done in 1830.363s (= 0.508h)
+Finished at:  01:19:32
+Best score: 0.992
+Best parameters set:
+	gbc__n_estimators: 1024
+
+Process finished with exit code 0
+
+=============================================================
+#############################################################
+hist_gbc:
+#############################################################
+=============================================================
+
+Started calculation at:  01:23:18
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV 1/5; 1/1] START hist_gbc__max_iter=512......................................
+[CV 1/5; 1/1] END .......hist_gbc__max_iter=512;, score=0.993 total time=   2.9s
+[CV 2/5; 1/1] START hist_gbc__max_iter=512......................................
+[CV 2/5; 1/1] END .......hist_gbc__max_iter=512;, score=0.993 total time=   2.9s
+[CV 3/5; 1/1] START hist_gbc__max_iter=512......................................
+[CV 3/5; 1/1] END .......hist_gbc__max_iter=512;, score=0.994 total time=   2.7s
+[CV 4/5; 1/1] START hist_gbc__max_iter=512......................................
+[CV 4/5; 1/1] END .......hist_gbc__max_iter=512;, score=0.993 total time=   3.7s
+[CV 5/5; 1/1] START hist_gbc__max_iter=512......................................
+[CV 5/5; 1/1] END .......hist_gbc__max_iter=512;, score=0.993 total time=   3.7s
+Done in 20.838s (= 0.006h)
+Finished at:  01:23:39
+Best score: 0.993
+Best parameters set:
+	hist_gbc__max_iter: 512
+--------------------------------------------------------------------
+Started calculation at:  01:24:28
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV 1/5; 1/1] START hist_gbc__max_iter=2048.....................................
+[CV 1/5; 1/1] END ......hist_gbc__max_iter=2048;, score=0.993 total time=   2.9s
+[CV 2/5; 1/1] START hist_gbc__max_iter=2048.....................................
+[CV 2/5; 1/1] END ......hist_gbc__max_iter=2048;, score=0.993 total time=   2.9s
+[CV 3/5; 1/1] START hist_gbc__max_iter=2048.....................................
+[CV 3/5; 1/1] END ......hist_gbc__max_iter=2048;, score=0.994 total time=   2.8s
+[CV 4/5; 1/1] START hist_gbc__max_iter=2048.....................................
+[CV 4/5; 1/1] END ......hist_gbc__max_iter=2048;, score=0.993 total time=   3.8s
+[CV 5/5; 1/1] START hist_gbc__max_iter=2048.....................................
+[CV 5/5; 1/1] END ......hist_gbc__max_iter=2048;, score=0.993 total time=   3.8s
+Done in 21.142s (= 0.006h)
+Finished at:  01:24:49
+Best score: 0.993
+Best parameters set:
+	hist_gbc__max_iter: 2048
+--------------------------------------------------------------------
+Started calculation at:  01:29:26
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+[CV 1/5; 1/2] START hist_gbc__learning_rate=0.2, hist_gbc__max_iter=1024........
+[CV 1/5; 1/2] END hist_gbc__learning_rate=0.2, hist_gbc__max_iter=1024;, score=0.994 total time=   2.1s
+[CV 2/5; 1/2] START hist_gbc__learning_rate=0.2, hist_gbc__max_iter=1024........
+[CV 2/5; 1/2] END hist_gbc__learning_rate=0.2, hist_gbc__max_iter=1024;, score=0.994 total time=   2.0s
+[CV 3/5; 1/2] START hist_gbc__learning_rate=0.2, hist_gbc__max_iter=1024........
+[CV 3/5; 1/2] END hist_gbc__learning_rate=0.2, hist_gbc__max_iter=1024;, score=0.995 total time=   2.0s
+[CV 4/5; 1/2] START hist_gbc__learning_rate=0.2, hist_gbc__max_iter=1024........
+[CV 4/5; 1/2] END hist_gbc__learning_rate=0.2, hist_gbc__max_iter=1024;, score=0.992 total time=   2.1s
+[CV 5/5; 1/2] START hist_gbc__learning_rate=0.2, hist_gbc__max_iter=1024........
+[CV 5/5; 1/2] END hist_gbc__learning_rate=0.2, hist_gbc__max_iter=1024;, score=0.995 total time=   2.7s
+[CV 1/5; 2/2] START hist_gbc__learning_rate=0.3, hist_gbc__max_iter=1024........
+[CV 1/5; 2/2] END hist_gbc__learning_rate=0.3, hist_gbc__max_iter=1024;, score=0.994 total time=   1.2s
+[CV 2/5; 2/2] START hist_gbc__learning_rate=0.3, hist_gbc__max_iter=1024........
+[CV 2/5; 2/2] END hist_gbc__learning_rate=0.3, hist_gbc__max_iter=1024;, score=0.983 total time=   0.5s
+[CV 3/5; 2/2] START hist_gbc__learning_rate=0.3, hist_gbc__max_iter=1024........
+[CV 3/5; 2/2] END hist_gbc__learning_rate=0.3, hist_gbc__max_iter=1024;, score=0.994 total time=   1.4s
+[CV 4/5; 2/2] START hist_gbc__learning_rate=0.3, hist_gbc__max_iter=1024........
+[CV 4/5; 2/2] END hist_gbc__learning_rate=0.3, hist_gbc__max_iter=1024;, score=0.992 total time=   1.4s
+[CV 5/5; 2/2] START hist_gbc__learning_rate=0.3, hist_gbc__max_iter=1024........
+[CV 5/5; 2/2] END hist_gbc__learning_rate=0.3, hist_gbc__max_iter=1024;, score=0.856 total time=   0.7s
+Done in 19.299s (= 0.005h)
+Finished at:  01:29:46
+Best score: 0.994
+Best parameters set:
+	hist_gbc__learning_rate: 0.2
+	hist_gbc__max_iter: 1024
+
+Process finished with exit code 0
+
+--------------------------------------------------------------------
+Started calculation at:  01:30:57
+Fitting 5 folds for each of 4 candidates, totalling 20 fits
+[CV 1/5; 1/4] START hist_gbc__learning_rate=0.1, hist_gbc__max_iter=1024........
+[CV 1/5; 1/4] END hist_gbc__learning_rate=0.1, hist_gbc__max_iter=1024;, score=0.993 total time=   2.9s
+[CV 2/5; 1/4] START hist_gbc__learning_rate=0.1, hist_gbc__max_iter=1024........
+[CV 2/5; 1/4] END hist_gbc__learning_rate=0.1, hist_gbc__max_iter=1024;, score=0.993 total time=   3.0s
+[CV 3/5; 1/4] START hist_gbc__learning_rate=0.1, hist_gbc__max_iter=1024........
+[CV 3/5; 1/4] END hist_gbc__learning_rate=0.1, hist_gbc__max_iter=1024;, score=0.994 total time=   2.8s
+[CV 4/5; 1/4] START hist_gbc__learning_rate=0.1, hist_gbc__max_iter=1024........
+[CV 4/5; 1/4] END hist_gbc__learning_rate=0.1, hist_gbc__max_iter=1024;, score=0.993 total time=   3.7s
+[CV 5/5; 1/4] START hist_gbc__learning_rate=0.1, hist_gbc__max_iter=1024........
+[CV 5/5; 1/4] END hist_gbc__learning_rate=0.1, hist_gbc__max_iter=1024;, score=0.993 total time=   3.7s
+[CV 1/5; 2/4] START hist_gbc__learning_rate=0.15, hist_gbc__max_iter=1024.......
+[CV 1/5; 2/4] END hist_gbc__learning_rate=0.15, hist_gbc__max_iter=1024;, score=0.994 total time=   2.0s
+[CV 2/5; 2/4] START hist_gbc__learning_rate=0.15, hist_gbc__max_iter=1024.......
+[CV 2/5; 2/4] END hist_gbc__learning_rate=0.15, hist_gbc__max_iter=1024;, score=0.993 total time=   2.1s
+[CV 3/5; 2/4] START hist_gbc__learning_rate=0.15, hist_gbc__max_iter=1024.......
+[CV 3/5; 2/4] END hist_gbc__learning_rate=0.15, hist_gbc__max_iter=1024;, score=0.994 total time=   2.4s
+[CV 4/5; 2/4] START hist_gbc__learning_rate=0.15, hist_gbc__max_iter=1024.......
+[CV 4/5; 2/4] END hist_gbc__learning_rate=0.15, hist_gbc__max_iter=1024;, score=0.993 total time=   2.6s
+[CV 5/5; 2/4] START hist_gbc__learning_rate=0.15, hist_gbc__max_iter=1024.......
+[CV 5/5; 2/4] END hist_gbc__learning_rate=0.15, hist_gbc__max_iter=1024;, score=0.994 total time=   2.8s
+[CV 1/5; 3/4] START hist_gbc__learning_rate=0.2, hist_gbc__max_iter=1024........
+[CV 1/5; 3/4] END hist_gbc__learning_rate=0.2, hist_gbc__max_iter=1024;, score=0.994 total time=   1.5s
+[CV 2/5; 3/4] START hist_gbc__learning_rate=0.2, hist_gbc__max_iter=1024........
+[CV 2/5; 3/4] END hist_gbc__learning_rate=0.2, hist_gbc__max_iter=1024;, score=0.994 total time=   2.1s
+[CV 3/5; 3/4] START hist_gbc__learning_rate=0.2, hist_gbc__max_iter=1024........
+[CV 3/5; 3/4] END hist_gbc__learning_rate=0.2, hist_gbc__max_iter=1024;, score=0.995 total time=   1.5s
+[CV 4/5; 3/4] START hist_gbc__learning_rate=0.2, hist_gbc__max_iter=1024........
+[CV 4/5; 3/4] END hist_gbc__learning_rate=0.2, hist_gbc__max_iter=1024;, score=0.993 total time=   1.8s
+[CV 5/5; 3/4] START hist_gbc__learning_rate=0.2, hist_gbc__max_iter=1024........
+[CV 5/5; 3/4] END hist_gbc__learning_rate=0.2, hist_gbc__max_iter=1024;, score=0.994 total time=   1.8s
+[CV 1/5; 4/4] START hist_gbc__learning_rate=0.25, hist_gbc__max_iter=1024.......
+[CV 1/5; 4/4] END hist_gbc__learning_rate=0.25, hist_gbc__max_iter=1024;, score=0.993 total time=   1.7s
+[CV 2/5; 4/4] START hist_gbc__learning_rate=0.25, hist_gbc__max_iter=1024.......
+[CV 2/5; 4/4] END hist_gbc__learning_rate=0.25, hist_gbc__max_iter=1024;, score=0.994 total time=   1.7s
+[CV 3/5; 4/4] START hist_gbc__learning_rate=0.25, hist_gbc__max_iter=1024.......
+[CV 3/5; 4/4] END hist_gbc__learning_rate=0.25, hist_gbc__max_iter=1024;, score=0.995 total time=   1.2s
+[CV 4/5; 4/4] START hist_gbc__learning_rate=0.25, hist_gbc__max_iter=1024.......
+[CV 4/5; 4/4] END hist_gbc__learning_rate=0.25, hist_gbc__max_iter=1024;, score=0.992 total time=   1.4s
+[CV 5/5; 4/4] START hist_gbc__learning_rate=0.25, hist_gbc__max_iter=1024.......
+[CV 5/5; 4/4] END hist_gbc__learning_rate=0.25, hist_gbc__max_iter=1024;, score=0.993 total time=   1.6s
+Done in 48.463s (= 0.013h)
+Finished at:  01:31:46
+Best score: 0.994
+Best parameters set:
+	hist_gbc__learning_rate: 0.2
+	hist_gbc__max_iter: 1024
+
+Process finished with exit code 0
+
+--------------------------------------------------------------------
+Started calculation at:  21:21:44
+Fitting 5 folds for each of 10 candidates, totalling 50 fits
+[CV 1/5; 1/10] START hist_gbc__learning_rate=0.0001, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 1/10] END hist_gbc__learning_rate=0.0001, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.901 total time=  53.6s
+[CV 2/5; 1/10] START hist_gbc__learning_rate=0.0001, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 1/10] END hist_gbc__learning_rate=0.0001, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.907 total time=  53.4s
+[CV 3/5; 1/10] START hist_gbc__learning_rate=0.0001, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 1/10] END hist_gbc__learning_rate=0.0001, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.904 total time=  53.4s
+[CV 4/5; 1/10] START hist_gbc__learning_rate=0.0001, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 1/10] END hist_gbc__learning_rate=0.0001, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.907 total time=  55.2s
+[CV 5/5; 1/10] START hist_gbc__learning_rate=0.0001, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 1/10] END hist_gbc__learning_rate=0.0001, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.901 total time=  54.2s
+[CV 1/5; 2/10] START hist_gbc__learning_rate=0.0002782559402207126, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 2/10] END hist_gbc__learning_rate=0.0002782559402207126, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.957 total time=  54.7s
+[CV 2/5; 2/10] START hist_gbc__learning_rate=0.0002782559402207126, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 2/10] END hist_gbc__learning_rate=0.0002782559402207126, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.960 total time=  54.2s
+[CV 3/5; 2/10] START hist_gbc__learning_rate=0.0002782559402207126, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 2/10] END hist_gbc__learning_rate=0.0002782559402207126, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.957 total time=  54.2s
+[CV 4/5; 2/10] START hist_gbc__learning_rate=0.0002782559402207126, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 2/10] END hist_gbc__learning_rate=0.0002782559402207126, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.961 total time=  53.2s
+[CV 5/5; 2/10] START hist_gbc__learning_rate=0.0002782559402207126, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 2/10] END hist_gbc__learning_rate=0.0002782559402207126, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.955 total time=  52.6s
+[CV 1/5; 3/10] START hist_gbc__learning_rate=0.000774263682681127, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 3/10] END hist_gbc__learning_rate=0.000774263682681127, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.976 total time=  52.8s
+[CV 2/5; 3/10] START hist_gbc__learning_rate=0.000774263682681127, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 3/10] END hist_gbc__learning_rate=0.000774263682681127, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.979 total time=  52.5s
+[CV 3/5; 3/10] START hist_gbc__learning_rate=0.000774263682681127, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 3/10] END hist_gbc__learning_rate=0.000774263682681127, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.978 total time=  53.3s
+[CV 4/5; 3/10] START hist_gbc__learning_rate=0.000774263682681127, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 3/10] END hist_gbc__learning_rate=0.000774263682681127, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.976 total time=  53.3s
+[CV 5/5; 3/10] START hist_gbc__learning_rate=0.000774263682681127, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 3/10] END hist_gbc__learning_rate=0.000774263682681127, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.976 total time=  53.6s
+[CV 1/5; 4/10] START hist_gbc__learning_rate=0.002154434690031882, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 4/10] END hist_gbc__learning_rate=0.002154434690031882, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.990 total time=  54.0s
+[CV 2/5; 4/10] START hist_gbc__learning_rate=0.002154434690031882, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 4/10] END hist_gbc__learning_rate=0.002154434690031882, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.990 total time=  54.1s
+[CV 3/5; 4/10] START hist_gbc__learning_rate=0.002154434690031882, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 4/10] END hist_gbc__learning_rate=0.002154434690031882, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.991 total time=  54.1s
+[CV 4/5; 4/10] START hist_gbc__learning_rate=0.002154434690031882, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 4/10] END hist_gbc__learning_rate=0.002154434690031882, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.989 total time=  56.4s
+[CV 5/5; 4/10] START hist_gbc__learning_rate=0.002154434690031882, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 4/10] END hist_gbc__learning_rate=0.002154434690031882, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.989 total time=  55.9s
+[CV 1/5; 5/10] START hist_gbc__learning_rate=0.005994842503189409, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 5/10] END hist_gbc__learning_rate=0.005994842503189409, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=  47.9s
+[CV 2/5; 5/10] START hist_gbc__learning_rate=0.005994842503189409, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 5/10] END hist_gbc__learning_rate=0.005994842503189409, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.992 total time=  42.1s
+[CV 3/5; 5/10] START hist_gbc__learning_rate=0.005994842503189409, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 5/10] END hist_gbc__learning_rate=0.005994842503189409, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=  43.8s
+[CV 4/5; 5/10] START hist_gbc__learning_rate=0.005994842503189409, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 5/10] END hist_gbc__learning_rate=0.005994842503189409, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.992 total time=  51.3s
+[CV 5/5; 5/10] START hist_gbc__learning_rate=0.005994842503189409, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 5/10] END hist_gbc__learning_rate=0.005994842503189409, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.992 total time=  36.6s
+[CV 1/5; 6/10] START hist_gbc__learning_rate=0.016681005372000592, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 6/10] END hist_gbc__learning_rate=0.016681005372000592, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=  17.9s
+[CV 2/5; 6/10] START hist_gbc__learning_rate=0.016681005372000592, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 6/10] END hist_gbc__learning_rate=0.016681005372000592, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=  14.9s
+[CV 3/5; 6/10] START hist_gbc__learning_rate=0.016681005372000592, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 6/10] END hist_gbc__learning_rate=0.016681005372000592, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=  16.1s
+[CV 4/5; 6/10] START hist_gbc__learning_rate=0.016681005372000592, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 6/10] END hist_gbc__learning_rate=0.016681005372000592, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.992 total time=  19.1s
+[CV 5/5; 6/10] START hist_gbc__learning_rate=0.016681005372000592, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 6/10] END hist_gbc__learning_rate=0.016681005372000592, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=  13.7s
+[CV 1/5; 7/10] START hist_gbc__learning_rate=0.046415888336127774, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 7/10] END hist_gbc__learning_rate=0.046415888336127774, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=   7.1s
+[CV 2/5; 7/10] START hist_gbc__learning_rate=0.046415888336127774, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 7/10] END hist_gbc__learning_rate=0.046415888336127774, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   6.1s
+[CV 3/5; 7/10] START hist_gbc__learning_rate=0.046415888336127774, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 7/10] END hist_gbc__learning_rate=0.046415888336127774, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.996 total time=   8.3s
+[CV 4/5; 7/10] START hist_gbc__learning_rate=0.046415888336127774, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 7/10] END hist_gbc__learning_rate=0.046415888336127774, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.992 total time=   7.9s
+[CV 5/5; 7/10] START hist_gbc__learning_rate=0.046415888336127774, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 7/10] END hist_gbc__learning_rate=0.046415888336127774, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=   5.9s
+[CV 1/5; 8/10] START hist_gbc__learning_rate=0.12915496650148828, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 8/10] END hist_gbc__learning_rate=0.12915496650148828, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.995 total time=   3.1s
+[CV 2/5; 8/10] START hist_gbc__learning_rate=0.12915496650148828, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 8/10] END hist_gbc__learning_rate=0.12915496650148828, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   4.2s
+[CV 3/5; 8/10] START hist_gbc__learning_rate=0.12915496650148828, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 8/10] END hist_gbc__learning_rate=0.12915496650148828, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.995 total time=   2.9s
+[CV 4/5; 8/10] START hist_gbc__learning_rate=0.12915496650148828, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 8/10] END hist_gbc__learning_rate=0.12915496650148828, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.992 total time=   3.8s
+[CV 5/5; 8/10] START hist_gbc__learning_rate=0.12915496650148828, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 8/10] END hist_gbc__learning_rate=0.12915496650148828, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=   2.7s
+[CV 1/5; 9/10] START hist_gbc__learning_rate=0.3593813663804626, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 9/10] END hist_gbc__learning_rate=0.3593813663804626, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   1.6s
+[CV 2/5; 9/10] START hist_gbc__learning_rate=0.3593813663804626, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 9/10] END hist_gbc__learning_rate=0.3593813663804626, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.934 total time=   0.9s
+[CV 3/5; 9/10] START hist_gbc__learning_rate=0.3593813663804626, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 9/10] END hist_gbc__learning_rate=0.3593813663804626, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.962 total time=   0.6s
+[CV 4/5; 9/10] START hist_gbc__learning_rate=0.3593813663804626, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 9/10] END hist_gbc__learning_rate=0.3593813663804626, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.962 total time=   0.5s
+[CV 5/5; 9/10] START hist_gbc__learning_rate=0.3593813663804626, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 9/10] END hist_gbc__learning_rate=0.3593813663804626, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.939 total time=   0.5s
+[CV 1/5; 10/10] START hist_gbc__learning_rate=1.0, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 10/10] END hist_gbc__learning_rate=1.0, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.938 total time=   0.3s
+[CV 2/5; 10/10] START hist_gbc__learning_rate=1.0, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 10/10] END hist_gbc__learning_rate=1.0, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.918 total time=   0.3s
+[CV 3/5; 10/10] START hist_gbc__learning_rate=1.0, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 10/10] END hist_gbc__learning_rate=1.0, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.888 total time=   0.3s
+[CV 4/5; 10/10] START hist_gbc__learning_rate=1.0, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 10/10] END hist_gbc__learning_rate=1.0, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.929 total time=   0.2s
+[CV 5/5; 10/10] START hist_gbc__learning_rate=1.0, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 10/10] END hist_gbc__learning_rate=1.0, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.932 total time=   0.2s
+Done in 1447.755s (= 0.402h)
+Finished at:  21:45:52
+Best score: 0.994
+Best parameters set:
+	hist_gbc__learning_rate: 0.12915496650148828
+	hist_gbc__max_iter: 2048
+	hist_gbc__tol: 1e-09
+
+Process finished with exit code 0
+
+--------------------------------------------------------------------
+Started calculation at:  21:48:02
+Fitting 5 folds for each of 10 candidates, totalling 50 fits
+[CV 1/5; 1/10] START hist_gbc__learning_rate=0.001, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 1/10] END hist_gbc__learning_rate=0.001, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.979 total time=  53.4s
+[CV 2/5; 1/10] START hist_gbc__learning_rate=0.001, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 1/10] END hist_gbc__learning_rate=0.001, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.981 total time=  53.9s
+[CV 3/5; 1/10] START hist_gbc__learning_rate=0.001, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 1/10] END hist_gbc__learning_rate=0.001, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.984 total time=  54.5s
+[CV 4/5; 1/10] START hist_gbc__learning_rate=0.001, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 1/10] END hist_gbc__learning_rate=0.001, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.981 total time=  54.2s
+[CV 5/5; 1/10] START hist_gbc__learning_rate=0.001, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 1/10] END hist_gbc__learning_rate=0.001, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.980 total time=  53.8s
+[CV 1/5; 2/10] START hist_gbc__learning_rate=0.0019947365987750282, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 2/10] END hist_gbc__learning_rate=0.0019947365987750282, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.990 total time=  54.6s
+[CV 2/5; 2/10] START hist_gbc__learning_rate=0.0019947365987750282, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 2/10] END hist_gbc__learning_rate=0.0019947365987750282, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.989 total time=  54.9s
+[CV 3/5; 2/10] START hist_gbc__learning_rate=0.0019947365987750282, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 2/10] END hist_gbc__learning_rate=0.0019947365987750282, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.990 total time=  55.2s
+[CV 4/5; 2/10] START hist_gbc__learning_rate=0.0019947365987750282, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 2/10] END hist_gbc__learning_rate=0.0019947365987750282, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.989 total time=  55.3s
+[CV 5/5; 2/10] START hist_gbc__learning_rate=0.0019947365987750282, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 2/10] END hist_gbc__learning_rate=0.0019947365987750282, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.989 total time=  55.3s
+[CV 1/5; 3/10] START hist_gbc__learning_rate=0.003978974098492568, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 3/10] END hist_gbc__learning_rate=0.003978974098492568, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.992 total time=  55.2s
+[CV 2/5; 3/10] START hist_gbc__learning_rate=0.003978974098492568, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 3/10] END hist_gbc__learning_rate=0.003978974098492568, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=  54.2s
+[CV 3/5; 3/10] START hist_gbc__learning_rate=0.003978974098492568, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 3/10] END hist_gbc__learning_rate=0.003978974098492568, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=  54.7s
+[CV 4/5; 3/10] START hist_gbc__learning_rate=0.003978974098492568, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 3/10] END hist_gbc__learning_rate=0.003978974098492568, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.992 total time=  54.4s
+[CV 5/5; 3/10] START hist_gbc__learning_rate=0.003978974098492568, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 3/10] END hist_gbc__learning_rate=0.003978974098492568, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=  55.2s
+[CV 1/5; 4/10] START hist_gbc__learning_rate=0.007937005259840991, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 4/10] END hist_gbc__learning_rate=0.007937005259840991, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=  34.8s
+[CV 2/5; 4/10] START hist_gbc__learning_rate=0.007937005259840991, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 4/10] END hist_gbc__learning_rate=0.007937005259840991, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=  42.7s
+[CV 3/5; 4/10] START hist_gbc__learning_rate=0.007937005259840991, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 4/10] END hist_gbc__learning_rate=0.007937005259840991, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=  33.6s
+[CV 4/5; 4/10] START hist_gbc__learning_rate=0.007937005259840991, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 4/10] END hist_gbc__learning_rate=0.007937005259840991, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.992 total time=  26.7s
+[CV 5/5; 4/10] START hist_gbc__learning_rate=0.007937005259840991, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 4/10] END hist_gbc__learning_rate=0.007937005259840991, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=  33.3s
+[CV 1/5; 5/10] START hist_gbc__learning_rate=0.015832234876474737, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 5/10] END hist_gbc__learning_rate=0.015832234876474737, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=  18.8s
+[CV 2/5; 5/10] START hist_gbc__learning_rate=0.015832234876474737, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 5/10] END hist_gbc__learning_rate=0.015832234876474737, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=  16.9s
+[CV 3/5; 5/10] START hist_gbc__learning_rate=0.015832234876474737, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 5/10] END hist_gbc__learning_rate=0.015832234876474737, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.995 total time=  17.4s
+[CV 4/5; 5/10] START hist_gbc__learning_rate=0.015832234876474737, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 5/10] END hist_gbc__learning_rate=0.015832234876474737, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.992 total time=  20.6s
+[CV 5/5; 5/10] START hist_gbc__learning_rate=0.015832234876474737, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 5/10] END hist_gbc__learning_rate=0.015832234876474737, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=  17.6s
+[CV 1/5; 6/10] START hist_gbc__learning_rate=0.0315811383485066, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 6/10] END hist_gbc__learning_rate=0.0315811383485066, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=   9.0s
+[CV 2/5; 6/10] START hist_gbc__learning_rate=0.0315811383485066, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 6/10] END hist_gbc__learning_rate=0.0315811383485066, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=   9.2s
+[CV 3/5; 6/10] START hist_gbc__learning_rate=0.0315811383485066, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 6/10] END hist_gbc__learning_rate=0.0315811383485066, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.995 total time=  10.4s
+[CV 4/5; 6/10] START hist_gbc__learning_rate=0.0315811383485066, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 6/10] END hist_gbc__learning_rate=0.0315811383485066, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.992 total time=   9.6s
+[CV 5/5; 6/10] START hist_gbc__learning_rate=0.0315811383485066, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 6/10] END hist_gbc__learning_rate=0.0315811383485066, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=   7.1s
+[CV 1/5; 7/10] START hist_gbc__learning_rate=0.06299605249474363, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 7/10] END hist_gbc__learning_rate=0.06299605249474363, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   5.5s
+[CV 2/5; 7/10] START hist_gbc__learning_rate=0.06299605249474363, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 7/10] END hist_gbc__learning_rate=0.06299605249474363, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=   4.4s
+[CV 3/5; 7/10] START hist_gbc__learning_rate=0.06299605249474363, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 7/10] END hist_gbc__learning_rate=0.06299605249474363, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.996 total time=   6.2s
+[CV 4/5; 7/10] START hist_gbc__learning_rate=0.06299605249474363, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 7/10] END hist_gbc__learning_rate=0.06299605249474363, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.992 total time=   6.6s
+[CV 5/5; 7/10] START hist_gbc__learning_rate=0.06299605249474363, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 7/10] END hist_gbc__learning_rate=0.06299605249474363, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=   4.8s
+[CV 1/5; 8/10] START hist_gbc__learning_rate=0.12566053148961803, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 8/10] END hist_gbc__learning_rate=0.12566053148961803, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   2.8s
+[CV 2/5; 8/10] START hist_gbc__learning_rate=0.12566053148961803, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 8/10] END hist_gbc__learning_rate=0.12566053148961803, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   3.7s
+[CV 3/5; 8/10] START hist_gbc__learning_rate=0.12566053148961803, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 8/10] END hist_gbc__learning_rate=0.12566053148961803, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.995 total time=   3.0s
+[CV 4/5; 8/10] START hist_gbc__learning_rate=0.12566053148961803, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 8/10] END hist_gbc__learning_rate=0.12566053148961803, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=   3.8s
+[CV 5/5; 8/10] START hist_gbc__learning_rate=0.12566053148961803, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 8/10] END hist_gbc__learning_rate=0.12566053148961803, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   2.8s
+[CV 1/5; 9/10] START hist_gbc__learning_rate=0.250659661183863, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 9/10] END hist_gbc__learning_rate=0.250659661183863, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   1.5s
+[CV 2/5; 9/10] START hist_gbc__learning_rate=0.250659661183863, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 9/10] END hist_gbc__learning_rate=0.250659661183863, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   1.7s
+[CV 3/5; 9/10] START hist_gbc__learning_rate=0.250659661183863, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 9/10] END hist_gbc__learning_rate=0.250659661183863, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.995 total time=   1.5s
+[CV 4/5; 9/10] START hist_gbc__learning_rate=0.250659661183863, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 9/10] END hist_gbc__learning_rate=0.250659661183863, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.992 total time=   1.5s
+[CV 5/5; 9/10] START hist_gbc__learning_rate=0.250659661183863, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 9/10] END hist_gbc__learning_rate=0.250659661183863, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   1.4s
+[CV 1/5; 10/10] START hist_gbc__learning_rate=0.5, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 10/10] END hist_gbc__learning_rate=0.5, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.957 total time=   0.3s
+[CV 2/5; 10/10] START hist_gbc__learning_rate=0.5, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 10/10] END hist_gbc__learning_rate=0.5, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.962 total time=   0.3s
+[CV 3/5; 10/10] START hist_gbc__learning_rate=0.5, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 10/10] END hist_gbc__learning_rate=0.5, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.945 total time=   0.3s
+[CV 4/5; 10/10] START hist_gbc__learning_rate=0.5, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 10/10] END hist_gbc__learning_rate=0.5, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.968 total time=   0.3s
+[CV 5/5; 10/10] START hist_gbc__learning_rate=0.5, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 10/10] END hist_gbc__learning_rate=0.5, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.957 total time=   0.4s
+Done in 1187.462s (= 0.330h)
+Finished at:  22:07:49
+Best score: 0.994
+Best parameters set:
+	hist_gbc__learning_rate: 0.12566053148961803
+	hist_gbc__max_iter: 2048
+	hist_gbc__tol: 1e-09
+
+Process finished with exit code 0
+
+--------------------------------------------------------------------
+Started calculation at:  22:10:47
+Fitting 5 folds for each of 10 candidates, totalling 50 fits
+[CV 1/5; 1/10] START hist_gbc__learning_rate=0.1, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 1/10] END hist_gbc__learning_rate=0.1, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=   2.9s
+[CV 2/5; 1/10] START hist_gbc__learning_rate=0.1, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 1/10] END hist_gbc__learning_rate=0.1, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=   2.9s
+[CV 3/5; 1/10] START hist_gbc__learning_rate=0.1, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 1/10] END hist_gbc__learning_rate=0.1, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   2.8s
+[CV 4/5; 1/10] START hist_gbc__learning_rate=0.1, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 1/10] END hist_gbc__learning_rate=0.1, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=   4.0s
+[CV 5/5; 1/10] START hist_gbc__learning_rate=0.1, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 1/10] END hist_gbc__learning_rate=0.1, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=   3.9s
+[CV 1/5; 2/10] START hist_gbc__learning_rate=0.11958131745004018, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 2/10] END hist_gbc__learning_rate=0.11958131745004018, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   2.5s
+[CV 2/5; 2/10] START hist_gbc__learning_rate=0.11958131745004018, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 2/10] END hist_gbc__learning_rate=0.11958131745004018, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   3.1s
+[CV 3/5; 2/10] START hist_gbc__learning_rate=0.11958131745004018, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 2/10] END hist_gbc__learning_rate=0.11958131745004018, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.995 total time=   3.4s
+[CV 4/5; 2/10] START hist_gbc__learning_rate=0.11958131745004018, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 2/10] END hist_gbc__learning_rate=0.11958131745004018, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=   3.5s
+[CV 5/5; 2/10] START hist_gbc__learning_rate=0.11958131745004018, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 2/10] END hist_gbc__learning_rate=0.11958131745004018, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   3.8s
+[CV 1/5; 3/10] START hist_gbc__learning_rate=0.14299691483087287, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 3/10] END hist_gbc__learning_rate=0.14299691483087287, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   2.5s
+[CV 2/5; 3/10] START hist_gbc__learning_rate=0.14299691483087287, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 3/10] END hist_gbc__learning_rate=0.14299691483087287, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   3.0s
+[CV 3/5; 3/10] START hist_gbc__learning_rate=0.14299691483087287, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 3/10] END hist_gbc__learning_rate=0.14299691483087287, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   2.1s
+[CV 4/5; 3/10] START hist_gbc__learning_rate=0.14299691483087287, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 3/10] END hist_gbc__learning_rate=0.14299691483087287, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.992 total time=   1.8s
+[CV 5/5; 3/10] START hist_gbc__learning_rate=0.14299691483087287, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 3/10] END hist_gbc__learning_rate=0.14299691483087287, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   2.9s
+[CV 1/5; 4/10] START hist_gbc__learning_rate=0.17099759466766973, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 4/10] END hist_gbc__learning_rate=0.17099759466766973, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   2.4s
+[CV 2/5; 4/10] START hist_gbc__learning_rate=0.17099759466766973, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 4/10] END hist_gbc__learning_rate=0.17099759466766973, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   2.8s
+[CV 3/5; 4/10] START hist_gbc__learning_rate=0.17099759466766973, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 4/10] END hist_gbc__learning_rate=0.17099759466766973, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.995 total time=   2.3s
+[CV 4/5; 4/10] START hist_gbc__learning_rate=0.17099759466766973, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 4/10] END hist_gbc__learning_rate=0.17099759466766973, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.992 total time=   1.8s
+[CV 5/5; 4/10] START hist_gbc__learning_rate=0.17099759466766973, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 4/10] END hist_gbc__learning_rate=0.17099759466766973, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=   1.9s
+[CV 1/5; 5/10] START hist_gbc__learning_rate=0.2044811765114791, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 5/10] END hist_gbc__learning_rate=0.2044811765114791, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=   1.6s
+[CV 2/5; 5/10] START hist_gbc__learning_rate=0.2044811765114791, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 5/10] END hist_gbc__learning_rate=0.2044811765114791, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=   1.6s
+[CV 3/5; 5/10] START hist_gbc__learning_rate=0.2044811765114791, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 5/10] END hist_gbc__learning_rate=0.2044811765114791, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.995 total time=   1.9s
+[CV 4/5; 5/10] START hist_gbc__learning_rate=0.2044811765114791, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 5/10] END hist_gbc__learning_rate=0.2044811765114791, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   2.8s
+[CV 5/5; 5/10] START hist_gbc__learning_rate=0.2044811765114791, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 5/10] END hist_gbc__learning_rate=0.2044811765114791, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   1.7s
+[CV 1/5; 6/10] START hist_gbc__learning_rate=0.2445212848097688, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 6/10] END hist_gbc__learning_rate=0.2445212848097688, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   1.3s
+[CV 2/5; 6/10] START hist_gbc__learning_rate=0.2445212848097688, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 6/10] END hist_gbc__learning_rate=0.2445212848097688, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.983 total time=   0.8s
+[CV 3/5; 6/10] START hist_gbc__learning_rate=0.2445212848097688, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 6/10] END hist_gbc__learning_rate=0.2445212848097688, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   1.4s
+[CV 4/5; 6/10] START hist_gbc__learning_rate=0.2445212848097688, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 6/10] END hist_gbc__learning_rate=0.2445212848097688, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=   1.4s
+[CV 5/5; 6/10] START hist_gbc__learning_rate=0.2445212848097688, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 6/10] END hist_gbc__learning_rate=0.2445212848097688, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.994 total time=   1.7s
+[CV 1/5; 7/10] START hist_gbc__learning_rate=0.2924017738212866, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 7/10] END hist_gbc__learning_rate=0.2924017738212866, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=   1.1s
+[CV 2/5; 7/10] START hist_gbc__learning_rate=0.2924017738212866, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 7/10] END hist_gbc__learning_rate=0.2924017738212866, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=   1.5s
+[CV 3/5; 7/10] START hist_gbc__learning_rate=0.2924017738212866, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 7/10] END hist_gbc__learning_rate=0.2924017738212866, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.959 total time=   0.6s
+[CV 4/5; 7/10] START hist_gbc__learning_rate=0.2924017738212866, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 7/10] END hist_gbc__learning_rate=0.2924017738212866, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.993 total time=   1.8s
+[CV 5/5; 7/10] START hist_gbc__learning_rate=0.2924017738212866, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 7/10] END hist_gbc__learning_rate=0.2924017738212866, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.992 total time=   1.1s
+[CV 1/5; 8/10] START hist_gbc__learning_rate=0.3496578933827813, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 8/10] END hist_gbc__learning_rate=0.3496578933827813, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.995 total time=   1.5s
+[CV 2/5; 8/10] START hist_gbc__learning_rate=0.3496578933827813, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 8/10] END hist_gbc__learning_rate=0.3496578933827813, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.971 total time=   0.6s
+[CV 3/5; 8/10] START hist_gbc__learning_rate=0.3496578933827813, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 8/10] END hist_gbc__learning_rate=0.3496578933827813, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.981 total time=   0.5s
+[CV 4/5; 8/10] START hist_gbc__learning_rate=0.3496578933827813, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 8/10] END hist_gbc__learning_rate=0.3496578933827813, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.876 total time=   0.7s
+[CV 5/5; 8/10] START hist_gbc__learning_rate=0.3496578933827813, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 8/10] END hist_gbc__learning_rate=0.3496578933827813, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.946 total time=   0.4s
+[CV 1/5; 9/10] START hist_gbc__learning_rate=0.4181255154751867, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 9/10] END hist_gbc__learning_rate=0.4181255154751867, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.972 total time=   0.4s
+[CV 2/5; 9/10] START hist_gbc__learning_rate=0.4181255154751867, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 9/10] END hist_gbc__learning_rate=0.4181255154751867, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.972 total time=   0.4s
+[CV 3/5; 9/10] START hist_gbc__learning_rate=0.4181255154751867, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 9/10] END hist_gbc__learning_rate=0.4181255154751867, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.972 total time=   0.3s
+[CV 4/5; 9/10] START hist_gbc__learning_rate=0.4181255154751867, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 9/10] END hist_gbc__learning_rate=0.4181255154751867, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.969 total time=   0.4s
+[CV 5/5; 9/10] START hist_gbc__learning_rate=0.4181255154751867, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 9/10] END hist_gbc__learning_rate=0.4181255154751867, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.966 total time=   0.4s
+[CV 1/5; 10/10] START hist_gbc__learning_rate=0.5, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 1/5; 10/10] END hist_gbc__learning_rate=0.5, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.957 total time=   0.4s
+[CV 2/5; 10/10] START hist_gbc__learning_rate=0.5, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 2/5; 10/10] END hist_gbc__learning_rate=0.5, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.962 total time=   0.3s
+[CV 3/5; 10/10] START hist_gbc__learning_rate=0.5, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 3/5; 10/10] END hist_gbc__learning_rate=0.5, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.945 total time=   0.3s
+[CV 4/5; 10/10] START hist_gbc__learning_rate=0.5, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 4/5; 10/10] END hist_gbc__learning_rate=0.5, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.968 total time=   0.3s
+[CV 5/5; 10/10] START hist_gbc__learning_rate=0.5, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09
+[CV 5/5; 10/10] END hist_gbc__learning_rate=0.5, hist_gbc__max_iter=2048, hist_gbc__tol=1e-09;, score=0.957 total time=   0.4s
+Done in 95.134s (= 0.026h)
+Finished at:  22:12:23
+Best score: 0.994
+Best parameters set:
+	hist_gbc__learning_rate: 0.11958131745004018
+	hist_gbc__max_iter: 2048
+	hist_gbc__tol: 1e-09
+
+Process finished with exit code 0
+
+--------------------------------------------------------------------
+Started calculation at:  22:16:38
+Fitting 5 folds for each of 10 candidates, totalling 50 fits
+[CV 1/5; 1/10] START hist_gbc__learning_rate=0.1, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 1/5; 1/10] END hist_gbc__learning_rate=0.1, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.993 total time=   3.0s
+[CV 2/5; 1/10] START hist_gbc__learning_rate=0.1, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 2/5; 1/10] END hist_gbc__learning_rate=0.1, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.993 total time=   3.0s
+[CV 3/5; 1/10] START hist_gbc__learning_rate=0.1, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 3/5; 1/10] END hist_gbc__learning_rate=0.1, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.994 total time=   3.1s
+[CV 4/5; 1/10] START hist_gbc__learning_rate=0.1, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 4/5; 1/10] END hist_gbc__learning_rate=0.1, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.993 total time=   3.9s
+[CV 5/5; 1/10] START hist_gbc__learning_rate=0.1, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 5/5; 1/10] END hist_gbc__learning_rate=0.1, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.993 total time=   3.8s
+[CV 1/5; 2/10] START hist_gbc__learning_rate=0.10800597388923061, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 1/5; 2/10] END hist_gbc__learning_rate=0.10800597388923061, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.994 total time=   3.0s
+[CV 2/5; 2/10] START hist_gbc__learning_rate=0.10800597388923061, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 2/5; 2/10] END hist_gbc__learning_rate=0.10800597388923061, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.993 total time=   2.5s
+[CV 3/5; 2/10] START hist_gbc__learning_rate=0.10800597388923061, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 3/5; 2/10] END hist_gbc__learning_rate=0.10800597388923061, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.995 total time=   3.5s
+[CV 4/5; 2/10] START hist_gbc__learning_rate=0.10800597388923061, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 4/5; 2/10] END hist_gbc__learning_rate=0.10800597388923061, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.992 total time=   3.3s
+[CV 5/5; 2/10] START hist_gbc__learning_rate=0.10800597388923061, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 5/5; 2/10] END hist_gbc__learning_rate=0.10800597388923061, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.993 total time=   4.2s
+[CV 1/5; 3/10] START hist_gbc__learning_rate=0.11665290395761166, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 1/5; 3/10] END hist_gbc__learning_rate=0.11665290395761166, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.994 total time=   3.1s
+[CV 2/5; 3/10] START hist_gbc__learning_rate=0.11665290395761166, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 2/5; 3/10] END hist_gbc__learning_rate=0.11665290395761166, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.994 total time=   2.9s
+[CV 3/5; 3/10] START hist_gbc__learning_rate=0.11665290395761166, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 3/5; 3/10] END hist_gbc__learning_rate=0.11665290395761166, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.995 total time=   2.7s
+[CV 4/5; 3/10] START hist_gbc__learning_rate=0.11665290395761166, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 4/5; 3/10] END hist_gbc__learning_rate=0.11665290395761166, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.993 total time=   2.8s
+[CV 5/5; 3/10] START hist_gbc__learning_rate=0.11665290395761166, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 5/5; 3/10] END hist_gbc__learning_rate=0.11665290395761166, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.994 total time=   4.1s
+[CV 1/5; 4/10] START hist_gbc__learning_rate=0.12599210498948732, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 1/5; 4/10] END hist_gbc__learning_rate=0.12599210498948732, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.994 total time=   3.1s
+[CV 2/5; 4/10] START hist_gbc__learning_rate=0.12599210498948732, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 2/5; 4/10] END hist_gbc__learning_rate=0.12599210498948732, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.994 total time=   3.1s
+[CV 3/5; 4/10] START hist_gbc__learning_rate=0.12599210498948732, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 3/5; 4/10] END hist_gbc__learning_rate=0.12599210498948732, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.995 total time=   2.2s
+[CV 4/5; 4/10] START hist_gbc__learning_rate=0.12599210498948732, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 4/5; 4/10] END hist_gbc__learning_rate=0.12599210498948732, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.992 total time=   2.2s
+[CV 5/5; 4/10] START hist_gbc__learning_rate=0.12599210498948732, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 5/5; 4/10] END hist_gbc__learning_rate=0.12599210498948732, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.994 total time=   2.8s
+[CV 1/5; 5/10] START hist_gbc__learning_rate=0.1360790000174377, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 1/5; 5/10] END hist_gbc__learning_rate=0.1360790000174377, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.994 total time=   2.1s
+[CV 2/5; 5/10] START hist_gbc__learning_rate=0.1360790000174377, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 2/5; 5/10] END hist_gbc__learning_rate=0.1360790000174377, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.993 total time=   2.3s
+[CV 3/5; 5/10] START hist_gbc__learning_rate=0.1360790000174377, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 3/5; 5/10] END hist_gbc__learning_rate=0.1360790000174377, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.994 total time=   2.3s
+[CV 4/5; 5/10] START hist_gbc__learning_rate=0.1360790000174377, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 4/5; 5/10] END hist_gbc__learning_rate=0.1360790000174377, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.993 total time=   3.2s
+[CV 5/5; 5/10] START hist_gbc__learning_rate=0.1360790000174377, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 5/5; 5/10] END hist_gbc__learning_rate=0.1360790000174377, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.993 total time=   2.4s
+[CV 1/5; 6/10] START hist_gbc__learning_rate=0.14697344922755992, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 1/5; 6/10] END hist_gbc__learning_rate=0.14697344922755992, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.994 total time=   2.1s
+[CV 2/5; 6/10] START hist_gbc__learning_rate=0.14697344922755992, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 2/5; 6/10] END hist_gbc__learning_rate=0.14697344922755992, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.994 total time=   2.4s
+[CV 3/5; 6/10] START hist_gbc__learning_rate=0.14697344922755992, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 3/5; 6/10] END hist_gbc__learning_rate=0.14697344922755992, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.994 total time=   2.3s
+[CV 4/5; 6/10] START hist_gbc__learning_rate=0.14697344922755992, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 4/5; 6/10] END hist_gbc__learning_rate=0.14697344922755992, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.992 total time=   2.4s
+[CV 5/5; 6/10] START hist_gbc__learning_rate=0.14697344922755992, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 5/5; 6/10] END hist_gbc__learning_rate=0.14697344922755992, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.994 total time=   2.2s
+[CV 1/5; 7/10] START hist_gbc__learning_rate=0.15874010519681997, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 1/5; 7/10] END hist_gbc__learning_rate=0.15874010519681997, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.993 total time=   2.2s
+[CV 2/5; 7/10] START hist_gbc__learning_rate=0.15874010519681997, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 2/5; 7/10] END hist_gbc__learning_rate=0.15874010519681997, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.994 total time=   2.4s
+[CV 3/5; 7/10] START hist_gbc__learning_rate=0.15874010519681997, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 3/5; 7/10] END hist_gbc__learning_rate=0.15874010519681997, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.996 total time=   2.6s
+[CV 4/5; 7/10] START hist_gbc__learning_rate=0.15874010519681997, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 4/5; 7/10] END hist_gbc__learning_rate=0.15874010519681997, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.992 total time=   2.6s
+[CV 5/5; 7/10] START hist_gbc__learning_rate=0.15874010519681997, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 5/5; 7/10] END hist_gbc__learning_rate=0.15874010519681997, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.993 total time=   1.8s
+[CV 1/5; 8/10] START hist_gbc__learning_rate=0.1714487965706146, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 1/5; 8/10] END hist_gbc__learning_rate=0.1714487965706146, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.994 total time=   2.3s
+[CV 2/5; 8/10] START hist_gbc__learning_rate=0.1714487965706146, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 2/5; 8/10] END hist_gbc__learning_rate=0.1714487965706146, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.994 total time=   2.8s
+[CV 3/5; 8/10] START hist_gbc__learning_rate=0.1714487965706146, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 3/5; 8/10] END hist_gbc__learning_rate=0.1714487965706146, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.996 total time=   2.7s
+[CV 4/5; 8/10] START hist_gbc__learning_rate=0.1714487965706146, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 4/5; 8/10] END hist_gbc__learning_rate=0.1714487965706146, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.994 total time=   2.7s
+[CV 5/5; 8/10] START hist_gbc__learning_rate=0.1714487965706146, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 5/5; 8/10] END hist_gbc__learning_rate=0.1714487965706146, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.993 total time=   2.5s
+[CV 1/5; 9/10] START hist_gbc__learning_rate=0.1851749424574581, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 1/5; 9/10] END hist_gbc__learning_rate=0.1851749424574581, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.994 total time=   2.1s
+[CV 2/5; 9/10] START hist_gbc__learning_rate=0.1851749424574581, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 2/5; 9/10] END hist_gbc__learning_rate=0.1851749424574581, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.992 total time=   2.4s
+[CV 3/5; 9/10] START hist_gbc__learning_rate=0.1851749424574581, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 3/5; 9/10] END hist_gbc__learning_rate=0.1851749424574581, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.995 total time=   1.9s
+[CV 4/5; 9/10] START hist_gbc__learning_rate=0.1851749424574581, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 4/5; 9/10] END hist_gbc__learning_rate=0.1851749424574581, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.992 total time=   2.5s
+[CV 5/5; 9/10] START hist_gbc__learning_rate=0.1851749424574581, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 5/5; 9/10] END hist_gbc__learning_rate=0.1851749424574581, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.994 total time=   1.8s
+[CV 1/5; 10/10] START hist_gbc__learning_rate=0.2, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 1/5; 10/10] END hist_gbc__learning_rate=0.2, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.994 total time=   1.7s
+[CV 2/5; 10/10] START hist_gbc__learning_rate=0.2, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 2/5; 10/10] END hist_gbc__learning_rate=0.2, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.993 total time=   1.7s
+[CV 3/5; 10/10] START hist_gbc__learning_rate=0.2, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 3/5; 10/10] END hist_gbc__learning_rate=0.2, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.995 total time=   2.1s
+[CV 4/5; 10/10] START hist_gbc__learning_rate=0.2, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 4/5; 10/10] END hist_gbc__learning_rate=0.2, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.992 total time=   2.2s
+[CV 5/5; 10/10] START hist_gbc__learning_rate=0.2, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11
+[CV 5/5; 10/10] END hist_gbc__learning_rate=0.2, hist_gbc__max_iter=2048, hist_gbc__tol=1e-11;, score=0.994 total time=   1.6s
+Done in 139.495s (= 0.039h)
+Finished at:  22:18:58
+Best score: 0.994
+Best parameters set:
+	hist_gbc__learning_rate: 0.11665290395761166
+	hist_gbc__max_iter: 2048
+	hist_gbc__tol: 1e-11
+
+Process finished with exit code 0
+--------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------------------------------------

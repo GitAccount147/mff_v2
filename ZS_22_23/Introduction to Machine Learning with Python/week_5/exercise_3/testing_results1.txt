@@ -1,0 +1,159 @@
+grid search (5cv) -- chunk_size = 5
+Started calculation:  23:14:05
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+[CV 1/5] END mlp__hidden_layer_sizes=(400,), mlp__max_iter=800;, score=0.804 total time= 2.4min
+[CV 2/5] END mlp__hidden_layer_sizes=(400,), mlp__max_iter=800;, score=0.801 total time= 1.9min
+[CV 3/5] END mlp__hidden_layer_sizes=(400,), mlp__max_iter=800;, score=0.801 total time= 2.2min
+[CV 4/5] END mlp__hidden_layer_sizes=(400,), mlp__max_iter=800;, score=0.813 total time= 1.9min
+[CV 5/5] END mlp__hidden_layer_sizes=(400,), mlp__max_iter=800;, score=0.804 total time= 2.2min
+[CV 1/5] END mlp__hidden_layer_sizes=(800,), mlp__max_iter=800;, score=0.802 total time= 3.0min
+[CV 2/5] END mlp__hidden_layer_sizes=(800,), mlp__max_iter=800;, score=0.802 total time= 3.2min
+[CV 3/5] END mlp__hidden_layer_sizes=(800,), mlp__max_iter=800;, score=0.804 total time= 3.3min
+[CV 4/5] END mlp__hidden_layer_sizes=(800,), mlp__max_iter=800;, score=0.814 total time= 3.3min
+[CV 5/5] END mlp__hidden_layer_sizes=(800,), mlp__max_iter=800;, score=0.810 total time= 2.7min
+best score: 80.62576026172232 %, while using: {'mlp__hidden_layer_sizes': (800,), 'mlp__max_iter': 800}
+approx real best score: 85.45414534119477
+Time of calculation: 1820.98 s (30.35 m)
+Ended calculation:  23:44:26
+
+----------------------------------------------------------------------------------------------------------
+chunk_size = 10
+Started calculation:  23:46:21
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+C:\Users\Pepa\AppData\Local\Programs\Python\Python39\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+[CV 1/5] END mlp__hidden_layer_sizes=(50,), mlp__max_iter=200;, score=0.643 total time= 1.2min
+[CV 2/5] END mlp__hidden_layer_sizes=(50,), mlp__max_iter=200;, score=0.633 total time= 1.1min
+[CV 3/5] END mlp__hidden_layer_sizes=(50,), mlp__max_iter=200;, score=0.620 total time= 1.1min
+[CV 4/5] END mlp__hidden_layer_sizes=(50,), mlp__max_iter=200;, score=0.612 total time= 1.1min
+[CV 5/5] END mlp__hidden_layer_sizes=(50,), mlp__max_iter=200;, score=0.629 total time= 1.1min
+best score: 62.74152330703525 %, while using: {'mlp__hidden_layer_sizes': (50,), 'mlp__max_iter': 200}
+approx real best score: 71.21006281091303
+Time of calculation: 431.45 s (7.19 m)
+Ended calculation:  23:53:32
+--------------------------------
+Started calculation:  23:55:48
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+[CV 1/5] END mlp__hidden_layer_sizes=(400,), mlp__max_iter=800;, score=0.768 total time= 3.7min
+[CV 2/5] END mlp__hidden_layer_sizes=(400,), mlp__max_iter=800;, score=0.759 total time= 4.0min
+[CV 3/5] END mlp__hidden_layer_sizes=(400,), mlp__max_iter=800;, score=0.740 total time= 4.1min
+[CV 4/5] END mlp__hidden_layer_sizes=(400,), mlp__max_iter=800;, score=0.727 total time= 3.8min
+--------------------------------
+
+chunk_size = 7
+Started calculation:  00:14:14
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV 1/5] END mlp__hidden_layer_sizes=(800,), mlp__max_iter=800;, score=0.802 total time= 3.6min
+[CV 2/5] END mlp__hidden_layer_sizes=(800,), mlp__max_iter=800;, score=0.785 total time= 4.0min
+
+chunk_size = 7
+        test_size = 0.5
+[CV 1/5] END mlp__hidden_layer_sizes=(800,), mlp__max_iter=800;, score=0.878 total time= 9.9min
+
+------------------------------------
+35min
+chunk_size = 10
+        test_size = 0.1
+mlpsize 800, maxiter=800
+Accuracy on diacritazable: 0.90, Approx_real: 0.93
+
+----------------------------------------------------------------------------------------------------------
+chunk_size = 7, test_size = 0.5, mlp_size = 200, max_iter = 400
+Time of calculation: 631.87 s (10.53 m)
+Accuracy on diacritazable: 0.84, Approx_real: 0.88
+lens orig/new_predict/word_sizes: 56936 57123 45617 sum of word sizes: 57123
+predict len (chunks joined): 45617
+count the interp in original (should be orig-wrd_sizes): 11319
+final k 45617
+len of test_target: 56936 len of predict: 56934
+Hand-made accuracy: 48599 / 56934 (= 0.8536024168335266 )
+----------------------------------------------------------------------------------------------------------
+chunk_size = 10
+        test_size = 0.25
+mlp = sklearn.neural_network.MLPClassifier(800, max_iter=400)
+Accuracy on diacritazable: 0.88, Approx_real: 0.91
+lens orig/new_predict/word_sizes: 28468 23811 22996 sum of word sizes: 23811
+predict len (chunks joined): 22996
+count the interp in original (should be orig-wrd_sizes): 5472
+final k 22996
+len of test_target: 28468 len of predict: 28466
+Hand-made accuracy: 25683 / 28466 (= 0.9022342443616946 )
+Time of calculation: 2510.76 s (41.85 m)
+
+----------------------------------------------------------------------------------------------------------
+hyper params (chunk_size, test_size, mlp_size, max_iter): 10 0.25 200 200
+
+Accuracy on diacritazable: 0.86, Approx_real: 0.90
+lens orig/new_predict/word_sizes: 28468 23811 22996 sum of word sizes: 23811
+predict len (chunks joined): 22996
+count the interp in original (should be orig-wrd_sizes): 5472
+final k 22996
+len of test_target: 28468 len of predict: 28468
+Hand-made accuracy: 16635 / 28468 (= 0.5843403119291837 )
+hashtags: 1016 wrong u/u: 0 ˇ and y: 1 long wrong words: 277
+actual data:   ['tak', 'nebyla', 'ani', 'oblečená', ',', 'ani', 'nahá', '.', 'Na', 'klíně', 'něco', 'držela', ',', 'ale', 'soudce', 'neviděl', ',', 'co', 'to', 'je', ',', 'protože', 'to', 'bylo', 'přikryté', '.', 'Řekl', 'si', ',', 'že', 'to', 'bude', 'ten', 'dar', 'nedar', '.', '"', 'Ať', 'tedy', 'za', 'tři', 'dny', 'přijde', 'na', 'svatbu', '.', 'Ale', 'řekni', ',', 'ať', 'nechodí', 'ani', 've', 'dne', ',', 'ani', 'v', 'noci', ',', 'ani', 'pěšky', ',', 'ani', 'na', 'voze', ',', 'ani', 'na', 'koni', '.', 'Nesmí', 'jít', 'po', 'cestě', 'ani', 'mimo', 'cestu', 'a', 'nesmí', 'být', 'oblečená', 'ani', 'nahá', '.', 'A', 'ať', 'mi', 'přinese', 'dar', 'nedar', '.', '"', 'Otec', 'nad', 'tím', 'kroutil', 'hlavou', ',', 'co', 'že']
+predict split: ['tak', 'nebyla', 'ani', 'oblečená', ',', 'ani', 'nahá', '.', 'Na', 'klíně', 'něco', 'držela', ',', 'ale', 'soudce', 'neviděl', ',', 'co', 'to', 'je', ',', 'protože', 'to', 'bylo', 'přikryte', '.', 'Řekl', 'si', ',', 'že', 'to', 'bude', 'ten', 'dar', 'neda#', '.', '"', 'Ať', 'tedy', 'za', 'tři', 'dny', 'přijde', 'na', 'svatbu', '.', 'Ale', 'řekni', ',', 'ať', 'nechodí', 'ani', 've', 'dne', ',', 'ani', 'v', 'noci', ',', 'ani', 'pěšky', ',', 'ani', 'na', 'voze', ',', 'ani', 'na', 'koni', '.', 'Nesmí', 'jít', 'po', 'cestě', 'ani', 'mimo', 'cestu', 'a', 'nesmí', 'být', 'oblečená', 'ani', 'nahá', '.', 'A', 'ať', 'mi', 'přinese', 'dar', 'neda#', '.', '"', 'Otec', 'nad', 'tím', 'kroutil', 'hlavou', ',', 'co', 'že']
+actual data end:   ['"', '.', 'úspěchu', 'a', 'energie', 'své', 'tajemství', 'svěřit', 'a']
+predict split end: ['úspechu', 'a', '#ner#ie', 'své', 'tajemství', 'svěřit', 'a', 'klíč', 'tento']
+clean predict str: tak nebyla ani oblečená , ani nahá . Na klíně něco držela , ale soudce neviděl , co to je , protože to bylo přikryte . Řekl si , že to bude ten dar neda# . " Ať tedy za tři dny přijde na svatbu . Ale řekni , ať nechodí ani ve dne , ani v noci , ani pěšky , ani na voze , ani na koni . Nesmí jít po cestě ani mimo cestu a nesmí být oblečená ani nahá . A ať mi přinese dar neda# . " Otec nad tím kroutil hlavou , co že si to zase pán soudce vymyslel . Ale dcera se jen smála , že prý to všechno zařidí , jak si to její nastávajíci muž přeje . Kolem stolku běhal mužíček v červené #epičce a modré zásterce , před sebou tlačil zlatý traka# a prozpěvoval si : " Devět jídel návařím , za nevěstou poběžím . Chystej se , zlatá pradleno , přijdu se zeptat na jméno . Martin#k Klingac jméno mě , nic se ti , panénko , nestane . Jestli ho uhodne# , nechám té být , a když ne , tak musíš se mnou jít . " Víc pán nepotřeboval slyšet . Rozběhl se zpátky za sluhou , a že se trochu vyčasilo , našli cestu z lesa a 
+Time of calculation: 857.29 s (14.29 m)
+
+----------------------------------------------------------------------------------------------------------
+hyper params (chunk_size, test_size, mlp_size, max_iter): 10 0.25 400 800
+Accuracy on diacritazable: 0.87, Approx_real: 0.90
+lens orig/new_predict/word_sizes: 28468 23811 22996 sum of word sizes: 23811
+predict len (chunks joined): 22996
+count the interpunction in original: 5472 (should be 5472 )
+len of test_target: 28468 len of predict: 28467
+Hand-made accuracy: 21942 / 28467 (= 0.7707872273158394 )
+hashtags: 1 wrong u/u: 0
+(ˇ) and y: 0 long wrong words: 212 wrong capitalization: 0
+actual data end:   ['"', '.', 'úspěchu', 'a', 'energie', 'své', 'tajemství', 'svěřit', 'a']
+predict split end: ['úspechu', 'a', 'ěněrgie', 'své', 'tajemství', 'svěřit', 'a', 'klíč', 'tento']
+Time of calculation: 1361.70 s (22.70 m)
+Ended calculation:  20:27:36
+
+
+----------------------------------------------------------------------------------------------------------
+Started calculation:  00:11:35
+hyper params (chunk_size, test_size, mlp_size, max_iter): 10 0.01 800 800
+Accuracy on diacritazable: 0.91, Approx_real: 0.93
+lens orig/new_predict/word_sizes: 1139 967 932 sum of word sizes: 967
+predict len (chunks joined): 932
+count the interpunction in original: 207 (should be 207 )
+len of test_target: 1139 len of predict: 1137
+Hand-made accuracy: 1058 / 1137 (= 0.93051890941073 )
+hashtags: 0 wrong u/u: 0
+(ˇ) and y: 0 long wrong words: 10 wrong capitalization: 0
+actual data end:   ['"', '.', 'úspěchu', 'a', 'energie', 'své', 'tajemství', 'svěřit', 'a']
+predict split end: ['úspechu', 'a', 'energie', 'své', 'tajemství', 'svěřit', 'a', 'klíč', 'tento']
+clean predict str: : " Jestli chcete vědět , jak se má člověk chovat v předvecer Jom kippur , podívejte se na našeho krejčího . " V předvecer Dne smíření se žáci připlížili k domku krejčího a nakukovali nízkým oknem . Viděli , jak se krejčí modli . Potom si on i jeho synové vzali sabatově oblečení , na slavnostné prostřeny stůl přinesli chutné jídlo a usadili se k večeři . Krejčí vyndal malý černý blok , ve kterém měl zaznamenany všechny hříchy , kterých se dopustil od posledního Jom kippur . Otevřel knizečku a řekl : Vydal se za mistrem a vyprávěl mu o svém trápení . " Řekl jsi , že tvůj syn rád a hodně pije , vydržuje své přátelé , lehkým holkam se nevyhyba a mimo to je velmi prchlivý , ale na druhou stranu té nikdy neobělhal . Proto ti dám tři rady , kterými ať se tvůj syn řídí . Když ti tohle slíbí , můžeš na své starosti zapomenout . " Stařec si zapamatoval mistrovy rady a poděkoval mu za pomoc . Už teď mu spadl kámen že srdce , protože znovu našel víru v budoucnost svého syna . Lékař ho pečlivě pro
+Time of calculation: 2476.85 s (41.28 m)
+Ended calculation:  00:52:52
+
+Process finished with exit code 0
+----------------------------------------------------------------------------------------------------------
+Started calculation:  01:45:24
+hyper params (chunk_size, test_size, mlp_size, max_iter): 12 0.001 2000 1200
+Accuracy on diacritazable: 0.89, Approx_real: 0.92
+lens orig/new_predict/word_sizes: 114 103 98 sum of word sizes: 103
+predict len (chunks joined): 98
+count the interpunction in original: 16 (should be 16 )
+norst
+len of test_target: 114 len of predict: 111
+Hand-made accuracy: 102 / 111 (= 0.918918918918919 )
+hashtags: 0 wrong u/u: 0
+(ˇ) and y: 0 long wrong words: 3 wrong capitalization: 0
+Time of calculation: 11192.31 s (186.54 m)
+Ended calculation:  04:51:57
+
+Process finished with exit code 0
+
+----------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------
+

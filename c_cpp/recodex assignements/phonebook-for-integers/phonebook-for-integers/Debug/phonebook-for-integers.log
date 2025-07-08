@@ -1,0 +1,7 @@
+﻿  Source.c
+C:\Users\Pepa\source\repos\recodex assignements\phonebook-for-integers\phonebook-for-integers\Source.c(9,27): warning C4013: 'malloc' undefined; assuming extern returning int
+C:\Users\Pepa\source\repos\recodex assignements\phonebook-for-integers\phonebook-for-integers\Source.c(9,1): warning C4047: 'initializing': 'block *' differs in levels of indirection from 'int'
+C:\Users\Pepa\source\repos\recodex assignements\phonebook-for-integers\phonebook-for-integers\Source.c(16,1): warning C4047: 'initializing': 'block *' differs in levels of indirection from 'int'
+C:\Users\Pepa\source\repos\recodex assignements\phonebook-for-integers\phonebook-for-integers\Source.c(72,7): warning C4013: 'free' undefined; assuming extern returning int
+C:\Users\Pepa\source\repos\recodex assignements\phonebook-for-integers\phonebook-for-integers\Source.c(130,1): warning C4047: 'initializing': 'block *' differs in levels of indirection from 'int'
+  phonebook-for-integers.vcxproj -> C:\Users\Pepa\source\repos\recodex assignements\phonebook-for-integers\Debug\phonebook-for-integers.exe

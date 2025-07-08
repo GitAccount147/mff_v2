@@ -1,0 +1,4 @@
+﻿  logik_v2.cpp
+C:\Users\Pepa\source\repos\logik_v2\logik_v2\logik_v2.cpp(286,24): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Pepa\source\repos\logik_v2\logik_v2\logik_v2.cpp(393,18): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  logik_v2.vcxproj -> C:\Users\Pepa\source\repos\logik_v2\Debug\logik_v2.exe

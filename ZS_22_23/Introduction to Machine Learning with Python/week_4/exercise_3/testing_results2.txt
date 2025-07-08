@@ -1,0 +1,80 @@
+
+------------------------------------------------------------------------------------------
+standard scaler:
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV 1/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(100,), mlp__learning_rate=constant, mlp__solver=adam;, score=0.975 total time=  30.3s
+[CV 2/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(100,), mlp__learning_rate=constant, mlp__solver=adam;, score=0.974 total time=  28.6s
+[CV 3/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(100,), mlp__learning_rate=constant, mlp__solver=adam;, score=0.974 total time=  35.6s
+[CV 4/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(100,), mlp__learning_rate=constant, mlp__solver=adam;, score=0.969 total time=  36.4s
+[CV 5/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(100,), mlp__learning_rate=constant, mlp__solver=adam;, score=0.974 total time=  24.5s
+best score: 97.30666666666667 %, while using: {'mlp__activation': 'relu', 'mlp__alpha': 0.01, 'mlp__hidden_layer_sizes': (100,), 'mlp__learning_rate': 'constant', 'mlp__solver': 'adam'}
+------------------------------------------------------------------------------------------
+robust scaler:
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV 1/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(100,), mlp__learning_rate=constant, mlp__solver=adam;, score=0.919 total time=  37.6s
+[CV 2/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(100,), mlp__learning_rate=constant, mlp__solver=adam;, score=0.907 total time= 1.0min
+[CV 3/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(100,), mlp__learning_rate=constant, mlp__solver=adam;, score=0.911 total time= 1.3min
+[CV 4/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(100,), mlp__learning_rate=constant, mlp__solver=adam;, score=0.909 total time= 1.5min
+[CV 5/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(100,), mlp__learning_rate=constant, mlp__solver=adam;, score=0.917 total time=  54.6s
+best score: 91.27499999999999 %, while using: {'mlp__activation': 'relu', 'mlp__alpha': 0.01, 'mlp__hidden_layer_sizes': (100,), 'mlp__learning_rate': 'constant', 'mlp__solver': 'adam'}
+------------------------------------------------------------------------------------------
+spline trans (10):
+[CV 1/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(100,), mlp__learning_rate=constant, mlp__solver=adam;, score=0.959 total time=21.3min
+------------------------------------------------------------------------------------------
+spline trans (def=5):
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV 1/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(100,), mlp__learning_rate=constant, mlp__solver=adam;, score=0.971 total time= 6.1min
+[CV 2/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(100,), mlp__learning_rate=constant, mlp__solver=adam;, score=0.966 total time=15.3min
+------------------------------------------------------------------------------------------
+spline trans & after that scale:
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV 1/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(100,), mlp__learning_rate=constant, mlp__solver=adam;, score=0.967 total time= 3.3min
+[CV 2/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(100,), mlp__learning_rate=constant, mlp__solver=adam;, score=0.968 total time= 3.1min
+[CV 3/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(100,), mlp__learning_rate=constant, mlp__solver=adam;, score=0.964 total time= 3.2min
+[CV 4/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(100,), mlp__learning_rate=constant, mlp__solver=adam;, score=0.963 total time= 3.2min
+[CV 5/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(100,), mlp__learning_rate=constant, mlp__solver=adam;, score=0.967 total time= 3.1min
+best score: 96.595 %, while using: {'mlp__activation': 'relu', 'mlp__alpha': 0.01, 'mlp__hidden_layer_sizes': (100,), 'mlp__learning_rate': 'constant', 'mlp__solver': 'adam'}
+------------------------------------------------------------------------------------------
+spline degree=2, n_knots=5, knots='quantile' and NO scale:
+Fitting 5 folds for each of 1 candidates, totalling 5 fits
+[CV 1/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(512,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.973 total time=14.7min
+[CV 2/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(512,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.975 total time=24.6min
+------------------------------------------------------------------------------------------
+power_trans then mlp (NO scale):
+Fitting 5 folds for each of 3 candidates, totalling 15 fits
+[CV 1/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(128,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.974 total time= 1.1min
+[CV 2/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(128,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.974 total time=  52.0s
+[CV 3/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(128,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.971 total time=  55.2s
+[CV 4/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(128,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.973 total time=  53.3s
+[CV 5/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(128,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.976 total time= 1.1min
+[CV 1/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(256,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.977 total time= 2.3min
+[CV 2/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(256,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.976 total time= 1.8min
+[CV 3/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(256,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.976 total time= 1.9min
+[CV 4/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(256,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.973 total time= 1.8min
+[CV 5/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(256,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.979 total time= 2.3min
+[CV 1/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(512,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.969 total time= 2.3min
+[CV 2/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(512,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.977 total time= 3.0min
+[CV 3/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(512,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.975 total time= 3.3min
+[CV 4/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(512,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.973 total time= 2.9min
+[CV 5/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(512,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.967 total time= 2.1min
+best score: 97.63 %, while using: {'mlp__activation': 'relu', 'mlp__alpha': 0.01, 'mlp__hidden_layer_sizes': (256,), 'mlp__learning_rate': 'constant', 'mlp__learning_rate_init': 0.001, 'mlp__max_iter': 200, 'mlp__solver': 'adam'}
+------------------------------------------------------------------------------------------
+NO scale just mlp:
+Fitting 5 folds for each of 3 candidates, totalling 15 fits
+[CV 1/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(128,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.965 total time=  41.6s
+[CV 2/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(128,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.963 total time=  48.1s
+[CV 3/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(128,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.962 total time=  55.2s
+[CV 4/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(128,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.960 total time= 1.2min
+[CV 5/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(128,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.964 total time=  33.6s
+[CV 1/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(256,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.970 total time= 1.4min
+[CV 2/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(256,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.973 total time= 1.8min
+[CV 3/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(256,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.972 total time= 1.8min
+[CV 4/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(256,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.971 total time= 2.0min
+[CV 5/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(256,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.970 total time= 1.8min
+[CV 1/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(512,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.975 total time= 5.1min
+[CV 2/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(512,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.974 total time= 3.7min
+[CV 3/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(512,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.969 total time= 1.8min
+[CV 4/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(512,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.969 total time= 3.0min
+[CV 5/5] END mlp__activation=relu, mlp__alpha=0.01, mlp__hidden_layer_sizes=(512,), mlp__learning_rate=constant, mlp__learning_rate_init=0.001, mlp__max_iter=200, mlp__solver=adam;, score=0.973 total time= 5.2min
+best score: 97.20500000000001 %, while using: {'mlp__activation': 'relu', 'mlp__alpha': 0.01, 'mlp__hidden_layer_sizes': (512,), 'mlp__learning_rate': 'constant', 'mlp__learning_rate_init': 0.001, 'mlp__max_iter': 200, 'mlp__solver': 'adam'}
+

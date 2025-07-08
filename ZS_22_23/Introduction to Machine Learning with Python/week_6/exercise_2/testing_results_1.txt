@@ -1,0 +1,134 @@
+
+
+----------------------------------------------------------------------------------
+Started calculation:  01:14:06
+hyper params (chunk_size, test_size, mlp_size, max_iter): 5 = ( 2 + 2 + 1 ) 0.05 50 200
+Hand counted accuracy: 0.9423625981441828
+Time of calculation: 455.63 s (7.59 m)
+Ended calculation:  01:21:41
+----------------------------------------------------------------------------------
+Started calculation:  01:23:03
+hyper params (chunk_size, test_size, mlp_size, max_iter): 1 = ( 0 + 0 + 1 ) 0.05 50 200
+Hand counted accuracy: 0.8649179157744469
+Time of calculation: 35.38 s (0.59 m)
+Ended calculation:  01:23:38
+----------------------------------------------------------------------------------
+Started calculation:  01:36:51
+hyper params (chunk_size, test_size, mlp_size, max_iter): 7 = ( 3 + 3 + 1 ) 0.5 100 200
+Hand counted accuracy: 0.947139856903855
+Time of calculation: 529.64 s (8.83 m)
+Ended calculation:  01:45:41
+----------------------------------------------------------------------------------
+Started calculation:  03:25:46
+hyper params (chunk_size, test_size, mlp_size, max_iter): 11 = ( 5 + 5 + 1 ) 0.9 400 400
+Hand counted accuracy: 0.928047922448501
+Time of calculation: 164.18 s (2.74 m)
+Ended calculation:  03:28:30
+----------------------------------------------------------------------------------
+Started calculation:  03:38:19
+hyper params (chunk_size, test_size, mlp_size, max_iter): 11 = ( 5 + 5 + 1 ) 0.1 400 400
+Hand counted accuracy: 0.9549348563269677
+Time of calculation: 2124.89 s (35.41 m)
+Ended calculation:  04:13:44
+----------------------------------------------------------------------------------
+optimizing mlp size
+##################################################################################
+----------------------------------------------------------------------------------
+Started calculation:  14:49:41
+hyper params (chunk_size, test_size, mlp_size, max_iter): 11 = ( 5 + 5 + 1 ) 0.1 400 400
+Hand counted accuracy: 0.9549348563269677
+Time of calculation: 2082.40 s (34.71 m)
+Ended calculation:  15:24:23
+----------------------------------------------------------------------------------
+optimizing predict time:
+##################################################################################
+----------------------------------------------------------------------------------
+Started calculation:  22:54:21
+hyper params (chunk_size, test_size, mlp_size, max_iter): 5 = ( 2 + 2 + 1 ) 0.5 50 200
+size of train_data_enc: 104222710
+time of trans/enc/target_enc: 0.034906625747680664 0.556511640548706 0.043882131576538086
+time of (test+fit)/predict/signature/dict: 347.4222893714905 24.68593430519104 0.08612775802612305 0.2603452205657959
+Hand counted accuracy: 0.939095148257573
+Time of calculation: 373.10 s (6.22 m)
+Ended calculation:  23:00:34
+----------------------------------------------------------------------------------
+Started calculation:  23:08:13
+hyper params (chunk_size, test_size, mlp_size, max_iter): 5 = ( 2 + 2 + 1 ) 0.5 400 400
+size of train_data_enc: 104222710
+time of trans/enc/target_enc: 0.0359039306640625 0.5595071315765381 0.04288220405578613
+time of (test+fit)/predict/signature/dict: 1808.6884582042694 213.47614121437073 0.08181214332580566 0.25535106658935547
+Hand counted accuracy: 0.941942832734133
+Time of calculation: 2023.15 s (33.72 m)
+Ended calculation:  23:41:57
+----------------------------------------------------------------------------------
+Started calculation:  23:50:59
+hyper params (chunk_size, test_size, mlp_size, max_iter): 5 = ( 2 + 2 + 1 ) 0.1 200 400
+size of train_data_enc: 187600360
+time of trans/enc/target_enc: 0.06784796714782715 1.0072760581970215 0.07782125473022461
+time of (test+fit)/predict/signature/dict: 924.9408223628998 19.716569423675537 0.0169527530670166 0.051831960678100586
+Hand counted accuracy: 0.9497590576476888
+Time of calculation: 945.88 s (15.76 m)
+Ended calculation:  00:06:45
+----------------------------------------------------------------------------------
+Started calculation:  00:20:54
+hyper params (chunk_size, test_size, mlp_size, max_iter): 7 = ( 3 + 3 + 1 ) 0.1 200 400
+size of train_data_enc: 262640504
+time of trans/enc/target_enc: 0.06784629821777344 1.4181780815124512 0.07679414749145508
+time of (test+fit)/predict/signature/dict: 898.429995059967 29.01827597618103 0.01693892478942871 0.06981348991394043
+Hand counted accuracy: 0.955202570051758
+Time of calculation: 929.10 s (15.48 m)
+Ended calculation:  00:36:23
+----------------------------------------------------------------------------------
+Started calculation:  00:54:10
+hyper params (chunk_size, test_size, mlp_size, max_iter): 3 = ( 1 + 1 + 1 ) 0.95 50 200
+size of train_data_enc: 6253296
+time of trans/enc/target_enc: 0.003989219665527344 0.03490614891052246 0.004987001419067383
+time of (test+fit)/predict/signature/dict: 24.62648630142212 21.90839123725891 0.15356111526489258 0.47871923446655273
+Hand counted accuracy: 0.9110089111384604
+Time of calculation: 47.23 s (0.79 m)
+Ended calculation:  00:54:57
+----------------------------------------------------------------------------------
+Started calculation:  01:27:11
+hyper params (chunk_size, test_size, mlp_size, max_iter): 13 = ( 6 + 6 + 1 ) 0.01 800 800
+size of train_data_enc (MB): 4.57763671875e-05
+time of trans/enc/target_enc: 0.07280540466308594 3.568453311920166 0.08477330207824707
+time of (test+fit)/predict/signature/dict: 4016.2775654792786 0.055852651596069336 0.0009987354278564453 0.005980491638183594
+Hand counted accuracy: 0.9565987599645704
+Time of calculation: 4020.07 s (67.00 m)
+Ended calculation:  02:34:11
+----------------------------------------------------------------------------------
+Started calculation:  10:42:31
+hyper params (chunk_size, test_size, mlp_size, max_iter): 13 = ( 6 + 6 + 1 ) 0.01 400 800
+size of train_data_enc (MB): 4.57763671875e-05
+time of trans/enc/target_enc: 0.06981277465820312 3.589369297027588 0.08776521682739258
+time of (test+fit)/predict/signature/dict: 1971.7554161548615 0.027956485748291016 0.001995563507080078 0.004982709884643555
+Hand counted accuracy: 0.9592559787422498
+Time of calculation: 1975.54 s (32.93 m)
+Ended calculation:  11:15:27
+----------------------------------------------------------------------------------
+Started calculation:  16:25:55
+hyper params (chunk_size, test_size, mlp_size, max_iter): 17 = ( 8 + 8 + 1 ) 0.01 400 800
+size of train_data_enc (MB): 4.57763671875e-05
+time of trans/enc/target_enc: 0.16159796714782715 2.5511438846588135 0.19447970390319824
+time of (test+fit)/predict/signature/(dict+glue): 2421.7737894058228 0.01991558074951172 0.0019943714141845703 0.005983591079711914
+Hand counted accuracy: 0.95837023914969
+Time of calculation: 2424.71 s (40.41 m)
+Ended calculation:  17:06:19
+----------------------------------------------------------------------------------
+Started calculation:  17:11:47
+hyper params (chunk_size, test_size, mlp_size, max_iter): 13 = ( 6 + 6 + 1 ) 0.01 600 800
+size of train_data_enc (MB): 4.57763671875e-05
+time of trans/enc/target_enc: 0.1605989933013916 1.9966602325439453 0.19447994232177734
+time of (test+fit)/predict/signature/(dict+glue): 1807.4353802204132 0.024903059005737305 0.0009982585906982422 0.007009029388427734
+Hand counted accuracy: 0.9557130203720107
+Time of calculation: 1809.82 s (30.16 m)
+Ended calculation:  17:41:57
+----------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------

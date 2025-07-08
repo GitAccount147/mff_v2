@@ -1,0 +1,11 @@
+﻿  Source.c
+C:\Users\Pepa\source\repos\recodex assignements\text-alligment3\text-alligment3\Source.c(11,25): warning C4013: 'malloc' undefined; assuming extern returning int
+C:\Users\Pepa\source\repos\recodex assignements\text-alligment3\text-alligment3\Source.c(11,1): warning C4047: 'initializing': 'word *' differs in levels of indirection from 'int'
+C:\Users\Pepa\source\repos\recodex assignements\text-alligment3\text-alligment3\Source.c(36,1): warning C4047: 'initializing': 'char *' differs in levels of indirection from 'int'
+C:\Users\Pepa\source\repos\recodex assignements\text-alligment3\text-alligment3\Source.c(67,32): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[100]'
+C:\Users\Pepa\source\repos\recodex assignements\text-alligment3\text-alligment3\Source.c(67,27): warning C4024: 'attach_word': different types for formal and actual parameter 2
+C:\Users\Pepa\source\repos\recodex assignements\text-alligment3\text-alligment3\Source.c(71,30): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[100]'
+C:\Users\Pepa\source\repos\recodex assignements\text-alligment3\text-alligment3\Source.c(71,25): warning C4024: 'attach_word': different types for formal and actual parameter 2
+C:\Users\Pepa\source\repos\recodex assignements\text-alligment3\text-alligment3\Source.c(89,8): warning C4013: 'free' undefined; assuming extern returning int
+C:\Users\Pepa\source\repos\recodex assignements\text-alligment3\text-alligment3\Source.c(159,1): warning C4047: 'initializing': 'word *' differs in levels of indirection from 'int'
+  text-alligment3.vcxproj -> C:\Users\Pepa\source\repos\recodex assignements\text-alligment3\Debug\text-alligment3.exe

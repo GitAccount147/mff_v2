@@ -1,0 +1,122 @@
+# TODO: - does Zp exist in sage (smth better than IntegerModRing(p))?
+
+
+# key_generation function
+def key_gen(lam):
+    n, h, p = get_mersenne(lam)  # find the ring to "work in" and suitable h
+    F, G = get_rand_string(n, h)  # get random strings with suitable length and HAM weight
+    pk, sk = get_pksk(F, G, p, n)  # get private and public key
+    # n, h and p are necessary for the encryption and decryption so they are part of the public key
+    return pk, sk, n, h, p
+
+# map Z_p to {0, 1}* 
+def seq_fun(x, n):
+    if ZZ(x) > 2**n - 1:  # catch errors
+        print("Input too large, something is wrong.")
+    x_bin = (ZZ(x)).binary()
+    result = '0' * (n - len(x_bin)) + x_bin  # turn to binary string and pad with 0s
+    return result
+
+# map {0, 1}* to Z_p
+def int_fun(y, p):
+    if not p.is_prime:  # catch errors
+        print("Not using prime mod, something is wrong.")
+    Z_p = IntegerModRing(p)
+    y_int = int(str(y), base=2)  # turn binary to int
+    return Z_p(y_int)  # interpret it in Z_p
+
+# multiplication over {0, 1}*
+def bin_mult(A, B, p, n):
+    return seq_fun(int_fun(A, p) * int_fun(B, p), n)
+    
+# addition over {0, 1}*
+def bin_add(A, B, p, n):
+    return seq_fun(int_fun(A, p) + int_fun(B, p), n)
+    
+# minus over {0, 1}*
+def bin_minus(A, b, p, n):
+    return seq_fun((-1)**(b) * int_fun(A, p), n)
+
+# get mersenne prime and a suitable integer h
+def get_mersenne(lam):
+    P = Primes()
+    i = 0
+    possible_h = []
+    both_found = False
+    while not both_found:
+        n = P.unrank(i)
+        i += 1
+        p = 2**n - 1
+        if p.is_prime():  # we have p mersenne prime
+            h_max = ceil(sqrt(n) / 2)  # derived from the inequality, to test fewer h's
+            for h in range(h_max):
+                if 4*h**2 < n <= 16*h**2 and binomial(n, h) >= 2**lam:
+                    both_found = True
+                    possible_h.append(h)
+    h = possible_h[randint(0, len(possible_h) - 1)]  # not necessary, just to try larger/(more random) h's
+    return n, h, p
+
+# get random strings of length n and HAM weight h
+def get_rand_string(n, h):
+    if n < h:  # catch errors
+        print("HAM weight too large, something is wrong.")
+        h = h % n
+    A_set = Subsets(n, h).random_element()  # maybe could be done smarter
+    B_set = Subsets(n, h).random_element()
+    A_str = str(FrozenBitset(A_set))
+    B_str = str(FrozenBitset(B_set))
+    # remove leading 0 (always is there because sets operate on 1,...,n and not 0,...,n-1), pad with 0s
+    A = A_str[1:] + "0" * (n - len(A_str) + 1)
+    B = B_str[1:] + "0" * (n - len(B_str) + 1)
+    return A, B
+
+# get private and public keys
+def get_pksk(F, G, p, n):
+    F_p = int_fun(F, p)
+    G_p = int_fun(G, p)
+    G_inv = G_p**(-1)  # inverse in Z_p
+    H = seq_fun(F_p * G_inv, n)
+    return H, G
+
+# encoding function
+def enc(b, H, n, h, p):
+    A, B = get_rand_string(n, h)
+    bin_prod = bin_mult(A, H, p, n)
+    bin_sum = bin_add(bin_prod, B, p, n)
+    C = bin_minus(bin_sum, b, p, n)
+    return C
+
+# decryption function
+def dec(G, C, n, h, p):
+    bin_prod = bin_mult(C, G, p, n)
+    d = bin_prod.count('1')
+    if d <= 2*h**2:
+        return 0
+    elif d >= n - 2*h**2:
+        return 1
+    else:
+        print("Error.")
+        return None  # or 0?
+
+# test some random inputs to check correctness
+def test_correctness(lam_min, lam_max, size_per_lam):
+    incorrect = []
+    print("Starting testing with parameters (lam_min, lam_max, size_per_lam):", lam_min, lam_max, size_per_lam)
+    for lam in range(lam_min, lam_max + 1):
+        for i in range(size_per_lam):
+            b = randint(0, 1)
+            pk, sk, n, h, p = key_gen(lam)
+            C = enc(b, pk, n, h, p)
+            d = dec(sk, C, n, h, p)
+            if b != d:
+                incorrect.append((b, pk, sk, n, h, p, C, d))
+    if len(incorrect) == 0:
+        print("All tested inputs correctly encoded and decoded.")
+    else:
+        print("Some tested inputs incorrectly encoded or decoded:")
+        print(incorrect)
+    return incorrect
+
+# driver code:
+lam_min, lam_max, size_per_lam = 5, 30, 10
+test_correctness(lam_min, lam_max, size_per_lam)

@@ -1,0 +1,3 @@
+﻿  Source.c
+C:\Users\Pepa\source\repos\recodex assignements\eval-prefix\eval-prefix\Source.c(65): warning C4715: 'rec': not all control paths return a value
+  eval-prefix.vcxproj -> C:\Users\Pepa\source\repos\recodex assignements\eval-prefix\Debug\eval-prefix.exe
